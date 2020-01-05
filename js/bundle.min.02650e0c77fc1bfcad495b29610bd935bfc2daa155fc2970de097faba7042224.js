@@ -5,7 +5,9 @@ let mobileMenuVisible=false;const toggleMobileMenu=()=>{let mobileMenu=document.
 mobileMenuVisible=false;}}
 const showImg=()=>{document.querySelector('.bg-img').classList.add('show-bg-img');}
 const hideImg=()=>{document.querySelector('.bg-img').classList.remove('show-bg-img');}
-const toggleToc=()=>{document.getElementById('toc').classList.toggle('show-toc');}
+const toggleToc=()=>{let tocElement=document.getElementById('toc')
+if(!tocElement){return}
+tocElement.classList.toggle('show-toc');}
 if(header!==null){listen('#menu-btn',"click",toggleMobileMenu);listen('#toc-btn',"click",toggleToc);listen('#img-btn',"click",showImg);listen('.bg-img',"click",hideImg);document.querySelectorAll('.post-year').forEach((ele)=>{ele.addEventListener('click',()=>{window.location.hash='#'+ele.id;});});window.addEventListener('scroll',throttle(()=>{autoHideHeader();if(mobileMenuVisible==true){toggleMobileMenu();}},250));}
 if(mobileMenuVisible==false){toggleToc()};(function(){'use strict';if(!document.queryCommandSupported('copy')){return;}
 function flashCopyMessage(el,msg){el.textContent=msg;setTimeout(function(){el.textContent="Copy";},1000);}
