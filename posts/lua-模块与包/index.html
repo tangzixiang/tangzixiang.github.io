@@ -16,7 +16,7 @@
 
 
 
-<meta itemprop="keywords" content="Lua,Nginx,Nginx Lua 开发实战," /><meta property="og:title" content="[Lua] Lua 模块与包" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[Lua] Lua 模块与包" />
 <meta property="og:description" content="摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" />
@@ -77,7 +77,6 @@
 				<nav class="site-nav hide-in-mobile">
 					
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
-				<a href="https://tangzixiang.github.io/route/">导航</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
@@ -93,7 +92,6 @@
 	<div id="mobile-menu" class="animated fast">
 		<ul>
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
-			<li><a href="https://tangzixiang.github.io/route/">导航</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
 		</ul>
 	</div>
@@ -326,9 +324,6 @@ Lua 5.3.4  Copyright <span class="o">(</span>C<span class="o">)</span> 1994-2017
 			<hr class="post-end">
 			<footer class="post-info">
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
-				<p>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tangzixiang.github.io/tags/lua">Lua</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/nginx">Nginx</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/nginx-lua-%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98">Nginx Lua 开发实战</a></span>
-				</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>485 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
 			</footer>

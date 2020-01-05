@@ -18,7 +18,7 @@ speak(&#34;hello world for global !">
 
 
 
-<meta itemprop="keywords" content="JS,前端," /><meta property="og:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)" />
 <meta property="og:description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
 函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
 speak(&#34;hello world for global !" />
@@ -83,7 +83,6 @@ speak(&#34;hello world for global !"/>
 				<nav class="site-nav hide-in-mobile">
 					
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
-				<a href="https://tangzixiang.github.io/route/">导航</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
@@ -99,7 +98,6 @@ speak(&#34;hello world for global !"/>
 	<div id="mobile-menu" class="animated fast">
 		<ul>
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
-			<li><a href="https://tangzixiang.github.io/route/">导航</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
 		</ul>
 	</div>
@@ -250,9 +248,6 @@ JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一�
 			<hr class="post-end">
 			<footer class="post-info">
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
-				<p>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tangzixiang.github.io/tags/js">JS</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF">前端</a></span>
-				</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>339 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
 			</footer>

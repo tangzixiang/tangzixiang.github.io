@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>标签 on tangzixiang&#39;s blog</title>
+    <title>Tags on tangzixiang&#39;s blog</title>
     <link>https://tangzixiang.github.io/tags/</link>
-    <description>Recent content in 标签 on tangzixiang&#39;s blog</description>
+    <description>Recent content in Tags on tangzixiang&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>Git</title>
+      <title>git</title>
       <link>https://tangzixiang.github.io/tags/git/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
       

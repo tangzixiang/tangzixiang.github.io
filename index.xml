@@ -33,24 +33,6 @@
     </item>
     
     <item>
-      <title>分类</title>
-      <link>https://tangzixiang.github.io/categories/</link>
-      <pubDate>Fri, 03 Jan 2020 17:26:05 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>标签</title>
-      <link>https://tangzixiang.github.io/tags/</link>
-      <pubDate>Fri, 03 Jan 2020 17:25:56 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>[生财有术] 我现在创业，期待越轻越好，越产品化越好，最好把内容环节都省掉才觉得好，把增长模块都做到产品中去，只要第一波导入流量，后面就可以自发增长和变现了</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520120103/</link>
       <pubDate>Fri, 03 Jan 2020 15:25:11 +0800</pubDate>
@@ -108,6 +90,25 @@ $ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;回车�
 完成后打开文件夹安装前面的路径即 C:\Users\user-name\.ssh 目录，正常情况该目录会存在前面生成的两个文件，如果没有的话需要自己创建这个目录然后在上一级目录即 C:\Users\user-name 下找到对应的两个生成的文件（密钥对）并移入 C:\Users\user-name\.ssh 目录，由于前面我们对生成的密钥对改了名，所以找到的应该是 your_email_id_rsa 及 your_email_id_rsa.pub 文件，若使用默认的文件名则找到的应该是 id_rsa 及 id_rsa.pub
 将 ssh key 加入 ssh-agent 继续输入以下命令,启动 ssh-agent
 $ eval $(ssh-agent -s)Agent pid 59566将前面生成的密钥加入 ssh-agent</description>
+    </item>
+    
+    <item>
+      <title>[生财有术] 有钱赚的时候，要集中所有的资源和精力，All in</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200101/</link>
+      <pubDate>Wed, 01 Jan 2020 15:25:11 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200101/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</title>
+      <link>https://tangzixiang.github.io/posts/mplus/</link>
+      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/mplus/</guid>
+      <description>mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
+ 能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &amp;#34;github.com/tangzixiang/mplus&amp;#34; 快速开始 # assume the following codes in simple.</description>
     </item>
     
   </channel>
