@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>源码分析 on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+    <description>Recent content in 源码分析 on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Go] 多条件排序设计</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序
+代码位置： go/src/sort/example_multi_test.go
+// Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) // A Change is a record of source code changes, recording user, language, and delta size. type Change struct { user string language string lines int } type lessFunc func(p1, p2 *Change) bool // multiSorter implements the Sort interface, sorting the changes within.</description>
+    </item>
+    
+    <item>
+      <title>[Go] 利用可编程排序准则对结构类型进行排序</title>
+      <link>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</guid>
+      <description>sorting a struct type using programmable sort criteria 利用可编程排序准则对结构类型进行排序
+在 go 源码中看到一个设计模式
+代码位置： go/src/sort/example_keys_test.go
+// Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) // A couple of type definitions to make the units clear. type earthMass float64 type au float64 // A Planet defines the properties of a solar system object.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Protocol on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/tags/protocol/</link>
+    <description>Recent content in Protocol on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 25 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/tags/protocol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The wire data（wire 数据）</title>
+      <link>https://tangzixiang.github.io/posts/the-wire-datawire-%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/the-wire-datawire-%E6%95%B0%E6%8D%AE/</guid>
+      <description>本文为 wiki 上关于 wire data 的翻译，不保证准确性。
+简介 wire data 是一种定义了客户端设备与服务器设备如何基于计算机和电信网络进行通信的信息。它是 wire protocol （一种传输协议）的全双工 data payload [1]解码后得到的内容。更确切的说，wire data 作为一种通信的信息存在于 OSI model 里除物理层之外的各个层级之中（没有包含物理层，是因为物理层的协议是用于建立连接而非通信）
+注释引用  全双工 data payload：bi-directional data payload  </description>
+    </item>
+    
+    <item>
+      <title>The wire protocol（wire 传输协议）</title>
+      <link>https://tangzixiang.github.io/posts/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</guid>
+      <description>本文为 wiki 上关于 wire protocol 的翻译，不保证准确性。
+简介 在计算机网络中，wire protocol 指的是一种端到端（点到点）的数据获取方式，是多个应用[1]之间进行交互的必需品。它通常指的是一种高于物理层的协议。相较于传输层的各种传输协议 （TCP、UDP），wire protocol 术语习惯于被用来描述信息位于应用层上的一种通用表现形式，是一种应用层上的通用协议而非各类应用程序的通用型对象描述语意[2]。就像是 XML[3]与 XSD[4]之间的关系，XML 对传输的数据进行描述，而 XSD 对 XML 本身的文档结构的元素及语法进行描述。
+wire protocol 要么是一种文本格式协议要么是一种二进制格式协议。虽然决定采用那种格式，这是一种非常重要的架构设计，但是这并不是 wire protocol 与程序API之间的区别。
+在电子信息技术领域中[5]，一种 wire protocol 描述其讲数据从一个地方传输到其他地方的机制。
+功能性 [Functionality] wire protocol 提供应用与应用之间在互联网中进行交互的手段，通常指的是各种分布式对象协议[6]，其可能是一种使用专门设计用来协同工作的应用程序。顾名思义，这些分布式对象协议运行在互联网上一个或多个计算机的不同进程之间。
+分类 [Types] wire protocol 提供了一种互联网上运行于不同操作系统之间的程序进行交流的手段，就算是不同的平台或开发语言。
+以下是一些 wire prootocol :
+ IIOP for CORBA RTPS for DDS Java Debug Wire Protocol (JDWP) for Java debugging JRMP for RMI SOAP for Web services AMQP for message-oriented middleware  注释引用  应用：即 application。 通用型对象描述语意：common object semantic XML：Extensible Markup Language XSD：XML Schema Definition 电子信息技术：Electronics 分布式对象协议：distributed object protocols  </description>
+    </item>
+    
+  </channel>
+</rss>

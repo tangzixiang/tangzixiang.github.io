@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GO on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/tags/go/</link>
+    <description>Recent content in GO on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[GO] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[GO] 如何正确的开始用Go编程</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</title>
+      <link>https://tangzixiang.github.io/posts/mplus/</link>
+      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/mplus/</guid>
+      <description>mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
+ 能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &amp;#34;github.com/tangzixiang/mplus&amp;#34; 快速开始 # assume the following codes in simple.</description>
+    </item>
+    
+    <item>
+      <title>[Go] 多条件排序设计</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+      <description>在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序
+代码位置： go/src/sort/example_multi_test.go
+// Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) // A Change is a record of source code changes, recording user, language, and delta size. type Change struct { user string language string lines int } type lessFunc func(p1, p2 *Change) bool // multiSorter implements the Sort interface, sorting the changes within.</description>
+    </item>
+    
+    <item>
+      <title>[Go] 利用可编程排序准则对结构类型进行排序</title>
+      <link>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</guid>
+      <description>sorting a struct type using programmable sort criteria 利用可编程排序准则对结构类型进行排序
+在 go 源码中看到一个设计模式
+代码位置： go/src/sort/example_keys_test.go
+// Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) // A couple of type definitions to make the units clear. type earthMass float64 type au float64 // A Planet defines the properties of a solar system object.</description>
+    </item>
+    
+    <item>
+      <title>[Go] &#34;==&#34; 与 reflect.DeepEqual</title>
+      <link>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</guid>
+      <description>摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &amp;ldquo;==&amp;rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
+基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
+聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk</description>
+    </item>
+    
+  </channel>
+</rss>

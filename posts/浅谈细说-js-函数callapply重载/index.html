@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="[JS] 浅谈细说 JS 函数(call,apply,重载)">
+<meta itemprop="description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
+函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
+speak(&#34;hello world for global !">
+<meta itemprop="datePublished" content="2015-10-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-10-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="339">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="JS,前端," /><meta property="og:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)" />
+<meta property="og:description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
+函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
+speak(&#34;hello world for global !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2015-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-10-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)"/>
+<meta name="twitter:description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
+函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
+speak(&#34;hello world for global !"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>[JS] 浅谈细说 JS 函数(call,apply,重载)</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/route/">导航</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/route/">导航</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Oct 12, 2015</span></div>
+				<h1>[JS] 浅谈细说 JS 函数(call,apply,重载)</h1>
+			</header>
+			<div class="content">
+				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>什么是函数？</li>
+<li>函数的声明与调用</li>
+<li>函数的重载</li>
+<li>函数的独立性</li>
+</ul>
+<h2 id="heading1"><strong>什么是函数？</strong><a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>引用 W3School 的原话:</p>
+<pre><code>函数是一组可以随时随地运行的语句。
+
+函数是 ECMAScript 的核心。
+
+函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。
+
+函数的基本语法是这样的：
+function functionName(arg0, arg1, ... argN) {
+  statements
+}
+</code></pre>
+<h2 id="heading2"><strong>函数的声明与调用</strong><a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//声明函数的4种方法
+</span><span class="c1"></span>
+<span class="c1">//方法一 直接声明
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">speak</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak2</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span><span class="c1">//定义匿名函数需要注意最后需要加分号
+</span><span class="c1"></span>
+<span class="c1">//方法三 使用 Function对象 生成一个函数实例 
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">)</span><span class="p">;</span>
+
+<span class="c1">//方法四 使用 Function函数 返回函数实例
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak4</span> <span class="o">=</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>调用函数基本方法</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for global !&#34;</span><span class="p">)</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for this !&#34;</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for window !&#34;</span><span class="p">)</span><span class="p">;</span>
+
+</code></pre></div><p><strong>调用函数的高级方法</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="s2">&#34;hello world with call !&#34;</span><span class="p">)</span><span class="p">;</span><span class="c1">//null 代表是用全局对象 window 调用
+</span><span class="c1"></span>
+<span class="nx">speak</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="p">[</span><span class="s2">&#34;hello world with apply !&#34;</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>输出结果:
+<img src="/assets/3058469592-561bba707d079_articlex.png" alt="图片描述"></p>
+<h3 id="heading3">方法一:<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>这里大家不言而喻,简单明了,直接就是声明了一个函数,需要指出的是,默认写的函数在不依附其他对象的情况下均为全局函数,即成为 window 对象的成员,可以直接使用 window(Window 对象的实例,Window 对象实现了核心 JavaScript 所定义的所有全局属性和方法)调用,或者通过 this 调用,在这里 JS 顶层代码中 this 指向的就是 window</p>
+<p>每当我们使用方法一声明了一个函数的时候,实际是生成了一个 Function 对象的实例.即每个函数其实质都是一个 Function 对象实例.</p>
+<p>注意:
+JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一块空间来存储创建该 Function 实例</p>
+<h3 id="heading4">方法二:<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>首先 JS 解析器解析到一个函数的时候,在堆内存内划分出一块空间来存储创建该 Function 实例,接着在当前栈内存
+创建一个叫 speak2 的变量,这个变量有个值,这个值是一个地址,指向的是堆内存中的那个 Function 实例.实际上这就是大名鼎鼎的引用.</p>
+<h3 id="heading5">方法三:<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>与方法一和方法二不同的是,前两个方法都是声明好让解析器去解析,让解析器生成 Function 实例(就是上面声明的函数,解析器调用 Function 构造器来生成实例,这些步骤是我们看不到的),方法三是我们手动调用 Function 构造器生成 Function 实例(步骤掌握在自己的手里)</p>
+<h3 id="heading6">方法四:<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>与方法三不同的地方就是没有 new,在这里 new 与没 new 的区别就是当有 new 的时候 Function 函数充当一个构造器,new 后返回的就是实例化后得到的对象(此时Function 内部的 this指向的就是当前生成的对象),不使用 new 的话就是把 Function 函数看做一个普通函数直接调用,直接调用 Function 函数让其在内部(我们看不到)new 一个实例返回,本质是一样的.</p>
+<h3 id="call--apply-"><strong>call 方法与 apply 方法</strong><a href="#call--apply-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>查看EcmaScript.js
+<img src="/assets/3719987583-561bc70feffbe_articlex.png" alt="图片描述"></p>
+<p>可以看到 call 方法与 apply 方法的区别:</p>
+<ul>
+<li>他们的第一个参数指的是调用该方法对象</li>
+<li>call 方法的第二个参数是可变数组参数,即可以传入多个参数,非传入一个数组.传入的多个参数对应的是被调用方法的各参数.</li>
+<li>apply 方法的第二个参数是一个数组对象,即可以直接传入一个数组对象,数组对象的每项对应的是被调用的方法的各参数.</li>
+</ul>
+<h2 id="heading7"><strong>函数的重载</strong><a href="#heading7" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>在 JS 中,并不像其他强类型语言一样可以声明重载函数,若在原先声明的函数后再声明一个不同参数数量的函数(JS是弱语言, 声明的函数不需要指明参数类型),解析器会用后面声明的函数覆盖前面声明的函数.那我们该如何实现呢.</p>
+<h3 id="arguments-"><strong>arguments 对象</strong><a href="#arguments-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>在每个函数都有一个arguments 属性,同样查看 EcmaScript.js
+<img src="/assets/1185226343-561bcb5feb50b_articlex.png" alt="图片描述"></p>
+<p>当生成一个函数实例后,解析器会赋给 arguments 属性一个 Arguments 对象实例,这个实例是什么,再看 EcmaScript.js
+<img src="/assets/3778388675-561bcc1fd1002_articlex.png" alt="图片描述"></p>
+<p>可以得知其为一个对象同时为数组对象的子类,故可以将其当初数组对象使用.
+函数实例中的 arguments 对象(可以算是一个数组)的数组项内容便是我们在调用函数时进行传递的参数.只要我们有传参,这个属性就有数组项,否则数组长度为0,故我们可以通过 arguments.length 来查看其得到的形参的数量.</p>
+<p>有了上面的基础便可实现重载函数
+这里引用 W3School 的例子</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">doAdd</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">doAdd</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>	    <span class="c1">//输出 &#34;15&#34;
+</span><span class="c1"></span><span class="nx">doAdd</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="p">;</span>	<span class="c1">//输出 &#34;60&#34;
+</span></code></pre></div><h2 id="heading8"><strong>函数的独立性</strong><a href="#heading8" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>我们都知道,每当我们声明了一个函数,其实际为一个 Function 实例,那它独立在哪呢,如何体现呢
+看一下代码:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Dog</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Cat</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="s2">&#34;wangwang&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="s2">&#34;miaomiao&#34;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">showName</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">cat</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>输出结果为:
+<img src="/assets/664011739-561bd5cc72416_articlex.png" alt="图片描述"></p>
+<p>解释:</p>
+<p>每当我们在函数内使用 this 的时候,无非这几种情况:</p>
+<ol>
+<li>作为构造器生成的实例对象</li>
+<li>作为调用当前方法的对象</li>
+<li>在 JS 顶层代码可以使用 this 代表 window 调用全局函数等</li>
+</ol>
+<p>故当我们使用 call 方法调用某个对象的方法时,虽然从代码语义上看,这个所属方法是属于该对象的(showName 属于 Dog 或 Cat),但是由于函数有用其特殊的独立性即有以上几个关于 this 的特点,导致最终的结果是不同的.</p>
+<p>当我们直接调用 dog 的 showName 方法时,showName 方法内的 this 指向的是该dog 对象(Dog 实例).</p>
+<p>我们知道调用 call 方法时需要传入的第一个参数即为调用当前函数亦或方法的对象,此时被调用的方法的 this 指向的实际为传入的第一个参数.即当我们通过 call 调通 dog 的 showName 方法时,
+传入的第一个参数是 cat 对象,代表 dog 的 showName 方法的 this 此时指向的不是 dog 是 cat.最后输出的当然是 cat 的内容。</p>
+<p>最后指出:在对函数进行传参时,若传的是 JS 的基本类型,则为值传递,否则为引用传递（传递的是参数的地址）。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tangzixiang.github.io/tags/js">JS</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF">前端</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>339 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">摘要</a></li>
+    <li><a href="#heading1">什么是函数？</a></li>
+    <li><a href="#heading2">函数的声明与调用</a>
+      <ul>
+        <li><a href="#heading3">方法一:</a></li>
+        <li><a href="#heading4">方法二:</a></li>
+        <li><a href="#heading5">方法三:</a></li>
+        <li><a href="#heading6">方法四:</a></li>
+        <li><a href="#call--apply-">call 方法与 apply 方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading7">函数的重载</a>
+      <ul>
+        <li><a href="#arguments-">arguments 对象</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading8">函数的独立性</a></li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span> [JS] 浅谈 JS 创建对象的 8 种模式</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.e0d7091dcc4b94b6abbf4cc33c3075c352ca4e589d7199aa6032a4b0a2906614.js" integrity="sha256-4NcJHcxLlLarv0zDPDB1w1LKTlidcZmqYDKksKKQZhQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

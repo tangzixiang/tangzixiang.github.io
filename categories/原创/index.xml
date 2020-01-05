@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>原创 on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/categories/%E5%8E%9F%E5%88%9B/</link>
+    <description>Recent content in 原创 on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/categories/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>记一次如何在 windows 下添加 GitHub 的 SSH Key</title>
+      <link>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
+      <description>🏢 : mac; 🏠 : windows
+摘要  管理员方式打开 Git Bash 输入命令生成 ssh key 将 ssh key 加入 ssh-agent 将公钥加入到 GitHub 上 测试是否连接成功  管理员方式打开 Git Bash 输入命令生成 ssh key 在安装好 Git 后右键使用管理员身份运行方式打开下图的 Git Bash
+使用该命令生成个人账号的密钥对，引号内容为个人登录账号
+$ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;回车后会要求输入生成的文件名，如果不知道直接回车生成的文件名为 id_ras，这里举例使用邮箱名作为前缀，完成后会连续两次要求输入密码，可以不指定密码，直接两次回车，最终提示完成如下图：
+完成后打开文件夹安装前面的路径即 C:\Users\user-name\.ssh 目录，正常情况该目录会存在前面生成的两个文件，如果没有的话需要自己创建这个目录然后在上一级目录即 C:\Users\user-name 下找到对应的两个生成的文件（密钥对）并移入 C:\Users\user-name\.ssh 目录，由于前面我们对生成的密钥对改了名，所以找到的应该是 your_email_id_rsa 及 your_email_id_rsa.pub 文件，若使用默认的文件名则找到的应该是 id_rsa 及 id_rsa.pub
+将 ssh key 加入 ssh-agent 继续输入以下命令,启动 ssh-agent
+$ eval $(ssh-agent -s)Agent pid 59566将前面生成的密钥加入 ssh-agent</description>
+    </item>
+    
+    <item>
+      <title>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</title>
+      <link>https://tangzixiang.github.io/posts/mplus/</link>
+      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/mplus/</guid>
+      <description>mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
+ 能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &amp;#34;github.com/tangzixiang/mplus&amp;#34; 快速开始 # assume the following codes in simple.</description>
+    </item>
+    
+    <item>
+      <title>使用 Hugo 发布文章</title>
+      <link>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</guid>
+      <description>摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
+添加文章前我们先启动 Hugo
+github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
+github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看到如下内容：
+--- title: &amp;#34;My First Post&amp;#34; date: 2019-12-16T21:38:04+08:00 draft: true tags: - untagged --- 这是一篇 Markdown 格式的文章，文章的开头由前后 --- 包裹了一些信息，这些信息称为文章的元数据，用于说明文章的相关配套信息，其中包括但不限于标题、日期、标签、是否草稿等。
+这里对上述的元数据做解释如下：
+ title: 文章的标题 date: 文章的日期 draft: 文章是否草稿，草稿内容不会被发布 tags: 为当前文章打标签，不同文章可以使用相同的标签  文章内容需要写在元数据的后面：
+--- title: &amp;#34;My First Post&amp;#34; date: 2019-12-16T21:38:04+08:00 draft: true tags: - untagged --- Quisque velit nisi, pretium ut lacinia in, elementum id enim.</description>
+    </item>
+    
+    <item>
+      <title>使用 Hugo 创建个人 Blog</title>
+      <link>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</guid>
+      <description>摘要  你得先有个 GitHub 账号 Hugo 是什么？ Hugo 特色 安装 Hugo Hugo Themes Hugo 子命令 创建一个站点目录 添加主题 推送到 GitHub 上 配置 404 页面 GitHub Page 相关限制说明  你得先有个 GitHub 账号 在上一篇 如何在 GitHub 上创建 repository 中介绍了如何在 GitHub 上注册账号及个人仓库的详细步骤，如果你已有账号可以跳过此节，继续往下。
+这篇文章我们延续上一章使用 registerforxxx.github.io 作为案例。
+Hugo 是什么？ 引用 官方 结束的一句话
+ Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again
+ 一句话总结：Hugo 是一个静态网站生成器 😆。</description>
+    </item>
+    
+    <item>
+      <title>如何在 GitHub 上创建 repository </title>
+      <link>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</guid>
+      <description>摘要  创建 GitHub 账号 创建首个 repository  创建GitHub 账号 首先登录 GitHub 官网地址，见到如下界面
+填入个人信息后会跳转至验证页面
+验证通过后进入下个页面选择是否使用专业版或免费版
+个人版及专业版除了价格不一样之外参考如下：
+这里我们选择个人板块的免费版进入下个页面
+这里我们选择 None 和 Create a website with GitHub Pages 然后点击 Complete 完成个人账号的注册流程,进入未验证邮箱提示页面
+这里可以看到右上角已经获得一个 GitHub 默认分配的头像
+创建首个 repository 上一步我们完成了个人账号的创建，在邮箱点击确认验证后会默认进入 GitHub 的创建仓库页面
+这里我们以创建个人站点仓库举例，输入完成后点击 create repository 完成个人第一个仓库的创建</description>
+    </item>
+    
+    <item>
+      <title>[Linux] Linux 学习笔记</title>
+      <link>https://tangzixiang.github.io/posts/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>帮助命令  在只记得部分关键字命令的时候，可以使用 man -k 来搜索 需要知道某个命令的简要说明，可以使用 whatis ，更详细的介绍可以使用 info 命令 查看命令在哪个位置可以使用 which 命令 对于命令的具体参数及使用方法，需要用到强大的 man  使用命令 whatis  功能： 简要说明指定命令的作用 使用方式：  tangzixiang@dev-lyy-web4:~$ whatis -h Usage: whatis [OPTION...] KEYWORD... -d, --debug emit debugging messages -v, --verbose print verbose warning messages -r, --regex interpret each keyword as a regex -w, --wildcard the keyword(s) contain wildcards -l, --long do not trim output to terminal width -C, --config-file=FILE use this user configuration file -L, --locale=LOCALE define the locale for this search -m, --systems=SYSTEM use manual pages from other systems -M, --manpath=PATH set search path for manual pages to PATH -s, --sections=LIST, --section=LIST search only these sections (colon-separated) -?</description>
+    </item>
+    
+    <item>
+      <title>[Lua] Lua 模块与包</title>
+      <link>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</guid>
+      <description>摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account.</description>
+    </item>
+    
+    <item>
+      <title>[Go] &#34;==&#34; 与 reflect.DeepEqual</title>
+      <link>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</guid>
+      <description>摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &amp;ldquo;==&amp;rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
+基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
+聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk</description>
+    </item>
+    
+    <item>
+      <title> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</guid>
+      <description>摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
+我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
+Object.isExtensible 方法 MDN：
+概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &amp;#34;a&amp;#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console.</description>
+    </item>
+    
+    <item>
+      <title>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</title>
+      <link>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</guid>
+      <description>来个摸底测试，说出以下每个表达式的结果
+function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&amp;gt; function typeof o; //==&amp;gt; object typeof F.prototype; //==&amp;gt; object typeof o.</description>
+    </item>
+    
+  </channel>
+</rss>

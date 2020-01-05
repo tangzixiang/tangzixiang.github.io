@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content=" [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性">
+<meta itemprop="description" content="摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
+我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
+Object.isExtensible 方法 MDN：
+概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console.">
+<meta itemprop="datePublished" content="2016-06-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-06-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="714">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="JS,前端," /><meta property="og:title" content=" [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性" />
+<meta property="og:description" content="摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
+我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
+Object.isExtensible 方法 MDN：
+概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2016-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-06-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content=" [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性"/>
+<meta name="twitter:description" content="摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
+我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
+Object.isExtensible 方法 MDN：
+概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/route/">导航</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/route/">导航</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jun 30, 2016</span></div>
+				<h1> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</h1>
+			</header>
+			<div class="content">
+				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>扩展特性
+<ul>
+<li><code>Object.isExtensible</code> 方法</li>
+<li><code>Object.preventExtensions</code> 方法</li>
+</ul>
+</li>
+<li>密封特性
+<ul>
+<li><code>Object.isSealed</code> 方法</li>
+<li><code>Object.seal</code> 方法</li>
+</ul>
+</li>
+<li>冻结特性
+<ul>
+<li><code>Object.isFrozen</code> 方法</li>
+<li><code>Object.freeze</code> 方法
+<ul>
+<li><code>浅冻结</code> 与 <code>深冻结</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="heading1"><strong>扩展特性</strong><a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>如果一个对象可以添加新的属性，则这个对象是可扩展的。
+让这个对象变的不可扩展，也就是不能再有新的属性</p>
+<p>我们都知道，我们可以通过<code>属性描述符</code>创建属性不可配置对象 <a href="../%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE">如何让对象属性不可配置或枚举</a>,
+在这里我们可以创建不可扩展属性的对象</p>
+<h3 id="objectisextensible-"><strong>Object.isExtensible 方法</strong><a href="#objectisextensible-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN：</p>
+<pre><code>概述
+    Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。
+语法
+    Object.isExtensible(obj)
+参数
+    obj 需要检测的对象
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+<span class="c1">//等价于 使用属性描述符
+</span><span class="c1"></span><span class="nx">empty</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">,</span><span class="p">{</span>
+    <span class="s2">&#34;a&#34;</span><span class="o">:</span><span class="p">{</span>
+        <span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//可配置
+</span><span class="c1"></span>        <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//可枚举
+</span><span class="c1"></span>        <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="c1">//可写
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+<span class="c1">//对象是否可以扩展与对象的属性是否可以配置无关
+</span><span class="c1"></span><span class="nx">empty</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">,</span><span class="p">{</span>
+    <span class="s2">&#34;a&#34;</span><span class="o">:</span><span class="p">{</span>
+        <span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span><span class="c1">//不可配置
+</span><span class="c1"></span>        <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//可枚举
+</span><span class="c1"></span>        <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="c1">//可写
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span></code></pre></div><p>那么我们如何让一个对象变成不可扩展：</p>
+<h3 id="objectpreventextensions-"><strong>Object.preventExtensions 方法</strong><a href="#objectpreventextensions-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN:</p>
+<pre><code>概述
+    Object.preventExtensions() 方法让一个对象变的不可扩展，也就是永远不能再添加新的属性。
+语法
+    Object.preventExtensions(obj)
+参数
+    obj 将要变得不可扩展的对象
+描述
+    如果一个对象可以添加新的属性，则这个对象是可扩展的。
+    preventExtensions 可以让这个对象变的不可扩展，也就是不能再有新的属性。
+    需要注意的是不可扩展的对象的属性通常仍然可以被删除。
+    尝试给一个不可扩展对象添加新属性的操作将会失败，不过可能是静默失败，也可能会抛出 TypeError 异常（严格模式）。        
+    Object.preventExtensions 只能阻止一个对象不能再添加新的自身属性，仍然可以为该对象的原型添加属性。
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//Object.preventExtensions 将原对象变得不可扩展,并且返回原对象.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="o">===</span> <span class="nx">obj2</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//新创建的对象默认是可扩展的
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">empty</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//添加成功
+</span><span class="c1"></span>
+    <span class="c1">//将其变为不可扩展对象
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//使用传统方式为不可扩展对象添加属性
+</span><span class="c1"></span>    <span class="nx">empty</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="c1">//静默失败,不抛出错误
+</span><span class="c1"></span>    <span class="nx">empty</span><span class="p">[</span><span class="s2">&#34;c&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><span class="c1">//静默失败,不抛出错误
+</span><span class="c1"></span>
+    <span class="c1">//在严格模式中,为不可扩展对象添加属性将抛出错误
+</span><span class="c1"></span>    <span class="p">(</span><span class="kd">function</span> <span class="nx">fail</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+        <span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+        <span class="nx">empty</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="s2">&#34;4&#34;</span><span class="p">;</span><span class="c1">//throws a TypeError
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//使用 Object.defineProperty方法为不可扩展对象添加新属性会抛出异常
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">empty</span><span class="p">,</span><span class="s2">&#34;e&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="mi">5</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">empty</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="mi">2</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">empty</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//输出2
+</span><span class="c1"></span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>在上述代码的最后两行可以看到如果为当前不可扩展对象 empty 修改属性是成功的，这是因为一个对象的属性是否可以被修改与该对象是否可以扩展无关，而是与该对象在创建的时候是否声明为不可重写有关（<a href="../%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE">Writable</a>）</p>
+<p>如果我们想让一个对象的所有属性都<code>不可配置</code>同时也不允许为该对象进行<code>扩展</code>怎么做：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//创建一个对象,同时声明其所有属性均为不可配置且不可写
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span> <span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">b</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="nx">c</span><span class="o">:</span><span class="mi">3</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="p">{</span>
+       <span class="s2">&#34;a&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">,</span>
+       <span class="s2">&#34;b&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">,</span>
+       <span class="s2">&#34;c&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//等价于
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">,</span><span class="p">{</span>
+        <span class="s2">&#34;a&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">congigurable</span> <span class="o">:</span><span class="kc">false</span><span class="p">,</span><span class="nx">enumerable</span> <span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="nx">writable</span><span class="o">:</span><span class="kc">true</span><span class="p">}</span><span class="p">,</span>
+        <span class="s2">&#34;b&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="nx">congigurable</span> <span class="o">:</span><span class="kc">false</span><span class="p">,</span><span class="nx">enumerable</span> <span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="nx">writable</span><span class="o">:</span><span class="kc">true</span><span class="p">}</span><span class="p">,</span>
+        <span class="s2">&#34;c&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="nx">congigurable</span> <span class="o">:</span><span class="kc">false</span><span class="p">,</span><span class="nx">enumerable</span> <span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="nx">writable</span><span class="o">:</span><span class="kc">true</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//将其转化为不可扩展对象
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//测试该对象是否即不可扩展同时其所有属性均不可配置
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//false
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">of</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">)</span><span class="p">{</span><span class="c1">//遍历该对象的所有可枚举属性名,不包括继承而来的属性
+</span><span class="c1"></span>        <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="nx">name</span><span class="p">,</span><span class="p">{</span><span class="nx">enumerable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//将该属性的 enumerable 特性重新配置为 true
+</span><span class="c1"></span>    <span class="p">}</span><span class="c1">//抛出异常
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>虽然说上面的程序实现了需求，但未免太麻烦，这里我们可以使用 JS 对象的另一特性 <code>密封</code></p>
+<h2 id="heading2"><strong>密封特性</strong><a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>密封对象是指那些不可 扩展 的，且所有自身属性都不可配置的（non-configurable）对象。</p>
+<p>或则说 密封对象是指那些不能添加新的属性，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性，但可能可以修改已有属性的值的对象。</p>
+<h3 id="objectissealed-"><strong>Object.isSealed 方法</strong><a href="#objectissealed-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN：</p>
+<pre><code>概述 
+    Object.isSealed() 方法判断一个对象是否是密封的（sealed）。
+语法 
+    Object.isSealed(obj)
+参数
+    obj 将要检测的对象
+描述
+    如果这个对象是密封的，则返回 true，否则返回 false。
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//新建的对象默认不是密封的
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//如果把一个空对象变得不可扩展,则它同时也会变成个密封对象.
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">empty</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//但如果这个对象不是空对象,则它不会变成密封对象,因为密封对象的所有自身属性必须是不可配置的.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">hasProp</span> <span class="o">=</span> <span class="p">{</span><span class="nx">fee</span> <span class="o">:</span> <span class="s2">&#34;fie foe fum&#34;</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">hasProp</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">hasProp</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//如果把这个属性变得不可配置,则这个对象也就成了密封对象.
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">hasProp</span><span class="p">,</span><span class="s2">&#34;fee&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">hasProp</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h3 id="objectseal-"><strong>Object.seal 方法</strong><a href="#objectseal-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN：</p>
+<pre><code>概述
+    Object.seal() 方法可以让一个对象密封，并返回被密封后的对象。
+    密封对象是指那些不能添加新的属性，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性，但可能可以修改已有属性的值的对象。
+语法
+    Object.seal(obj)
+参数
+    obj 将要被密封的对象
+描述
+    通常情况下，一个对象是可扩展的（可以添加新的属性）。
+    密封一个对象会让这个对象变的不能添加新属性，且所有已有属性会变的不可配置。
+    属性不可配置的效果就是属性变的不可删除，以及一个数据属性不能被重新定义成为访问器属性，或者反之。
+    但属性的值仍然可以修改。
+    尝试删除一个密封对象的属性或者将某个密封对象的属性从数据属性转换成访问器属性，结果会静默失败或抛出 TypeError 异常（严格模式）。
+    不会影响从原型链上继承的属性。但 __proto__ (  ) 属性的值也会不能修改。
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>             <span class="c1">//声明一个对象
+</span><span class="c1"></span>        <span class="nx">prop</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">foo</span><span class="o">:</span><span class="s2">&#34;bar&#34;</span>
+    <span class="p">}</span><span class="p">;</span>
+    <span class="c1">//可以添加新的属性,已有属性的值可以修改,可以删除
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;baz&#34;</span><span class="p">;</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">lumpy</span> <span class="o">=</span> <span class="s2">&#34;woof&#34;</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">prop</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span><span class="c1">//将 obj 密封,且返回原对象
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span> <span class="o">===</span> <span class="nx">obj</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//仍然可以修改密封对象上的属性的值
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;quux&#34;</span><span class="p">;</span><span class="c1">//修改成功
+</span><span class="c1"></span>
+    <span class="c1">//但不能把密封对象的属性进行重新配置,譬如讲数据属性重定义成访问器属性.
+</span><span class="c1"></span>    <span class="c1">//Object.defineProperty(obj,&#34;foo&#34;,{get : function(){return &#34;g&#34;;}});//抛出 TypeError
+</span><span class="c1"></span>
+    <span class="c1">//任何除修改属性值以外的操作都会失败
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">quaxxor</span> <span class="o">=</span> <span class="s2">&#34;the friendly duck&#34;</span><span class="p">;</span><span class="c1">//静默失败,属性没有成功添加
+</span><span class="c1"></span>    <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">;</span><span class="c1">//静默失败,属性没有删除成功
+</span><span class="c1"></span>
+    <span class="c1">//在严格模式中,会抛出 TypeError 异常
+</span><span class="c1"></span>    <span class="p">(</span><span class="kd">function</span> <span class="nx">fail</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+        <span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+        <span class="c1">//delete obj.foo;//抛出 TypeError 异常
+</span><span class="c1"></span>        <span class="c1">//obj.sparky = &#34;arf&#34;;//抛出 TYpeError 异常
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;ohai&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">17</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//添加属性失败
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;foo&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="s2">&#34;eit&#34;</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//修改成功
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">)</span><span class="p">;</span><span class="c1">//“eit”
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>如上面程序所示，将一个对象<code>密封</code>后仅能保证该对象<code>不被扩展</code>且属性<code>不可重配置</code>，但是原属性值却是有可能被修改的，若要达到即<code>密封</code>又<code>不可修改原属性值</code>可以这样：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//创建不可修改值的密封对象
+</span><span class="c1"></span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//方式一
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span><span class="nx">writable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//1
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span><span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//方式二
+</span><span class="c1"></span>    <span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span><span class="p">{</span><span class="s2">&#34;a&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">writable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//1
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span><span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    
+    <span class="c1">//方式...
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>同样的，虽然实现了需求，依旧可以使用另一特性 <code>冻结</code></p>
+<h2 id="heading3"><strong>冻结特性</strong><a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>一个对象是冻结的（frozen）是指它不可扩展，所有属性都是不可配置的（non-configurable），且所有数据属性（data properties）都是不可写的（non-writable）。</p>
+<p>数据属性是值那些没有取值器（getter）或赋值器（setter）的属性。</p>
+<p>或则说 冻结对象是指那些不能添加新的属性，不能修改已有属性的值，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性的对象。也就是说，这个对象永远是不可变的。</p>
+<h3 id="objectisfrozen-"><strong>Object.isFrozen 方法</strong><a href="#objectisfrozen-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN：</p>
+<pre><code>概述
+    Object.isFrozen() 方法判断一个对象是否被冻结（frozen）。
+语法
+    Object.isFrozen(obj)
+参数
+obj 被检测的对象
+描述
+    一个对象是冻结的（frozen）是指它不可扩展，所有属性都是不可配置的（non-configurable），且所有数据属性（data properties）都是不可写的（non-writable）。数据属性是值那些没有取值器（getter）或赋值器（setter）的属性。
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//一个对象默认是可扩展的,所以他也是非冻结的.
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个不可扩展的空对象同时也是一个冻结对象.一个不可扩展的空对象也是密封对象
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">vacuouslyFrozen</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="p">{</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">vacuouslyFrozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">vacuouslyFrozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个非空对象默认也是非冻结的.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">oneProp</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">p</span><span class="o">:</span><span class="mi">42</span> <span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">oneProp</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//让这个对象变的不可扩展,并不意味着这个对象变成了冻结对象,因为 p 属性仍然是可以配置的(而且可写的).
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span> <span class="nx">oneProp</span> <span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">oneProp</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//如果删除了这个属性,则它成为空对象,会成为一个冻结对象.
+</span><span class="c1"></span>    <span class="k">delete</span> <span class="nx">oneProp</span><span class="p">.</span><span class="nx">p</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">oneProp</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//一个不可扩展的对象,拥有一个不可写但可配置的属性,则它仍然是非冻结的.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">nonWritable</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">e</span> <span class="o">:</span> <span class="s2">&#34;plep&#34;</span> <span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">nonWritable</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">nonWritable</span><span class="p">,</span><span class="s2">&#34;e&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">writable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//不可写
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">nonWritable</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//把这个属性改为不可配置,会让这个对象成为冻结对象
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">nonWritable</span><span class="p">,</span><span class="s2">&#34;e&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//不可配置
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">nonWritable</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个不可扩展的对象,拥有一个不可配置但可写的属性,则它仍然是非冻结的.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">nonConfigurable</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">release</span> <span class="o">:</span> <span class="s2">&#34;the kraken!&#34;</span> <span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">nonConfigurable</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">nonConfigurable</span><span class="p">,</span><span class="s2">&#34;release&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">nonConfigurable</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//把这个属性改为不可写,会让这个对象成为冻结对象.
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">nonConfigurable</span><span class="p">,</span><span class="s2">&#34;release&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">writable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">nonConfigurable</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个不可扩展的对象,值拥有一个访问器,则它仍然是非冻结的.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">accessor</span> <span class="o">=</span> <span class="p">{</span><span class="nx">get</span> <span class="nx">food</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="s2">&#34;yum&#34;</span><span class="p">;</span><span class="p">}</span><span class="p">}</span><span class="p">;</span><span class="c1">//这里使用的是字面值法创建对象,默认可配置
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">accessor</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">accessor</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//把这个属性改为不可配置,会让这个对象成为冻结对象.
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">accessor</span><span class="p">,</span><span class="s2">&#34;food&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">accessor</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+
+    <span class="c1">//使用 Object.freeze 是冻结一个对象的最方便的方法.
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">frozen</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="o">:</span><span class="mi">81</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">frozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">frozen</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">frozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个冻结对象也是一个密封对象
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isSealed</span><span class="p">(</span><span class="nx">frozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//一个冻结对象也是一个不可扩展对象
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">frozen</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h3 id="objectfreeze-"><strong>Object.freeze 方法</strong><a href="#objectfreeze-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>MDN：</p>
+<pre><code>概述
+    Object.freeze() 方法可以冻结一个对象。
+    冻结对象是指那些不能添加新的属性，不能修改已有属性的值，不能删除已有属性，以及不能修改已有属性的可枚举性、可配置性、可写性的对象。
+    也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
+语法
+    Object.freeze(obj)
+参数
+    obj 将要被冻结的对象
+描述
+    冻结对象的所有自身属性都不可能以任何方式被修改。
+    任何尝试修改该对象的操作都会失败，可能是静默失败，也可能会抛出异常（严格模式中）。
+    数据属性的值不可更改，访问器属性（有getter和setter）也同样（但由于是函数调用，给人的错觉是还是可以修改这个属性）。
+    如果一个属性的值是个对象，则这个对象中的属性是可以修改的，除非它也是个冻结对象。
+</code></pre>
+<p>使用：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">prop</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">foo</span><span class="o">:</span><span class="s2">&#34;bar&#34;</span>
+    <span class="p">}</span><span class="p">;</span>
+
+    <span class="c1">//可以添加新的属性,已有的属性可以被修改或删除
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;baz&#34;</span><span class="p">;</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">lumpy</span> <span class="o">=</span> <span class="s2">&#34;woof&#34;</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">prop</span><span class="p">;</span>
+
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span><span class="c1">//冻结
+</span><span class="c1"></span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>
+    <span class="c1">//对冻结对象的任何操作都会失败
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;quux&#34;</span><span class="p">;</span><span class="c1">//静默失败;
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">quaxxor</span> <span class="o">=</span> <span class="s2">&#34;the friendly duck&#34;</span><span class="p">;</span><span class="c1">//静默失败
+</span><span class="c1"></span>
+    <span class="c1">//在严格模式中会抛出 TypeError 异常
+</span><span class="c1"></span>    <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;sparky&#34;</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span>        <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">quaxxor</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span>        <span class="nx">obj</span><span class="p">.</span><span class="nx">sparky</span> <span class="o">=</span> <span class="s2">&#34;arf&#34;</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="c1">//使用 Object.defineProperty方法同样会抛出 TypeError 异常
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;ohai&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span><span class="o">:</span><span class="mi">17</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;foo&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span><span class="o">:</span><span class="s2">&#34;eit&#34;</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//抛出 TypeError 异常
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>如该方法 MDN 的描述所述，倘若一个对象的属性是一个对象，那么对这个外部对象进行冻结，内部对象的属性是依旧可以改变的，这就叫浅冻结，若把外部对象冻结的同时把其所有内部对象甚至是内部的内部无限延伸的对象属性也冻结了，这就叫深冻结。</p>
+<p><strong>浅冻结与深冻结</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">internal</span> <span class="o">:</span><span class="p">{</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span><span class="c1">//浅冻结
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&#34;aValue&#34;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//&#34;aValue&#34;
+</span><span class="c1"></span>
+    <span class="c1">//想让一个对象变得完全冻结,冻结所有对象中的对象,可以使用下面的函数.
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">deepFreeze</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">prop</span><span class="p">,</span><span class="nx">propKey</span><span class="p">;</span>
+        <span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">;</span><span class="c1">//首先冻结第一层对象
+</span><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="nx">propKey</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span><span class="p">{</span>
+            <span class="nx">prop</span> <span class="o">=</span> <span class="nx">o</span><span class="p">[</span><span class="nx">propKey</span><span class="p">]</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">o</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">propKey</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">prop</span> <span class="o">===</span> <span class="s2">&#34;object&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">isFrozen</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">deepFreeze</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span><span class="p">;</span><span class="c1">//递归
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">deepFreeze</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="s2">&#34;bValue&#34;</span><span class="p">;</span><span class="c1">//静默失败
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span><span class="p">;</span><span class="c1">//undefined
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tangzixiang.github.io/tags/js">JS</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF">前端</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>714 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">摘要</a></li>
+    <li><a href="#heading1">扩展特性</a>
+      <ul>
+        <li><a href="#objectisextensible-">Object.isExtensible 方法</a></li>
+        <li><a href="#objectpreventextensions-">Object.preventExtensions 方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">密封特性</a>
+      <ul>
+        <li><a href="#objectissealed-">Object.isSealed 方法</a></li>
+        <li><a href="#objectseal-">Object.seal 方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading3">冻结特性</a>
+      <ul>
+        <li><a href="#objectisfrozen-">Object.isFrozen 方法</a></li>
+        <li><a href="#objectfreeze-">Object.freeze 方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>[Go] &#34;==&#34; 与 reflect.DeepEqual</span>
+			</a>
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.e0d7091dcc4b94b6abbf4cc33c3075c352ca4e589d7199aa6032a4b0a2906614.js" integrity="sha256-4NcJHcxLlLarv0zDPDB1w1LKTlidcZmqYDKksKKQZhQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

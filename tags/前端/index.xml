@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 30 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</guid>
+      <description>摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
+我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
+Object.isExtensible 方法 MDN：
+概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &amp;#34;a&amp;#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console.</description>
+    </item>
+    
+    <item>
+      <title>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</title>
+      <link>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</guid>
+      <description>来个摸底测试，说出以下每个表达式的结果
+function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&amp;gt; function typeof o; //==&amp;gt; object typeof F.prototype; //==&amp;gt; object typeof o.</description>
+    </item>
+    
+    <item>
+      <title>被小看的小巨人 - viewport</title>
+      <link>https://tangzixiang.github.io/posts/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</link>
+      <pubDate>Mon, 09 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</guid>
+      <description>viewport浅入 相信所有的 web 开发者都见过亦或用过这个神奇的 meta 标签头，亦或在不明白或者半明半蒙的情况下就用上了。
+先来解个疑惑 ，上图
+chrome 的手持设备模拟器相信大家再熟悉不过了，那么左上角的320*480是神马 ？应该很多人已经在心里有了个答案。 在解开这个疑惑之前 需要引入一个概念：
+ A pixel is not a pixel is not a pixel
+ 引用 W3cplus 此像素非彼像素中的一句话
+是的，想说明的就是这里的320*480指的是你的设备的 dpx 而非 CSS 中的 px
+至于有什么区别呢？ 当然有区别！：
+ 设备的 px 是指度量设备大小尺寸的一种单位，而我们常在web 应用中使用的 px 是针对Web 应用开发用来度量应用程序中元素的相对尺寸，是一种抽象的概念和前面的设备像素是不搭噶的两种存在。
+ 那么为什么当我们使用的 css 中的 px 来设计页面的时候 使用与设备上的的宽度一致时能够得到良好的视觉效应呢，且听我慢慢道来。
+我们先看下 关于 viewport 的 相关声明语法
+&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;name=value,name=value&amp;quot;&amp;gt; 首先引用下 ppk 文章中的英文解释(网络上大部分的出处出自此)：
+Directives Every name/value pair is a directive. (The word is my own invention.</description>
+    </item>
+    
+    <item>
+      <title>[CSS] 浅谈 CSS 清除浮动的 6 种方法</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>摘要  额外标签法 使用:after 伪元素 给父元素定高 利用overflow:hidden;属性 父元素浮动 父元素处于绝对定位  在开发网页的时候经常需要用到各种浮动，此时便需要及时的清除浮动，否则将会导致布局出现问题
+引出问题：
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; .outer{ border: 1px solid black; width:300px; } .inner{ width: 50px; height: 50px; background-color: #ff4400; margin-right: 20px; float: left; } .footer{ background-color: #005FC3; width: 200px; height: 100px; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div class=&amp;quot;outer&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 可以看出本应包住3个 inner DIV的 outer DIV 却没有包住他们，此刻只剩一条由上下边框贴合组成的线，同时 footer DIV元素也跑到了三个浮动元素的底下</description>
+    </item>
+    
+    <item>
+      <title> [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</guid>
+      <description>摘要  定义 getter 与 setter  通过对象初始化器定义 使用 Object.create 方法 使用 Object.defineProperty 方法 使用 Object.defineProperties 方法 使用 Object.prototype.defineGetter 以及 Object.prototype.defineSetter 方法   什么是属性描述符 创建属性不可配置不可枚举的对象 Enumerable 特性 Configurable 特新 提高及扩展  定义 getter 与 setter  通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）  (function () { var o = { a : 7, get b(){return this.a +1;},//通过 get,set的 b,c方法间接性修改 a 属性  set c(x){this.a = x/2} }; console.log(o.a); console.log(o.b); o.c = 50; console.log(o.a); })(); 在 chrome 中调试视图如下： 可以看到对象下多了 get 属性以及 set 属性 输出结果如下： 当然 get 语句与 set 语句可以声明多次用来对应多个 getter 和 setter 使用这种方法的好处是可以在声明属性的时候同时声明对应的 getter 和 setter 这里就有人问了，能不能将o 对象的 get 及 set 方法的方法名都改成 “a”,这样就可以直接通过“.</description>
+    </item>
+    
+    <item>
+      <title>[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i</title>
+      <link>https://tangzixiang.github.io/posts/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</link>
+      <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</guid>
+      <description>文章历史久远，有时间再同步更新吧 ~~
+闭包  正确的说,应该是指一个闭包域,每当声明了一个函数,它就产生了一个闭包域(可以解释为每个函数都有自己的函数栈),每个闭包域(Function 对象)都有一个 function scope(不是属性),function scope内默认有个名为 Global 的全局引用(有了这个引用,就可以直接调用 Global 的属性或方法) 凡是在闭包域内声明的变量或方法,外部无法直接访问 闭包域可以访问外部的变量或方法  (上图为 chrome 下 debug 环境)
+ 当在一个闭包域内包含另一个闭包域时(简单的说就是在一个函数内有另一个函数,当然这个内部函数的生命周期是依附于外部函数的), 此时,若子闭包域(内部的闭包域,内部函数)使用了父闭包域(外部闭包域,外部函数)的私有变量(在父闭包域中声明的变量,父闭包域的外部空间无法直接访问,但子闭包域可以访问),子闭包域即当前的子函数的 function scope 会产生一个 closure 对象属性,这个对象属性内包含的是子闭包域对父闭包域的所有引用(只要子闭包域(内部函数)还存活,其父闭包域(外部函数)就依旧存活),倘若在父闭包域存活期间对其私有变量内容进行修改,则对这些父闭包域的私有变量进行引用的子闭包域中 function scope 的 closure 对象属性的内容也会发生变化,因为这只是引用.
+举例:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; charset=&amp;#34;utf-8&amp;#34;&amp;gt; //函数 a 有一个私有变量 p 和一个内部函数 innerA  function a() { //外部闭包域 ,一个名为 a 的 Function 对象  var p = 0; //私有变量 p  var innerA = function () { //内部闭包域 ,一个名为 innerA 的 Function 对象  console.</description>
+    </item>
+    
+    <item>
+      <title>[JS] 浅谈在 JS 中使用 Object 的 watch 方法监控对象属性</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Fri, 16 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</guid>
+      <description>MDN 对其的解释为:
+概述: 监视一个对象的某个属性是否发生变化,在该属性变化时立即触发指定的回调函数. 语法: object.watch(prop, handler) 参数: prop 想要监视值是否发生变化的指定对象的某个属性的属性名称 handler 当指定的属性发生变化时执行的回调函数  在 DHTML.js内查看其声明如下:
+可以看到这两个方法是只针对 Gecko 内核的浏览器使用的(FF 是使用的 Gecko 内核). wacth 方法有两个参数,第一个参数是一个字符串,代表需要监视的属性名,第二个参数是个回调函数 unwatch 方法只有一个参数,代表需要取消监视的属性名.
+使用举例:
+var o = {p:1}; o.watch(&amp;#34;p&amp;#34;, function (id, oldValue, newValue) { console.log(&amp;#34;o.&amp;#34;+id +&amp;#34; 由 &amp;#34;+oldValue +&amp;#34; 变为 &amp;#34;+newValue); return newValue;//注意点 }); o.p = 2; o.p = 3; delete o.p; o.p = 4; 输出结果为:
+这里需要注意的是回调函数必须返回一个值,返回的值会覆盖原有的值(若无返回值默认返回的是 undefined),可以返回新值
+使用watch 方法来监视对象的属性
+//声明一个类 Person = function (name, age) { this.watch(&amp;#34;age&amp;#34;,Person.prototype._isValidAssignment); this.</description>
+    </item>
+    
+    <item>
+      <title> [JS] 浅谈 JS 创建对象的 8 种模式</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 15 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
+      <description>摘要  Objct 模式 工厂模式 构造器模式 通过 Function 对象实现 prototype 模式 构造器与原型方式的混合模式 动态原型模式 混合工厂模式  Object 模式 var o1 = {};//字面量的表现形式 var o2 = new Object; var o3 = new Object(); var o4 = new Object(null); var o5 = new Object(undefined); var o6 = Object.create(Object.prototype);//等价于 var o = {};//即以 Object.prototype 对象为一个原型模板,新建一个以这个原型模板为原型的对象 //区别 var o7 = Object.create(null);//创建一个原型为 null 的对象 在 chrome 里查看各个新建对象的区别: 可以看出前6种模式创建出来的对象都是一样的,第七种不同点在于其虽然也为 Object 对象但其无任何属性(包括没有任何可以继承的属性,因为创建的时候没有指定其原型)
+工厂模式 //工厂方法1 通过一个方法来创建对象 利用 arguments 对象获取参数设置属性(参数不直观,容易出现问题) function createCar(){ var oTemp = new Object(); oTemp.</description>
+    </item>
+    
+    <item>
+      <title>[JS] 浅谈细说 JS 函数(call,apply,重载)</title>
+      <link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</link>
+      <pubDate>Mon, 12 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</guid>
+      <description>摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
+函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&amp;#34;word&amp;#34;,&amp;#34;console.log(word);&amp;#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&amp;#34;word&amp;#34;,&amp;#34;console.log(word);&amp;#34;); 调用函数基本方法
+speak(&amp;#34;hello world for global !</description>
+    </item>
+    
+  </channel>
+</rss>

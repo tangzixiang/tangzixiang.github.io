@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lua on tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/tags/lua/</link>
+    <description>Recent content in Lua on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 24 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Lua] Lua 模块与包</title>
+      <link>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</link>
+      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</guid>
+      <description>摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account.</description>
+    </item>
+    
+  </channel>
+</rss>

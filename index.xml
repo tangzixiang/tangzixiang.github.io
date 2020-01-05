@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/</link>
+    <description>Recent content on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 05 Jan 2020 17:56:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tmux 命令的使用方式</title>
+      <link>https://tangzixiang.github.io/posts/tmux/</link>
+      <pubDate>Sun, 05 Jan 2020 17:56:18 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/tmux/</guid>
+      <description>如果安装不成功需要把仓库 clone 下来通过 makefile 安装
+参考：
+ 阮一峰的网络日志:Tmux 使用教程 Tmux入门教程 - 掘金 tmux基本操作 强大的tmux tmux GitHub 地址  tmux 可以配合这个项目 ：</description>
+    </item>
+    
+    <item>
+      <title>screen 命令的使用方式</title>
+      <link>https://tangzixiang.github.io/posts/screen/</link>
+      <pubDate>Sun, 05 Jan 2020 17:56:12 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/screen/</guid>
+      <description>~ $ screen -h Use: screen [-opts] [cmd [args]] or: screen -r [host.tty] Options: -a Force all capabilities into each window&amp;#39;s termcap. -A -[r|R] Adapt all windows to the new display width &amp;amp; height. -c file Read configuration file instead of &amp;#39;.screenrc&amp;#39;. -d (-r) Detach the elsewhere running screen (and reattach here). -dmS name Start as daemon: Screen session in detached mode. -D (-r) Detach and logout remote (and reattach here).</description>
+    </item>
+    
+    <item>
+      <title>分类</title>
+      <link>https://tangzixiang.github.io/categories/</link>
+      <pubDate>Fri, 03 Jan 2020 17:26:05 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>标签</title>
+      <link>https://tangzixiang.github.io/tags/</link>
+      <pubDate>Fri, 03 Jan 2020 17:25:56 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[生财有术] 我现在创业，期待越轻越好，越产品化越好，最好把内容环节都省掉才觉得好，把增长模块都做到产品中去，只要第一波导入流量，后面就可以自发增长和变现了</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520120103/</link>
+      <pubDate>Fri, 03 Jan 2020 15:25:11 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520120103/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[GO] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[GO] 如何正确的开始用Go编程</title>
+      <link>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>您必须知道的 Git 分支开发规范，附 Git 常用命令大全！</title>
+      <link>https://tangzixiang.github.io/posts/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[生财有术] 引流也好、裂变也罢，核心仍然是提供价值</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200102/</link>
+      <pubDate>Thu, 02 Jan 2020 15:25:11 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200102/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>记一次如何在 windows 下添加 GitHub 的 SSH Key</title>
+      <link>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
+      <description>🏢 : mac; 🏠 : windows
+摘要  管理员方式打开 Git Bash 输入命令生成 ssh key 将 ssh key 加入 ssh-agent 将公钥加入到 GitHub 上 测试是否连接成功  管理员方式打开 Git Bash 输入命令生成 ssh key 在安装好 Git 后右键使用管理员身份运行方式打开下图的 Git Bash
+使用该命令生成个人账号的密钥对，引号内容为个人登录账号
+$ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;回车后会要求输入生成的文件名，如果不知道直接回车生成的文件名为 id_ras，这里举例使用邮箱名作为前缀，完成后会连续两次要求输入密码，可以不指定密码，直接两次回车，最终提示完成如下图：
+完成后打开文件夹安装前面的路径即 C:\Users\user-name\.ssh 目录，正常情况该目录会存在前面生成的两个文件，如果没有的话需要自己创建这个目录然后在上一级目录即 C:\Users\user-name 下找到对应的两个生成的文件（密钥对）并移入 C:\Users\user-name\.ssh 目录，由于前面我们对生成的密钥对改了名，所以找到的应该是 your_email_id_rsa 及 your_email_id_rsa.pub 文件，若使用默认的文件名则找到的应该是 id_rsa 及 id_rsa.pub
+将 ssh key 加入 ssh-agent 继续输入以下命令,启动 ssh-agent
+$ eval $(ssh-agent -s)Agent pid 59566将前面生成的密钥加入 ssh-agent</description>
+    </item>
+    
+  </channel>
+</rss>

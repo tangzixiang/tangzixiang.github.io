@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content=" [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举">
+<meta itemprop="description" content="摘要  定义 getter 与 setter  通过对象初始化器定义 使用 Object.create 方法 使用 Object.defineProperty 方法 使用 Object.defineProperties 方法 使用 Object.prototype.defineGetter 以及 Object.prototype.defineSetter 方法   什么是属性描述符 创建属性不可配置不可枚举的对象 Enumerable 特性 Configurable 特新 提高及扩展  定义 getter 与 setter  通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）  (function () { var o = { a : 7, get b(){return this.a &#43;1;},//通过 get,set的 b,c方法间接性修改 a 属性  set c(x){this.a = x/2} }; console.log(o.a); console.log(o.b); o.c = 50; console.log(o.a); })(); 在 chrome 中调试视图如下： 可以看到对象下多了 get 属性以及 set 属性 输出结果如下： 当然 get 语句与 set 语句可以声明多次用来对应多个 getter 和 setter 使用这种方法的好处是可以在声明属性的时候同时声明对应的 getter 和 setter 这里就有人问了，能不能将o 对象的 get 及 set 方法的方法名都改成 “a”,这样就可以直接通过“.">
+<meta itemprop="datePublished" content="2015-10-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-10-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="912">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="JS,前端," /><meta property="og:title" content=" [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举" />
+<meta property="og:description" content="摘要  定义 getter 与 setter  通过对象初始化器定义 使用 Object.create 方法 使用 Object.defineProperty 方法 使用 Object.defineProperties 方法 使用 Object.prototype.defineGetter 以及 Object.prototype.defineSetter 方法   什么是属性描述符 创建属性不可配置不可枚举的对象 Enumerable 特性 Configurable 特新 提高及扩展  定义 getter 与 setter  通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）  (function () { var o = { a : 7, get b(){return this.a &#43;1;},//通过 get,set的 b,c方法间接性修改 a 属性  set c(x){this.a = x/2} }; console.log(o.a); console.log(o.b); o.c = 50; console.log(o.a); })(); 在 chrome 中调试视图如下： 可以看到对象下多了 get 属性以及 set 属性 输出结果如下： 当然 get 语句与 set 语句可以声明多次用来对应多个 getter 和 setter 使用这种方法的好处是可以在声明属性的时候同时声明对应的 getter 和 setter 这里就有人问了，能不能将o 对象的 get 及 set 方法的方法名都改成 “a”,这样就可以直接通过“." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2015-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-10-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content=" [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举"/>
+<meta name="twitter:description" content="摘要  定义 getter 与 setter  通过对象初始化器定义 使用 Object.create 方法 使用 Object.defineProperty 方法 使用 Object.defineProperties 方法 使用 Object.prototype.defineGetter 以及 Object.prototype.defineSetter 方法   什么是属性描述符 创建属性不可配置不可枚举的对象 Enumerable 特性 Configurable 特新 提高及扩展  定义 getter 与 setter  通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）  (function () { var o = { a : 7, get b(){return this.a &#43;1;},//通过 get,set的 b,c方法间接性修改 a 属性  set c(x){this.a = x/2} }; console.log(o.a); console.log(o.b); o.c = 50; console.log(o.a); })(); 在 chrome 中调试视图如下： 可以看到对象下多了 get 属性以及 set 属性 输出结果如下： 当然 get 语句与 set 语句可以声明多次用来对应多个 getter 和 setter 使用这种方法的好处是可以在声明属性的时候同时声明对应的 getter 和 setter 这里就有人问了，能不能将o 对象的 get 及 set 方法的方法名都改成 “a”,这样就可以直接通过“."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title> [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/route/">导航</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/route/">导航</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Oct 22, 2015</span></div>
+				<h1> [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举</h1>
+			</header>
+			<div class="content">
+				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>定义 getter 与 setter
+<ul>
+<li>通过对象初始化器定义</li>
+<li>使用 Object.create 方法</li>
+<li>使用 Object.defineProperty 方法</li>
+<li>使用 Object.defineProperties 方法</li>
+<li>使用 Object.prototype.<strong>defineGetter</strong> 以及 Object.prototype.<strong>defineSetter</strong> 方法</li>
+</ul>
+</li>
+<li>什么是属性描述符</li>
+<li>创建属性不可配置不可枚举的对象</li>
+<li>Enumerable 特性</li>
+<li>Configurable 特新</li>
+<li>提高及扩展</li>
+</ol>
+<h2 id="-getter--setter"><strong>定义 getter 与 setter</strong><a href="#-getter--setter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">a</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nx">get</span> <span class="nx">b</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="p">}</span><span class="p">,</span><span class="c1">//通过 get,set的 b,c方法间接性修改 a 属性
+</span><span class="c1"></span>        <span class="nx">set</span> <span class="nx">c</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="o">/</span><span class="mi">2</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">c</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>在 chrome 中调试视图如下：
+<img src="/assets/3879098324-56258ea314d0b_articlex.png" alt="图片描述"></p>
+<p>可以看到对象下多了 <code>get</code> 属性以及 <code>set</code> 属性
+输出结果如下：
+<img src="/assets/1446235180-56258f5aee1fd_articlex.png" alt="图片描述"></p>
+<p>当然 <code>get</code> 语句与 <code>set</code> 语句可以声明多次用来对应多个 <code>getter</code> 和 <code>setter</code>
+使用这种方法的好处是可以在声明属性的时候同时声明对应的 <code>getter</code> 和 <code>setter</code>
+这里就有人问了，能不能将o 对象的 <code>get</code> 及 <code>set</code> 方法的方法名都改成 “a”,这样就可以直接通过“.”来访问方法直接操作</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">a</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nx">get</span> <span class="nx">a</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="p">}</span><span class="p">,</span><span class="c1">//死循环
+</span><span class="c1"></span>        <span class="nx">set</span> <span class="nx">a</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="o">/</span><span class="mi">2</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">c</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>打开 chrome 查看创建后的视图如下：
+<img src="/assets/2869058813-56259df6074c6_articlex.png" alt="图片描述"></p>
+<p>可以看到这个时候的 <code>get</code> 与 <code>set</code> 方法已经和上面不同，但是是否真的能起作用呢，答案是否定的，当我们通过 <code>o.a</code> 调用的是 <code>get</code>语句 声明的 a方法，进入到该方法后遇到 <code>this.a</code> 方法继续调用该方法形成死循环最终导致死循环报内存溢出错误。</p>
+<p>新语法(ES6)：暂时只有 firefox 支持，其他浏览器会报错</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">&#34;bb&#34;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s2">&#34;cc&#34;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">a</span> <span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="nx">get</span> <span class="p">[</span><span class="nx">b</span><span class="p">]</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">set</span> <span class="p">[</span><span class="nx">c</span><span class="p">]</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="o">/</span><span class="mi">2</span><span class="p">}</span><span class="p">,</span>
+    <span class="p">}</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">b</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">[</span><span class="s2">&#34;cc&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>打开 firefox 查看调试：
+<img src="/assets/931710743-5625b96cc1690_articlex.png" alt="图片描述"></p>
+<p>输出结果如下：
+<img src="/assets/1770225854-5625b9869b848_articlex.png" alt="图片描述"></p>
+<ol start="2">
+<li>使用 <code>Object.create</code> 方法</li>
+</ol>
+<p>引用 MDN：
+概述
+Object.create() 方法创建一个拥有指定原型和若干个指定属性的对象。</p>
+<pre><code>语法
+    Object.create(proto, [ propertiesObject ])
+</code></pre>
+<p>我们都知道使用 <code>Object.create</code> 方法传递一个参数的时候可以创建一个以该参数为原型的对象 <a href="../%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F">浅谈 JS 创建对象的 8 种模式</a>
+第二个参数是可选项，是一个匿名的参数对象，该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（包扩数据描述符或存取描述符，具体解释看后面的内容 什么是属性描述符）。
+通过属性描述符我们可以实现为新创建的对象添加 <code>get</code> 方法以及 <code>set</code> 方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span><span class="c1">//指定原型为 Object.prototype
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="nx">bar</span><span class="o">:</span><span class="p">{</span>
+                    <span class="nx">get</span> <span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+                        <span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+                    <span class="p">}</span><span class="p">,</span>
+                    <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Setting `o.bar` to &#34;</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="c1">//第二个参数
+</span><span class="c1"></span>        <span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">bar</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>在 chrome 中调试试图如下：
+<img src="/assets/3405566115-56259b01abddd_articlex.png" alt="图片描述"></p>
+<p>可以看到新创建对象通用多了 <code>get</code> 以及 <code>set</code> 属性
+输出结果如下：
+<img src="/assets/3935310264-56259b7525251_articlex.png" alt="图片描述"></p>
+<p>上面这个例子并没有用来针对的 get 方法以及 set 方法使用的属性</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span><span class="c1">//指定原型为 Object.prototype
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="nx">bar</span><span class="o">:</span><span class="p">{</span>
+                    <span class="nx">get</span> <span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+                        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+                    <span class="p">}</span><span class="p">,</span>
+                    <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Setting `o.bar` to &#34;</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+                        <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+                    <span class="p">}</span><span class="p">,</span>
+                    <span class="nx">configurable</span> <span class="o">:</span><span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="c1">//第二个参数
+</span><span class="c1"></span>        <span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">bar</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">bar</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>亦或：</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">10</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="c1">//指定原型为 o 这里实际可以理解为继承
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="nx">bar</span><span class="o">:</span><span class="p">{</span>
+                    <span class="nx">get</span> <span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+                        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+                    <span class="p">}</span><span class="p">,</span>
+                    <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Setting `o.bar` to &#34;</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+                        <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+                    <span class="p">}</span><span class="p">,</span>
+                    <span class="nx">configurable</span> <span class="o">:</span><span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span><span class="c1">//第二个参数
+</span><span class="c1"></span>        <span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">bar</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">bar</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>输出结果如下：
+<img src="/assets/236531464-5625b44234a35_articlex.png" alt="图片描述"></p>
+<p>使用这种方式的好处是可配置性高，但初学者容易迷糊。</p>
+<ol start="3">
+<li>使用 <code>Object.defineProperty</code> 方法</li>
+</ol>
+<p>引用 MDN：</p>
+<pre><code>概要
+    Object.defineProperty() 方法直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。
+语法
+    Object.defineProperty(obj, prop, descriptor)
+参数
+    obj
+        需要定义属性的对象。
+    prop
+        需被定义或修改的属性名。
+    descriptor
+        需被定义或修改的属性的描述符。
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span> <span class="o">:</span> <span class="mi">1</span><span class="p">}</span><span class="c1">//声明一个对象,包含一个 a 属性,值为1
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;b&#34;</span><span class="p">,</span><span class="p">{</span>
+        <span class="nx">get</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+        <span class="p">}</span><span class="p">,</span>
+        <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+        <span class="p">}</span><span class="p">,</span>
+        <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">b</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>这个方法与前面两种的区别是：使用前面两种只能在声明定义的时候指定 <code>getter</code> 与 <code>setter</code>，使用该方法可以随时的添加或修改。</p>
+<p>如果说需要一次性批量添加 getter 与 setter 也是没问题的，使用如下方法：</p>
+<ol start="4">
+<li>使用 <code>Object.defineProperties</code>方法</li>
+</ol>
+<p>MDN：</p>
+<pre><code>概述
+    Object.defineProperties() 方法在一个对象上添加或修改一个或者多个自有属性，并返回该对象。
+语法
+    Object.defineProperties(obj, props)
+参数
+    obj
+    将要被添加属性或修改属性的对象
+    props
+    该对象的一个或多个键值对定义了将要为对象添加或修改的属性的具体配置
+</code></pre>
+<p>不难看出用法与 <code>Object.defineProperty</code> 方法类似</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">b</span><span class="o">:</span><span class="s2">&#34;string&#34;</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="p">{</span>
+        <span class="s2">&#34;A&#34;</span><span class="o">:</span><span class="p">{</span>
+            <span class="nx">get</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="p">}</span><span class="p">,</span>
+            <span class="nx">set</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span><span class="p">}</span>
+        <span class="p">}</span><span class="p">,</span>
+        <span class="s2">&#34;B&#34;</span><span class="o">:</span><span class="p">{</span>
+            <span class="nx">get</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">b</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span><span class="p">}</span><span class="p">,</span>
+            <span class="nx">set</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">val</span><span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">A</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">A</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="nx">obj</span><span class="p">.</span><span class="nx">B</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">A</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>输出结果如下：
+<img src="/assets/3452679094-5625e23471227_articlex.png" alt="图片描述"></p>
+<ol start="5">
+<li>使用 <code>Object.prototype.__defineGetter__</code> 以及 <code>Object.prototype.__defineSetter__</code> 方法</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">__defineGetter__</span><span class="p">(</span><span class="s2">&#34;giveMeA&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">__defineSetter__</span><span class="p">(</span><span class="s2">&#34;setMeNew&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">a</span>  <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">giveMeA</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">setMeNew</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">giveMeA</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">输出结果为1和2</span>
+</code></pre></div><p>查看 MDN 有如下说明：
+<img src="/assets/3252288910-5625e443f1e7d_articlex.png" alt="图片描述"></p>
+<h2 id="heading1"><strong>什么是属性描述符</strong><a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>MDN：</p>
+<pre><code>对象里目前存在的属性描述符有两种主要形式：数据描述符和存取描述符。
+
+1. 数据描述符是一个拥有可写或不可写值的属性。
+2. 存取描述符是由一对 getter-setter 函数功能来描述的属性。
+3. 描述符必须是两种形式之一；不能同时是两者。
+</code></pre>
+<p>数据描述符和存取描述符均具有以下可选键值：</p>
+<pre><code>configurable
+    当且仅当这个属性描述符值为 true 时，该属性可能会改变，也可能会被从相应的对象删除。默认为 false。
+enumerable  
+    true 当且仅当该属性出现在相应的对象枚举属性中。默认为 false。
+</code></pre>
+<p>数据描述符同时具有以下可选键值：</p>
+<pre><code>value 
+    与属性相关的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 undefined。
+writable 
+    true 当且仅当可能用 赋值运算符 改变与属性相关的值。默认为 false。
+</code></pre>
+<p>存取描述符同时具有以下可选键值：</p>
+<pre><code>get 
+    一个给属性提供 getter 的方法，如果没有 getter 则为 undefined。方法将返回用作属性的值。默认为 undefined。
+set
+    一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。该方法将收到作为唯一参数的新值分配给属性。默认为 undefined。
+</code></pre>
+<p>以上是摘自MDN的解释，看起来是很晦涩的，具体什么意思呢：</p>
+<p>首先我们从以上解释知道该匿名参数对象有个很好听的名字叫属性描述符，属性描述符又分成两大块：数据描述符以及存取描述符（其实只是一个外号，给指定的属性集合起个外号）。</p>
+<p>数据描述符包括两个属性 : <code>value</code> 属性以及 <code>writable</code> 属性，第一个属性用来声明当前欲修饰的属性的值，第二个属性用来声明当前对象是否可写即是否可以修改</p>
+<p>存取描述符就包括 <code>get</code> 与 <code>set</code> 属性用来声明欲修饰的象属性的 <code>getter</code> 及 <code>setter</code></p>
+<p>属性描述符内部，数据描述符与存取描述符只能存在其中之一，但是不论使用哪个描述符都可以同时设置 <code>configurable</code> 属性以及<code>enumerable</code> 属性。
+<code>configurable</code>属性用来声明欲修饰的属性是否能够<code>配置</code>，仅有当其值为 <code>true</code> 时，被修饰的属性才有可能能够被删除，或者重新配置。
+<code>enumerable</code> 属性用来声明欲修饰属性是否可以被<code>枚举</code>。</p>
+<p>知道了什么是属性描述符，我们就可以开始着手创建一些对象并开始<code>配置</code>其属性</p>
+<h2 id="heading2"><strong>创建属性不可配置不可枚举的对象</strong><a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//使用默认值配置
+</span><span class="c1"></span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span><span class="c1">//声明一个空对象
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;key&#34;</span><span class="p">,</span><span class="p">{</span>
+        <span class="nx">value</span><span class="o">:</span><span class="s2">&#34;static&#34;</span>
+                        <span class="c1">//没有设置 enumerable 使用默认值 false
+</span><span class="c1"></span>                        <span class="c1">//没有 configurable 使用默认值 false
+</span><span class="c1"></span>                        <span class="c1">//没有 writable 使用默认值 false
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>           <span class="c1">//输出 “static”
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="s2">&#34;new&#34;</span>                 <span class="c1">//尝试修改其值,修改将失败,因为 writable 为 false
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">key</span><span class="p">)</span><span class="p">;</span>           <span class="c1">//输出 “static”
+</span><span class="c1"></span>    <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//动态添加一个属性
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span><span class="p">{</span> <span class="c1">//遍历所有 obj 的可枚举属性
+</span><span class="c1"></span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="c1">//只输出一个 “a” 因为 “key”的 enumerable为 false
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//显示配置 等价于上面
+</span><span class="c1"></span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;key&#34;</span><span class="p">,</span><span class="p">{</span>
+        <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">writable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">value</span> <span class="o">:</span> <span class="s2">&#34;static&#34;</span>
+    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//等价配置
+</span><span class="c1"></span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nx">o</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">//等价于
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="nx">writable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                                <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                                <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="c1">//等价于
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="nx">writable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                                <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                                <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h2 id="enumerable-"><strong>Enumerable 特性</strong><a href="#enumerable-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>属性特性 <code>enumerable</code> 决定属性是否能被 <code>for...in</code> 循环或 <code>Object.keys</code> 方法遍历得到</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">enumerable</span> <span class="o">:</span><span class="kc">true</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;b&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="nx">enumerable</span> <span class="o">:</span><span class="kc">false</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;c&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span><span class="mi">2</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//enumerable default to false
+</span><span class="c1"></span>    <span class="nx">o</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span><span class="c1">//如果直接赋值的方式创建对象的属性,则这个属性的 enumerable 为 true
+</span><span class="c1"></span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">item</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span><span class="p">{</span> <span class="c1">//遍历所有可枚举属性包括继承的属性
+</span><span class="c1"></span>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">)</span><span class="p">;</span><span class="c1">//获取 o 对象的所有可遍历属性不包括继承的属性
+</span><span class="c1"></span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">propertyIsEnumerable</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span><span class="c1">//true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">propertyIsEnumerable</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span><span class="c1">//false
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">propertyIsEnumerable</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span><span class="c1">//false
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>输出结果如下：
+<img src="/assets/1108293644-56261c8bb9eb0_articlex.png" alt="图片描述"></p>
+<h2 id="configurable-"><strong>Configurable 特性</strong><a href="#configurable-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">get</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="mi">1</span><span class="p">;</span><span class="p">}</span><span class="p">,</span>
+                                <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">}</span> <span class="p">)</span><span class="p">;</span>
+                                <span class="c1">//enumerable 默认为 false,
+</span><span class="c1"></span>                                <span class="c1">//value 默认为 undefined,
+</span><span class="c1"></span>                                <span class="c1">//writable 默认为 false,
+</span><span class="c1"></span>                                <span class="c1">//set 默认为 undefined
+</span><span class="c1"></span>                                  
+    <span class="c1">//抛出异常,因为最开始定义了 configurable 为 false,故后期无法对其进行再配置
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">configurable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">}</span> <span class="p">)</span><span class="p">;</span>
+    <span class="c1">//抛出异常,因为最开始定义了 configurable 为 false,故后期无法对其进行再配置,enumerable 的原值为 false
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">true</span><span class="p">}</span> <span class="p">)</span><span class="p">;</span>
+    <span class="c1">//抛出异常,因为最开始定义了 configurable 为 false,set的原值为 undefined
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">{</span><span class="p">}</span><span class="p">}</span> <span class="p">)</span><span class="p">;</span>
+    <span class="c1">//抛出异常,因为最开始定义了 configurable 为 false,故无法进行覆盖,尽管想用一样的来覆盖
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">get</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span><span class="k">return</span> <span class="mi">1</span><span class="p">}</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="c1">//抛出异常，因为最开始定义了 configurable 为 false,故无法将其进行重新配置把属性描述符从存取描述符改为数据描述符
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span> <span class="o">:</span> <span class="mi">12</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//输出1
+</span><span class="c1"></span>    <span class="k">delete</span> <span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>      <span class="c1">//想要删除属性,将失败
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span><span class="c1">//输出1
+</span><span class="c1"></span>    
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h2 id="heading3"><strong>提高及扩展</strong><a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>属性描述符中容易被误导的地方之 <code>writable</code> 与 <code>configurable</code></li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="p">{</span>
+        <span class="s2">&#34;a&#34;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">value</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nx">writable</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span><span class="c1">//可写
+</span><span class="c1"></span>            <span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span><span class="c1">//不可配置
+</span><span class="c1"></span>            <span class="c1">//enumerable 默认为 false 不可枚举
+</span><span class="c1"></span>        <span class="p">}</span><span class="p">,</span>
+        <span class="s2">&#34;b&#34;</span><span class="o">:</span><span class="p">{</span>
+            <span class="nx">get</span> <span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
+            <span class="p">}</span><span class="p">,</span>
+            <span class="nx">configurable</span><span class="o">:</span><span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>   <span class="c1">//1
+</span><span class="c1"></span>    <span class="nx">o</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>            <span class="c1">//修改值成功,writable 为 true
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>   <span class="c1">//2
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;a&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span><span class="o">:</span><span class="mi">3</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//同样为修改值成功
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span><span class="p">;</span>   <span class="c1">//3
+</span><span class="c1"></span>
+    <span class="c1">//将其属性 b 的属性描述符从存取描述符重新配置为数据描述符
+</span><span class="c1"></span>    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="s2">&#34;b&#34;</span><span class="p">,</span><span class="p">{</span><span class="nx">value</span><span class="o">:</span><span class="mi">3</span><span class="p">}</span><span class="p">)</span><span class="p">;</span><span class="c1">//抛出异常,因为 configurable 为 false
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><ol start="2">
+<li>通过上面的学习，我们都知道传递属性描述符参数时，是定义一个匿名的对象，里面包含属性描述符内容，若每定义一次便要创建一个匿名对象传入，将会造成内存浪费。故优化如下：</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">;</span>
+
+    <span class="c1">//回收同一对象,即减少内存浪费
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">withValue</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">withValue</span><span class="p">.</span><span class="nx">d</span> <span class="o">||</span><span class="p">(</span>
+            <span class="nx">withValue</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="nx">enumerable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">configurable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">writable</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">value</span> <span class="o">:</span><span class="kc">null</span>
+            <span class="p">}</span>
+            <span class="p">)</span><span class="p">;</span>
+        <span class="nx">d</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">d</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">&#34;key&#34;</span><span class="p">,</span><span class="nx">withValue</span><span class="p">(</span><span class="s2">&#34;static&#34;</span><span class="p">)</span><span class="p">)</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tangzixiang.github.io/tags/js">JS</a></span><span class="tag"><a href="https://tangzixiang.github.io/tags/%E5%89%8D%E7%AB%AF">前端</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>912 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">摘要</a></li>
+    <li><a href="#-getter--setter">定义 getter 与 setter</a></li>
+    <li><a href="#heading1">什么是属性描述符</a></li>
+    <li><a href="#heading2">创建属性不可配置不可枚举的对象</a></li>
+    <li><a href="#enumerable-">Enumerable 特性</a></li>
+    <li><a href="#configurable-">Configurable 特性</a></li>
+    <li><a href="#heading3">提高及扩展</a></li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>[CSS] 浅谈 CSS 清除浮动的 6 种方法</span>
+			</a>
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.e0d7091dcc4b94b6abbf4cc33c3075c352ca4e589d7199aa6032a4b0a2906614.js" integrity="sha256-4NcJHcxLlLarv0zDPDB1w1LKTlidcZmqYDKksKKQZhQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
