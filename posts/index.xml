@@ -11,33 +11,39 @@
 		
 		<item>
 			<title>tmux 命令的使用方式</title>
-			<link>https://tangzixiang.github.io/posts/tmux/</link>
+			<link>https://tangzixiang.github.io/posts/2020/tmux/</link>
 			<pubDate>Sun, 05 Jan 2020 17:56:18 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/tmux/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/tmux/</guid>
 			<description>如果安装不成功需要把仓库 clone 下来通过 makefile 安装
 参考：
- 阮一峰的网络日志:Tmux 使用教程 Tmux入门教程 - 掘金 tmux基本操作 强大的tmux tmux GitHub 地址  tmux 可以配合这个项目 ：</description>
+ 阮一峰的网络日志:Tmux 使用教程  Tmux入门教程 - 掘金   tmux基本操作   强大的tmux   tmux GitHub 地址    tmux 可以配合这个项目 ： </description>
 			<content type="html"><![CDATA[<p>如果安装不成功需要把仓库 clone 下来通过 makefile 安装</p>
 <p>参考：</p>
 <ul>
-<li><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">阮一峰的网络日志:Tmux 使用教程</a></li>
-<li><a href="https://juejin.im/post/5a8917336fb9a0633e51ddb9">Tmux入门教程 - 掘金</a></li>
-<li><a href="https://www.cnblogs.com/liuguanglin/p/9290345.html">tmux基本操作</a></li>
-<li><a href="https://www.jianshu.com/p/ec2689e2f1f3">强大的tmux</a></li>
-<li><a href="https://github.com/tmux/tmux">tmux GitHub 地址</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html"  target="_brank"  >阮一峰的网络日志:Tmux 使用教程</a> 
+</li>
+<li><a href="https://juejin.im/post/5a8917336fb9a0633e51ddb9"  target="_brank"  > Tmux入门教程 - 掘金 </a>
+</li>
+<li><a href="https://www.cnblogs.com/liuguanglin/p/9290345.html"  target="_brank"  > tmux基本操作 </a>
+</li>
+<li><a href="https://www.jianshu.com/p/ec2689e2f1f3"  target="_brank"  > 强大的tmux </a>
+</li>
+<li><a href="https://github.com/tmux/tmux"  target="_brank"  > tmux GitHub 地址 </a>
+</li>
 </ul>
-<p>tmux 可以配合<a href="https://github.com/gpakosz/.tmux">这个项目</a> ：
-<a href="https://github.com/gpakosz/.tmux"><img src="https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif" alt=""></a></p>
+<p>tmux 可以配合<a href="https://github.com/gpakosz/.tmux"  target="_brank"  >这个项目</a> 
+ ：
+<img src="https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif" alt=""></p>
 ]]></content>
 		</item>
 		
 		<item>
 			<title>screen 命令的使用方式</title>
-			<link>https://tangzixiang.github.io/posts/screen/</link>
+			<link>https://tangzixiang.github.io/posts/2020/screen/</link>
 			<pubDate>Sun, 05 Jan 2020 17:56:12 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/screen/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/screen/</guid>
 			<description>~ $ screen -h Use: screen [-opts] [cmd [args]] or: screen -r [host.tty] Options: -a Force all capabilities into each window&amp;#39;s termcap. -A -[r|R] Adapt all windows to the new display width &amp;amp; height. -c file Read configuration file instead of &amp;#39;.screenrc&amp;#39;. -d (-r) Detach the elsewhere running screen (and reattach here). -dmS name Start as daemon: Screen session in detached mode. -D (-r) Detach and logout remote (and reattach here).</description>
 			<content type="html"><![CDATA[<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">~ $ screen -h
 Use: screen <span class="o">[</span>-opts<span class="o">]</span> <span class="o">[</span>cmd <span class="o">[</span>args<span class="o">]</span><span class="o">]</span>
@@ -74,48 +80,50 @@ Options:
 -X            Execute &lt;cmd&gt; as a screen <span class="nb">command</span> in the specified session.
 </code></pre></div><p>参考：</p>
 <ul>
-<li><a href="https://blog.csdn.net/yizhang_ml/article/details/79632316">screen命令的常见用法</a></li>
-<li><a href="https://www.jianshu.com/p/0702a451dd0c">screen用于命令行终端切换</a></li>
+<li><a href="https://blog.csdn.net/yizhang_ml/article/details/79632316"  target="_brank"  > screen命令的常见用法 </a>
+</li>
+<li><a href="https://www.jianshu.com/p/0702a451dd0c"  target="_brank"  > screen用于命令行终端切换 </a>
+</li>
 </ul>
 ]]></content>
 		</item>
 		
 		<item>
 			<title>[GO] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
-			<link>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
+			<link>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[GO] 如何正确的开始用Go编程</title>
-			<link>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
+			<link>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>您必须知道的 Git 分支开发规范，附 Git 常用命令大全！</title>
-			<link>https://tangzixiang.github.io/posts/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
+			<link>https://tangzixiang.github.io/posts/2020/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>记一次如何在 windows 下添加 GitHub 的 SSH Key</title>
-			<link>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
+			<link>https://tangzixiang.github.io/posts/2020/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
 			<pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
 			<description>🏢 : mac; 🏠 : windows
 摘要  管理员方式打开 Git Bash 输入命令生成 ssh key 将 ssh key 加入 ssh-agent 将公钥加入到 GitHub 上 测试是否连接成功  管理员方式打开 Git Bash 输入命令生成 ssh key 在安装好 Git 后右键使用管理员身份运行方式打开下图的 Git Bash
 使用该命令生成个人账号的密钥对，引号内容为个人登录账号
@@ -173,10 +181,10 @@ The authenticity of host <span class="s1">&#39;github.com (IP)&#39;</span> can<s
 		
 		<item>
 			<title>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</title>
-			<link>https://tangzixiang.github.io/posts/mplus/</link>
+			<link>https://tangzixiang.github.io/posts/2019/mplus/</link>
 			<pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/mplus/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/mplus/</guid>
 			<description>mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
  能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &amp;#34;github.com/tangzixiang/mplus&amp;#34; 快速开始 # assume the following codes in simple.</description>
 			<content type="html"><![CDATA[<p><iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&repo=mplus&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
@@ -892,10 +900,10 @@ $ curl http://localhost:8080 <span class="se">\
 		
 		<item>
 			<title>使用 Hugo 发布文章</title>
-			<link>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</link>
 			<pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</guid>
 			<description>摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
 添加文章前我们先启动 Hugo
 github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
@@ -997,10 +1005,10 @@ description: &#34;孔融何许人也&#34;
 		
 		<item>
 			<title>使用 Hugo 创建个人 Blog</title>
-			<link>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</link>
 			<pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/</guid>
 			<description>摘要  你得先有个 GitHub 账号 Hugo 是什么？ Hugo 特色 安装 Hugo Hugo Themes Hugo 子命令 创建一个站点目录 添加主题 推送到 GitHub 上 配置 404 页面 GitHub Page 相关限制说明  你得先有个 GitHub 账号 在上一篇 如何在 GitHub 上创建 repository 中介绍了如何在 GitHub 上注册账号及个人仓库的详细步骤，如果你已有账号可以跳过此节，继续往下。
 这篇文章我们延续上一章使用 registerforxxx.github.io 作为案例。
 Hugo 是什么？ 引用 官方 结束的一句话
@@ -1189,10 +1197,10 @@ public $ git push -u origin master
 		
 		<item>
 			<title>如何在 GitHub 上创建 repository </title>
-			<link>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</link>
 			<pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/</guid>
 			<description>摘要  创建 GitHub 账号 创建首个 repository  创建GitHub 账号 首先登录 GitHub 官网地址，见到如下界面
 填入个人信息后会跳转至验证页面
 验证通过后进入下个页面选择是否使用专业版或免费版
@@ -1231,10 +1239,10 @@ public $ git push -u origin master
 		
 		<item>
 			<title>[Linux] Linux 学习笔记</title>
-			<link>https://tangzixiang.github.io/posts/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+			<link>https://tangzixiang.github.io/posts/2019/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
 			<pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
 			<description>帮助命令  在只记得部分关键字命令的时候，可以使用 man -k 来搜索 需要知道某个命令的简要说明，可以使用 whatis ，更详细的介绍可以使用 info 命令 查看命令在哪个位置可以使用 which 命令 对于命令的具体参数及使用方法，需要用到强大的 man  使用命令 whatis  功能： 简要说明指定命令的作用 使用方式：  tangzixiang@dev-lyy-web4:~$ whatis -h Usage: whatis [OPTION...] KEYWORD... -d, --debug emit debugging messages -v, --verbose print verbose warning messages -r, --regex interpret each keyword as a regex -w, --wildcard the keyword(s) contain wildcards -l, --long do not trim output to terminal width -C, --config-file=FILE use this user configuration file -L, --locale=LOCALE define the locale for this search -m, --systems=SYSTEM use manual pages from other systems -M, --manpath=PATH set search path for manual pages to PATH -s, --sections=LIST, --section=LIST search only these sections (colon-separated) -?</description>
 			<content type="html"><![CDATA[<h2 id="heading">帮助命令</h2>
 <ul>
@@ -1740,10 +1748,10 @@ mawar-linux-amd64: ELF 64-bit LSB executable, x86-64, version <span class="m">1<
 		
 		<item>
 			<title>[Lua] Lua 模块与包</title>
-			<link>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</link>
+			<link>https://tangzixiang.github.io/posts/2019/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</link>
 			<pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/</guid>
 			<description>摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account.</description>
 			<content type="html"><![CDATA[<h2 id="heading">摘要</h2>
 <ol>
@@ -1964,10 +1972,10 @@ Lua 5.3.4  Copyright <span class="o">(</span>C<span class="o">)</span> 1994-2017
 		
 		<item>
 			<title>[Go] 多条件排序设计</title>
-			<link>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
 			<pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%8E%92%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
 			<description>在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序
 代码位置： go/src/sort/example_multi_test.go
 // Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) // A Change is a record of source code changes, recording user, language, and delta size. type Change struct { user string language string lines int } type lessFunc func(p1, p2 *Change) bool // multiSorter implements the Sort interface, sorting the changes within.</description>
@@ -2122,10 +2130,10 @@ Lua 5.3.4  Copyright <span class="o">(</span>C<span class="o">)</span> 1994-2017
 		
 		<item>
 			<title>The wire data（wire 数据）</title>
-			<link>https://tangzixiang.github.io/posts/the-wire-datawire-%E6%95%B0%E6%8D%AE/</link>
+			<link>https://tangzixiang.github.io/posts/2019/the-wire-datawire-%E6%95%B0%E6%8D%AE/</link>
 			<pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/the-wire-datawire-%E6%95%B0%E6%8D%AE/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/the-wire-datawire-%E6%95%B0%E6%8D%AE/</guid>
 			<description>本文为 wiki 上关于 wire data 的翻译，不保证准确性。
 简介 wire data 是一种定义了客户端设备与服务器设备如何基于计算机和电信网络进行通信的信息。它是 wire protocol （一种传输协议）的全双工 data payload [1]解码后得到的内容。更确切的说，wire data 作为一种通信的信息存在于 OSI model 里除物理层之外的各个层级之中（没有包含物理层，是因为物理层的协议是用于建立连接而非通信）
 注释引用  全双工 data payload：bi-directional data payload  </description>
@@ -2141,10 +2149,10 @@ Lua 5.3.4  Copyright <span class="o">(</span>C<span class="o">)</span> 1994-2017
 		
 		<item>
 			<title>The wire protocol（wire 传输协议）</title>
-			<link>https://tangzixiang.github.io/posts/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</link>
+			<link>https://tangzixiang.github.io/posts/2019/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</link>
 			<pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/the-wire-protocolwire%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</guid>
 			<description>本文为 wiki 上关于 wire protocol 的翻译，不保证准确性。
 简介 在计算机网络中，wire protocol 指的是一种端到端（点到点）的数据获取方式，是多个应用[1]之间进行交互的必需品。它通常指的是一种高于物理层的协议。相较于传输层的各种传输协议 （TCP、UDP），wire protocol 术语习惯于被用来描述信息位于应用层上的一种通用表现形式，是一种应用层上的通用协议而非各类应用程序的通用型对象描述语意[2]。就像是 XML[3]与 XSD[4]之间的关系，XML 对传输的数据进行描述，而 XSD 对 XML 本身的文档结构的元素及语法进行描述。
 wire protocol 要么是一种文本格式协议要么是一种二进制格式协议。虽然决定采用那种格式，这是一种非常重要的架构设计，但是这并不是 wire protocol 与程序API之间的区别。
@@ -2185,10 +2193,10 @@ wire protocol 要么是一种文本格式协议要么是一种二进制格式协
 		
 		<item>
 			<title>[Go] 利用可编程排序准则对结构类型进行排序</title>
-			<link>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</link>
+			<link>https://tangzixiang.github.io/posts/2019/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</link>
 			<pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/sorting-a-struct-type-using-programmable-sort-criteria-%E5%88%A9%E7%94%A8%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%8E%92%E5%BA%8F%E5%87%86%E5%88%99%E5%AF%B9%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/</guid>
 			<description>sorting a struct type using programmable sort criteria 利用可编程排序准则对结构类型进行排序
 在 go 源码中看到一个设计模式
 代码位置： go/src/sort/example_keys_test.go
@@ -2309,10 +2317,10 @@ wire protocol 要么是一种文本格式协议要么是一种二进制格式协
 		
 		<item>
 			<title>[Go] &#34;==&#34; 与 reflect.DeepEqual</title>
-			<link>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</link>
+			<link>https://tangzixiang.github.io/posts/2019/go-%E4%B8%8E-reflect.deepequal/</link>
 			<pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/go-%E4%B8%8E-reflect.deepequal/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/go-%E4%B8%8E-reflect.deepequal/</guid>
 			<description>摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &amp;ldquo;==&amp;rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
 基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
 聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk</description>
@@ -2405,10 +2413,10 @@ wire protocol 要么是一种文本格式协议要么是一种二进制格式协
 		
 		<item>
 			<title> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</link>
 			<pubDate>Thu, 30 Jun 2016 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</guid>
 			<description>摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
 我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
 Object.isExtensible 方法 MDN：
@@ -2826,10 +2834,10 @@ obj 被检测的对象
 		
 		<item>
 			<title>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</title>
-			<link>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</link>
 			<pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/</guid>
 			<description>来个摸底测试，说出以下每个表达式的结果
 function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&amp;gt; function typeof o; //==&amp;gt; object typeof F.prototype; //==&amp;gt; object typeof o.</description>
 			<content type="html"><![CDATA[<p>来个摸底测试，说出以下每个表达式的结果</p>
@@ -3104,10 +3112,10 @@ out(Object.getPrototypeOf(Function.prototype) === Object.prototype)   //true
 		
 		<item>
 			<title>被小看的小巨人 - viewport</title>
-			<link>https://tangzixiang.github.io/posts/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</link>
 			<pubDate>Mon, 09 May 2016 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/</guid>
 			<description>viewport浅入 相信所有的 web 开发者都见过亦或用过这个神奇的 meta 标签头，亦或在不明白或者半明半蒙的情况下就用上了。
 先来解个疑惑 ，上图
 chrome 的手持设备模拟器相信大家再熟悉不过了，那么左上角的320*480是神马 ？应该很多人已经在心里有了个答案。 在解开这个疑惑之前 需要引入一个概念：
@@ -3276,10 +3284,10 @@ screen.width
 		
 		<item>
 			<title>[CSS] 浅谈 CSS 清除浮动的 6 种方法</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
 			<pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-css-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84-6-%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
 			<description>摘要  额外标签法 使用:after 伪元素 给父元素定高 利用overflow:hidden;属性 父元素浮动 父元素处于绝对定位  在开发网页的时候经常需要用到各种浮动，此时便需要及时的清除浮动，否则将会导致布局出现问题
 引出问题：
 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt; &amp;lt;style&amp;gt; .outer{ border: 1px solid black; width:300px; } .inner{ width: 50px; height: 50px; background-color: #ff4400; margin-right: 20px; float: left; } .footer{ background-color: #005FC3; width: 200px; height: 100px; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div class=&amp;quot;outer&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;inner&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 可以看出本应包住3个 inner DIV的 outer DIV 却没有包住他们，此刻只剩一条由上下边框贴合组成的线，同时 footer DIV元素也跑到了三个浮动元素的底下</description>
@@ -3622,10 +3630,10 @@ screen.width
 		
 		<item>
 			<title> [JS] 浅谈 JS 对象添加 getter与 setter 的5种方法以及如何让对象属性不可配置或枚举</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</link>
 			<pubDate>Thu, 22 Oct 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0-getter%E4%B8%8E-setter-%E7%9A%845%E7%A7%8D%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E4%B8%8D%E5%8F%AF%E9%85%8D%E7%BD%AE%E6%88%96%E6%9E%9A%E4%B8%BE/</guid>
 			<description>摘要  定义 getter 与 setter  通过对象初始化器定义 使用 Object.create 方法 使用 Object.defineProperty 方法 使用 Object.defineProperties 方法 使用 Object.prototype.defineGetter 以及 Object.prototype.defineSetter 方法   什么是属性描述符 创建属性不可配置不可枚举的对象 Enumerable 特性 Configurable 特新 提高及扩展  定义 getter 与 setter  通过对象初始化器在创建对象的时候指明（也可以称为通过字面值创建对象时声明）  (function () { var o = { a : 7, get b(){return this.a +1;},//通过 get,set的 b,c方法间接性修改 a 属性  set c(x){this.a = x/2} }; console.log(o.a); console.log(o.b); o.c = 50; console.log(o.a); })(); 在 chrome 中调试视图如下： 可以看到对象下多了 get 属性以及 set 属性 输出结果如下： 当然 get 语句与 set 语句可以声明多次用来对应多个 getter 和 setter 使用这种方法的好处是可以在声明属性的时候同时声明对应的 getter 和 setter 这里就有人问了，能不能将o 对象的 get 及 set 方法的方法名都改成 “a”,这样就可以直接通过“.</description>
 			<content type="html"><![CDATA[<h2 id="heading">摘要</h2>
 <ol>
@@ -4050,10 +4058,10 @@ set
 		
 		<item>
 			<title>[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i</title>
-			<link>https://tangzixiang.github.io/posts/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</link>
 			<pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/</guid>
 			<description>文章历史久远，有时间再同步更新吧 ~~
 闭包  正确的说,应该是指一个闭包域,每当声明了一个函数,它就产生了一个闭包域(可以解释为每个函数都有自己的函数栈),每个闭包域(Function 对象)都有一个 function scope(不是属性),function scope内默认有个名为 Global 的全局引用(有了这个引用,就可以直接调用 Global 的属性或方法) 凡是在闭包域内声明的变量或方法,外部无法直接访问 闭包域可以访问外部的变量或方法  (上图为 chrome 下 debug 环境)
  当在一个闭包域内包含另一个闭包域时(简单的说就是在一个函数内有另一个函数,当然这个内部函数的生命周期是依附于外部函数的), 此时,若子闭包域(内部的闭包域,内部函数)使用了父闭包域(外部闭包域,外部函数)的私有变量(在父闭包域中声明的变量,父闭包域的外部空间无法直接访问,但子闭包域可以访问),子闭包域即当前的子函数的 function scope 会产生一个 closure 对象属性,这个对象属性内包含的是子闭包域对父闭包域的所有引用(只要子闭包域(内部函数)还存活,其父闭包域(外部函数)就依旧存活),倘若在父闭包域存活期间对其私有变量内容进行修改,则对这些父闭包域的私有变量进行引用的子闭包域中 function scope 的 closure 对象属性的内容也会发生变化,因为这只是引用.
@@ -4277,10 +4285,10 @@ firefox支持一下语法</p>
 		
 		<item>
 			<title>[JS] 浅谈在 JS 中使用 Object 的 watch 方法监控对象属性</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</link>
 			<pubDate>Fri, 16 Oct 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88%E5%9C%A8js%E4%B8%AD%E4%BD%BF%E7%94%A8object%E7%9A%84watch%E6%96%B9%E6%B3%95%E7%9B%91%E6%8E%A7%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/</guid>
 			<description>MDN 对其的解释为:
 概述: 监视一个对象的某个属性是否发生变化,在该属性变化时立即触发指定的回调函数. 语法: object.watch(prop, handler) 参数: prop 想要监视值是否发生变化的指定对象的某个属性的属性名称 handler 当指定的属性发生变化时执行的回调函数  在 DHTML.js内查看其声明如下:
 可以看到这两个方法是只针对 Gecko 内核的浏览器使用的(FF 是使用的 Gecko 内核). wacth 方法有两个参数,第一个参数是一个字符串,代表需要监视的属性名,第二个参数是个回调函数 unwatch 方法只有一个参数,代表需要取消监视的属性名.
@@ -4365,10 +4373,10 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 		
 		<item>
 			<title> [JS] 浅谈 JS 创建对象的 8 种模式</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</link>
 			<pubDate>Thu, 15 Oct 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84-8-%E7%A7%8D%E6%A8%A1%E5%BC%8F/</guid>
 			<description>摘要  Objct 模式 工厂模式 构造器模式 通过 Function 对象实现 prototype 模式 构造器与原型方式的混合模式 动态原型模式 混合工厂模式  Object 模式 var o1 = {};//字面量的表现形式 var o2 = new Object; var o3 = new Object(); var o4 = new Object(null); var o5 = new Object(undefined); var o6 = Object.create(Object.prototype);//等价于 var o = {};//即以 Object.prototype 对象为一个原型模板,新建一个以这个原型模板为原型的对象 //区别 var o7 = Object.create(null);//创建一个原型为 null 的对象 在 chrome 里查看各个新建对象的区别: 可以看出前6种模式创建出来的对象都是一样的,第七种不同点在于其虽然也为 Object 对象但其无任何属性(包括没有任何可以继承的属性,因为创建的时候没有指定其原型)
 工厂模式 //工厂方法1 通过一个方法来创建对象 利用 arguments 对象获取参数设置属性(参数不直观,容易出现问题) function createCar(){ var oTemp = new Object(); oTemp.</description>
 			<content type="html"><![CDATA[<h2 id="heading">摘要</h2>
@@ -4582,10 +4590,10 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 		
 		<item>
 			<title>[JS] 浅谈细说 JS 函数(call,apply,重载)</title>
-			<link>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</link>
+			<link>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</link>
 			<pubDate>Mon, 12 Oct 2015 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</guid>
+			<guid>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</guid>
 			<description>摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
 函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&amp;#34;word&amp;#34;,&amp;#34;console.log(word);&amp;#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&amp;#34;word&amp;#34;,&amp;#34;console.log(word);&amp;#34;); 调用函数基本方法
 speak(&amp;#34;hello world for global !</description>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨">
+<meta itemprop="description" content="来个摸底测试，说出以下每个表达式的结果
+function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&gt; function typeof o; //==&gt; object typeof F.prototype; //==&gt; object typeof o.">
+<meta itemprop="datePublished" content="2016-06-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-06-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="953">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨" />
+<meta property="og:description" content="来个摸底测试，说出以下每个表达式的结果
+function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&gt; function typeof o; //==&gt; object typeof F.prototype; //==&gt; object typeof o." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E9%AB%98%E8%83%BDtypeof-function.prototype-%E5%BC%95%E5%8F%91%E7%9A%84%E5%85%88%E6%9C%89-function-%E8%BF%98%E6%98%AF%E5%85%88%E6%9C%89-object-%E7%9A%84%E6%8E%A2%E8%AE%A8/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2016-06-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-06-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨"/>
+<meta name="twitter:description" content="来个摸底测试，说出以下每个表达式的结果
+function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&gt; function typeof o; //==&gt; object typeof F.prototype; //==&gt; object typeof o."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jun 29, 2016</span></div>
+				<h1>[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</h1>
+			</header>
+			<div class="content">
+				<p>来个摸底测试，说出以下每个表达式的结果</p>
+<pre><code>function F(){};
+var o = {};
+
+typeof F;
+typeof o;
+typeof F.prototype;
+typeof o.prototype;
+typeof new F;
+typeof (new F).prototype;
+typeof (new F).__proto__;
+typeof F.__proto__;
+typeof o.__proto__;
+typeof Object;
+typeof Function;
+typeof (new Function).prototype;
+typeof (new Function).__proto__;
+typeof (new Object).prototype;
+typeof (new Object).__proto__;
+typeof Object.prototype;
+typeof Object.__proto__;
+typeof Function.prototype;
+typeof Function.__proto__;
+</code></pre><hr>
+<pre><code>function F(){};
+var o = {};
+                
+typeof F;                          //==&gt; function
+typeof o;                          //==&gt; object
+typeof F.prototype;                //==&gt; object
+typeof o.prototype;                //==&gt; undefinded
+typeof new F;                      //==&gt; object
+typeof (new F).prototype;          //==&gt; undefined
+typeof (new F).__proto__;          //==&gt; object
+typeof F.__proto__;                //==&gt; function
+typeof o.__proto__;                //==&gt; object
+typeof Object;                     //==&gt; function
+typeof Function;                   //==&gt; function
+typeof (new Function).prototype;   //==&gt; object
+typeof (new Function).__proto__;   //==&gt; function
+typeof (new Object).prototype;     //==&gt; undefined
+typeof (new Object).__proto__;     //==&gt; object
+typeof Object.prototype;           //==&gt; object
+typeof Object.__proto__;           //==&gt; function
+typeof Function.prototype;         //==&gt; function
+typeof Function.__proto__;         //==&gt; function
+
+</code></pre><p>看到这里相信有不少入门不久的同学已经产生疑惑了，是真的吗？然后在浏览器试过一番发现真是如此。</p>
+<p>解开疑惑之前先回顾些大家都知道的知识点：</p>
+<p>引用 MDN 关于 对象实例和对象原型对象 的阐述：</p>
+<blockquote>
+<p>JavaScript 语言的所有对象都是由 Object 衍生的对象；
+所有对象都继承了 Object.prototype 的方法和属性，尽管它们可能被覆盖。
+例如，其它的构造器原型覆盖了 constructor 属性并提供了其自己的 toString 方法。
+原型对象的更改会传播给所有的对象，除非这些属性和方法在原型链中被再次覆盖。</p>
+</blockquote>
+<p>就如我们经常在各类教科中看到的 所有的实例对象都是 Object 类型的实例</p>
+<p>那么我们平时都是如何确定一个对象是否是另一个类型或对象的实例的呢？</p>
+<p>对我们可以使用 typeof 关键字 亦或可以使用关键字 instanceof 来确定某个对象是否是指定类型或对象的实例：</p>
+<pre><code>typeof {} //object
+({}) instanceof Object //true
+
+typeof Date                      //function
+Date instanceof Function         //true
+typeof Date.prototype            //obejct
+Date.prototype instanceof Object //true
+</code></pre><p>然而针对 Object 的 prototype 属性：</p>
+<pre><code>typeof Object.prototype //object
+
+Object.prototype instanceof Object // false
+</code></pre><p>为什么,要想搞清楚为什么就得明白 instanceof 这个关键字在表达式中发生了什么?</p>
+<p>在弄清楚 instanceof 之前 还得弄清楚一样东西 就是 new 一个对象到底做了什么：</p>
+<p>如 <code>var a = new A();</code> 认为 “a为A函数的实例对象”</p>
+<p>new操作的过程是什么? 可以总结如下：</p>
+<ol>
+<li>new 创建一个空对象{}</li>
+<li>然后将 A.prototype 的引用放置到该对象的原型链上。即 a.__proto__ 指向 A.prototype</li>
+<li>执行 A 函数，将 A 中 this 指向该对象，执行结束，如果没有 return 那么默认返回this引用</li>
+</ol>
+<p>那么new的其中一个的作用便是把 A.prototype 的指向添加到了 a 的原型链中。</p>
+<p>至此我们便知道了如下关系：</p>
+<pre><code>a.\_\_proto__ === A.prototype //true
+
+a instanceof A //true
+</code></pre>
+<p>故为何不得出一个结论：</p>
+<p>instanceof 操作符其实就是检查左侧的元素的 __proto__ 链上有没有右侧类或对象的 prototype 存在。
+同理 当某某某是某某某的实例时，其实也是证明左侧的 __proto__ 链上有右侧类或对象的 prototype 存在。</p>
+<p>细节剖析如下：</p>
+<ol>
+<li>看右侧的 A 获取其 prototype 得到 A.prototype。</li>
+<li>看左侧 a 对象的原型链上是否有第一步得到 A.prototype。
+<ul>
+<li>获取 a.__proto__ 对象看是否为 A.prototype，是则返回 true</li>
+<li>获取 a.__proto__.__proto__ 对象看是否为 A.prototype,是则返回 true</li>
+<li>重复获取左侧的原型链上的 <code>[[Prototype]]</code> 特性即 __proto__ 属性进行判断直到为空返回 false。</li>
+</ul>
+</li>
+</ol>
+<p>校验真理，我们都知道 js 有几大内置类型 这些类型都是 Function 的实例，是 Function 类型：</p>
+<pre><code>out(typeof Date)     //Function
+out(typeof RegExp)   //Function
+out(typeof Number)   //Function
+out(typeof Boolean)  //Function
+out(typeof String)   //Function
+out(typeof Array)    //Function
+out(typeof Error)    //Function
+//...
+
+out(Date.__proto__  === Function.prototype)    //true
+out(RegExp.__proto__ === Function.prototype)   //true
+out(Number.__proto__ === Function.prototype)   //true
+out(Boolean.__proto__ === Function.prototype)  //true
+out(String.__proto__ === Function.prototype)   //true
+out(Array.__proto__ === Function.prototype)    //true
+out(Error.__proto__ === Function.prototype)    //true
+//...
+
+out(Object.getPrototypeOf(Date)  === Function.prototype)    //true
+out(Object.getPrototypeOf(RegExp) === Function.prototype)   //true
+out(Object.getPrototypeOf(Number) === Function.prototype)   //true
+out(Object.getPrototypeOf(Boolean) === Function.prototype)  //true
+out(Object.getPrototypeOf(String) === Function.prototype)   //true
+out(Object.getPrototypeOf(Array) === Function.prototype)    //true
+out(Object.getPrototypeOf(Error) === Function.prototype)    //true
+//...
+
+out( Date instanceof Function)    //true
+out( RegExp instanceof Function)  //true
+out( Number instanceof Function)  //true
+out( Boolean instanceof Function) //true
+out( String instanceof Function)  //true
+out( Array instanceof Function)   //true
+out( Error instanceof Function)   //true
+//...
+</code></pre>
+<p>回到上述针对 Object 的 prototype 属性疑惑 为什么到了 Object 就得不出一样的结果了呢？</p>
+<p>我们都知道每个函数对象亦或函数类型都会有个 prototype 属性，在其上挂载的方法和属性均能够被该类型实例化出来的对象共享，因为实例化出来的对象拥有 <code>[[Prototype]]</code> 特性即 <code>\_\_proto__</code> 属性，js 便是通过该特性实现原型链机制。</p>
+<p>那么这些函数的 prototype 属性对象是否也有自己的 <code>[[Prototype]]</code> 特性即 <code>\_\_proto__</code> 属性呢？</p>
+<pre><code>out(typeof Date.prototype)    //object
+out(typeof RegExp.prototype)  //object
+out(typeof Number.prototype)  //object
+out(typeof Boolean.prototype) //object
+out(typeof String.prototype)  //object
+out(typeof Array.prototype)   //object
+out(typeof Error.prototype)   //object
+
+out(typeof Object.getPrototypeOf(Date.prototype))        //object
+out(typeof Object.getPrototypeOf(RegExp.prototype))      //object
+out(typeof Object.getPrototypeOf(Number.prototype))      //object
+out(typeof Object.getPrototypeOf(Boolean.prototype))     //object
+out(typeof Object.getPrototypeOf(String.prototype))      //object
+out(typeof Object.getPrototypeOf(Array.prototype))       //object
+out(typeof Object.getPrototypeOf(Error.prototype))       //object
+
+out(Object.getPrototypeOf(Date.prototype) === Object.prototype)    //true
+out(Object.getPrototypeOf(RegExp.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Number.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Boolean.prototype) === Object.prototype) //true
+out(Object.getPrototypeOf(String.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Array.prototype) === Object.prototype)   //true
+out(Object.getPrototypeOf(Error.prototype) === Object.prototype)   //true
+</code></pre>
+<p>可以看出每个函数对象的 prototype 属性也有自己的 <code>[[Prototype]]</code> 特性 而且指向的是 <code>Object.prototype</code></p>
+<p>那么是否所有对象都会有直接的 <code>[[Prototype]]</code> 特性 呢？</p>
+<pre><code>out( Object.getPrototypeOf( Object.getPrototypeOf(Date.prototype)))     //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(RegExp.prototype)))   //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(Number.prototype)))   //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(Boolean.prototype)))  //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(String.prototype)))   //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(Array.prototype)))    //null
+out( Object.getPrototypeOf( Object.getPrototypeOf(Error.prototype)))    //null
+out( Object.getPrototypeOf( Object.prototype))                          //null
+</code></pre>
+<p>答案是否。</p>
+<p>有个例外他就是 <code>Object.prototype</code>。</p>
+<p>回看前面的 Demo:</p>
+<pre><code>Object.prototype instanceof Object // false
+</code></pre><p>从前面的代码输出我们看到 Object.prototype 对象是没有 <code>[[Prototype]]</code> 特性的，同时前面我们也讨论过 <code>instanceof</code> 这个关键字所涉及的具体操作。</p>
+<p>我们可以具体剖析如下：</p>
+<ol>
+<li>看右侧的 Object 获取其 prototype 得到 Object.prototype。</li>
+<li>看左侧 Object.prototype 对象的原型链上是否有第一步得到 Object.prototype。
+<ul>
+<li>获取 Object.prototype.__proto__ 对象为空直接返回 false。</li>
+</ul>
+</li>
+</ol>
+<p>那么为什么所有的对象都有 <code>[[Prototype]]</code> 特性，唯独 <code>Object.prototype</code> 没有呢。答案很简单：既然 JS的继承机制是基于原型链的那总该有个头吧，这个头便是 <code>Object.prototype</code> 。</p>
+<p>再来一发:</p>
+<pre><code>out( typeof Function)                                          //function
+out( typeof Object)                                            //function
+out( Object instanceof Function)                               //true
+out( Function instanceof Function)                             //true
+</code></pre>
+<p>在学习 JS 的过程中我们已经知道所有的数据类型都是 <code>Function</code> 类型的实例，包括 <code>Object</code> 在内，但是我们都知道所有的对象都是 Object 的实例，这时便引出文章的题目</p>
+<h2 id="-function--object">到底是先有 Function 还是先有 Object？<a href="#-function--object" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<pre><code>out( Function.__proto__  === Function.prototype)               //true
+out( Object.__proto__  === Function.prototype)                 //true
+out( Object.getPrototypeOf(Function) === Function.prototype)   //true
+out( Object.getPrototypeOf(Object) === Function.prototype)     //true
+out( Object instanceof Function)                               //true 
+out( Function instanceof Function)                             //true
+</code></pre>
+<p>从上述代码加上前面得出的结论我们可以看出</p>
+<p>Function 和 Object 的原型链上都有 <code>Function.prototype</code></p>
+<p>我们再来详细看看 <code>Function.prototype</code></p>
+<pre><code>out( typeof Function.prototype);                // function
+out( Function.prototype instanceof Object)      //true
+</code></pre><p>这时候问题升华为</p>
+<h2 id="functionprototype--objectprototype-">Function.prototype 和 Object.prototype 的关系。<a href="#functionprototype--objectprototype-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<pre><code>out( Function.prototype.__proto__ === Object.prototype)
+</code></pre>
+<p>这时候关系已经很明了了：</p>
+<p>我们都知道除了 Object.prototype 之外所有对象都会有 <code>[[Prototype]]</code> 特性 即 <code>__proto__</code> 属性,故 Function.prototype 也不例外，
+Function.prototype 指向的是 Object.prototype</p>
+<p>这时候就可以清楚的知道为什么说所有类型都是 Function 的实例，同时也是 Object 的实例:</p>
+<p>因为所有的类型的 <code>[[Prototype]]</code> 特性 即 <code>\_\_proto__</code> 属性均指向的是 Function.prototype ,同时 Function.prototype 的<code>[[Prototype]]</code>特性 即 <code>\_\_proto__</code> 属性又指向了 Object.prototype 。</p>
+<p>故大王是 <code>Object.prototype</code>，二王是 <code>Function.prototype</code>，其他均是小弟，但是小弟也有等级划分</p>
+<p>先接着来看 Function:</p>
+<pre><code>out( typeof Function.prototype);                // function
+out( typeof Function.__proto__);                // function
+out( Function.prototype === Function.__proto__);// true
+</code></pre><p>首先我们可以看出 Function.prototype 和其他类型的 prototype 属性是 object 类型不一样， 是 function 类型。
+其次 Function.__proto__  指向了 Function.prototype。</p>
+<p>我们知道当一个类型实例化出对象时，这些对象的便会共享挂载在该类型的 prototype 属性上的资源，因为这些对象均有 <code>[[Prototype]]</code> 特性,指向的就是实例化出这些对象的类型的 prototype。</p>
+<p>从前面的例子可以看到所有的类型的 <code>[[Prototype]]</code> 特性均指向了 Function.prototype,所以这些类型都具有了使用挂载在 Function.prototype 上的资源的权利。因此可以看出，当一个对象具有使用挂载在 Function.prototype 上的资源的权利时，及该对象 <code>[[Prototype]]</code> 指向 Function.prototype 时代表这个对象是个 Function 实例是一个类型，能够实例化出该类型的对象，当然包括 Function 在内。</p>
+<p>又因为所有类型的 <code>[[Prototype]]</code> 指向 Function.prototype 而 Function.prototype 的 <code>[[Prototype]]</code> 指向是 Object.prototype，所以这些类型都具有使用挂载在 Object.prototype 上的资源的权利。</p>
+<p>那用这些类型实例化出来的对象呢? 类型的原型链并不在实例化出来的对象上呀，但是这些实例化出来的对象的 <code>[[Protitype]]</code> 指向的是其类型的  prototype 属性。</p>
+<p>往回看前面的例子 可以看到有一段</p>
+<pre><code>out(Object.getPrototypeOf(Date.prototype) === Object.prototype)    //true
+out(Object.getPrototypeOf(RegExp.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Number.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Boolean.prototype) === Object.prototype) //true
+out(Object.getPrototypeOf(String.prototype) === Object.prototype)  //true
+out(Object.getPrototypeOf(Array.prototype) === Object.prototype)   //true
+out(Object.getPrototypeOf(Error.prototype) === Object.prototype)   //true
+out(Object.getPrototypeOf(Function.prototype) === Object.prototype)   //true
+</code></pre>
+<p>可以看到这些类型的 prototype 属性的 <code>[[Protitype]]</code> 指向的是 Object.prototype 故至此，所有对象包括类型对象亦或类型实例化出来的对象都有使用挂载在 Object.prototype 上的资源的权利。</p>
+<p>到这里所有对象之间的关系就已经清除了，相信已经有不少人已经晕乎了，没关系 我准备了图(看不太清晰是因为上传后被压缩了，下图 object.__proto__ 处有个错误找时间更新)：</p>
+<p><img src="/assets/841025530-5766b5683f4b6_articlex.png" alt="clipboard.png"></p>
+<p>当然这里我还是省略了部分细节 譬如对应类型的 prototype 属性对象均有 constructor 属性指向该类型，以及省略部分类型。</p>
+<p>对着这张图重新看一遍本文和文章开头的摸底，相信你会有收获。</p>
+<p>那么为什么使用 typeof 获取 Object.prototype 会返回 object 呢。</p>
+<p>我们知道浏览器底层对 JS 的实现的是基于 C/C++
+通过上图，我们可以猜测</p>
+<h2 id="js-">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）<a href="#js-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>用 C/C++ 构造内部数据结构创建一个 OP 即(Object.prototype)以及初始化其内部属性但不包括行为。</li>
+<li>用 C/C++ 构造内部数据结构创建一个 FP 即(Function.prototype)以及初始化其内部属性但不包括行为。</li>
+<li>将 FP 的 [[Prototype]] 指向 OP。</li>
+<li>用 C/C++ 构造内部数据结构创建各种内置引用类型。</li>
+<li>将各内置引用类型的 [[Prototype]] 指向 FP。</li>
+<li>将 Function 的 prototype 指向 FP。</li>
+<li>将 Object 的 prototype 指向 OP。</li>
+<li>用 Function 实例化出 OP，FP，以及 Object 的行为并挂载。</li>
+<li>用 Object 实例化出除 Object 以及 Function 的其他内置引用类型的 prototype 属性对象。</li>
+<li>用 Function 实例化出除Object 以及 Function 的其他内置引用类型的 prototype 属性对象的行为并挂载。</li>
+<li>实例化内置对象 Math 以及 Grobal
+至此，所有 内置类型构建完成。</li>
+</ol>
+<p>现在我们可以回答为什么使用 typeof 获取 Object.prototype 会返回 object 了。
+因为我们在使用 typeof 的时候得到的 object 类型并不完全代表是 Object 类型实例化出来的对象，有可能是底层实现的内部数据结构，包括 null。真正想知道这个类型还是需要去到当前该类的内部 <code>[[Class]]</code>属性，至于如何获取可以使用 Object 的 toString 方法。</p>
+<p>最后的最后，你还对是现有 Function 还是现有 Object 有想法了吗？</p>
+<p>以上均为个人查阅及实践总结的观点。</p>
+<p>谢谢~</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>953 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#-function--object">到底是先有 Function 还是先有 Object？</a></li>
+    <li><a href="#functionprototype--objectprototype-">Function.prototype 和 Object.prototype 的关系。</a></li>
+    <li><a href="#js-">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）</a></li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</span>
+			</a>
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/2019/%E8%A2%AB%E5%B0%8F%E7%9C%8B%E7%9A%84%E5%B0%8F%E5%B7%A8%E4%BA%BA-viewport/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>被小看的小巨人 - viewport</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

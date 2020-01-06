@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="[Linux] Linux 学习笔记">
+<meta itemprop="description" content="帮助命令  在只记得部分关键字命令的时候，可以使用 man -k 来搜索 需要知道某个命令的简要说明，可以使用 whatis ，更详细的介绍可以使用 info 命令 查看命令在哪个位置可以使用 which 命令 对于命令的具体参数及使用方法，需要用到强大的 man  使用命令 whatis  功能： 简要说明指定命令的作用 使用方式：  tangzixiang@dev-lyy-web4:~$ whatis -h Usage: whatis [OPTION...] KEYWORD... -d, --debug emit debugging messages -v, --verbose print verbose warning messages -r, --regex interpret each keyword as a regex -w, --wildcard the keyword(s) contain wildcards -l, --long do not trim output to terminal width -C, --config-file=FILE use this user configuration file -L, --locale=LOCALE define the locale for this search -m, --systems=SYSTEM use manual pages from other systems -M, --manpath=PATH set search path for manual pages to PATH -s, --sections=LIST, --section=LIST search only these sections (colon-separated) -?">
+<meta itemprop="datePublished" content="2019-02-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1594">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[Linux] Linux 学习笔记" />
+<meta property="og:description" content="帮助命令  在只记得部分关键字命令的时候，可以使用 man -k 来搜索 需要知道某个命令的简要说明，可以使用 whatis ，更详细的介绍可以使用 info 命令 查看命令在哪个位置可以使用 which 命令 对于命令的具体参数及使用方法，需要用到强大的 man  使用命令 whatis  功能： 简要说明指定命令的作用 使用方式：  tangzixiang@dev-lyy-web4:~$ whatis -h Usage: whatis [OPTION...] KEYWORD... -d, --debug emit debugging messages -v, --verbose print verbose warning messages -r, --regex interpret each keyword as a regex -w, --wildcard the keyword(s) contain wildcards -l, --long do not trim output to terminal width -C, --config-file=FILE use this user configuration file -L, --locale=LOCALE define the locale for this search -m, --systems=SYSTEM use manual pages from other systems -M, --manpath=PATH set search path for manual pages to PATH -s, --sections=LIST, --section=LIST search only these sections (colon-separated) -?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2019-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="[Linux] Linux 学习笔记"/>
+<meta name="twitter:description" content="帮助命令  在只记得部分关键字命令的时候，可以使用 man -k 来搜索 需要知道某个命令的简要说明，可以使用 whatis ，更详细的介绍可以使用 info 命令 查看命令在哪个位置可以使用 which 命令 对于命令的具体参数及使用方法，需要用到强大的 man  使用命令 whatis  功能： 简要说明指定命令的作用 使用方式：  tangzixiang@dev-lyy-web4:~$ whatis -h Usage: whatis [OPTION...] KEYWORD... -d, --debug emit debugging messages -v, --verbose print verbose warning messages -r, --regex interpret each keyword as a regex -w, --wildcard the keyword(s) contain wildcards -l, --long do not trim output to terminal width -C, --config-file=FILE use this user configuration file -L, --locale=LOCALE define the locale for this search -m, --systems=SYSTEM use manual pages from other systems -M, --manpath=PATH set search path for manual pages to PATH -s, --sections=LIST, --section=LIST search only these sections (colon-separated) -?"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>[Linux] Linux 学习笔记</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 21, 2019</span></div>
+				<h1>[Linux] Linux 学习笔记</h1>
+			</header>
+			<div class="content">
+				<h2 id="heading">帮助命令<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>在只记得部分关键字命令的时候，可以使用 <code>man -k</code> 来搜索</li>
+<li>需要知道某个命令的简要说明，可以使用 <code>whatis</code> ，更详细的介绍可以使用 <code>info</code> 命令</li>
+<li>查看命令在哪个位置可以使用 <code>which</code> 命令</li>
+<li>对于命令的具体参数及使用方法，需要用到强大的 <code>man</code></li>
+</ul>
+<h3 id="heading1">使用命令<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h4 id="whatis">whatis<a href="#whatis" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>功能： 简要说明指定命令的作用</li>
+<li>使用方式：</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ whatis -h
+Usage: whatis <span class="o">[</span>OPTION...<span class="o">]</span> KEYWORD...
+
+  -d, --debug                emit debugging messages
+  -v, --verbose              print verbose warning messages
+  -r, --regex                interpret each keyword as a regex
+  -w, --wildcard             the keyword<span class="o">(</span>s<span class="o">)</span> contain wildcards
+  -l, --long                 <span class="k">do</span> not trim output to terminal width
+  -C, --config-file<span class="o">=</span>FILE     use this user configuration file
+  -L, --locale<span class="o">=</span>LOCALE        define the locale <span class="k">for</span> this search
+  -m, --systems<span class="o">=</span>SYSTEM       use manual pages from other systems
+  -M, --manpath<span class="o">=</span>PATH         <span class="nb">set</span> search path <span class="k">for</span> manual pages to PATH
+  -s, --sections<span class="o">=</span>LIST, --section<span class="o">=</span>LIST
+                             search only these sections <span class="o">(</span>colon-separated<span class="o">)</span>
+  -?, --help                 give this <span class="nb">help</span> list
+      --usage                give a short usage message
+  -V, --version              print program version
+</code></pre></div><ul>
+<li>举例：</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ whatis which
+which <span class="o">(</span>1<span class="o">)</span>            - locate a <span class="nb">command</span>
+
+<span class="c1"># 简要说明 whi 开头的命令</span>
+tangzixiang@dev-lyy-web4:~$ whatis -w <span class="s2">&#34;whi*&#34;</span>
+which <span class="o">(</span>1<span class="o">)</span>            - locate a <span class="nb">command</span>
+whiptail <span class="o">(</span>1<span class="o">)</span>         - display dialog boxes from shell scripts
+
+<span class="c1"># 使用正则解析 `whi*`</span>
+tangzixiang@dev-lyy-web4:~$ whatis -r <span class="s2">&#34;whi*&#34;</span>
+git-whatchanged <span class="o">(</span>1<span class="o">)</span>  - Show logs with difference each commit introduces
+pam_pwhistory <span class="o">(</span>8<span class="o">)</span>    - PAM module to remember last passwords
+pam_wheel <span class="o">(</span>8<span class="o">)</span>        - Only permit root access to members of group wheel
+whatis <span class="o">(</span>1<span class="o">)</span>           - display one-line manual page descriptions
+whereis <span class="o">(</span>1<span class="o">)</span>          - locate the binary, source, and manual page files <span class="k">for</span> a <span class="nb">command</span>
+which <span class="o">(</span>1<span class="o">)</span>            - locate a <span class="nb">command</span>
+whiptail <span class="o">(</span>1<span class="o">)</span>         - display dialog boxes from shell scripts
+who <span class="o">(</span>1<span class="o">)</span>              - show who is logged on
+whoami <span class="o">(</span>1<span class="o">)</span>           - print effective userid
+</code></pre></div><h4 id="info">info<a href="#info" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>功能：更加详细的说明命令的作用</li>
+<li>使用方式：</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ info -h
+Usage: info <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>MENU-ITEM...<span class="o">]</span>
+
+Read documentation in Info format.
+
+Options:
+  -a, --all                    use all matching manuals.
+  -k, --apropos<span class="o">=</span>STRING         look up STRING in all indices of all manuals.
+  -d, --directory<span class="o">=</span>DIR          add DIR to INFOPATH.
+      --dribble<span class="o">=</span>FILE           remember user keystrokes in FILENAME.
+  -f, --file<span class="o">=</span>MANUAL            specify Info manual to visit.
+  -h, --help                   display this <span class="nb">help</span> and exit.
+      --index-search<span class="o">=</span>STRING    go to node pointed by index entry STRING.
+  -n, --node<span class="o">=</span>NODENAME          specify nodes in first visited Info file.
+  -o, --output<span class="o">=</span>FILE            output selected nodes to FILE.
+  -R, --raw-escapes            output <span class="s2">&#34;raw&#34;</span> ANSI escapes <span class="o">(</span>default<span class="o">)</span>.
+      --no-raw-escapes         output escapes as literal text.
+      --restore<span class="o">=</span>FILE           <span class="nb">read</span> initial keystrokes from FILE.
+  -O, --show-options, --usage  go to command-line options node.
+      --strict-node-location   <span class="o">(</span><span class="k">for</span> debugging<span class="o">)</span> use Info file pointers as-is.
+      --subnodes               recursively output menu items.
+  -v, --variable <span class="nv">VAR</span><span class="o">=</span>VALUE     assign VALUE to Info variable VAR.
+      --vi-keys                use vi-like and less-like key bindings.
+      --version                display version information and exit.
+  -w, --where, --location      print physical location of Info file.
+  -x, --debug<span class="o">=</span>NUMBER           <span class="nb">set</span> debugging level <span class="o">(</span>-1 <span class="k">for</span> all<span class="o">)</span>.
+</code></pre></div><h4 id="man">man<a href="#man" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>功能：查询命令的说明文档</li>
+<li>使用方式:</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ man -h
+Usage: man <span class="o">[</span>OPTION...<span class="o">]</span> <span class="o">[</span>SECTION<span class="o">]</span> PAGE...
+
+  -C, --config-file<span class="o">=</span>FILE     use this user configuration file
+  -d, --debug                emit debugging messages
+  -D, --default              reset all options to their default values
+      --warnings<span class="o">[</span><span class="o">=</span>WARNINGS<span class="o">]</span>  <span class="nb">enable</span> warnings from groff
+
+ Main modes of operation:
+  -f, --whatis               equivalent to whatis
+  -k, --apropos              equivalent to apropos
+  -K, --global-apropos       search <span class="k">for</span> text in all pages
+  -l, --local-file           interpret PAGE argument<span class="o">(</span>s<span class="o">)</span> as <span class="nb">local</span> filename<span class="o">(</span>s<span class="o">)</span>
+  -w, --where, --path, --location
+                             print physical location of man page<span class="o">(</span>s<span class="o">)</span>
+  -W, --where-cat, --location-cat
+                             print physical location of cat file<span class="o">(</span>s<span class="o">)</span>
+
+  -c, --catman               used by catman to reformat out of date cat pages
+  -R, --recode<span class="o">=</span>ENCODING      output <span class="nb">source</span> page encoded in ENCODING
+
+ Finding manual pages:
+  -L, --locale<span class="o">=</span>LOCALE        define the locale <span class="k">for</span> this particular man search
+  -m, --systems<span class="o">=</span>SYSTEM       use manual pages from other systems
+  -M, --manpath<span class="o">=</span>PATH         <span class="nb">set</span> search path <span class="k">for</span> manual pages to PATH
+
+  -S, -s, --sections<span class="o">=</span>LIST    use colon separated section list
+
+  -e, --extension<span class="o">=</span>EXTENSION  limit search to extension <span class="nb">type</span> EXTENSION
+
+  -i, --ignore-case          look <span class="k">for</span> pages <span class="k">case</span>-insensitively <span class="o">(</span>default<span class="o">)</span>
+  -I, --match-case           look <span class="k">for</span> pages <span class="k">case</span>-sensitively
+
+      --regex                show all pages matching regex
+      --wildcard             show all pages matching wildcard
+
+      --names-only           make --regex and --wildcard match page names only,
+                             not descriptions
+
+  -a, --all                  find all matching manual pages
+  -u, --update               force a cache consistency check
+
+      --no-subpages          don<span class="s1">&#39;t try subpages, e.g. &#39;</span>man foo bar<span class="s1">&#39; =&gt; &#39;</span>man
+                             foo-bar<span class="s1">&#39;
+</span><span class="s1">
+</span><span class="s1"> Controlling formatted output:
+</span><span class="s1">  -P, --pager=PAGER          use program PAGER to display output
+</span><span class="s1">  -r, --prompt=STRING        provide the `less&#39;</span> pager with a prompt
+
+  -7, --ascii                display ASCII translation of certain latin1 chars
+  -E, --encoding<span class="o">=</span>ENCODING    use selected output encoding
+      --no-hyphenation, --nh turn off hyphenation
+      --no-justification,                              --nj   turn off justification
+  -p, --preprocessor<span class="o">=</span>STRING  STRING indicates which preprocessors to run:
+                             e - <span class="o">[</span>n<span class="o">]</span>eqn, p - pic, t - tbl,
+g - grap, r - refer, v - vgrind
+
+  -t, --troff                use groff to format pages
+  -T, --troff-device<span class="o">[</span><span class="o">=</span>DEVICE<span class="o">]</span>   use groff with selected device
+
+  -H, --html<span class="o">[</span><span class="o">=</span>BROWSER<span class="o">]</span>       use www-browser or BROWSER to display HTML output
+  -X, --gxditview<span class="o">[</span><span class="o">=</span>RESOLUTION<span class="o">]</span>   use groff and display through gxditview
+                             <span class="o">(</span>X11<span class="o">)</span>:
+                             -X <span class="o">=</span> -TX75, -X100 <span class="o">=</span> -TX100, -X100-12 <span class="o">=</span> -TX100-12
+  -Z, --ditroff              use groff and force it to produce ditroff
+
+  -?, --help                 give this <span class="nb">help</span> list
+      --usage                give a short usage message
+  -V, --version              print program version
+</code></pre></div><h4 id="which">which<a href="#which" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>功能：查询命令的存放路径</li>
+<li>使用方式:</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ which make
+/usr/bin/make
+</code></pre></div><h4 id="whereis">whereis<a href="#whereis" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>功能：查询命令的搜索路径，当系统中安装了同一个软件的多个版本，不确定使用那个版本时，这个命令就能派上用场</li>
+<li>使用方式:</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ whereis python
+python: /usr/bin/python3.5 /usr/bin/python /usr/bin/python3.5m /usr/bin/python2.7 /usr/bin/python2.7-config /usr/lib/python3.5 /usr/lib/python2.7 /etc/python3.5 /etc/python /etc/python2.7 /usr/local/lib/python3.5 /usr/local/lib/python2.7 /usr/include/python2.7 /usr/share/python /usr/share/man/man1/python.1.gz
+</code></pre></div><h2 id="heading2">文件及目录管理命令<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>文件查询是重点，可以使用 <code>find</code> 或则 <code>locate</code>来进行，<code>find</code> 的参数丰富，也非常强大</li>
+<li>给文件创建别名或链接可以使用 <code>ln</code></li>
+</ul>
+<h3 id="heading3">列出目录项<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>查看当前目录下文件个数</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ find ./ <span class="p">|</span> wc -l
+<span class="m">74</span>
+</code></pre></div><ol start="2">
+<li>按时间排序，以列表的方式显示</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ ls -lrt --full-time -h
+total 34M
+drwxr-xr-x <span class="m">5</span> tangzixiang tangzixiang 4.0K 2018-10-29 10:04:44.000000000 +0800 mawar_deploy
+-rw-r--r-- <span class="m">1</span> tangzixiang tangzixiang  12M 2018-11-29 10:25:53.000000000 +0800 mawar_deploy-v3.2.7-20181129.tar.gz
+drwxr-xr-x <span class="m">5</span> tangzixiang tangzixiang 4.0K 2019-02-19 19:09:50.240419974 +0800 <span class="nb">test</span>
+-rw-rw-r-- <span class="m">1</span> tangzixiang tangzixiang  62K 2019-02-20 16:21:31.528091951 +0800 output.txt
+-rw-rw-r-- <span class="m">1</span> tangzixiang tangzixiang 1.6M 2019-02-20 16:32:45.064693140 +0800 readelf_out.txt
+-rwxr-xr-x <span class="m">1</span> tangzixiang tangzixiang  20M 2019-02-21 14:52:29.000000000 +0800 mawar-linux-amd64
+</code></pre></div><ol start="3">
+<li>给每项文件前面加编号</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ ls -lrt -h <span class="p">|</span>cat -n
+     1	total 34M
+     2	drwxr-xr-x <span class="m">5</span> tangzixiang tangzixiang 4.0K Oct <span class="m">29</span> 10:04 mawar_deploy
+     3	-rw-r--r-- <span class="m">1</span> tangzixiang tangzixiang  12M Nov <span class="m">29</span> 10:25 mawar_deploy-v3.2.7-20181129.tar.gz
+     4	drwxr-xr-x <span class="m">5</span> tangzixiang tangzixiang 4.0K Feb <span class="m">19</span> 19:09 <span class="nb">test</span>
+     5	-rw-rw-r-- <span class="m">1</span> tangzixiang tangzixiang  62K Feb <span class="m">20</span> 16:21 output.txt
+     6	-rw-rw-r-- <span class="m">1</span> tangzixiang tangzixiang 1.6M Feb <span class="m">20</span> 16:32 readelf_out.txt
+     7	-rwxr-xr-x <span class="m">1</span> tangzixiang tangzixiang  20M Feb <span class="m">21</span> 14:52 mawar-linux-amd64
+</code></pre></div><h3 id="heading4">查找目录及文件<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p><code>find</code> 是实时查找，如果需要更快的查找可以试下 <code>locate</code>，<code>locate</code> 会为文件系统建立索引数据库，如果有文件更新，需要定期执行更新命令来更新索引数据库</p>
+<ol>
+<li>搜寻文件或目录</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ find ./ -name <span class="s2">&#34;*.md&#34;</span>
+./test/README.md
+./test/._README.md
+./mawar_deploy/README.md
+./mawar_deploy/._README.md
+
+tangzixiang@dev-lyy-web5:~$ find ./ -name <span class="s2">&#34;*.md&#34;</span> <span class="p">|</span> xargs file
+./test/README.md:           UTF-8 Unicode text, with very long lines
+./test/._README.md:         AppleDouble encoded Macintosh file
+./mawar_deploy/README.md:   UTF-8 Unicode text, with very long lines
+./mawar_deploy/._README.md: AppleDouble encoded Macintosh file
+</code></pre></div><ol start="2">
+<li>递归当前目录及子目录删除所有 txt 文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ ls
+mawar_deploy readelf_out.txt  <span class="nb">test</span>
+tangzixiang@dev-lyy-web5:~$ find ./ -name <span class="s2">&#34;*.txt&#34;</span> -exec rm <span class="o">{</span><span class="o">}</span> <span class="se">\;</span>
+tangzixiang@dev-lyy-web5:~$ ls
+mawar_deploy  <span class="nb">test</span>
+</code></pre></div><ol start="3">
+<li>寻找包含有 <code>superv</code> 的路径</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ locate supervisord
+/etc/supervisor/supervisord.conf
+/usr/local/bin/echo_supervisord_conf
+/usr/local/bin/supervisord
+</code></pre></div><ol start="4">
+<li>更新 <code>locate</code> 的索引数据库</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ sudo updatedb
+</code></pre></div><h3 id="heading5">查看文件内容<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>显示文件内容加行号</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ cat -n test.txt
+</code></pre></div><ol start="2">
+<li>分页查看列表项</li>
+</ol>
+<pre><code>tangzixiang@dev-lyy-web5:~$ ls -al |more
+tangzixiang@dev-lyy-web5:~$ ls -al |less
+</code></pre><ol start="3">
+<li>查看文件前 10 行</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~<span class="nv">$head</span> <span class="m">10</span> test.txt
+</code></pre></div><ol start="4">
+<li>查看文件最后 10 行</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~<span class="nv">$tail</span> <span class="m">10</span> test.txt
+</code></pre></div><ol start="5">
+<li>查看文件的区别</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~/test$ date &gt;&gt; b.txt
+tangzixiang@dev-lyy-web5:~<span class="nv">$diff</span> a.txt b.txt
+230a231
+&gt; Thu Feb <span class="m">21</span> 19:51:25 CST <span class="m">2019</span>
+</code></pre></div><ol start="6">
+<li>动态展示文件最新内容</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ tail -f /data/log/supervisor/mawar/supervisor_stdout.log
+<span class="o">[</span>REQUEST<span class="o">]</span> 0c1f57b5-fffa-498c-9420-e318dce68a4a
+
+tangzixiang@dev-lyy-web5:~$ tailf /data/log/supervisor/mawar/supervisor_stdout.log
+<span class="o">[</span>REQUEST<span class="o">]</span> 0c1f57b5-fffa-498c-9420-e318dce68a4a
+</code></pre></div><h3 id="heading6">查找文件内容<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ egrep logCamerasChangeGroupMsg /data/log/supervisor_stdout.log -C5
+<span class="o">[</span>REQUEST<span class="o">]</span> 40ab5634-366d-41d9-9a03-66d8df986898
+<span class="o">[</span>GIN<span class="o">]</span> 2019/02/20 - 02:15:56 <span class="p">|</span> <span class="m">200</span> <span class="p">|</span>    5.262809ms <span class="p">|</span> 192.168.100.238 <span class="p">|</span>  POST     
+<span class="o">[</span>logCamerasChangeGroupMsg<span class="o">]</span> log api request error: The dotted field <span class="s1">&#39;config.inte_face_min_size&#39;</span> in <span class="s1">&#39;properties.last_data.config.inte_face_min_size&#39;</span> is not valid <span class="k">for</span> storage.
+<span class="o">[</span>REQUEST<span class="o">]</span> 6cdebd11-aebb-4756-84c6-26347be152a0
+</code></pre></div><h3 id="heading7">文件与目录权限修改<a href="#heading7" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>改变文件的拥有者 <code>chown</code></li>
+<li>改变文件读、写、执行等权限 <code>chmod</code></li>
+<li>递归子目录修改 <code>chown -R user dir/</code></li>
+<li>增加脚本可执行权限 <code>chmod a+x myscript</code></li>
+</ul>
+<h3 id="heading8">给文件增加别名<a href="#heading8" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>创建符号链接/硬链接</p>
+<ul>
+<li><code>ln cc ccAgain</code> 硬链接；删除源仍然能找到，cc 是源</li>
+<li><code>ln -s cc ccTo</code> 软链接；符号链接(软链接) ,删除源另一个无法使用，cc 是源</li>
+</ul>
+<h3 id="heading9">管道和重定向<a href="#heading9" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>批处理命令连接执行，使用 <code>|</code></li>
+<li>串联使用 <code>;</code></li>
+<li>前面成功则执行后面一条，否则不执行 <code>&amp;&amp;</code></li>
+<li>前面失败则后面执行 <code>||</code></li>
+<li>清空文件 <code>:&gt; a.txt</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web5:~$ ls ./ <span class="o">&amp;&amp;</span> <span class="nb">echo</span>  suss! <span class="o">||</span> <span class="nb">echo</span> failed
+mawar_deploy  mawar_deploy-v3.2.7-20181129.tar.gz  mawar-linux-amd64  <span class="nb">test</span>
+suss!
+
+tangzixiang@dev-lyy-web5:~$ <span class="k">if</span> <span class="nb">true</span> <span class="p">;</span><span class="k">then</span> <span class="nb">echo</span> success<span class="p">;</span><span class="k">else</span> <span class="nb">echo</span> failed<span class="p">;</span><span class="k">fi</span>
+success
+tangzixiang@dev-lyy-web5:~$ <span class="k">if</span> <span class="nb">false</span> <span class="p">;</span><span class="k">then</span> <span class="nb">echo</span> success<span class="p">;</span><span class="k">else</span> <span class="nb">echo</span> failed<span class="p">;</span><span class="k">fi</span>
+failed
+</code></pre></div><h3 id="bash--">Bash 快捷键 输入或删除<a href="#bash--" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li><code>CTRL-U</code> 删除全行</li>
+<li><code>CTRL-W</code> 删除当前光标到前面一个空格的内容</li>
+<li><code>CTRL-H</code> 删除光标前面的字符</li>
+<li><code>CTRL-R</code> 刷屏(iterm2)</li>
+</ul>
+<h3 id="heading10">综合应用<a href="#heading10" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<pre><code>tangzixiang@dev-lyy-web4:~$ cat -b /var/www/mawar.yaml |egrep app_id
+    34	    app_id: &quot;devt&quot;
+   103	  app_id: &quot;mawa&quot;
+   
+tangzixiang@dev-lyy-web4:~$ cat -b /var/www/mawar.yaml |egrep app_id | egrep -v devt
+   103	  app_id: &quot;mawa&quot;
+   
+tangzixiang@dev-lyy-web4:~$ cat -b /var/www/mawar.yaml |egrep app_id | egrep -v devt |wc -l
+1
+</code></pre><h2 id="heading11">文本处理<a href="#heading11" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="heading12">基础查找<a href="#heading12" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>查找 text 文件和 md 文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -name <span class="s2">&#34;*.md&#34;</span> -o -name <span class="s2">&#34;*.txt&#34;</span>
+./mawar_deploy/README.md
+./mawar_deploy/._README.md
+./a.txt
+</code></pre></div><ol start="2">
+<li>正则方式查找</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -regex <span class="s2">&#34;</span><span class="s2">.*\(\.txt\|\.md\)</span>$<span class="s2">&#34;</span>
+./a.txt
+./mawar_deploy/README.md
+./mawar_deploy/._README.md
+</code></pre></div><ol start="3">
+<li>取反，否定参数 <code>!</code></li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . ! -regex <span class="s2">&#34;</span><span class="s2">.*\(\.txt\|\.md\)</span>$<span class="s2">&#34;</span>
+.
+./.lesshst
+./.bashrc
+./.cache
+</code></pre></div><ol start="4">
+<li>指定深度，查找指定类型为文件的</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -maxdepth <span class="m">1</span> -type f
+./.lesshst
+./.bashrc
+./a.txt
+</code></pre></div><h3 id="heading13">定制搜索<a href="#heading13" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ul>
+<li>
+<p><code>d</code> 代表目录 <code>f</code> 代表文件 <code>l</code> 代码链接</p>
+</li>
+<li>
+<p><code>find</code> 支持的文件类型检索可以区分普通文件或是符号链接文件，目录等，但无法区分是二进制文件还是普通文本文件。</p>
+</li>
+</ul>
+<ol>
+<li>查找指定类型</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type d
+.
+./.cache
+./mawar_deploy
+./mawar_deploy/bin
+</code></pre></div><ol start="2">
+<li><code>file</code> 命令可以检查文件的具体类型 二静止或则文本文件等</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ file .profile
+.profile: ASCII text
+
+tangzixiang@dev-lyy-web4:~$ file mawar-linux-amd64
+mawar-linux-amd64: ELF 64-bit LSB executable, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, statically linked, not stripped
+</code></pre></div><ol start="3">
+<li>查询空文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -empty
+./.cache/motd.legal-displayed
+./a.txt
+</code></pre></div><h4 id="heading14">按时间搜索<a href="#heading14" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ul>
+<li>atime 访问时间单位是天</li>
+<li>amin 访问时间单位是分钟</li>
+<li>mtime 修改时间(内容被修改)</li>
+<li>ctime 变化时间(元数据或权限变化)</li>
+</ul>
+<ol>
+<li>最近 7 天内被访问过的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find -atime -7 -type f
+./.lesshst
+./.bashrc
+./.cache/motd.legal-displayed
+./a.txt
+</code></pre></div><ol start="2">
+<li>最近第 7 天被访问过的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find -atime -7 -type f
+</code></pre></div><ol start="3">
+<li>查询 7天前被访问过的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find -atime +7 -type f
+./.viminfo
+</code></pre></div><h4 id="heading15">按大小搜索<a href="#heading15" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> -size n<span class="o">[</span>cwbkMG<span class="o">]</span>
+     File uses n units of space, rounding up.  The following suffixes can be used:
+    <span class="sb">`</span>b<span class="s1">&#39;    for 512-byte blocks (this is the default if no suffix is used)
+</span><span class="s1">    `c&#39;</span>    <span class="k">for</span> bytes
+    <span class="sb">`</span>w<span class="s1">&#39;    for two-byte words
+</span><span class="s1">    `k&#39;</span>    <span class="k">for</span> Kilobytes <span class="o">(</span>units of <span class="m">1024</span> bytes<span class="o">)</span>
+    <span class="sb">`</span>M<span class="s1">&#39;    for Megabytes (units of 1048576 bytes)
+</span><span class="s1">    `G&#39;</span>    <span class="k">for</span> Gigabytes <span class="o">(</span>units of <span class="m">1073741824</span> bytes<span class="o">)</span>
+</code></pre></div><ol>
+<li>寻找大于 18M 的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -size +18M
+./mawar-linux-amd64
+</code></pre></div><h4 id="heading16">按权限查找<a href="#heading16" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ol>
+<li>查找具有可执行权限的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -perm <span class="m">644</span>
+./.bashrc
+./mawar_deploy-v3.2.7-20181129.tar.gz
+</code></pre></div><h4 id="heading17">按用户查找<a href="#heading17" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<ol>
+<li>查找用户 x 所拥有的文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -user tangzixiang
+./.lesshst
+./.bashrc
+</code></pre></div><h3 id="heading18">查找完成后续动作<a href="#heading18" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<ol>
+<li>删除当前目录下的所有 swp 文件</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -name <span class="s2">&#34;*.swp&#34;</span> -delete
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -name <span class="s2">&#34;*.swp&#34;</span> <span class="p">|</span> xargs rm
+</code></pre></div><ol start="2">
+<li>变更所有权为 weber</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -user root -exec chown weber <span class="o">{</span><span class="o">}</span> <span class="se">\;</span>
+</code></pre></div><ul>
+<li><code>{}</code> 是一个特殊字符串，对于每一个匹配的文件，<code>{}</code> 会被替换成相应的文件名</li>
+</ul>
+<ol start="3">
+<li>将找到的文件拷贝到另一个目录</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -mtime +10 -name <span class="s2">&#34;*.txt&#34;</span> -exec cp <span class="o">{</span><span class="o">}</span> newdir <span class="se">\;</span>
+</code></pre></div><ol start="4">
+<li>结合多个命令</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ find . -type f -exec ./commands.sh <span class="o">{</span><span class="o">}</span> <span class="se">\;</span>
+</code></pre></div><ul>
+<li>如果需要后续执行多个命令，可以将多个命令写成一个脚本，然后 <code>-exec</code> 调用时执行脚本即可</li>
+</ul>
+<h3 id="grep-">grep 文本搜索<a href="#grep-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p><code>grep match_patten file</code> 默认访问匹配行</p>
+<p>常用参数</p>
+<ul>
+<li>
+<p><code>-o</code> 只输出匹配的文本行，<code>-v</code> 只输出没有匹配的文本行</p>
+</li>
+<li>
+<p><code>-c</code> 统计文件中包含文本的次数</p>
+</li>
+<li>
+<p><code>-n</code> 搜索并打印行号</p>
+</li>
+<li>
+<p><code>-i</code> 搜索时忽略大小写</p>
+</li>
+<li>
+<p><code>-l</code> 只打印搜索到的文件名，适用于目录搜索 <code>-R</code> 时使用</p>
+</li>
+</ul>
+<ol>
+<li>在多级目录中对文本进行搜索</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ sudo grep pack  -R -n .
+./mawar_deploy/Makefile:55:pack
+</code></pre></div><ol start="2">
+<li>符合多条件之一</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ grep -e <span class="s2">&#34;pack&#34;</span> -e <span class="s2">&#34;PHONY&#34;</span> -R ./
+./mawar_deploy/Makefile:pack:
+./mawar_deploy/Makefile:.PHONY: pack
+</code></pre></div><ol start="3">
+<li>将 <code>sql</code> 中的 <code>where</code> 查询出来</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang@dev-lyy-web4:~$ cat xxx.Log <span class="p">|</span> tr a-z A-Z <span class="p">|</span>grep <span class="s2">&#34;FROM&#34;</span> <span class="p">|</span> grep <span class="s2">&#34;WHERE&#34;</span>
+</code></pre></div><h3 id="awk">awk<a href="#awk" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1594 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">帮助命令</a>
+      <ul>
+        <li><a href="#heading1">使用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">文件及目录管理命令</a>
+      <ul>
+        <li><a href="#heading3">列出目录项</a></li>
+        <li><a href="#heading4">查找目录及文件</a></li>
+        <li><a href="#heading5">查看文件内容</a></li>
+        <li><a href="#heading6">查找文件内容</a></li>
+        <li><a href="#heading7">文件与目录权限修改</a></li>
+        <li><a href="#heading8">给文件增加别名</a></li>
+        <li><a href="#heading9">管道和重定向</a></li>
+        <li><a href="#bash--">Bash 快捷键 输入或删除</a></li>
+        <li><a href="#heading10">综合应用</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading11">文本处理</a>
+      <ul>
+        <li><a href="#heading12">基础查找</a></li>
+        <li><a href="#heading13">定制搜索</a></li>
+        <li><a href="#heading18">查找完成后续动作</a></li>
+        <li><a href="#grep-">grep 文本搜索</a></li>
+        <li><a href="#awk">awk</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/2019/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>如何在 GitHub 上创建 repository </span>
+			</a>
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/2019/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>[Lua] Lua 模块与包</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

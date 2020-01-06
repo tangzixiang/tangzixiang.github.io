@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="使用 Hugo 发布文章">
+<meta itemprop="description" content="摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
+添加文章前我们先启动 Hugo
+github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
+github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看到如下内容：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- 这是一篇 Markdown 格式的文章，文章的开头由前后 --- 包裹了一些信息，这些信息称为文章的元数据，用于说明文章的相关配套信息，其中包括但不限于标题、日期、标签、是否草稿等。
+这里对上述的元数据做解释如下：
+ title: 文章的标题 date: 文章的日期 draft: 文章是否草稿，草稿内容不会被发布 tags: 为当前文章打标签，不同文章可以使用相同的标签  文章内容需要写在元数据的后面：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- Quisque velit nisi, pretium ut lacinia in, elementum id enim.">
+<meta itemprop="datePublished" content="2019-12-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-15T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="336">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="使用 Hugo 发布文章" />
+<meta property="og:description" content="摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
+添加文章前我们先启动 Hugo
+github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
+github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看到如下内容：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- 这是一篇 Markdown 格式的文章，文章的开头由前后 --- 包裹了一些信息，这些信息称为文章的元数据，用于说明文章的相关配套信息，其中包括但不限于标题、日期、标签、是否草稿等。
+这里对上述的元数据做解释如下：
+ title: 文章的标题 date: 文章的日期 draft: 文章是否草稿，草稿内容不会被发布 tags: 为当前文章打标签，不同文章可以使用相同的标签  文章内容需要写在元数据的后面：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- Quisque velit nisi, pretium ut lacinia in, elementum id enim." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2019-12-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="使用 Hugo 发布文章"/>
+<meta name="twitter:description" content="摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
+添加文章前我们先启动 Hugo
+github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
+github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看到如下内容：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- 这是一篇 Markdown 格式的文章，文章的开头由前后 --- 包裹了一些信息，这些信息称为文章的元数据，用于说明文章的相关配套信息，其中包括但不限于标题、日期、标签、是否草稿等。
+这里对上述的元数据做解释如下：
+ title: 文章的标题 date: 文章的日期 draft: 文章是否草稿，草稿内容不会被发布 tags: 为当前文章打标签，不同文章可以使用相同的标签  文章内容需要写在元数据的后面：
+--- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- Quisque velit nisi, pretium ut lacinia in, elementum id enim."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>使用 Hugo 发布文章</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Dec 15, 2019</span></div>
+				<h1>使用 Hugo 发布文章</h1>
+			</header>
+			<div class="content">
+				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li>添加一篇文章</li>
+<li>本地开启草稿箱视图</li>
+<li>解除文章草稿状态</li>
+<li>发布草稿文章</li>
+<li>设置文章过期时间/发布时间</li>
+<li>发布保留过期文章及未发布文章</li>
+</ul>
+<h2 id="heading1">添加一篇文章<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>在上一篇文章 <a href="../%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/">使用 Hugo 创建个人 Blog</a> 中介绍了 <a href="https://gohugo.io/"><strong>Hugo</strong></a> 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用  <code>registerforxxx.github.io</code> 作为案例。</p>
+<p>添加文章前我们先启动 <strong>Hugo</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo server
+</code></pre></div><p>添加文章依旧是使用 <code>new</code> 子命令，这里我们在 <code>posts</code> 目录下创建一篇名为 <code>my-first-post</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo new posts/my-first-post.md
+</code></pre></div><p>创建完成后打开文章可以看到如下内容：</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+title: &#34;My First Post&#34; 
+date: 2019-12-16T21:38:04+08:00
+draft: true
+tags:
+  <span class="k">-</span> untagged
+---
+</code></pre></div><p>这是一篇 Markdown 格式的文章，文章的开头由前后 <code>---</code> 包裹了一些信息，这些信息称为文章的元数据，用于说明文章的相关配套信息，其中包括但不限于标题、日期、标签、是否草稿等。</p>
+<p>这里对上述的元数据做解释如下：</p>
+<ul>
+<li><strong>title</strong>: 文章的标题</li>
+<li><strong>date</strong>: 文章的日期</li>
+<li><strong>draft</strong>: 文章是否草稿，草稿内容不会被发布</li>
+<li><strong>tags</strong>: 为当前文章打标签，不同文章可以使用相同的标签</li>
+</ul>
+<p>文章内容需要写在元数据的后面：</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+title: &#34;My First Post&#34;
+date: 2019-12-16T21:38:04+08:00
+draft: true
+tags: 
+  <span class="k">-</span> untagged
+---
+
+Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor 
+volutpat. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Praesent sapien 
+massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet et, 
+porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo,
+lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Vivamus 
+magna justo, lacinia eget consectetur sed, convallis at tellus. 
+
+Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor 
+volutpat. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Praesent sapien 
+massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet et, 
+porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo,
+lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Vivamus 
+magna justo, lacinia eget consectetur sed, convallis at tellus. 
+</code></pre></div><p>完成文章的编写后我们回到浏览器，发现并没有看到新加的文章，即使刷新几百次也是一样的效果，这是因为文章仍处于草稿箱状态。如下图：</p>
+<p><img src="/assets/image-20191218190656155.png" alt="image-20191218190656155"></p>
+<h2 id="heading2">本地开启草稿箱视图<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>记得我们上一篇文章的 <strong>Hugo 的特色</strong> 部分有提到 <strong>Hugo</strong> 具有默认热加载的功能，新添加的文章会自动在网页上实时渲染，但是！但是！但是！不包括草稿内容！</p>
+<p>通过 <code>hugo new</code> 命令创建的文章默认会被打上草稿状态的<code>tag</code> 即 <code>draft</code> 选项，<strong>Hugo</strong> 通过 <code>draft</code> 选项识别到这是一篇草稿内容，所以不会对其进行渲染。</p>
+<p>如果我们想在本地查看草稿内容，只需要在启动  <strong>Hugo</strong> 的时候带上参数 <code>-D</code>或则 <code>--buildDrafts</code> ：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo server -D
+</code></pre></div><p>回到浏览器：</p>
+<p><img src="/assets/image-20191216215029610.png" alt="image-20191216215029610"></p>
+<h2 id="heading3">解除文章草稿状态<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>在正式发布文章前我们需要解除当前文章的草稿状态，解除草稿状态只需要把文章开头的 <code>draft</code> 选项去除即可。</p>
+<h2 id="heading4">发布草稿文章<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>如果需要将草稿内容进行发布，在执行 <code>hugo</code> 生成发布内容时附带 <code>-D</code> 或则 <code>--buildDrafts</code> 即可。</p>
+<pre><code>github.io $ hugo -D
+</code></pre><h2 id="heading5">设置文章过期时间/发布时间<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><strong>Hugo</strong> 通过以下两个元数据选项提供文章的过期时间及发布时间（已发布的可以通过 URL 间接访问😂）：</p>
+<ul>
+<li><strong>expiryDate</strong>：过期时间，已过期的内容不会渲染到网页中</li>
+<li><strong>publishDate</strong>：发布时间，未到发布时间不会渲染到网页中</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+title: &#34;孔融&#34;
+date: 2019-12-16T21:38:04+08:00
+expiryDate: 2019-12-18T21:00:20+08:00
+description: &#34;孔融何许人也&#34;
+---
+</code></pre></div><h2 id="heading6">发布保留过期文章及未发布文章<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>直接执行 <code>hugo</code> 生成的发布内容不会携带已过期的文章或者未到发布时间的文章.</p>
+<p>需要发布时携带过期文章需要执行时附带参数 <code>-E</code> 或则 <code>--buildExpired</code>：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo -E
+</code></pre></div><p>需要发布时携带未发布文章需要执行时附带参数 <code>-F</code> 或则 <code>--buildFuture</code>：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo -F
+</code></pre></div><p>当然也可以选择同时附带两个以上的参数：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo -DEF
+</code></pre></div><p>生成发布文件完成后推送最新内容到 GitHub 上即可看到最新的文章。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>336 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">摘要</a></li>
+    <li><a href="#heading1">添加一篇文章</a></li>
+    <li><a href="#heading2">本地开启草稿箱视图</a></li>
+    <li><a href="#heading3">解除文章草稿状态</a></li>
+    <li><a href="#heading4">发布草稿文章</a></li>
+    <li><a href="#heading5">设置文章过期时间/发布时间</a></li>
+    <li><a href="#heading6">发布保留过期文章及未发布文章</a></li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://tangzixiang.github.io/posts/2019/mplus/">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</span>
+			</a>
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/2019/%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>使用 Hugo 创建个人 Blog</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
