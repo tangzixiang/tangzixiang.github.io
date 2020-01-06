@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 05 Jan 2020 17:56:18 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2020 09:53:51 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>做任何事情都要不断探寻背后最朴素的本质是什么。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200106/</link>
+      <pubDate>Mon, 06 Jan 2020 09:53:51 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200106/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>tmux 命令的使用方式</title>
@@ -33,7 +42,25 @@
     </item>
     
     <item>
-      <title>[生财有术] 我现在创业，期待越轻越好，越产品化越好，最好把内容环节都省掉才觉得好，把增长模块都做到产品中去，只要第一波导入流量，后面就可以自发增长和变现了</title>
+      <title>平台：淘宝（用户主动搜索、基数大、购买意愿强烈），分析工具：生意参谋，关键词：需求的分布、关键字的搜索量、竞争度、关键字优化。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200105/</link>
+      <pubDate>Sun, 05 Jan 2020 09:43:37 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200105/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>很多时候，我们会给自己加戏，觉得自己怎么正确，但放到大环境大背景大平台下，你怎么想怎么做其实没那么重要，跟着平台走，去想想平台需要什么，不需要什么。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200104/</link>
+      <pubDate>Sat, 04 Jan 2020 09:37:50 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200104/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>我现在创业，期待越轻越好，越产品化越好，最好把内容环节都省掉才觉得好，把增长模块都做到产品中去，只要第一波导入流量，后面就可以自发增长和变现了。[ 知识星球 - 生财有术 ]</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520120103/</link>
       <pubDate>Fri, 03 Jan 2020 15:25:11 +0800</pubDate>
       
@@ -69,46 +96,12 @@
     </item>
     
     <item>
-      <title>[生财有术] 引流也好、裂变也罢，核心仍然是提供价值</title>
+      <title>引流也好、裂变也罢，核心仍然是提供价值。[ 知识星球 - 生财有术 ]</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200102/</link>
       <pubDate>Thu, 02 Jan 2020 15:25:11 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200102/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>记一次如何在 windows 下添加 GitHub 的 SSH Key</title>
-      <link>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
-      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
-      <description>🏢 : mac; 🏠 : windows
-摘要  管理员方式打开 Git Bash 输入命令生成 ssh key 将 ssh key 加入 ssh-agent 将公钥加入到 GitHub 上 测试是否连接成功  管理员方式打开 Git Bash 输入命令生成 ssh key 在安装好 Git 后右键使用管理员身份运行方式打开下图的 Git Bash
-使用该命令生成个人账号的密钥对，引号内容为个人登录账号
-$ ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34;回车后会要求输入生成的文件名，如果不知道直接回车生成的文件名为 id_ras，这里举例使用邮箱名作为前缀，完成后会连续两次要求输入密码，可以不指定密码，直接两次回车，最终提示完成如下图：
-完成后打开文件夹安装前面的路径即 C:\Users\user-name\.ssh 目录，正常情况该目录会存在前面生成的两个文件，如果没有的话需要自己创建这个目录然后在上一级目录即 C:\Users\user-name 下找到对应的两个生成的文件（密钥对）并移入 C:\Users\user-name\.ssh 目录，由于前面我们对生成的密钥对改了名，所以找到的应该是 your_email_id_rsa 及 your_email_id_rsa.pub 文件，若使用默认的文件名则找到的应该是 id_rsa 及 id_rsa.pub
-将 ssh key 加入 ssh-agent 继续输入以下命令,启动 ssh-agent
-$ eval $(ssh-agent -s)Agent pid 59566将前面生成的密钥加入 ssh-agent</description>
-    </item>
-    
-    <item>
-      <title>[生财有术] 有钱赚的时候，要集中所有的资源和精力，All in</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200101/</link>
-      <pubDate>Wed, 01 Jan 2020 15:25:11 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200101/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架</title>
-      <link>https://tangzixiang.github.io/posts/mplus/</link>
-      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/mplus/</guid>
-      <description>mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
- 能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &amp;#34;github.com/tangzixiang/mplus&amp;#34; 快速开始 # assume the following codes in simple.</description>
     </item>
     
   </channel>
