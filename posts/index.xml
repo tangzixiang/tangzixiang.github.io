@@ -6,8 +6,244 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 05 Jan 2020 17:56:18 +0800</lastBuildDate>
+		<lastBuildDate>Tue, 07 Jan 2020 11:04:26 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>选择一个开源软件协议</title>
+			<link>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</link>
+			<pubDate>Tue, 07 Jan 2020 11:04:26 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</guid>
+			<description>参考：
+选择一个开源软件协议 http://choosealicense.online </description>
+			<content type="html"><![CDATA[<p>参考：</p>
+<a href="http://choosealicense.online"  >选择一个开源软件协议 http://choosealicense.online</a> 
+
+]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] goprojectinit - 项目工程初始化工具</title>
+			<link>https://tangzixiang.github.io/posts/2020/goprojectinit/</link>
+			<pubDate>Tue, 07 Jan 2020 10:27:55 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/goprojectinit/</guid>
+			<description>go get github.com/tangzixiang/goprojectinit
+概述 goprojectinit 是一个可以快速初始化 go 项目环境的工具。
+使用帮助 $goprojectinit -h Usage: goprojectinit [OPTIONS] projectname... Application Options: -v, --version show this tool version -b, --verbose Show verbose debug information -c, --cover if the project path exists ,cover the directory and init the project -t, --tool tool mean this project is a tool project,so the main-file will be placed in project root directory -e, --empty empty mean this project is a empty project or lib project -l, --lib same as --empty -n, --usevendor usevendor mean this project init whit vendor,default use go-modules -k, --nokeep don&amp;#39;t add .</description>
+			<content type="html"><![CDATA[<p><iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&repo=goprojectinit&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
+<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&repo=goprojectinit&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe></p>
+<p><code>go get github.com/tangzixiang/goprojectinit</code></p>
+<h2 id="heading">概述</h2>
+<p><strong>goprojectinit</strong> 是一个可以快速初始化 go 项目环境的工具。</p>
+<h2 id="heading1">使用帮助</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$goprojectinit</span> -h
+Usage:
+  goprojectinit <span class="o">[</span>OPTIONS<span class="o">]</span> projectname...
+
+Application Options:
+  -v, --version      show this tool version
+  -b, --verbose      Show verbose debug information
+  -c, --cover        <span class="k">if</span> the project path exists ,cover the directory and init the project
+  -t, --tool         tool mean this project is a tool project,so the main-file will be placed in project root directory
+  -e, --empty        empty mean this project is a empty project or lib project
+  -l, --lib          same as --empty
+  -n, --usevendor    usevendor mean this project init whit vendor,default use go-modules
+  -k, --nokeep       don<span class="err">&#39;</span>t add .keep each dir
+  -d, --dirs<span class="o">=</span>        mkdir customer set,example: api,internal/configs,internal/model
+  -m, --modulename<span class="o">=</span>  modulename use <span class="k">for</span> go modules init file: go.mod,default use project name
+  -p, --targetpath<span class="o">=</span>  project should init in the which directory,default is current path,if target directory not exists will be created
+
+Help Options:
+  -h, --help         Show this <span class="nb">help</span> message
+
+Arguments:
+  projectname:       init the project with this name, the first name will be named <span class="k">for</span> project,then all remaining names will be sub service name in cmd directory
+</code></pre></div><h2 id="heading2">使用说明</h2>
+<h3 id="heading3">快速创建项目</h3>
+<p>最简单的命令如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject
+
+$ tree myproject/
+myproject/
+├── README.md
+├── api
+├── assets
+├── build
+│   ├── ci
+│   └── package
+├── cmd
+│   └── myproject
+│       └── myproject.go
+├── configs
+├── deployments
+├── docs
+├── examples
+├── githooks
+├── go.mod
+├── init
+├── internal
+├── pkg
+├── scripts
+├── <span class="nb">test</span>
+├── third_party
+├── tools
+├── web
+└── website
+
+<span class="m">21</span> directories, <span class="m">3</span> files
+</code></pre></div><p>通过这么一个简单的命令，快速的初始化好一个 go 项目的目录环境，这里使用的是默认的目录配置。</p>
+<p>上面的例子中项目 <code>myproject</code> 的项目入口文件为 <code>myproject/cmd/myproject/myproject.go</code>。</p>
+<h3 id="heading4">工具型项目</h3>
+<p>若新建项目为工具型项目则指定 <code>-t</code> 或者 <code>--tool</code> 参数即可:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -t mytool
+$ tree mytool/
+mytool/
+├── README.md
+├── assets
+├── build
+│   ├── ci
+│   └── package
+├── configs
+├── docs
+├── examples
+├── githooks
+├── go.mod
+├── init
+├── internal
+├── main.go
+├── pkg
+├── scripts
+└── tes
+</code></pre></div><p>是否工具型项目的区别在于项目根目录是否存在 <code>main.go</code> 文件。</p>
+<h3 id="heading5">类库型项目</h3>
+<p>若新建项目为工具型项目则指定 <code>-l</code> 或者 <code>--lib</code> 参数即可:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -l mylib
+$ tree mylib/
+mylib/
+├── README.md
+├── assets
+├── docs
+├── examples
+├── githooks
+├── go.mod
+├── scripts
+└── <span class="nb">test</span>
+
+<span class="m">6</span> directories, <span class="m">2</span> files
+</code></pre></div><p>类库型项目不会主动创建任何 go 文件。</p>
+<h3 id="heading6">多服务项目</h3>
+<p><strong>goprojectinit</strong> 支持指定新建项目为多服务项目,只需提供多个 <code>projectname</code> 即可,首个 <code>projectname</code> 将作为项目名。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject subserver1 subserver2
+$ tree myproject/
+myproject/
+├── README.md
+├── api
+├── assets
+├── build
+│   ├── ci
+│   └── package
+├── cmd
+│   ├── myproject
+│   │   └── myproject.go
+│   ├── subserver1
+│   │   └── subserver1.go
+│   └── subserver2
+│       └── subserver2.go
+├── configs
+├── deployments
+├── docs
+├── examples
+├── githooks
+├── go.mod
+├── init
+├── internal
+├── pkg
+├── scripts
+├── <span class="nb">test</span>
+├── third_party
+├── tools
+├── web
+└── website
+
+<span class="m">23</span> directories, <span class="m">5</span> files
+</code></pre></div><h3 id="heading7">自定义目录</h3>
+<p>若不想使用默认提供的几种目录初始化模板，<strong>goprojectinit</strong> 支持自定义需要初始化的目录，通过 <code>-d</code> 或则 <code>--dirs</code> 指定。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -d api,service,model myproject
+$ tree myproject/
+myproject/
+├── README.md
+├── api
+├── cmd
+│   └── myproject
+│       └── myproject.go
+├── go.mod
+├── model
+└── service
+
+<span class="m">5</span> directories, <span class="m">3</span> file
+</code></pre></div><h3 id="vendor">vendor</h3>
+<p><strong>goprojectinit</strong> 支持使用 <a href="github.com/kardianos/govendor">govendor</a> 作为模块处理，在初始化项目的时候带上 <code>-n</code> 或者 <code>--usevendor</code> 即可 。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -n myproject
+$ tree myproject/
+myproject/
+├── README.md
+├── api
+├── assets
+├── build
+│   ├── ci
+│   └── package
+├── cmd
+│   └── myproject
+│       └── myproject.go
+├── configs
+├── deployments
+├── docs
+├── examples
+├── githooks
+├── init
+├── internal
+├── pkg
+├── scripts
+├── <span class="nb">test</span>
+├── third_party
+├── tools
+├── vendor
+│   └── vendor.json
+├── web
+└── website
+
+<span class="m">22</span> directories, <span class="m">3</span> files
+</code></pre></div><p>注意与 <code>go-modules</code> 模式不同的是，使用 <code>vendor</code> 模式可能需要新建项目位于 <code>$GOPATH</code> 下</p>
+<h3 id="heading8">展示更多调试信息</h3>
+<p>如果想要能够清楚的看到项目初始化过程的详细信息,只需要附带 <code>-b</code> 参数:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject -b
+
+<span class="o">[</span>goprojectinit<span class="o">]</span> project path is <span class="s2">&#34;~/myproject&#34;</span>
+<span class="o">[</span>goprojectinit<span class="o">]</span> make new directory ~/myproject success~
+//...忽略部分输出日志
+<span class="o">[</span>goprojectinit<span class="o">]</span> projoct myproject init success~
+</code></pre></div><h3 id="heading9">指定项目位置</h3>
+<p>如果不想在当前目录下初始化项目只需要通过 <code>-p</code> 或者 <code>--targetpath</code> 指定目标地址即可:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang$ sudo goprojectinit -p /var/www myproject
+</code></pre></div><h3 id="heading10">覆盖项目路径</h3>
+<p>若新建的项目路径下存在同名目录，默认不会进行覆盖，会维持目录原样并退出初始化过程，如果需要进行覆盖则可以通过 <code>-c</code> 或者 <code>--cover</code> 完成:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -p /var/www -c myproject
+</code></pre></div><p>上面这个示例为，在 <code>/var/www</code> 目录下创建默认 <code>go</code> 项目 <code>myproject</code> 若已存在则删除并重新创建。</p>
+<h2 id="heading11">注意</h2>
+<ol>
+<li>当项目初始化过程中因为其他外界因素导致中途失败后，工具会自动清除创建到一半的项目。</li>
+<li>项目会默认带 <code>.goprohectinit</code> 目录用于存放初始化相关内容</li>
+<li>初始化默认使用的是 <code>go-modules</code> 模式，需要 go 版本的支持，go 在 <code>go1.11</code> 版本开始支持</li>
+</ol>
+<h2 id="heading12">参考</h2>
+<ul>
+<li><a href="https://github.com/golang-standards/project-layout">Standard Go Project Layout</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>tmux 命令的使用方式</title>
