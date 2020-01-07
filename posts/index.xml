@@ -18,7 +18,7 @@
 			<description>参考：
 选择一个开源软件协议 http://choosealicense.online </description>
 			<content type="html"><![CDATA[<p>参考：</p>
-<a href="http://choosealicense.online"  >选择一个开源软件协议 http://choosealicense.online</a> 
+<a href="http://choosealicense.online"  target="_blank"  >选择一个开源软件协议 http://choosealicense.online</a> 
 
 ]]></content>
 		</item>
@@ -240,7 +240,8 @@ myproject/
 </ol>
 <h2 id="heading12">参考</h2>
 <ul>
-<li><a href="https://github.com/golang-standards/project-layout">Standard Go Project Layout</a></li>
+<li><a href="https://github.com/golang-standards/project-layout"  target="_blank"  >Standard Go Project Layout</a> 
+</li>
 </ul>
 ]]></content>
 		</item>
