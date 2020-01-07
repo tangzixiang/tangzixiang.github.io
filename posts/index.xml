@@ -247,6 +247,26 @@ myproject/
 		</item>
 		
 		<item>
+			<title>[Go] Go 模块--开始使用Go Modules</title>
+			<link>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</link>
+			<pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>如何设计 QQ、微信、微博、Github 等等，第三方账号登陆 ？（附表设计）</title>
+			<link>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</link>
+			<pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
 			<title>tmux 命令的使用方式</title>
 			<link>https://tangzixiang.github.io/posts/2020/tmux/</link>
 			<pubDate>Sun, 05 Jan 2020 17:56:18 +0800</pubDate>
@@ -326,21 +346,11 @@ Options:
 		</item>
 		
 		<item>
-			<title>[GO] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
+			<title>[Go] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
 			<link>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
 			<guid>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
-		</item>
-		
-		<item>
-			<title>[GO] 如何正确的开始用Go编程</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
-			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
@@ -414,6 +424,16 @@ The authenticity of host <span class="s1">&#39;github.com (IP)&#39;</span> can<s
 <p>具体 GitHub 官方教程如下：</p>
 <p><a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh"><a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh</a></a></p>
 ]]></content>
+		</item>
+		
+		<item>
+			<title>[GO] 如何正确的开始用Go编程</title>
+			<link>https://tangzixiang.github.io/posts/2019/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</link>
+			<pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2019/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%BC%80%E5%A7%8B%E7%94%A8-go-%E7%BC%96%E7%A8%8B/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
@@ -1472,6 +1492,36 @@ public $ git push -u origin master
 <p>这里我们以创建个人站点仓库举例，输入完成后点击 <strong>create repository</strong> 完成个人第一个仓库的创建</p>
 <p><img src="/assets/image-20191215130022873.png" alt="image-20191215130022873"></p>
 ]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] Uber Go 语言编程规范</title>
+			<link>https://tangzixiang.github.io/posts/2019/uber-go-%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</link>
+			<pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2019/uber-go-%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] 用 Testify 来改善 GO 测试和模拟</title>
+			<link>https://tangzixiang.github.io/posts/2019/%E7%94%A8-testify-%E6%9D%A5%E6%94%B9%E5%96%84-go-%E6%B5%8B%E8%AF%95%E5%92%8C%E6%A8%A1%E6%8B%9F/</link>
+			<pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2019/%E7%94%A8-testify-%E6%9D%A5%E6%94%B9%E5%96%84-go-%E6%B5%8B%E8%AF%95%E5%92%8C%E6%A8%A1%E6%8B%9F/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] Go的50度灰</title>
+			<link>https://tangzixiang.github.io/posts/2019/go%E7%9A%8450%E5%BA%A6%E7%81%B0/</link>
+			<pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2019/go%E7%9A%8450%E5%BA%A6%E7%81%B0/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
