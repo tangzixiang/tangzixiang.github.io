@@ -22,6 +22,42 @@
     </item>
     
     <item>
+      <title>[Redis] Redis开发规范解析(一)--键名设计</title>
+      <link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Redis] Redis开发规范解析(二)--老生常谈bigkey</title>
+      <link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</link>
+      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Redis] 用 Redis 实现分布式锁</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link>
+      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Redis] 阿里云 Redis 开发规范</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>创业前先学会算账。[ 知识星球 - 生财有术 ]</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200108/</link>
       <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
@@ -67,44 +103,6 @@
       
       <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200107/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] Go 模块--开始使用Go Modules</title>
-      <link>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</link>
-      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>如何设计 QQ、微信、微博、Github 等等，第三方账号登陆 ？（附表设计）</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</link>
-      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>做任何事情都要不断探寻背后最朴素6的本质是什么。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200106/</link>
-      <pubDate>Mon, 06 Jan 2020 09:53:51 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200106/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tmux 命令的使用方式</title>
-      <link>https://tangzixiang.github.io/posts/2020/tmux/</link>
-      <pubDate>Sun, 05 Jan 2020 17:56:18 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/tmux/</guid>
-      <description>如果安装不成功需要把仓库 clone 下来通过 makefile 安装
-参考：
- 阮一峰的网络日志:Tmux 使用教程  Tmux入门教程 - 掘金   tmux基本操作   强大的tmux   tmux GitHub 地址    tmux 可以配合这个项目 ： </description>
     </item>
     
   </channel>
