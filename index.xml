@@ -13,95 +13,94 @@
     
     
     <item>
-      <title>当你产生疑惑，不理解别人的时候，多想想这群人玩的是什么。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200109/</link>
+      <title>[Git] Git 面試題</title>
+      <link>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200109/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Redis] Redis开发规范解析(一)--键名设计</title>
-      <link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
-      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      <title>[Git] Reset、Revert 跟 Rebase 指令有什麼差別？</title>
+      <link>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Redis] Redis开发规范解析(二)--老生常谈bigkey</title>
-      <link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</link>
-      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      <title>[Git] 使用 reabse 修改历史</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</guid>
+      <description>注意： 不要在多人合作项目中修改已推送出去的历史！！！可以考虑使用 revert 重新提交一个相反操作的 commit 来抵消上一次的提交。
+参考：
+ 【狀況題】修改歷史訊息  【狀況題】把多個 Commit 合併成一個 Commit  【狀況題】把一個 Commit 拆解成多個 Commit  【狀況題】想要在某些 Commit 之間再加新的 Commit  【狀況題】想要刪除某幾個 Commit 或是調整 Commit 的順序   </description>
+    </item>
+    
+    <item>
+      <title>[Git] 可以刪掉全部的分支嗎？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Redis] 用 Redis 实现分布式锁</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link>
-      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      <title>[Git]【冷知識】怎麼樣把檔案真正的從 Git 裡移掉？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Redis] 阿里云 Redis 开发规范</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</link>
-      <pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
+      <title>[Git]【冷知識】斷頭（detached HEAD）是怎麼一回事？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>创业前先学会算账。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200108/</link>
-      <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
+      <title>[Git]【狀況題】不小心使用 hard 模式 Reset 了某個 Commit，救得回來嗎？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200108/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>选择一个开源软件协议</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</link>
-      <pubDate>Tue, 07 Jan 2020 11:04:26 +0800</pubDate>
+      <title>[Git]【狀況題】不小心把還沒合併的分支砍掉了，救得回來嗎？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</guid>
-      <description>参考：
-选择一个开源软件协议 http://choosealicense.online </description>
-    </item>
-    
-    <item>
-      <title>[Go] goprojectinit - 项目工程初始化工具</title>
-      <link>https://tangzixiang.github.io/posts/2020/goprojectinit/</link>
-      <pubDate>Tue, 07 Jan 2020 10:27:55 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/goprojectinit/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Go] goprojectinit - 项目工程初始化工具</title>
-      <link>https://tangzixiang.github.io/posts/2020/goprojectinit/</link>
-      <pubDate>Tue, 07 Jan 2020 10:27:55 +0800</pubDate>
+      <title>[Git]【狀況題】如果你只想要某個分支的某幾個 Commit？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/goprojectinit/</guid>
-      <description>go get github.com/tangzixiang/goprojectinit
-概述 goprojectinit 是一个可以快速初始化 go 项目环境的工具。
-使用帮助 $goprojectinit -h Usage: goprojectinit [OPTIONS] projectname... Application Options: -v, --version show this tool version -b, --verbose Show verbose debug information -c, --cover if the project path exists ,cover the directory and init the project -t, --tool tool mean this project is a tool project,so the main-file will be placed in project root directory -e, --empty empty mean this project is a empty project or lib project -l, --lib same as --empty -n, --usevendor usevendor mean this project init whit vendor,default use go-modules -k, --nokeep don&amp;#39;t add .</description>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>一手信息特别重要，想要获取信息，最好是让自己成为信息源。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200107/</link>
-      <pubDate>Tue, 07 Jan 2020 09:19:12 +0800</pubDate>
+      <title>[Git]【狀況題】怎麼跟上當初 fork 專案的進度？</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200107/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</guid>
       <description></description>
     </item>
     

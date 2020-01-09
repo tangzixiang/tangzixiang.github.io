@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tangzixiang&#39;s blog</title>
+    <link>https://tangzixiang.github.io/sharesites/</link>
+    <description>Recent content on tangzixiang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tangzixiang.github.io/sharesites/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习 Web 开发</title>
+      <link>https://tangzixiang.github.io/sharesites/%E5%AD%A6%E4%B9%A0-web-%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/%E5%AD%A6%E4%B9%A0-web-%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>為你自己學 Git</title>
+      <link>https://tangzixiang.github.io/sharesites/%E7%82%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%AD%B8-git/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/%E7%82%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%AD%B8-git/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
