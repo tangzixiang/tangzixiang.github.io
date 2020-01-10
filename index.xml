@@ -7,13 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 11 Jan 2020 09:39:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 09:55:21 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>消除信息不对称的办法便是多和人交流，取长补短。[ 知识星球 - 生财有术 ]</title>
+      <title>厚积薄发</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200113/</link>
+      <pubDate>Mon, 13 Jan 2020 09:55:21 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200113/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>悲观者往往正确，但乐观者往往成功。</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</link>
+      <pubDate>Sun, 12 Jan 2020 09:53:53 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>消除信息不对称的办法便是多和人交流，取长补短。</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200111/</link>
       <pubDate>Sat, 11 Jan 2020 09:39:17 +0800</pubDate>
       
@@ -83,24 +101,6 @@
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Git]【狀況題】不小心使用 hard 模式 Reset 了某個 Commit，救得回來嗎？</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Git]【狀況題】不小心把還沒合併的分支砍掉了，救得回來嗎？</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
       <description></description>
     </item>
     
