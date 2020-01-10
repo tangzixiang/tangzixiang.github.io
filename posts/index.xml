@@ -6,8 +6,28 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[Nginx] Nginx 通关攻略</title>
+			<link>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</link>
+			<pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Nginx] nginx.conf 配置文件详解</title>
+			<link>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
+			<pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>[Git] Git 面試題</title>
