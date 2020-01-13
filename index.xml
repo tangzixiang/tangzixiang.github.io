@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>[Linux] Linux 入门</title>
+      <link>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>悲观者往往正确，但乐观者往往成功。</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</link>
       <pubDate>Sun, 12 Jan 2020 09:53:53 +0800</pubDate>
@@ -93,15 +102,6 @@
       <description>注意： 不要在多人合作项目中修改已推送出去的历史！！！可以考虑使用 revert 重新提交一个相反操作的 commit 来抵消上一次的提交。
 参考：
  【狀況題】修改歷史訊息  【狀況題】把多個 Commit 合併成一個 Commit  【狀況題】把一個 Commit 拆解成多個 Commit  【狀況題】想要在某些 Commit 之間再加新的 Commit  【狀況題】想要刪除某幾個 Commit 或是調整 Commit 的順序   </description>
-    </item>
-    
-    <item>
-      <title>[Git] 可以刪掉全部的分支嗎？</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</guid>
-      <description></description>
     </item>
     
   </channel>
