@@ -7,13 +7,76 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 13 Jan 2020 09:55:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2020 18:00:06 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>厚积薄发</title>
+      <title>社交分发 &#43; 算法分发</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200125/</link>
+      <pubDate>Sat, 25 Jan 2020 18:00:06 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200125/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KISS 原则和用户认知成本</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200121/</link>
+      <pubDate>Tue, 21 Jan 2020 17:36:14 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200121/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>要去赚有“持续复利价值”的钱。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200119/</link>
+      <pubDate>Sun, 19 Jan 2020 17:32:17 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200119/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>积累自己的品牌力：1.做到严格的品控 2.告诉潜在群体，你做到了严格的品控水平。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200118/</link>
+      <pubDate>Sat, 18 Jan 2020 17:29:55 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200118/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>真正赚大钱的信息，出现在主流互联网人的眼中，大概会晚两年左右。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200116/</link>
+      <pubDate>Thu, 16 Jan 2020 17:25:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200116/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Docker] [MQTT] 在 ubuntu 上使用 docker 搭建 EMQX</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</link>
+      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</guid>
+      <description>emqx 官网 https://www.emqx.io/ 1. 安装 doker 参考 Ubuntu安装Docker及Docker的基本命令 - 简书 2. 拉取 emqx $ docker pull emqx/emqx:v4.0.0 3. 启动 emqx 参考：https://hub.docker.com/r/emqx/emqx $ sudo mkdir -p /data/log/emqx $ sudo chmod -R 777 /data/log/emqx $ sudo docker run -d --name emqx31 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 -p 8080:8080 \ --network bridge \ -e EMQX_LISTENER__TCP__EXTERNAL=1883 \ -e EMQX_LOADED_PLUGINS=&amp;#34;emqx_auth_redis,emqx_recon,emqx_retainer,emqx_management,emqx_dashboard&amp;#34; \ -e EMQX_AUTH__REDIS__SERVER=&amp;#34;192.168.1.1:6379&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD=&amp;#34;123456&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD_HASH=plain \ -e EMQX_ALLOW_ANONYMOUS=false \ -e EMQX_LOG__DIR=/log \ -e EMQX_LOG__INFO__FILE=&amp;#34;info.</description>
+    </item>
+    
+    <item>
+      <title>市场上火的内容，其实没有绝对的新内容。[ 知识星球 - 生财有术 ]</title>
+      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200114/</link>
+      <pubDate>Tue, 14 Jan 2020 17:27:21 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200114/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>厚积薄发。</title>
       <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200113/</link>
       <pubDate>Mon, 13 Jan 2020 09:55:21 +0800</pubDate>
       
@@ -37,71 +100,6 @@
       
       <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>消除信息不对称的办法便是多和人交流，取长补短。</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200111/</link>
-      <pubDate>Sat, 11 Jan 2020 09:39:17 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200111/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Nginx] Nginx 通关攻略</title>
-      <link>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</link>
-      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Nginx] nginx.conf 配置文件详解</title>
-      <link>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
-      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>认真分享，认真思考。</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200110/</link>
-      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200110/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Git] Git 面試題</title>
-      <link>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Git] Reset、Revert 跟 Rebase 指令有什麼差別？</title>
-      <link>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Git] 使用 reabse 修改历史</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</guid>
-      <description>注意： 不要在多人合作项目中修改已推送出去的历史！！！可以考虑使用 revert 重新提交一个相反操作的 commit 来抵消上一次的提交。
-参考：
- 【狀況題】修改歷史訊息  【狀況題】把多個 Commit 合併成一個 Commit  【狀況題】把一個 Commit 拆解成多個 Commit  【狀況題】想要在某些 Commit 之間再加新的 Commit  【狀況題】想要刪除某幾個 Commit 或是調整 Commit 的順序   </description>
     </item>
     
   </channel>

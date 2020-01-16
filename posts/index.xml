@@ -6,8 +6,252 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Thu, 16 Jan 2020 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[Docker] [MQTT] 在 ubuntu 上使用 docker 搭建 EMQX</title>
+			<link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</link>
+			<pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</guid>
+			<description>emqx 官网 https://www.emqx.io/ 1. 安装 doker 参考 Ubuntu安装Docker及Docker的基本命令 - 简书 2. 拉取 emqx $ docker pull emqx/emqx:v4.0.0 3. 启动 emqx 参考：https://hub.docker.com/r/emqx/emqx $ sudo mkdir -p /data/log/emqx $ sudo chmod -R 777 /data/log/emqx $ sudo docker run -d --name emqx31 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 -p 8080:8080 \ --network bridge \ -e EMQX_LISTENER__TCP__EXTERNAL=1883 \ -e EMQX_LOADED_PLUGINS=&amp;#34;emqx_auth_redis,emqx_recon,emqx_retainer,emqx_management,emqx_dashboard&amp;#34; \ -e EMQX_AUTH__REDIS__SERVER=&amp;#34;192.168.1.1:6379&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD=&amp;#34;123456&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD_HASH=plain \ -e EMQX_ALLOW_ANONYMOUS=false \ -e EMQX_LOG__DIR=/log \ -e EMQX_LOG__INFO__FILE=&amp;#34;info.</description>
+			<content type="html"><![CDATA[<p>emqx 官网 <a href="https://www.emqx.io/"  target="_blank"  >https://www.emqx.io/</a> 
+</p>
+<h2 id="1--doker">1. 安装 doker</h2>
+<p>参考  <a href="https://www.jianshu.com/p/80e3fd18a17e"  target="_blank"  >Ubuntu安装Docker及Docker的基本命令 - 简书</a> 
+</p>
+<h2 id="2--emqx">2. 拉取 emqx</h2>
+<pre><code>$ docker pull emqx/emqx:v4.0.0
+</code></pre><h2 id="3--emqx">3. 启动 emqx</h2>
+<p>参考：<a href="https://hub.docker.com/r/emqx/emqx"  target="_blank"  >https://hub.docker.com/r/emqx/emqx</a> 
+</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo mkdir -p /data/log/emqx
+$ sudo chmod -R <span class="m">777</span> /data/log/emqx 
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo docker run -d --name emqx31 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 -p 8080:8080 <span class="se">\
+</span><span class="se"></span>--network bridge <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_LISTENER__TCP__EXTERNAL</span><span class="o">=</span><span class="m">1883</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_LOADED_PLUGINS</span><span class="o">=</span><span class="s2">&#34;emqx_auth_redis,emqx_recon,emqx_retainer,emqx_management,emqx_dashboard&#34;</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_AUTH__REDIS__SERVER</span><span class="o">=</span><span class="s2">&#34;192.168.1.1:6379&#34;</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_AUTH__REDIS__PASSWORD</span><span class="o">=</span><span class="s2">&#34;123456&#34;</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_AUTH__REDIS__PASSWORD_HASH</span><span class="o">=</span>plain <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_ALLOW_ANONYMOUS</span><span class="o">=</span><span class="nb">false</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_LOG__DIR</span><span class="o">=</span>/log <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_LOG__INFO__FILE</span><span class="o">=</span><span class="s2">&#34;info.log&#34;</span> <span class="se">\
+</span><span class="se"></span>-e <span class="nv">EMQX_LOG__ERROR__FILE</span><span class="o">=</span><span class="s2">&#34;error.log&#34;</span> <span class="se">\
+</span><span class="se"></span>-v /data/log/emqx:/log <span class="se">\
+</span><span class="se"></span>emqx/emqx:v4.0.0
+</code></pre></div><h2 id="4--api--redis-">4. 请求 API 查看是否开启 redis 插件</h2>
+<p>参考 <a href="https://docs.emqx.io/broker/latest/cn/rest.html#plugins"  target="_blank"  >https://docs.emqx.io/broker/latest/cn/rest.html#plugins</a> 
+</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">curl --request GET   --url http://127.0.0.1:18083/api/v4/plugins   --header <span class="s1">&#39;authorization: Basic YWRtaW46cHVibGlj&#39;</span> <span class="p">|</span> jq
+
+<span class="o">{</span>
+  <span class="s2">&#34;code&#34;</span>: 0,
+  <span class="s2">&#34;data&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;node&#34;</span>: <span class="s2">&#34;6fa9662848ff@172.17.0.2&#34;</span>,
+      <span class="s2">&#34;plugins&#34;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_clientid&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication with ClientId/Password&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_http&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with HTTP API&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_jwt&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication with JWT&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_ldap&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with LDAP&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_mongo&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with MongoDB&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_mysql&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with MySQL&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_pgsql&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with PostgreSQL&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_redis&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication/ACL with Redis&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: true,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_auth_username&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Authentication with Username and Password&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;auth&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_bridge_mqtt&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Bridge to MQTT Broker&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;bridge&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_coap&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X CoAP Gateway&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;protocol&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_dashboard&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Web Dashboard&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: true,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_delayed_publish&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Delayed Publish&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_lua_hook&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Lua Hooks&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_lwm2m&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X LwM2M Gateway&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;protocol&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_management&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Management API and CLI&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: true,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_plugin_template&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Plugin Template&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_psk_file&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQX PSK Plugin from File&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_recon&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Recon Plugin&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: true,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_reloader&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Reloader Plugin&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_retainer&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Retainer&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: true,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_rule_engine&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Rule Engine&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_sn&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X MQTT-SN Plugin&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;protocol&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_statsd&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;Statsd for EMQ X&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_stomp&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Stomp Protocol Plugin&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;protocol&#34;</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+          <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;emqx_web_hook&#34;</span>,
+          <span class="s2">&#34;version&#34;</span>: <span class="s2">&#34;4.0.0&#34;</span>,
+          <span class="s2">&#34;description&#34;</span>: <span class="s2">&#34;EMQ X Webhook Plugin&#34;</span>,
+          <span class="s2">&#34;active&#34;</span>: false,
+          <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;feature&#34;</span>
+        <span class="o">}</span>
+      <span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="5--redis-">5. 登录 redis 添加账号</h2>
+<p>参考 <a href="https://docs.emqx.io/broker/latest/cn/plugins.html#redis"  target="_blank"  >https://docs.emqx.io/broker/latest/cn/plugins.html#redis</a> 
+</p>
+<blockquote>
+<p>HSET mqtt_user:<!-- raw HTML omitted --> password &ldquo;passwd&rdquo;</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">192.168.1.1:6379&gt; HSET mqtt_user:user01 password <span class="s2">&#34;</span><span class="s2">123456
+</span></code></pre></div><h2 id="6---mosquitto--mqtt">6. 安装  mosquitto 测试是否正常连接 MQTT</h2>
+<p>参考 <a href="https://blog.csdn.net/yangkunpengD/article/details/87367128"  target="_blank"  >MQTT mosquitto</a> 
+</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> $ mosquitto_sub -v -t <span class="nb">test</span> -u user01 -P <span class="m">123456</span>
+ $ mosquitto_pub -t <span class="nb">test</span> -m message -u user01 -P <span class="m">123456</span>
+</code></pre></div>]]></content>
+		</item>
 		
 		<item>
 			<title>[Linux] Linux 入门</title>
