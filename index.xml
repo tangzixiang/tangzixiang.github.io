@@ -49,56 +49,56 @@
     </item>
     
     <item>
-      <title>真正赚大钱的信息，出现在主流互联网人的眼中，大概会晚两年左右。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200116/</link>
-      <pubDate>Thu, 16 Jan 2020 17:25:00 +0800</pubDate>
+      <title>在系统中用etcd实现服务注册和发现</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:12 +0800</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200116/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Docker] [MQTT] 在 ubuntu 上使用 docker 搭建 EMQX</title>
-      <link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</link>
-      <pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
+      <title>golang etcd 简明教程</title>
+      <link>https://tangzixiang.github.io/posts/2020/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:11 +0800</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</guid>
-      <description>emqx 官网 https://www.emqx.io/ 1. 安装 doker 参考 Ubuntu安装Docker及Docker的基本命令 - 简书 2. 拉取 emqx $ docker pull emqx/emqx:v4.0.0 3. 启动 emqx 参考：https://hub.docker.com/r/emqx/emqx $ sudo mkdir -p /data/log/emqx $ sudo chmod -R 777 /data/log/emqx $ sudo docker run -d --name emqx31 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 -p 8080:8080 \ --network bridge \ -e EMQX_LISTENER__TCP__EXTERNAL=1883 \ -e EMQX_LOADED_PLUGINS=&amp;#34;emqx_auth_redis,emqx_recon,emqx_retainer,emqx_management,emqx_dashboard&amp;#34; \ -e EMQX_AUTH__REDIS__SERVER=&amp;#34;192.168.1.1:6379&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD=&amp;#34;123456&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD_HASH=plain \ -e EMQX_ALLOW_ANONYMOUS=false \ -e EMQX_LOG__DIR=/log \ -e EMQX_LOG__INFO__FILE=&amp;#34;info.</description>
-    </item>
-    
-    <item>
-      <title>市场上火的内容，其实没有绝对的新内容。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200114/</link>
-      <pubDate>Tue, 14 Jan 2020 17:27:21 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200114/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>厚积薄发。</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200113/</link>
-      <pubDate>Mon, 13 Jan 2020 09:55:21 +0800</pubDate>
+      <title>etcd常用操作介绍</title>
+      <link>https://tangzixiang.github.io/posts/2020/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:10 +0800</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200113/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>[Linux] Linux 入门</title>
-      <link>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <title>看图轻松了解etcd</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:09 +0800</pubDate>
       
-      <guid>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>悲观者往往正确，但乐观者往往成功。</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</link>
-      <pubDate>Sun, 12 Jan 2020 09:53:53 +0800</pubDate>
+      <title>用 Golang 构建 gRPC 服务</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:07 +0800</pubDate>
       
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200112/</guid>
+      <guid>https://tangzixiang.github.io/posts/2020/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>分布式服务框架 gRPC</title>
+      <link>https://tangzixiang.github.io/posts/2020/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:06 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</guid>
       <description></description>
     </item>
     

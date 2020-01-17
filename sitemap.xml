@@ -33,17 +33,72 @@
   </url>
   
   <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</loc>
+    <lastmod>2020-01-17T00:00:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-01-17T00:00:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-01-17T00:00:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2020-01-17T00:00:10+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</loc>
+    <lastmod>2020-01-17T00:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2020-01-17T00:00:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</loc>
+    <lastmod>2020-01-17T00:00:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-go-%E4%B8%AD%E4%BD%BF%E7%94%A8-protobuf/</loc>
+    <lastmod>2020-01-17T00:00:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/protobuf-%E7%94%9F%E6%88%90-go-%E4%BB%A3%E7%A0%81%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2020-01-17T00:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/protobuf-%E7%BC%96%E7%A0%81%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2020-01-17T00:00:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/protobuf-%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2020-01-17T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/%E8%AF%A6%E8%A7%A3varint%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2020-01-17T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200116/</loc>
     <lastmod>2020-01-16T17:25:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</loc>
-    <lastmod>2020-01-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-01-16T00:00:00+00:00</lastmod>
   </url>
   
