@@ -6,8 +6,28 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 19 Jan 2020 00:00:07 +0800</lastBuildDate>
+		<lastBuildDate>Sun, 19 Jan 2020 00:00:10 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[MySQL] 为什么 mysql 数据库的 timestamp 只能从 1970 到 2038 的某一时间？</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E4%B8%BA%E4%BB%80%E4%B9%88mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84timestamp%E5%8F%AA%E8%83%BD%E4%BB%8E1970%E5%88%B02038%E7%9A%84%E6%9F%90%E4%B8%80%E6%97%B6%E9%97%B4/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:10 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E4%B8%BA%E4%BB%80%E4%B9%88mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84timestamp%E5%8F%AA%E8%83%BD%E4%BB%8E1970%E5%88%B02038%E7%9A%84%E6%9F%90%E4%B8%80%E6%97%B6%E9%97%B4/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[MySQL] MYSQL 中的 COLLATE 是什么？</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/mysql%E4%B8%AD%E7%9A%84collate%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:09 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/mysql%E4%B8%AD%E7%9A%84collate%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>GraphQL：API 的未来</title>
@@ -60,7 +80,7 @@
 		</item>
 		
 		<item>
-			<title>在系统中用etcd实现服务注册和发现</title>
+			<title>[ETCD] 在系统中用etcd实现服务注册和发现</title>
 			<link>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:12 +0800</pubDate>
 			
@@ -70,7 +90,7 @@
 		</item>
 		
 		<item>
-			<title>golang etcd 简明教程</title>
+			<title>[ETCD] golang etcd 简明教程</title>
 			<link>https://tangzixiang.github.io/posts/2020/01/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:11 +0800</pubDate>
 			
@@ -80,7 +100,7 @@
 		</item>
 		
 		<item>
-			<title>etcd常用操作介绍</title>
+			<title>[ETCD] etcd常用操作介绍</title>
 			<link>https://tangzixiang.github.io/posts/2020/01/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:10 +0800</pubDate>
 			
@@ -90,7 +110,7 @@
 		</item>
 		
 		<item>
-			<title>看图轻松了解etcd</title>
+			<title>[ETCD] 看图轻松了解etcd</title>
 			<link>https://tangzixiang.github.io/posts/2020/01/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:09 +0800</pubDate>
 			

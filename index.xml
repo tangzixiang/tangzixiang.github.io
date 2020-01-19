@@ -40,6 +40,24 @@
     </item>
     
     <item>
+      <title>[MySQL] 为什么 mysql 数据库的 timestamp 只能从 1970 到 2038 的某一时间？</title>
+      <link>https://tangzixiang.github.io/posts/2020/01/%E4%B8%BA%E4%BB%80%E4%B9%88mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84timestamp%E5%8F%AA%E8%83%BD%E4%BB%8E1970%E5%88%B02038%E7%9A%84%E6%9F%90%E4%B8%80%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:10 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/01/%E4%B8%BA%E4%BB%80%E4%B9%88mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84timestamp%E5%8F%AA%E8%83%BD%E4%BB%8E1970%E5%88%B02038%E7%9A%84%E6%9F%90%E4%B8%80%E6%97%B6%E9%97%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[MySQL] MYSQL 中的 COLLATE 是什么？</title>
+      <link>https://tangzixiang.github.io/posts/2020/01/mysql%E4%B8%AD%E7%9A%84collate%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:09 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/01/mysql%E4%B8%AD%E7%9A%84collate%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GraphQL：API 的未来</title>
       <link>https://tangzixiang.github.io/posts/2020/01/graphqlapi-%E7%9A%84%E6%9C%AA%E6%9D%A5/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:07 +0800</pubDate>
@@ -67,38 +85,20 @@
     </item>
     
     <item>
+      <title>MySQL教程：MySQL数据库学习宝典（从入门到精通） - C 语言中文网</title>
+      <link>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:01 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Server-Side Access Control</title>
       <link>https://tangzixiang.github.io/posts/2020/01/server-side-access-control/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:01 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/01/server-side-access-control/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP访问控制（CORS）</title>
-      <link>https://tangzixiang.github.io/posts/2020/01/http%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6cors/</link>
-      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/01/http%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6cors/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>积累自己的品牌力：1.做到严格的品控 2.告诉潜在群体，你做到了严格的品控水平。[ 知识星球 - 生财有术 ]</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200118/</link>
-      <pubDate>Sat, 18 Jan 2020 17:29:55 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200118/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>在系统中用etcd实现服务注册和发现</title>
-      <link>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</link>
-      <pubDate>Fri, 17 Jan 2020 00:00:12 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</guid>
       <description></description>
     </item>
     

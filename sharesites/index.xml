@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 00:00:01 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/sharesites/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>学习 Web 开发</title>
+      <title>MySQL教程：MySQL数据库学习宝典（从入门到精通） - C 语言中文网</title>
+      <link>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:01 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>学习 Web 开发 - MDN</title>
       <link>https://tangzixiang.github.io/sharesites/%E5%AD%A6%E4%B9%A0-web-%E5%BC%80%E5%8F%91/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
