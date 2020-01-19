@@ -6,125 +6,175 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Fri, 17 Jan 2020 00:00:12 +0800</lastBuildDate>
+		<lastBuildDate>Sun, 19 Jan 2020 00:00:07 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>GraphQL：API 的未来</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/graphqlapi-%E7%9A%84%E6%9C%AA%E6%9D%A5/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:07 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/graphqlapi-%E7%9A%84%E6%9C%AA%E6%9D%A5/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>JavaScript 那些写出来会被同事揍的骚操作</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/javascript-%E9%82%A3%E4%BA%9B%E5%86%99%E5%87%BA%E6%9D%A5%E4%BC%9A%E8%A2%AB%E5%90%8C%E4%BA%8B%E6%8F%8D%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:04 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/javascript-%E9%82%A3%E4%BA%9B%E5%86%99%E5%87%BA%E6%9D%A5%E4%BC%9A%E8%A2%AB%E5%90%8C%E4%BA%8B%E6%8F%8D%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>CORS Not Supporting Credentials</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/cors-not-supporting-credentials/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:02 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/cors-not-supporting-credentials/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Server-Side Access Control</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/server-side-access-control/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/server-side-access-control/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>HTTP访问控制（CORS）</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/http%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6cors/</link>
+			<pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/http%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6cors/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
 			<title>在系统中用etcd实现服务注册和发现</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:12 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%94%A8etcd%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8F%91%E7%8E%B0/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>golang etcd 简明教程</title>
-			<link>https://tangzixiang.github.io/posts/2020/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:11 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/golang-etcd-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>etcd常用操作介绍</title>
-			<link>https://tangzixiang.github.io/posts/2020/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:10 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/etcd%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E4%BB%8B%E7%BB%8D/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>看图轻松了解etcd</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:09 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%9C%8B%E5%9B%BE%E8%BD%BB%E6%9D%BE%E4%BA%86%E8%A7%A3etcd/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>用 Golang 构建 gRPC 服务</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:07 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%94%A8-golang-%E6%9E%84%E5%BB%BA-grpc-%E6%9C%8D%E5%8A%A1/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>分布式服务框架 gRPC</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:06 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6-grpc/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>在 Go 中使用 Protobuf</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-go-%E4%B8%AD%E4%BD%BF%E7%94%A8-protobuf/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8-go-%E4%B8%AD%E4%BD%BF%E7%94%A8-protobuf/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:05 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-go-%E4%B8%AD%E4%BD%BF%E7%94%A8-protobuf/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8-go-%E4%B8%AD%E4%BD%BF%E7%94%A8-protobuf/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>Protobuf 生成 Go 代码指南</title>
-			<link>https://tangzixiang.github.io/posts/2020/protobuf-%E7%94%9F%E6%88%90-go-%E4%BB%A3%E7%A0%81%E6%8C%87%E5%8D%97/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/protobuf-%E7%94%9F%E6%88%90-go-%E4%BB%A3%E7%A0%81%E6%8C%87%E5%8D%97/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:04 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/protobuf-%E7%94%9F%E6%88%90-go-%E4%BB%A3%E7%A0%81%E6%8C%87%E5%8D%97/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/protobuf-%E7%94%9F%E6%88%90-go-%E4%BB%A3%E7%A0%81%E6%8C%87%E5%8D%97/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>Protobuf 编码指南</title>
-			<link>https://tangzixiang.github.io/posts/2020/protobuf-%E7%BC%96%E7%A0%81%E6%8C%87%E5%8D%97/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/protobuf-%E7%BC%96%E7%A0%81%E6%8C%87%E5%8D%97/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:03 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/protobuf-%E7%BC%96%E7%A0%81%E6%8C%87%E5%8D%97/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/protobuf-%E7%BC%96%E7%A0%81%E6%8C%87%E5%8D%97/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>Protobuf 语言指南</title>
-			<link>https://tangzixiang.github.io/posts/2020/protobuf-%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/protobuf-%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:02 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/protobuf-%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/protobuf-%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>详解 varint 编码原理</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E8%AF%A6%E8%A7%A3varint%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E8%AF%A6%E8%A7%A3varint%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86/</link>
 			<pubDate>Fri, 17 Jan 2020 00:00:01 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E8%AF%A6%E8%A7%A3varint%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E8%AF%A6%E8%A7%A3varint%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Docker] [MQTT] 在 ubuntu 上使用 docker 搭建 EMQX</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</link>
 			<pubDate>Thu, 16 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%9C%A8-ubuntu-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-%E6%90%AD%E5%BB%BA-emqx/</guid>
 			<description>emqx 官网 https://www.emqx.io/ 1. 安装 doker 参考 Ubuntu安装Docker及Docker的基本命令 - 简书 2. 拉取 emqx $ docker pull emqx/emqx:v4.0.0 3. 启动 emqx 参考：https://hub.docker.com/r/emqx/emqx $ sudo mkdir -p /data/log/emqx $ sudo chmod -R 777 /data/log/emqx $ sudo docker run -d --name emqx31 -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 -p 8080:8080 \ --network bridge \ -e EMQX_LISTENER__TCP__EXTERNAL=1883 \ -e EMQX_LOADED_PLUGINS=&amp;#34;emqx_auth_redis,emqx_recon,emqx_retainer,emqx_management,emqx_dashboard&amp;#34; \ -e EMQX_AUTH__REDIS__SERVER=&amp;#34;192.168.1.1:6379&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD=&amp;#34;123456&amp;#34; \ -e EMQX_AUTH__REDIS__PASSWORD_HASH=plain \ -e EMQX_ALLOW_ANONYMOUS=false \ -e EMQX_LOG__DIR=/log \ -e EMQX_LOG__INFO__FILE=&amp;#34;info.</description>
 			<content type="html"><![CDATA[<p>emqx 官网 <a href="https://www.emqx.io/"  target="_blank"  >https://www.emqx.io/</a> 
 </p>
@@ -365,60 +415,60 @@ $ sudo chmod -R <span class="m">777</span> /data/log/emqx
 		
 		<item>
 			<title>[Linux] Linux 入门</title>
-			<link>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/linux-%E5%85%A5%E9%97%A8/</link>
 			<pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/linux-%E5%85%A5%E9%97%A8/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/linux-%E5%85%A5%E9%97%A8/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Nginx] Nginx 通关攻略</title>
-			<link>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</link>
 			<pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/nginx-%E5%AD%A6%E4%B9%A0%E4%B8%80%E8%B7%AF%E5%90%91%E8%A5%BF/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Nginx] nginx.conf 配置文件详解</title>
-			<link>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
 			<pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git] Git 面試題</title>
-			<link>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/git-%E9%9D%A2%E8%A9%A6%E9%A1%8C/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git] Reset、Revert 跟 Rebase 指令有什麼差別？</title>
-			<link>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/resetrevert-%E8%B7%9F-rebase-%E6%8C%87%E4%BB%A4%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git] 使用 reabse 修改历史</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E4%BD%BF%E7%94%A8-reabse-%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2/</guid>
 			<description>注意： 不要在多人合作项目中修改已推送出去的历史！！！可以考虑使用 revert 重新提交一个相反操作的 commit 来抵消上一次的提交。
 参考：
  【狀況題】修改歷史訊息  【狀況題】把多個 Commit 合併成一個 Commit  【狀況題】把一個 Commit 拆解成多個 Commit  【狀況題】想要在某些 Commit 之間再加新的 Commit  【狀況題】想要刪除某幾個 Commit 或是調整 Commit 的順序   </description>
@@ -441,120 +491,120 @@ $ sudo chmod -R <span class="m">777</span> /data/log/emqx
 		
 		<item>
 			<title>[Git] 可以刪掉全部的分支嗎？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%8F%AF%E4%BB%A5%E5%88%AA%E6%8E%89%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%97%8E/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【冷知識】怎麼樣把檔案真正的從 Git 裡移掉？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%80%8E%E9%BA%BC%E6%A8%A3%E6%8A%8A%E6%AA%94%E6%A1%88%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%BE%9E-git-%E8%A3%A1%E7%A7%BB%E6%8E%89/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【冷知識】斷頭（detached HEAD）是怎麼一回事？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%86%B7%E7%9F%A5%E8%AD%98%E6%96%B7%E9%A0%ADdetached-head%E6%98%AF%E6%80%8E%E9%BA%BC%E4%B8%80%E5%9B%9E%E4%BA%8B/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【狀況題】不小心使用 hard 模式 Reset 了某個 Commit，救得回來嗎？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8-hard-%E6%A8%A1%E5%BC%8F-reset-%E4%BA%86%E6%9F%90%E5%80%8B-commit%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【狀況題】不小心把還沒合併的分支砍掉了，救得回來嗎？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%8A%8A%E9%82%84%E6%B2%92%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E7%A0%8D%E6%8E%89%E4%BA%86%E6%95%91%E5%BE%97%E5%9B%9E%E4%BE%86%E5%97%8E/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【狀況題】如果你只想要某個分支的某幾個 Commit？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%8F%AA%E6%83%B3%E8%A6%81%E6%9F%90%E5%80%8B%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E5%B9%BE%E5%80%8B-commit/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Git]【狀況題】怎麼跟上當初 fork 專案的進度？</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</link>
 			<pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%8B%80%E6%B3%81%E9%A1%8C%E6%80%8E%E9%BA%BC%E8%B7%9F%E4%B8%8A%E7%95%B6%E5%88%9D-fork-%E5%B0%88%E6%A1%88%E7%9A%84%E9%80%B2%E5%BA%A6/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Redis] Redis开发规范解析(一)--键名设计</title>
-			<link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</link>
 			<pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%B8%80-%E9%94%AE%E5%90%8D%E8%AE%BE%E8%AE%A1/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Redis] Redis开发规范解析(二)--老生常谈bigkey</title>
-			<link>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</link>
 			<pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E8%A7%A3%E6%9E%90%E4%BA%8C-%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88bigkey/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Redis] 用 Redis 实现分布式锁</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link>
 			<pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Redis] 阿里云 Redis 开发规范</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</link>
 			<pubDate>Wed, 08 Jan 2020 10:34:37 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E9%98%BF%E9%87%8C%E4%BA%91redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>选择一个开源软件协议</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</link>
 			<pubDate>Tue, 07 Jan 2020 11:04:26 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8D%8F%E8%AE%AE/</guid>
 			<description>参考：
 选择一个开源软件协议 http://choosealicense.online </description>
 			<content type="html"><![CDATA[<p>参考：</p>
@@ -565,10 +615,10 @@ $ sudo chmod -R <span class="m">777</span> /data/log/emqx
 		
 		<item>
 			<title>[Go] goprojectinit - 项目工程初始化工具</title>
-			<link>https://tangzixiang.github.io/posts/2020/goprojectinit/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/goprojectinit/</link>
 			<pubDate>Tue, 07 Jan 2020 10:27:55 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/goprojectinit/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/goprojectinit/</guid>
 			<description>go get github.com/tangzixiang/goprojectinit
 概述 goprojectinit 是一个可以快速初始化 go 项目环境的工具。
 使用帮助 $goprojectinit -h Usage: goprojectinit [OPTIONS] projectname... Application Options: -v, --version show this tool version -b, --verbose Show verbose debug information -c, --cover if the project path exists ,cover the directory and init the project -t, --tool tool mean this project is a tool project,so the main-file will be placed in project root directory -e, --empty empty mean this project is a empty project or lib project -l, --lib same as --empty -n, --usevendor usevendor mean this project init whit vendor,default use go-modules -k, --nokeep don&amp;#39;t add .</description>
@@ -788,30 +838,30 @@ myproject/
 		
 		<item>
 			<title>[Go] Go 模块--开始使用Go Modules</title>
-			<link>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</link>
 			<pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/go-%E6%A8%A1%E5%9D%97-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8go-modules/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>如何设计 QQ、微信、微博、Github 等等，第三方账号登陆 ？（附表设计）</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</link>
 			<pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1-qq%E5%BE%AE%E4%BF%A1%E5%BE%AE%E5%8D%9Agithub-%E7%AD%89%E7%AD%89%E7%AC%AC%E4%B8%89%E6%96%B9%E8%B4%A6%E5%8F%B7%E7%99%BB%E9%99%86-%E9%99%84%E8%A1%A8%E8%AE%BE%E8%AE%A1/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>tmux 命令的使用方式</title>
-			<link>https://tangzixiang.github.io/posts/2020/tmux/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/tmux/</link>
 			<pubDate>Sun, 05 Jan 2020 17:56:18 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/tmux/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/tmux/</guid>
 			<description>如果安装不成功需要把仓库 clone 下来通过 makefile 安装
 参考：
  阮一峰的网络日志:Tmux 使用教程  Tmux入门教程 - 掘金   tmux基本操作   强大的tmux   tmux GitHub 地址    tmux 可以配合这个项目 ： </description>
@@ -837,10 +887,10 @@ myproject/
 		
 		<item>
 			<title>screen 命令的使用方式</title>
-			<link>https://tangzixiang.github.io/posts/2020/screen/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/screen/</link>
 			<pubDate>Sun, 05 Jan 2020 17:56:12 +0800</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/screen/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/screen/</guid>
 			<description>~ $ screen -h Use: screen [-opts] [cmd [args]] or: screen -r [host.tty] Options: -a Force all capabilities into each window&amp;#39;s termcap. -A -[r|R] Adapt all windows to the new display width &amp;amp; height. -c file Read configuration file instead of &amp;#39;.screenrc&amp;#39;. -d (-r) Detach the elsewhere running screen (and reattach here). -dmS name Start as daemon: Screen session in detached mode. -D (-r) Detach and logout remote (and reattach here).</description>
 			<content type="html"><![CDATA[<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">~ $ screen -h
 Use: screen <span class="o">[</span>-opts<span class="o">]</span> <span class="o">[</span>cmd <span class="o">[</span>args<span class="o">]</span><span class="o">]</span>
@@ -887,30 +937,30 @@ Options:
 		
 		<item>
 			<title>[Git] 您必须知道的 Git 分支开发规范，附 Git 常用命令大全！</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E6%82%A8%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84-git-%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E9%99%84-git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>[Go] 大神是如何学习 Go 语言之写出优雅的 Go 代码</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</link>
 			<pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%A4%A7%E7%A5%9E%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0-go-%E8%AF%AD%E8%A8%80%E4%B9%8B%E5%86%99%E5%87%BA%E4%BC%98%E9%9B%85%E7%9A%84-go-%E4%BB%A3%E7%A0%81/</guid>
 			<description></description>
 			<content type="html"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>记一次如何在 windows 下添加 GitHub 的 SSH Key</title>
-			<link>https://tangzixiang.github.io/posts/2020/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</link>
 			<pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
 			
-			<guid>https://tangzixiang.github.io/posts/2020/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A6%82%E4%BD%95%E5%9C%A8-windows-%E4%B8%8B%E6%B7%BB%E5%8A%A0-github-%E7%9A%84-ssh-key/</guid>
 			<description>🏢 : mac; 🏠 : windows
 摘要  管理员方式打开 Git Bash 输入命令生成 ssh key 将 ssh key 加入 ssh-agent 将公钥加入到 GitHub 上 测试是否连接成功  管理员方式打开 Git Bash 输入命令生成 ssh key 在安装好 Git 后右键使用管理员身份运行方式打开下图的 Git Bash
 使用该命令生成个人账号的密钥对，引号内容为个人登录账号
