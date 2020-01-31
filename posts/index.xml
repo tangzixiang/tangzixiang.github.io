@@ -6,8 +6,18 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 19 Jan 2020 00:00:10 +0800</lastBuildDate>
+		<lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>动态追踪技术漫谈（Dynamic Tracing）</title>
+			<link>https://tangzixiang.github.io/posts/2020/01/%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88/</link>
+			<pubDate>Tue, 28 Jan 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/01/%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>[MySQL] 为什么 mysql 数据库的 timestamp 只能从 1970 到 2038 的某一时间？</title>
