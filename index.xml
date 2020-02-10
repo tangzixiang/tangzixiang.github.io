@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 31 Jan 2020 00:00:01 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 00:00:02 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] 深入理解Go之generate</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:02 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] go generate介绍</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:01 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] 使用 Gomock 进行单元测试</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Python教程：廖雪峰的官方网站</title>
@@ -72,33 +99,6 @@
       <pubDate>Mon, 20 Jan 2020 10:11:17 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/course/%E8%B6%A3%E8%B0%88%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>左耳朵耗子</title>
-      <link>https://tangzixiang.github.io/course/%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90/</link>
-      <pubDate>Mon, 20 Jan 2020 10:11:16 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/course/%E5%B7%A6%E8%80%B3%E6%9C%B5%E8%80%97%E5%AD%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>从 0 开始学微服务</title>
-      <link>https://tangzixiang.github.io/course/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
-      <pubDate>Mon, 20 Jan 2020 10:11:15 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/course/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>软件工程之美</title>
-      <link>https://tangzixiang.github.io/course/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%8B%E7%BE%8E/</link>
-      <pubDate>Mon, 20 Jan 2020 10:11:14 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/course/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%8B%E7%BE%8E/</guid>
       <description></description>
     </item>
     

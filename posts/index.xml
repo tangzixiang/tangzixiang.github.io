@@ -6,8 +6,38 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0800</lastBuildDate>
+		<lastBuildDate>Mon, 10 Feb 2020 00:00:02 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[Go] 深入理解Go之generate</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</link>
+			<pubDate>Mon, 10 Feb 2020 00:00:02 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] go generate介绍</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</link>
+			<pubDate>Mon, 10 Feb 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] 使用 Gomock 进行单元测试</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+			<pubDate>Mon, 10 Feb 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>动态追踪技术漫谈（Dynamic Tracing）</title>

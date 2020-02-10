@@ -3,6 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</loc>
+    <lastmod>2020-02-10T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/</loc>
+    <lastmod>2020-02-10T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-02-10T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2020-02-10T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2020-02-10T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tangzixiang.github.io/sharesites/</loc>
     <lastmod>2020-01-31T00:00:01+08:00</lastmod>
   </url>
@@ -13,22 +38,12 @@
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-01-31T00:00:01+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</loc>
     <lastmod>2020-01-28T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/posts/2020/01/%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88/</loc>
-    <lastmod>2020-01-28T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-01-28T00:00:00+08:00</lastmod>
   </url>
   
