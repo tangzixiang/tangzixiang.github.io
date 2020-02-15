@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="[gRPC] grpcurl 使用指南">
+<meta itemprop="description" content="Github 地址 介绍 grpcurl 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 curl 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。
+该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：
+ 通过 反射服务 进行查询 通过 proto 源文件 通过编译完成的 protoset 文件  只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。
+grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 protoreflect 的一个经典案例。
+特点  grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。 grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。 如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。  安装  直接下载进行安装，访问 releases 即可。 mac 平台通过 Homebrew 方式安装  % brew install grpcurl 源码方式安装详见 from-source   使用 使用文档帮助：">
+<meta itemprop="datePublished" content="2020-02-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="728">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[gRPC] grpcurl 使用指南" />
+<meta property="og:description" content="Github 地址 介绍 grpcurl 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 curl 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。
+该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：
+ 通过 反射服务 进行查询 通过 proto 源文件 通过编译完成的 protoset 文件  只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。
+grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 protoreflect 的一个经典案例。
+特点  grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。 grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。 如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。  安装  直接下载进行安装，访问 releases 即可。 mac 平台通过 Homebrew 方式安装  % brew install grpcurl 源码方式安装详见 from-source   使用 使用文档帮助：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2020-02-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-14T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="[gRPC] grpcurl 使用指南"/>
+<meta name="twitter:description" content="Github 地址 介绍 grpcurl 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 curl 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。
+该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：
+ 通过 反射服务 进行查询 通过 proto 源文件 通过编译完成的 protoset 文件  只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。
+grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 protoreflect 的一个经典案例。
+特点  grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。 grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。 如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。  安装  直接下载进行安装，访问 releases 即可。 mac 平台通过 Homebrew 方式安装  % brew install grpcurl 源码方式安装详见 from-source   使用 使用文档帮助："/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>[gRPC] grpcurl 使用指南</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/opensource/">开源</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
+				<a href="https://tangzixiang.github.io/course/">课程</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
+			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 14, 2020</span></div>
+				<h1>[gRPC] grpcurl 使用指南</h1>
+			</header>
+			<div class="content">
+				<a href="https://github.com/fullstorydev/grpcurl"  target="_blank"  >Github 地址</a> 
+
+<h2 id="heading">介绍<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p><code>grpcurl</code> 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 <code>curl</code> 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。</p>
+<p>该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：</p>
+<ul>
+<li>通过 <a href="https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md"  target="_blank"  >反射服务</a> 
+ 进行查询</li>
+<li>通过 proto 源文件</li>
+<li>通过编译完成的 <a href="https://github.com/fullstorydev/grpcurl#protoset-files"  target="_blank"  >protoset</a> 
+ 文件</li>
+</ul>
+<p>只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。</p>
+<p>grpcurl 项目（<code>github.com/fullstorydev/grpcurl</code>）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 <a href="https://godoc.org/github.com/jhump/protoreflect"  target="_blank"  >protoreflect</a> 
+ 的一个经典案例。</p>
+<h2 id="heading1">特点<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。</li>
+<li>grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。</li>
+<li>如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。</li>
+</ol>
+<h2 id="heading2">安装<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ol>
+<li>直接下载进行安装，访问 <a href="https://github.com/fullstorydev/grpcurl/releases"  target="_blank"  >releases</a> 
+ 即可。</li>
+<li>mac 平台通过 Homebrew 方式安装</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% brew install grpcurl
+</code></pre></div><ol start="3">
+<li>源码方式安装详见 <a href="https://github.com/fullstorydev/grpcurl#from-source"  target="_blank"  >from-source</a> 
+</li>
+</ol>
+<h2 id="heading3">使用<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>使用文档帮助：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -help
+</code></pre></div><h3 id="1-">案例1 查看指定项目提供的所有服务<a href="#1-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>假设服务端支持如下服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-proto" data-lang="proto"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="kn">package</span> <span class="nn">grpc</span><span class="o">.</span><span class="n">examples.echo</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;google.golang.org/grpc/examples/features/proto/echo&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// EchoRequest is the request for echo.
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">EchoRequest</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// EchoResponse is the response for echo.
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">EchoResponse</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// Echo is the echo service.
+</span><span class="c1"></span><span class="kd">service</span> <span class="n">Echo</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// UnaryEcho is unary echo.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">UnaryEcho</span><span class="p">(</span><span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// ServerStreamingEcho is server side streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">ServerStreamingEcho</span><span class="p">(</span><span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">stream</span> <span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// ClientStreamingEcho is client side streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">ClientStreamingEcho</span><span class="p">(</span><span class="n">stream</span> <span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// BidirectionalStreamingEcho is bidi streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">BidirectionalStreamingEcho</span><span class="p">(</span><span class="n">stream</span> <span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">stream</span> <span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span></code></pre></div><p>成功运行 <a href="https://github.com/grpc/grpc-go/blob/master/examples/features/reflection/server/main.go"  target="_blank"  >服务端代码</a> 
+后（默认运行在了 50051 端口），通过下述命令可以查看其支持的所有服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 list                                 
+grpc.examples.echo.Echo
+grpc.reflection.v1alpha.ServerReflection
+</code></pre></div><p><strong>help 的说明如下</strong>：</p>
+<blockquote>
+<p>If &lsquo;list&rsquo; is indicated, the symbol (if present) should be a fully-qualified
+service name. If present, all methods of that service are listed. If not
+present, all exposed services are listed, or all services defined in protosets</p>
+</blockquote>
+<blockquote>
+<p>-plaintext :</p>
+<p>Use plain-text HTTP/2 when connecting to server (no TLS)</p>
+</blockquote>
+<p>即上面的命令我们通过 HTTP/2 的方式与 gRPC 服务端进行了一次交互，查询了其支持的所有的 service，其中就包括前面定义的 proto 内容 <code>grpc.examples.echo.Echo</code> 。</p>
+<p><code>grpc.reflection.v1alpha.ServerReflection</code> service 是由服务端使用了反射服务所生成。</p>
+<p>亦或者我们可以直接加载 proto 文件的方式查看所支持的服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path <span class="nb">echo</span> -proto echo.proto list
+grpc.examples.echo.Echo
+</code></pre></div><p><strong>help 的说明如下</strong>：</p>
+<blockquote>
+<p>-import-path value :</p>
+<p>The path to a directory from which proto sources can be imported, for
+use with -proto flags. Multiple import paths can be configured by
+specifying multiple -import-path flags. Paths will be searched in the
+order given. If no import paths are given, all files (including all
+imports) must be provided as -proto flags, and grpcurl will attempt to
+resolve all import statements from the set of file names given.</p>
+</blockquote>
+<blockquote>
+<p>-proto value :</p>
+<p>The name of a proto source file. Source files given will be used to
+determine the RPC schema instead of querying for it from the remote
+server via the gRPC reflection API. When set: the &lsquo;list&rsquo; action lists
+the services found in the given files and their imports (vs. those
+exposed by the remote server), and the &lsquo;describe&rsquo; action describes
+symbols found in the given files. May specify more than one via multiple
+-proto flags. Imports will be resolved using the given -import-path
+flags. Multiple proto files can be specified by specifying multiple
+-proto flags. It is an error to use both -protoset and -proto flags.</p>
+</blockquote>
+<p>由于上面的命令不是使用服务端的反射服务进行查询，而是使用的 proto 源文件进行加载查询得出，故只有一项
+<code>grpc.examples.echo.Echo</code>。</p>
+<h3 id="2-">案例2 查看指定服务支持的方法<a href="#2-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>在前面使用 list 的基础上，我们还可以进一步查询指定服务所支持的方法：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 list grpc.examples.echo.Echo
+grpc.examples.echo.Echo.BidirectionalStreamingEcho
+grpc.examples.echo.Echo.ClientStreamingEcho
+grpc.examples.echo.Echo.ServerStreamingEcho
+grpc.examples.echo.Echo.UnaryEcho
+</code></pre></div><p>同理，使用 proto 文件方式也可以得到一样的输出:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path ./echo -proto echo.proto list grpc.examples.echo.Echo
+grpc.examples.echo.Echo.BidirectionalStreamingEcho
+grpc.examples.echo.Echo.ClientStreamingEcho
+grpc.examples.echo.Echo.ServerStreamingEcho
+grpc.examples.echo.Echo.UnaryEcho
+</code></pre></div><h3 id="3-">案例3 获取指定服务的描述信息<a href="#3-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>前面两个案例我们使用 list 只是查看到了相应的服务名，如果需要查看更具体的描述则需要通过 describe。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.Echo     
+grpc.examples.echo.Echo is a service:
+service Echo <span class="o">{</span>
+  rpc BidirectionalStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc ClientStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc ServerStreamingEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc UnaryEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><p>由于代码不能横向拖动导致展示不美观，这里加了些换行缩进。同理，使用加载 proto 文件方式也可以得到一样的输出:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path ./echo -proto echo.proto describe grpc.examples.echo.Echo
+grpc.examples.echo.Echo is a service:
+// Echo is the <span class="nb">echo</span> service.
+service Echo <span class="o">{</span>
+  // BidirectionalStreamingEcho is bidi streaming.
+  rpc BidirectionalStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // ClientStreamingEcho is client side streaming.
+  rpc ClientStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // ServerStreamingEcho is server side streaming.
+  rpc ServerStreamingEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // UnaryEcho is unary echo.
+  rpc UnaryEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><p>相较使用服务端的反射服务，加载文件的方式会输出本身的注释信息。</p>
+<p>当然除了输出服务的描述信息外也可以输出 message 描述信息：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.EchoRequest
+grpc.examples.echo.EchoRequest is a message:
+message EchoRequest <span class="o">{</span>
+  string <span class="nv">message</span> <span class="o">=</span> 1<span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.EchoResponse
+grpc.examples.echo.EchoResponse is a message:
+message EchoResponse <span class="o">{</span>
+  string <span class="nv">message</span> <span class="o">=</span> 1<span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="4--grpc-">案例4 与 gRPC 服务端进行交互<a href="#4--grpc-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>服务端部分交互代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">ecServer</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">// Echo 服务的实现
+</span><span class="c1"></span>	<span class="nx">ecpb</span><span class="p">.</span><span class="nx">UnimplementedEchoServer</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">ecServer</span><span class="p">)</span> <span class="nf">UnaryEcho</span><span class="p">(</span>
+	<span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoRequest</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoResponse</span><span class="p">,</span> 
+	<span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">Message</span><span class="p">}</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div><p>通过 <code>-d</code> 参数发送 JSON 数据</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> % grpcurl -plaintext -d <span class="s1">&#39;{&#34;message&#34;:&#34;hi&#34;}&#39;</span> 127.0.0.1:50051 grpc.examples.echo.Echo.UnaryEcho
+<span class="o">{</span>
+  <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;hi&#34;</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="heading4">其他<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dDr-8kbMnaw"  target="_blank"  >grpcurl 介绍视频（youtube）</a> 
+</li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>728 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Wednesday, Jan 21, 2015</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">介绍</a></li>
+    <li><a href="#heading1">特点</a></li>
+    <li><a href="#heading2">安装</a></li>
+    <li><a href="#heading3">使用</a>
+      <ul>
+        <li><a href="#1-">案例1 查看指定项目提供的所有服务</a></li>
+        <li><a href="#2-">案例2 查看指定服务支持的方法</a></li>
+        <li><a href="#3-">案例3 获取指定服务的描述信息</a></li>
+        <li><a href="#4--grpc-">案例4 与 gRPC 服务端进行交互</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">其他</a></li>
+  </ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="prev-post" href="https://blog.golang.org/generate" target="_brank">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>[Go] Generating code - The Go Blog</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

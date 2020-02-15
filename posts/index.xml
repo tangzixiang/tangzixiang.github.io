@@ -6,11 +6,235 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 10 Feb 2020 00:00:02 +0800</lastBuildDate>
+		<lastBuildDate>Fri, 14 Feb 2020 00:00:00 +0000</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>[Go] 深入理解Go之generate</title>
+			<title>[gRPC] grpcurl 使用指南</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+			<pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+			<description>Github 地址 介绍 grpcurl 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 curl 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。
+该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：
+ 通过 反射服务 进行查询 通过 proto 源文件 通过编译完成的 protoset 文件  只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。
+grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 protoreflect 的一个经典案例。
+特点  grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。 grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。 如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。  安装  直接下载进行安装，访问 releases 即可。 mac 平台通过 Homebrew 方式安装  % brew install grpcurl 源码方式安装详见 from-source   使用 使用文档帮助：</description>
+			<content type="html"><![CDATA[<a href="https://github.com/fullstorydev/grpcurl"  target="_blank"  >Github 地址</a> 
+
+<h2 id="heading">介绍</h2>
+<p><code>grpcurl</code> 是一个能够直接与 gRPC 服务交互的命令行工具。基本算是 <code>curl</code> 的 gRPC 版本。由于 gRPC 服务之间的通信使用的是 protocol buffers（下文 PB 指代） 格式的二进制编码，所以无法使用传统的 curl ，更何况旧版本的 curl 还不支持 HTTP/2。为了更好上手，该工具和服务器交互时我们只需要提供 JSON 数据作为请求数据即可，该工具底层会自动将其编码为 PB 格式的二进制与服务端进行交互。</p>
+<p>该工具支持通过以下几种情况查看 gPRC service 的定义格式（schema）：</p>
+<ul>
+<li>通过 <a href="https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md"  target="_blank"  >反射服务</a> 
+ 进行查询</li>
+<li>通过 proto 源文件</li>
+<li>通过编译完成的 <a href="https://github.com/fullstorydev/grpcurl#protoset-files"  target="_blank"  >protoset</a> 
+ 文件</li>
+</ul>
+<p>只有通过使用上述方式查询得到的 schema，该工具才能能够将 JSON 请求数据准确的转换成 PB 格式的二进制数据。</p>
+<p>grpcurl 项目（<code>github.com/fullstorydev/grpcurl</code>）同时可以作为 lib 使用。这个 lib 提供了比其他工具更加简化的寻址功能。同时该项目是使用 <a href="https://godoc.org/github.com/jhump/protoreflect"  target="_blank"  >protoreflect</a> 
+ 的一个经典案例。</p>
+<h2 id="heading1">特点</h2>
+<ol>
+<li>grpcurl 支持所有 gRPC 的方法，包括 stream 方法。通过 grpcurl 你甚至可以与服务端进行双向的 stram 交流。</li>
+<li>grpcurl 支持 plain-text(HTTP/2) 及 TLS, 对于 TLS 有大量的可选项配置，同时支持双向 TLS 即当客户端被要求提交证书也是支持的。</li>
+<li>如上文提到的，grpcurl 支持通过反射服务无缝连接，又或者使用 proto 或则 protoset 文件。</li>
+</ol>
+<h2 id="heading2">安装</h2>
+<ol>
+<li>直接下载进行安装，访问 <a href="https://github.com/fullstorydev/grpcurl/releases"  target="_blank"  >releases</a> 
+ 即可。</li>
+<li>mac 平台通过 Homebrew 方式安装</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% brew install grpcurl
+</code></pre></div><ol start="3">
+<li>源码方式安装详见 <a href="https://github.com/fullstorydev/grpcurl#from-source"  target="_blank"  >from-source</a> 
+</li>
+</ol>
+<h2 id="heading3">使用</h2>
+<p>使用文档帮助：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -help
+</code></pre></div><h3 id="1-">案例1 查看指定项目提供的所有服务</h3>
+<p>假设服务端支持如下服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-proto" data-lang="proto"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="kn">package</span> <span class="nn">grpc</span><span class="o">.</span><span class="n">examples.echo</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;google.golang.org/grpc/examples/features/proto/echo&#34;</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// EchoRequest is the request for echo.
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">EchoRequest</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// EchoResponse is the response for echo.
+</span><span class="c1"></span><span class="kd">message</span> <span class="nc">EchoResponse</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="c1">// Echo is the echo service.
+</span><span class="c1"></span><span class="kd">service</span> <span class="n">Echo</span> <span class="p">{</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// UnaryEcho is unary echo.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">UnaryEcho</span><span class="p">(</span><span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// ServerStreamingEcho is server side streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">ServerStreamingEcho</span><span class="p">(</span><span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">stream</span> <span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// ClientStreamingEcho is client side streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">ClientStreamingEcho</span><span class="p">(</span><span class="n">stream</span> <span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span>  <span class="c1">// BidirectionalStreamingEcho is bidi streaming.
+</span><span class="c1"></span>  <span class="k">rpc</span> <span class="n">BidirectionalStreamingEcho</span><span class="p">(</span><span class="n">stream</span> <span class="n">EchoRequest</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">stream</span> <span class="n">EchoResponse</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="err">
+</span><span class="err"></span><span class="p">}</span><span class="err">
+</span></code></pre></div><p>成功运行 <a href="https://github.com/grpc/grpc-go/blob/master/examples/features/reflection/server/main.go"  target="_blank"  >服务端代码</a> 
+后（默认运行在了 50051 端口），通过下述命令可以查看其支持的所有服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 list                                 
+grpc.examples.echo.Echo
+grpc.reflection.v1alpha.ServerReflection
+</code></pre></div><p><strong>help 的说明如下</strong>：</p>
+<blockquote>
+<p>If &lsquo;list&rsquo; is indicated, the symbol (if present) should be a fully-qualified
+service name. If present, all methods of that service are listed. If not
+present, all exposed services are listed, or all services defined in protosets</p>
+</blockquote>
+<blockquote>
+<p>-plaintext :</p>
+<p>Use plain-text HTTP/2 when connecting to server (no TLS)</p>
+</blockquote>
+<p>即上面的命令我们通过 HTTP/2 的方式与 gRPC 服务端进行了一次交互，查询了其支持的所有的 service，其中就包括前面定义的 proto 内容 <code>grpc.examples.echo.Echo</code> 。</p>
+<p><code>grpc.reflection.v1alpha.ServerReflection</code> service 是由服务端使用了反射服务所生成。</p>
+<p>亦或者我们可以直接加载 proto 文件的方式查看所支持的服务：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path <span class="nb">echo</span> -proto echo.proto list
+grpc.examples.echo.Echo
+</code></pre></div><p><strong>help 的说明如下</strong>：</p>
+<blockquote>
+<p>-import-path value :</p>
+<p>The path to a directory from which proto sources can be imported, for
+use with -proto flags. Multiple import paths can be configured by
+specifying multiple -import-path flags. Paths will be searched in the
+order given. If no import paths are given, all files (including all
+imports) must be provided as -proto flags, and grpcurl will attempt to
+resolve all import statements from the set of file names given.</p>
+</blockquote>
+<blockquote>
+<p>-proto value :</p>
+<p>The name of a proto source file. Source files given will be used to
+determine the RPC schema instead of querying for it from the remote
+server via the gRPC reflection API. When set: the &lsquo;list&rsquo; action lists
+the services found in the given files and their imports (vs. those
+exposed by the remote server), and the &lsquo;describe&rsquo; action describes
+symbols found in the given files. May specify more than one via multiple
+-proto flags. Imports will be resolved using the given -import-path
+flags. Multiple proto files can be specified by specifying multiple
+-proto flags. It is an error to use both -protoset and -proto flags.</p>
+</blockquote>
+<p>由于上面的命令不是使用服务端的反射服务进行查询，而是使用的 proto 源文件进行加载查询得出，故只有一项
+<code>grpc.examples.echo.Echo</code>。</p>
+<h3 id="2-">案例2 查看指定服务支持的方法</h3>
+<p>在前面使用 list 的基础上，我们还可以进一步查询指定服务所支持的方法：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 list grpc.examples.echo.Echo
+grpc.examples.echo.Echo.BidirectionalStreamingEcho
+grpc.examples.echo.Echo.ClientStreamingEcho
+grpc.examples.echo.Echo.ServerStreamingEcho
+grpc.examples.echo.Echo.UnaryEcho
+</code></pre></div><p>同理，使用 proto 文件方式也可以得到一样的输出:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path ./echo -proto echo.proto list grpc.examples.echo.Echo
+grpc.examples.echo.Echo.BidirectionalStreamingEcho
+grpc.examples.echo.Echo.ClientStreamingEcho
+grpc.examples.echo.Echo.ServerStreamingEcho
+grpc.examples.echo.Echo.UnaryEcho
+</code></pre></div><h3 id="3-">案例3 获取指定服务的描述信息</h3>
+<p>前面两个案例我们使用 list 只是查看到了相应的服务名，如果需要查看更具体的描述则需要通过 describe。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.Echo     
+grpc.examples.echo.Echo is a service:
+service Echo <span class="o">{</span>
+  rpc BidirectionalStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc ClientStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc ServerStreamingEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  rpc UnaryEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><p>由于代码不能横向拖动导致展示不美观，这里加了些换行缩进。同理，使用加载 proto 文件方式也可以得到一样的输出:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -import-path ./echo -proto echo.proto describe grpc.examples.echo.Echo
+grpc.examples.echo.Echo is a service:
+// Echo is the <span class="nb">echo</span> service.
+service Echo <span class="o">{</span>
+  // BidirectionalStreamingEcho is bidi streaming.
+  rpc BidirectionalStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // ClientStreamingEcho is client side streaming.
+  rpc ClientStreamingEcho <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // ServerStreamingEcho is server side streaming.
+  rpc ServerStreamingEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	stream .grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+
+  // UnaryEcho is unary echo.
+  rpc UnaryEcho <span class="o">(</span> 
+  	.grpc.examples.echo.EchoRequest <span class="o">)</span> returns <span class="o">(</span> 
+  	.grpc.examples.echo.EchoResponse <span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><p>相较使用服务端的反射服务，加载文件的方式会输出本身的注释信息。</p>
+<p>当然除了输出服务的描述信息外也可以输出 message 描述信息：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.EchoRequest
+grpc.examples.echo.EchoRequest is a message:
+message EchoRequest <span class="o">{</span>
+  string <span class="nv">message</span> <span class="o">=</span> 1<span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">% grpcurl -plaintext 127.0.0.1:50051 describe grpc.examples.echo.EchoResponse
+grpc.examples.echo.EchoResponse is a message:
+message EchoResponse <span class="o">{</span>
+  string <span class="nv">message</span> <span class="o">=</span> 1<span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="4--grpc-">案例4 与 gRPC 服务端进行交互</h3>
+<p>服务端部分交互代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">ecServer</span> <span class="kd">struct</span> <span class="p">{</span> <span class="c1">// Echo 服务的实现
+</span><span class="c1"></span>	<span class="nx">ecpb</span><span class="p">.</span><span class="nx">UnimplementedEchoServer</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">ecServer</span><span class="p">)</span> <span class="nf">UnaryEcho</span><span class="p">(</span>
+	<span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoRequest</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoResponse</span><span class="p">,</span> 
+	<span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">ecpb</span><span class="p">.</span><span class="nx">EchoResponse</span><span class="p">{</span><span class="nx">Message</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">Message</span><span class="p">}</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div><p>通过 <code>-d</code> 参数发送 JSON 数据</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"> % grpcurl -plaintext -d <span class="s1">&#39;{&#34;message&#34;:&#34;hi&#34;}&#39;</span> 127.0.0.1:50051 grpc.examples.echo.Echo.UnaryEcho
+<span class="o">{</span>
+  <span class="s2">&#34;message&#34;</span>: <span class="s2">&#34;hi&#34;</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="heading4">其他</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dDr-8kbMnaw"  target="_blank"  >grpcurl 介绍视频（youtube）</a> 
+</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] Generating code - The Go Blog</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/generating-code/</link>
+			<pubDate>Tue, 11 Feb 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/generating-code/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] 深入理解 Go 之 generate</title>
 			<link>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</link>
 			<pubDate>Mon, 10 Feb 2020 00:00:02 +0800</pubDate>
 			
