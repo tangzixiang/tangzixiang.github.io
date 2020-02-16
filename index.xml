@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 14 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] Generating code - The Go Blog 翻译版本</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/generating-code-cn/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/generating-code-cn/</guid>
+      <description>原文地址 Rob Pike 22 December 2014
+通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 go test 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。
+计算机程序编写计算机程序其实是有很多案例的。 譬如：Yacc 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。
+可以看出程序编写程序是软件工程领域里面非常重要的一部分。
+一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
+在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
+go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
+首先，安装 Go&#39;Yacc tool：
+go get golang.</description>
+    </item>
     
     <item>
       <title>[gRPC] grpcurl 使用指南</title>
@@ -94,15 +111,6 @@ grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用
       <pubDate>Sat, 25 Jan 2020 18:00:06 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200125/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>KISS 原则和用户认知成本</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200121/</link>
-      <pubDate>Tue, 21 Jan 2020 17:36:14 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200121/</guid>
       <description></description>
     </item>
     

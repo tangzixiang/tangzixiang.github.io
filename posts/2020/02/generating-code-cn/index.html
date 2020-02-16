@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="[Go] Generating code - The Go Blog 翻译版本">
+<meta itemprop="description" content="原文地址 Rob Pike 22 December 2014
+通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 go test 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。
+计算机程序编写计算机程序其实是有很多案例的。 譬如：Yacc 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。
+可以看出程序编写程序是软件工程领域里面非常重要的一部分。
+一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
+在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
+go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
+首先，安装 Go&#39;Yacc tool：
+go get golang.">
+<meta itemprop="datePublished" content="2020-02-16T00:00:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-16T00:00:00&#43;08:00" />
+<meta itemprop="wordCount" content="409">
+<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] Generating code - The Go Blog 翻译版本" />
+<meta property="og:description" content="原文地址 Rob Pike 22 December 2014
+通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 go test 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。
+计算机程序编写计算机程序其实是有很多案例的。 譬如：Yacc 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。
+可以看出程序编写程序是软件工程领域里面非常重要的一部分。
+一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
+在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
+go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
+首先，安装 Go&#39;Yacc tool：
+go get golang." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2020/02/generating-code-cn/" />
+<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
+<meta property="article:published_time" content="2020-02-16T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-02-16T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
+
+<meta name="twitter:title" content="[Go] Generating code - The Go Blog 翻译版本"/>
+<meta name="twitter:description" content="原文地址 Rob Pike 22 December 2014
+通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 go test 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。
+计算机程序编写计算机程序其实是有很多案例的。 譬如：Yacc 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。
+可以看出程序编写程序是软件工程领域里面非常重要的一部分。
+一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
+在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
+go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
+首先，安装 Go&#39;Yacc tool：
+go get golang."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>[Go] Generating code - The Go Blog 翻译版本</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/opensource/">开源</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
+				<a href="https://tangzixiang.github.io/course/">课程</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
+			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
+		</ul>
+	</div>
+
+
+	<div class="bg-img"></div>
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 16, 2020</span></div>
+				<h1>[Go] Generating code - The Go Blog 翻译版本</h1>
+			</header>
+			<div class="content">
+				<a href="https://blog.golang.org/generate"  target="_blank"  >原文地址</a> 
+
+<p>Rob Pike
+22 December 2014</p>
+<p>通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 <code>go test</code> 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。</p>
+<p>计算机程序编写计算机程序其实是有很多案例的。 譬如：<a href="https://godoc.org/golang.org/x/tools/cmd/goyacc"  target="_blank"  >Yacc</a> 
+ 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。</p>
+<p>可以看出程序编写程序是软件工程领域里面非常重要的一部分。</p>
+<p>一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。</p>
+<p>在最新的 <a href="https://blog.golang.org/go1.4"  target="_blank"  >release 版本 1.4</a> 
+中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 <code>go generate</code>，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 <code>go build</code> 的一部分，一般在 <code>go build</code> 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。</p>
+<p><code>go generate</code> 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。</p>
+<p>首先，安装 Go'Yacc tool：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">go get golang.org/x/tools/cmd/goyacc
+</code></pre></div><p>假设你有一个描述了新语言的语法文件叫做 <code>gopher.y</code>。一般情况下如果需要生成实现该语法的 go 代码，你需要执行该语句：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">goyacc -o gopher.go -p parser gopher.y
+</code></pre></div><p>-o 参数表述输出文件名，-p 参数表示 package 名。</p>
+<p>我们可以通过 <code>go generate</code> 去驱动这个进程，在当前目录下的任意非生成文件的任意位置加上下面的注释：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//go:generate goyacc -o gopher.go -p parser gopher.y
+</span></code></pre></div><p>上面这个包含特定前缀的注释便是 <code>go generate</code> 的识别内容。这个注释必须出现在一行的开始处，并且 <code>//</code> 之间不能有空格，<code>//</code> 与 <code>go:generate</code> 之间也不能有空格。除了这些，剩下的便是你需要 <code>go generate</code> 替你执行的命令部分。</p>
+<p>接着我们回到代码目录执行命令：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">cd</span> <span class="nv">$GOPATH</span>/myrepo/gopher
+$ go generate
+$ go build
+$ go <span class="nb">test</span>
+</code></pre></div><p>这便完成了一切，我们假设这个过程没有产生异常，<code>go generate</code> 命令会执行 yacc 并生成 gopher.go 文件，然后在持有 go 文件的当前目录我们可以执行编译、测试等等。每次只要更新了 gopher.y 文件，只需要重复上述 <code>go generate</code> 去生成新的解析代码即可。</p>
+<p>如果想了解更多关于 <code>go generate</code> 如何工作的细节，包括选项，环境变量等等，可以查看 <a href="https://golang.org/s/go1.4-generate"  >设计文档</a> 
+。</p>
+<p><code>go generate</code> 能够做一些其他 make 工具无法完成的事情，而且还是 go tool 内置的，所以非常适合 go 的生态系统。为什么说它是为开发者设计的而不是一个客户端使用的工具呢，因为它所执行的程序可能在目标机器上并不可用。而且如果它需要通过 <code>go get</code> 获取一些 package 的话，生成的内容完成测试后合入项目版本中，客户端才能用。</p>
+<p>接着我们尝试些其他事情，<code>stringer</code> 是 <code>golang.org/x/tools</code> 项目下的新程序，它和前面 <code>go generate</code> 的案例不同。它能够自动生成关于常量集合的 string 方法，它并没有随着 release 版本发布，但是安装很容易：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ go get golang.org/x/tools/cmd/stringer
+</code></pre></div><p>这里有个 <a href="https://godoc.org/golang.org/x/tools/cmd/stringer"  target="_blank"  >stringer</a> 
+ 的例子：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">painkiller</span>
+
+<span class="kd">type</span> <span class="nx">Pill</span> <span class="kt">int</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">Placebo</span> <span class="nx">Pill</span> <span class="p">=</span> <span class="kc">iota</span>
+    <span class="nx">Aspirin</span>
+    <span class="nx">Ibuprofen</span>
+    <span class="nx">Paracetamol</span>
+    <span class="nx">Acetaminophen</span> <span class="p">=</span> <span class="nx">Paracetamol</span>
+<span class="p">)</span>
+</code></pre></div><p>一般为了方便调试，我们会为这些常量添加一些输出的签名。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span>
+</code></pre></div><p>譬如实现如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="nx">p</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">Placebo</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#34;Placebo&#34;</span>
+    <span class="k">case</span> <span class="nx">Aspirin</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#34;Aspirin&#34;</span>
+    <span class="k">case</span> <span class="nx">Ibuprofen</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#34;Ibuprofen&#34;</span>
+    <span class="k">case</span> <span class="nx">Paracetamol</span><span class="p">:</span> <span class="c1">// == Acetaminophen
+</span><span class="c1"></span>        <span class="k">return</span> <span class="s">&#34;Paracetamol&#34;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Pill(%d)&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>当然，还有其他的实现方式，我们可以使用 string slice  来持有 Pill 或则 map 亦或其他的技术，无论怎么做，只要这些内容发生变动，你就需要主动去保证其正确性，何况还需要考虑数据的类型和值的相关问题。</p>
+<p><strong>stringer</strong> 程序解决了这些所有的问题，尽管其可以独立运行，但是其更倾向于通过 <code>go generate</code> 去驱动。如何使用呢，只需要在具体类型附近添加下面的注释便可：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//go:generate stringer -type=Pill
+</span></code></pre></div><p>该注释的意思是使用 <code>go generate</code> 运行 <strong>stringer</strong> 生成类型 Pill 的 String 相关函数。输出的文件默认为 <strong>pill_string.go</strong> ，当然可以通过 <strong>-output</strong> 参数更改默认值。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ go generate
+$ cat pill_string.go
+// Code generated by stringer -type Pill pill.go<span class="p">;</span> DO NOT EDIT.
+
+package painkiller
+
+import <span class="s2">&#34;fmt&#34;</span>
+
+const <span class="nv">_Pill_name</span> <span class="o">=</span> <span class="s2">&#34;PlaceboAspirinIbuprofenParacetamol&#34;</span>
+
+var <span class="nv">_Pill_index</span> <span class="o">=</span> <span class="o">[</span>...<span class="o">]</span>uint8<span class="o">{</span>0, 7, 14, 23, 34<span class="o">}</span>
+
+func <span class="o">(</span>i Pill<span class="o">)</span> String<span class="o">(</span><span class="o">)</span> string <span class="o">{</span>
+    <span class="k">if</span> i &lt; <span class="m">0</span> <span class="o">||</span> i+1 &gt;<span class="o">=</span> Pill<span class="o">(</span>len<span class="o">(</span>_Pill_index<span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> fmt.Sprintf<span class="o">(</span><span class="s2">&#34;Pill(%d)&#34;</span>, i<span class="o">)</span>
+    <span class="o">}</span>
+    <span class="k">return</span> _Pill_name<span class="o">[</span>_Pill_index<span class="o">[</span>i<span class="o">]</span>:_Pill_index<span class="o">[</span>i+1<span class="o">]</span><span class="o">]</span>
+<span class="o">}</span>
+
+</code></pre></div><p>每当我们更新了 Pill 的定义或则常量的定义，我们只需要执行这个命令即可：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ go generate
+</code></pre></div><p>除此之外，如果你在当前 package 里的多个定义使用 stringer，一样是上面一个命令完成所有的定义的 String 方法更新。</p>
+<p>虽然生成的代码有点丑，但是好在你不需要去编辑它，一般而言，机器生成的代码都是挺丑的，但是能提高工作的效率。通过将所有的字符串合在一起，这样可以有效的节省内存。<strong>_Pill_index</strong> 是一个数组，用于映射具体的 name，这是一种非常简单高效的技术。<strong>_Pill_index</strong> 是一个 uint8 类型的数组，而不是 slice，uint8 为足够这里使用的最小整数，如果有更多的值，可能会提升到 uint16 或则 int8，具体视那种工作的更好。</p>
+<p>如果你的常量集是稀疏类型的，则生成的代码可能会使用 map：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">const</span> <span class="nx">_Power_name</span> <span class="p">=</span> <span class="s">&#34;p0p1p2p3p4p5...&#34;</span>
+
+<span class="kd">var</span> <span class="nx">_Power_map</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">Power</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">16</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">32</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="p">,</span>
+    <span class="o">...</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">i</span> <span class="nx">Power</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">_Power_map</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">;</span> <span class="nx">ok</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">str</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Power(%d)&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>总得来说，自动生成函数能够让我们更专注于适合人类去做的事情。</p>
+<p>Go 内部也有大量通过 <code>go generate</code> 生成的代码，譬如 unicode package 中的 Unicide 表，encoding/gob 里高效编解码函数， time package 里的时间零值，等等。</p>
+<p>通过 <code>go generate</code> 开始你的创造之旅吧，再不济也尝试使用 stringer 让机器代替你去生成那些整形常量的 String 函数吧。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>tangzixiang</p>
+				
+				
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title">Table of Contents</div>
+			<nav id="TableOfContents"></nav>
+		</aside>
+		<div class="post-nav thin">
+			
+			<a class="prev-post" href="https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>[gRPC] grpcurl 使用指南</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

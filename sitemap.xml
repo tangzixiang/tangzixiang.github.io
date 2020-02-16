@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2020-02-14T00:00:00+00:00</lastmod>
+    <loc>https://tangzixiang.github.io/posts/2020/02/generating-code-cn/</loc>
+    <lastmod>2020-02-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-02-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-16T00:00:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-02-16T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/grpcurl-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2020-02-14T00:00:00+00:00</lastmod>
   </url>
   
