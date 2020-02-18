@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 00:00:02 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Istio Handbook——Istio 服务网格进阶实战：Gitbook</title>
+      <link>https://tangzixiang.github.io/sharesites/istio-handbook/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:02 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/istio-handbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yacc 与 Lex 快速入门：IBM</title>
+      <link>https://tangzixiang.github.io/sharesites/yacc-%E4%B8%8E-lex-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:01 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/yacc-%E4%B8%8E-lex-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>[Go] Generating code - The Go Blog 翻译版本</title>
@@ -93,24 +111,6 @@ grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>动态追踪技术漫谈（Dynamic Tracing）</title>
-      <link>https://tangzixiang.github.io/posts/2020/01/%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88/</link>
-      <pubDate>Tue, 28 Jan 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/01/%E5%8A%A8%E6%80%81%E8%BF%BD%E8%B8%AA%E6%8A%80%E6%9C%AF%E6%BC%AB%E8%B0%88/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>社交分发 &#43; 算法分发</title>
-      <link>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200125/</link>
-      <pubDate>Sat, 25 Jan 2020 18:00:06 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/%E8%AF%AD%E5%BD%9520200125/</guid>
       <description></description>
     </item>
     
