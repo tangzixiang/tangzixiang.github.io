@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 17 Feb 2020 00:00:02 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2020 00:00:04 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安全|常见的 Web 攻击手段之 CSRF 攻击</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/%E5%AE%89%E5%85%A8%E5%B8%B8%E8%A7%81%E7%9A%84web%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5%E4%B9%8Bcsrf%E6%94%BB%E5%87%BB-/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:04 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/%E5%AE%89%E5%85%A8%E5%B8%B8%E8%A7%81%E7%9A%84web%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5%E4%B9%8Bcsrf%E6%94%BB%E5%87%BB-/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub OAuth 第三方登录示例教程</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/github-oauth-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:03 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/github-oauth-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OAuth 2.0 的四种方式</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:02 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OAuth 2.0 的一个简单解释</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:01 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>理解OAuth 2.0</title>
+      <link>https://tangzixiang.github.io/posts/2020/02/%E7%90%86%E8%A7%A3oauth-2.0/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/posts/2020/02/%E7%90%86%E8%A7%A3oauth-2.0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Istio Handbook——Istio 服务网格进阶实战：Gitbook</title>
@@ -66,51 +111,6 @@ grpcurl 项目（github.com/fullstorydev/grpcurl）同时可以作为 lib 使用
       <pubDate>Tue, 11 Feb 2020 00:00:00 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/02/generating-code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] 深入理解 Go 之 generate</title>
-      <link>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:02 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/02/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3go%E4%B9%8Bgenerate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] go generate介绍</title>
-      <link>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:01 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/02/go-generate%E4%BB%8B%E7%BB%8D/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] 使用 Gomock 进行单元测试</title>
-      <link>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/02/%E4%BD%BF%E7%94%A8-gomock-%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python教程：廖雪峰的官方网站</title>
-      <link>https://tangzixiang.github.io/sharesites/python%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Fri, 31 Jan 2020 00:00:01 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/python%E6%95%99%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>agentzh 的 Nginx 教程（版本 2019.07.31）</title>
-      <link>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</link>
-      <pubDate>Tue, 28 Jan 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</guid>
       <description></description>
     </item>
     

@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tangzixiang.github.io/</loc>
+    <lastmod>2020-02-19T00:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/%E5%AE%89%E5%85%A8%E5%B8%B8%E8%A7%81%E7%9A%84web%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5%E4%B9%8Bcsrf%E6%94%BB%E5%87%BB-/</loc>
+    <lastmod>2020-02-19T00:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-02-19T00:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/github-oauth-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E7%A4%BA%E4%BE%8B%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-02-19T00:00:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9/</loc>
+    <lastmod>2020-02-19T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/oauth-2.0-%E7%9A%84%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E8%A7%A3%E9%87%8A/</loc>
+    <lastmod>2020-02-19T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/02/%E7%90%86%E8%A7%A3oauth-2.0/</loc>
+    <lastmod>2020-02-19T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tangzixiang.github.io/sharesites/</loc>
     <lastmod>2020-02-17T00:00:02+08:00</lastmod>
   </url>
@@ -13,22 +48,12 @@
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-02-17T00:00:02+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tangzixiang.github.io/sharesites/yacc-%E4%B8%8E-lex-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2020-02-17T00:00:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/posts/2020/02/generating-code-cn/</loc>
-    <lastmod>2020-02-16T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-02-16T00:00:00+08:00</lastmod>
   </url>
   
