@@ -6,8 +6,78 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Fri, 28 Feb 2020 00:00:04 +0800</lastBuildDate>
+		<lastBuildDate>Sat, 29 Feb 2020 00:00:04 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ENTERPRISE SECURITY - SSL/TLS PRIMER PART 2 - PUBLIC KEY CERTIFICATES</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/enterprise-security-ssltls-primer-part-2-public-key-certificates/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:04 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/enterprise-security-ssltls-primer-part-2-public-key-certificates/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>ENTERPRISE SECURITY - SSL/TLS PRIMER PART 1 - DATA ENCRYPTION</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/enterprise-security-ssltls-primer-part-1-data-encryption/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:03 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/enterprise-security-ssltls-primer-part-1-data-encryption/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>SSL/TLS certificates beginner&#39;s tutorial</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/ssltls-certificates-beginners-tutorial/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:02 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/ssltls-certificates-beginners-tutorial/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>GopherChina 2019大会推荐书单来啦！</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/gopherchina-2019%E5%A4%A7%E4%BC%9A%E6%8E%A8%E8%8D%90%E4%B9%A6%E5%8D%95%E6%9D%A5%E5%95%A6/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/gopherchina-2019%E5%A4%A7%E4%BC%9A%E6%8E%A8%E8%8D%90%E4%B9%A6%E5%8D%95%E6%9D%A5%E5%95%A6/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Transport Layer Security (TLS)</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/transport-layer-security-tls/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/transport-layer-security-tls/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>如何处理高并发和单点故障</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%8D%95%E7%82%B9%E6%95%85%E9%9A%9C/</link>
+			<pubDate>Sat, 29 Feb 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%8D%95%E7%82%B9%E6%95%85%E9%9A%9C/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>仅需3分钟，你就能明白Kafka的工作原理</title>
+			<link>https://tangzixiang.github.io/posts/2020/02/%E4%BB%85%E9%9C%803%E5%88%86%E9%92%9F%E4%BD%A0%E5%B0%B1%E8%83%BD%E6%98%8E%E7%99%BDkafka%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
+			<pubDate>Fri, 28 Feb 2020 00:00:04 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/02/%E4%BB%85%E9%9C%803%E5%88%86%E9%92%9F%E4%BD%A0%E5%B0%B1%E8%83%BD%E6%98%8E%E7%99%BDkafka%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>如何编写开源项目的 README 文档</title>
