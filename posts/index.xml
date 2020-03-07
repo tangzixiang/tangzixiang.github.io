@@ -6,8 +6,98 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 29 Feb 2020 00:00:04 +0800</lastBuildDate>
+		<lastBuildDate>Thu, 05 Mar 2020 00:00:01 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>什么？搞不定Kafka重复消费？</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E4%BB%80%E4%B9%88%E6%90%9E%E4%B8%8D%E5%AE%9Akafka%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9/</link>
+			<pubDate>Thu, 05 Mar 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E4%BB%80%E4%B9%88%E6%90%9E%E4%B8%8D%E5%AE%9Akafka%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Go Modules 终极入门</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/go-modules-%E7%BB%88%E6%9E%81%E5%85%A5%E9%97%A8/</link>
+			<pubDate>Thu, 05 Mar 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/go-modules-%E7%BB%88%E6%9E%81%E5%85%A5%E9%97%A8/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>揭开微信小程序 Kbone 的神秘面纱</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E6%8F%AD%E5%BC%80%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-kbone-%E7%9A%84%E7%A5%9E%E7%A7%98%E9%9D%A2%E7%BA%B1/</link>
+			<pubDate>Wed, 04 Mar 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E6%8F%AD%E5%BC%80%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-kbone-%E7%9A%84%E7%A5%9E%E7%A7%98%E9%9D%A2%E7%BA%B1/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Kbone UI：打通H5与小程序的多端UI库</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/kbone-ui%E6%89%93%E9%80%9Ah5%E4%B8%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A4%9A%E7%AB%AFui%E5%BA%93/</link>
+			<pubDate>Wed, 04 Mar 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/kbone-ui%E6%89%93%E9%80%9Ah5%E4%B8%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A4%9A%E7%AB%AFui%E5%BA%93/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] 如何把 golang 的 Channel 玩出 async 和 await 的 feel</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E5%A6%82%E4%BD%95%E6%8A%8Agolang%E7%9A%84channel%E7%8E%A9%E5%87%BAasync%E5%92%8Cawait%E7%9A%84feel/</link>
+			<pubDate>Tue, 03 Mar 2020 00:00:04 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E5%A6%82%E4%BD%95%E6%8A%8Agolang%E7%9A%84channel%E7%8E%A9%E5%87%BAasync%E5%92%8Cawait%E7%9A%84feel/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Go] 分析golang time.After引起内存暴增OOM问题</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E5%88%86%E6%9E%90golang-time.after%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%9A%B4%E5%A2%9Eoom%E9%97%AE%E9%A2%98/</link>
+			<pubDate>Tue, 03 Mar 2020 00:00:03 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E5%88%86%E6%9E%90golang-time.after%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%9A%B4%E5%A2%9Eoom%E9%97%AE%E9%A2%98/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>前端需要了解的计算机网络知识， 这一篇就够了！</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86-%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/</link>
+			<pubDate>Tue, 03 Mar 2020 00:00:02 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86-%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>注意了！ 计算机组成原理知识已送到你嘴边!</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/%E6%B3%A8%E6%84%8F%E4%BA%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E5%B7%B2%E9%80%81%E5%88%B0%E4%BD%A0%E5%98%B4%E8%BE%B9/</link>
+			<pubDate>Tue, 03 Mar 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/%E6%B3%A8%E6%84%8F%E4%BA%86-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E5%B7%B2%E9%80%81%E5%88%B0%E4%BD%A0%E5%98%B4%E8%BE%B9/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>[Docker] Processes In Containers Should Not Run As Root</title>
+			<link>https://tangzixiang.github.io/posts/2020/03/processes-in-containers-should-not-run-as-root/</link>
+			<pubDate>Tue, 03 Mar 2020 00:00:00 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/03/processes-in-containers-should-not-run-as-root/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>ENTERPRISE SECURITY - SSL/TLS PRIMER PART 2 - PUBLIC KEY CERTIFICATES</title>
