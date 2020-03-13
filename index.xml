@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 13 Mar 2020 09:48:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 09:48:13 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>投资是一生的命题。</title>
+      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</link>
+      <pubDate>Sun, 15 Mar 2020 09:48:13 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>事非亲力，不知其艰。</title>
+      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200314/</link>
+      <pubDate>Sat, 14 Mar 2020 09:48:13 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200314/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>进入一个行业，快速学习的方法是：标杆学习。标杆无需太高，跳一跳够的着就好。</title>
@@ -81,24 +99,6 @@
       <pubDate>Wed, 04 Mar 2020 00:00:00 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/03/kbone-ui%E6%89%93%E9%80%9Ah5%E4%B8%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A4%9A%E7%AB%AFui%E5%BA%93/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] 如何把 golang 的 Channel 玩出 async 和 await 的 feel</title>
-      <link>https://tangzixiang.github.io/posts/2020/03/%E5%A6%82%E4%BD%95%E6%8A%8Agolang%E7%9A%84channel%E7%8E%A9%E5%87%BAasync%E5%92%8Cawait%E7%9A%84feel/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:04 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/03/%E5%A6%82%E4%BD%95%E6%8A%8Agolang%E7%9A%84channel%E7%8E%A9%E5%87%BAasync%E5%92%8Cawait%E7%9A%84feel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] 分析golang time.After引起内存暴增OOM问题</title>
-      <link>https://tangzixiang.github.io/posts/2020/03/%E5%88%86%E6%9E%90golang-time.after%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%9A%B4%E5%A2%9Eoom%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:03 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/03/%E5%88%86%E6%9E%90golang-time.after%E5%BC%95%E8%B5%B7%E5%86%85%E5%AD%98%E6%9A%B4%E5%A2%9Eoom%E9%97%AE%E9%A2%98/</guid>
       <description></description>
     </item>
     
