@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 06 Apr 2020 00:00:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>运气后面藏着一个我们看不到的&#34;打磨&#34;。</title>
+      <link>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200409/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200409/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>基于 token 的多平台身份认证架构设计</title>
@@ -18,6 +27,51 @@
       <pubDate>Mon, 06 Apr 2020 00:00:01 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/04/%E5%9F%BA%E4%BA%8E-token-%E7%9A%84%E5%A4%9A%E5%B9%B3%E5%8F%B0%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>优秀的人往往是扎堆的。</title>
+      <link>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200403/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200403/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>一个事什么时候做都不晚，只要努力做多遍一定会产生质变。</title>
+      <link>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200401/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200401/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>个人的口碑，只能通过无数次的日常沟通和行为中，潜移默化的给他人形成和强化一点点的。</title>
+      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200330/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200330/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>要注意孤岛效应。</title>
+      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200328/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200328/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>互联网看似让信息对称了，其实加剧了信息不对称。</title>
+      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200327/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200327/</guid>
       <description></description>
     </item>
     
@@ -45,60 +99,6 @@
       <pubDate>Mon, 23 Mar 2020 00:00:01 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/posts/2020/03/go-%E6%AF%8F%E6%97%A5%E4%B8%80%E5%BA%93%E4%B9%8B-watermill/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>投资是一生的命题。</title>
-      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</link>
-      <pubDate>Sun, 15 Mar 2020 09:48:13 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>事非亲力，不知其艰。</title>
-      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200314/</link>
-      <pubDate>Sat, 14 Mar 2020 09:48:13 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200314/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>进入一个行业，快速学习的方法是：标杆学习。标杆无需太高，跳一跳够的着就好。</title>
-      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200313/</link>
-      <pubDate>Fri, 13 Mar 2020 09:48:13 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200313/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] 写扩展性好的代码：函数</title>
-      <link>https://tangzixiang.github.io/posts/2020/03/%E5%86%99%E6%89%A9%E5%B1%95%E6%80%A7%E5%A5%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E5%87%BD%E6%95%B0/</link>
-      <pubDate>Thu, 12 Mar 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/posts/2020/03/%E5%86%99%E6%89%A9%E5%B1%95%E6%80%A7%E5%A5%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E5%87%BD%E6%95%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>必须培养员工的自增长能力，才能加速整个团队的实力发展。</title>
-      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200311/</link>
-      <pubDate>Wed, 11 Mar 2020 09:48:13 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200311/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>大闸蟹只有不断的脱壳，才能变得更强大，更成熟。</title>
-      <link>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200307/</link>
-      <pubDate>Sat, 07 Mar 2020 09:48:13 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200307/</guid>
       <description></description>
     </item>
     

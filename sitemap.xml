@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-04-06T00:00:01+08:00</lastmod>
+    <lastmod>2020-04-09T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/</loc>
+    <lastmod>2020-04-09T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200409/</loc>
+    <lastmod>2020-04-09T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -15,6 +25,31 @@
   <url>
     <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-04-06T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200403/</loc>
+    <lastmod>2020-04-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202004/%E8%AF%AD%E5%BD%9520200401/</loc>
+    <lastmod>2020-04-01T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200330/</loc>
+    <lastmod>2020-03-30T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200328/</loc>
+    <lastmod>2020-03-28T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200327/</loc>
+    <lastmod>2020-03-27T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -33,12 +68,22 @@
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</loc>
-    <lastmod>2020-03-15T09:48:13+08:00</lastmod>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200322/</loc>
+    <lastmod>2020-03-22T00:00:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/daily/</loc>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200321/</loc>
+    <lastmod>2020-03-21T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200319/</loc>
+    <lastmod>2020-03-19T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202003/%E8%AF%AD%E5%BD%9520200315/</loc>
     <lastmod>2020-03-15T09:48:13+08:00</lastmod>
   </url>
   
