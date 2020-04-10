@@ -6,8 +6,18 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 06 Apr 2020 00:00:01 +0800</lastBuildDate>
+		<lastBuildDate>Fri, 10 Apr 2020 00:00:01 +0800</lastBuildDate>
 		<atom:link href="https://tangzixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>圣杯与银弹 · 没用的设计模式</title>
+			<link>https://tangzixiang.github.io/posts/2020/04/%E5%9C%A3%E6%9D%AF%E4%B8%8E%E9%93%B6%E5%BC%B9-%E6%B2%A1%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+			<pubDate>Fri, 10 Apr 2020 00:00:01 +0800</pubDate>
+			
+			<guid>https://tangzixiang.github.io/posts/2020/04/%E5%9C%A3%E6%9D%AF%E4%B8%8E%E9%93%B6%E5%BC%B9-%E6%B2%A1%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
 		
 		<item>
 			<title>基于 token 的多平台身份认证架构设计</title>
