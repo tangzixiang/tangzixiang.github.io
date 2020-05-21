@@ -3,17 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tangzixiang.github.io/posts/2020/05/%E5%9F%BA%E4%BA%8E%E6%A0%87%E5%87%86%E5%BA%93-nethttp-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-http-%E8%AF%B7%E6%B1%82/</loc>
-    <lastmod>2020-05-21T00:00:01+08:00</lastmod>
+    <loc>https://tangzixiang.github.io/opensource/appender/</loc>
+    <lastmod>2020-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-05-21T00:00:01+08:00</lastmod>
+    <lastmod>2020-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/opensource/</loc>
+    <lastmod>2020-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/golang-%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%B7%B1%E5%85%A5%E6%B5%AE%E7%82%B9%E6%95%B0/</loc>
+    <lastmod>2020-05-21T00:00:02+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-05-21T00:00:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/%E5%9F%BA%E4%BA%8E%E6%A0%87%E5%87%86%E5%BA%93-nethttp-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-http-%E8%AF%B7%E6%B1%82/</loc>
     <lastmod>2020-05-21T00:00:01+08:00</lastmod>
   </url>
   
@@ -909,11 +924,6 @@
   
   <url>
     <loc>https://tangzixiang.github.io/posts/2020/01/goprojectinit/</loc>
-    <lastmod>2020-01-07T10:27:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/opensource/</loc>
     <lastmod>2020-01-07T10:27:55+08:00</lastmod>
   </url>
   
