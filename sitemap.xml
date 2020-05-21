@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/%E5%9F%BA%E4%BA%8E%E6%A0%87%E5%87%86%E5%BA%93-nethttp-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-http-%E8%AF%B7%E6%B1%82/</loc>
+    <lastmod>2020-05-21T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-05-19T00:00:00+08:00</lastmod>
+    <lastmod>2020-05-21T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-05-21T00:00:01+08:00</lastmod>
   </url>
   
   <url>
@@ -15,6 +25,11 @@
   <url>
     <loc>https://tangzixiang.github.io/daily/</loc>
     <lastmod>2020-05-19T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/%E5%BC%80%E6%94%BE%E5%88%86%E5%B8%83%E5%BC%8F%E8%BF%BD%E8%B8%AAopentracing%E5%85%A5%E9%97%A8%E4%B8%8E-jaeger-%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2020-05-18T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +44,6 @@
   
   <url>
     <loc>https://tangzixiang.github.io/posts/2020/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2020-05-13T00:00:05+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-05-13T00:00:05+08:00</lastmod>
   </url>
   
