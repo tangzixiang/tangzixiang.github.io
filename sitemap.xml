@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tangzixiang.github.io/opensource/appender/</loc>
-    <lastmod>2020-05-21T00:00:00+00:00</lastmod>
+    <loc>https://tangzixiang.github.io/sharesites/</loc>
+    <lastmod>2020-05-26T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/sharesites/docker-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2020-05-26T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/dockerfile-%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2020-05-26T00:00:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/</loc>
+    <lastmod>2020-05-26T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-05-26T00:00:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/202005/%E8%AF%AD%E5%BD%9520200526/</loc>
+    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/daily/</loc>
+    <lastmod>2020-05-26T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/opensource/appender/</loc>
     <lastmod>2020-05-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,22 +53,12 @@
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
-    <lastmod>2020-05-21T00:00:02+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tangzixiang.github.io/posts/2020/05/%E5%9F%BA%E4%BA%8E%E6%A0%87%E5%87%86%E5%BA%93-nethttp-%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-http-%E8%AF%B7%E6%B1%82/</loc>
     <lastmod>2020-05-21T00:00:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://tangzixiang.github.io/daily/202005/%E8%AF%AD%E5%BD%9520200519/</loc>
-    <lastmod>2020-05-19T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/daily/</loc>
     <lastmod>2020-05-19T00:00:00+08:00</lastmod>
   </url>
   
@@ -445,11 +465,6 @@
   <url>
     <loc>https://tangzixiang.github.io/daily/202002/%E8%AF%AD%E5%BD%9520200218/</loc>
     <lastmod>2020-02-18T09:32:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/sharesites/</loc>
-    <lastmod>2020-02-17T00:00:02+08:00</lastmod>
   </url>
   
   <url>
@@ -1105,6 +1120,11 @@
   <url>
     <loc>https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88%E7%BB%86%E8%AF%B4-js-%E5%87%BD%E6%95%B0callapply%E9%87%8D%E8%BD%BD/</loc>
     <lastmod>2015-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-rpc-%E5%AE%9E%E6%88%98%E4%B8%8E%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
