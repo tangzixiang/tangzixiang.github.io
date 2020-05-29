@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 29 May 2020 00:00:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/sharesites/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>12-Factor</title>
+      <link>https://tangzixiang.github.io/sharesites/12-factor/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/12-factor/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Gnu 隐私卫士 (GnuPG) 袖珍 HOWTO (中文版)</title>
@@ -90,15 +99,6 @@
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://tangzixiang.github.io/sharesites/%E7%82%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%AD%B8-git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>脚本之家 - 在线手册</title>
-      <link>https://tangzixiang.github.io/sharesites/%E5%9C%A8%E7%BA%BF%E6%89%8B%E5%86%8C/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/%E5%9C%A8%E7%BA%BF%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     

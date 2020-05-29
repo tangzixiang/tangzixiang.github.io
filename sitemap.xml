@@ -4,6 +4,41 @@
   
   <url>
     <loc>https://tangzixiang.github.io/sharesites/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/sharesites/12-factor/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/viper-go%E4%B8%80%E7%AB%99%E5%BC%8F%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2020-05-29T00:00:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/</loc>
+    <lastmod>2020-05-29T00:00:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/go-%E5%86%85%E5%B5%8C%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E5%B7%A5%E5%85%B7-packr/</loc>
+    <lastmod>2020-05-29T00:00:05+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/cobra-%E5%8C%85%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2020-05-29T00:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tangzixiang.github.io/posts/2020/05/pflag-%E5%8C%85%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2020-05-29T00:00:03+08:00</lastmod>
   </url>
   
@@ -13,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://tangzixiang.github.io/</loc>
-    <lastmod>2020-05-29T00:00:03+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tangzixiang.github.io/posts/2020/05/gpg%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-05-29T00:00:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tangzixiang.github.io/posts/</loc>
     <lastmod>2020-05-29T00:00:02+08:00</lastmod>
   </url>
   
