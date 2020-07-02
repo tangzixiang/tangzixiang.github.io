@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://tangzixiang.github.io/sharesites/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GO - Getting Started</title>
+      <link>https://tangzixiang.github.io/sharesites/go-getting-started/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/go-getting-started/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hundreds of Free Programming Tutorials</title>
+      <link>https://tangzixiang.github.io/sharesites/hundreds-of-free-programming-tutorials/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/hundreds-of-free-programming-tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GraphQL 开发原则</title>
+      <link>https://tangzixiang.github.io/sharesites/graphql-%E5%BC%80%E5%8F%91%E5%8E%9F%E5%88%99/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/graphql-%E5%BC%80%E5%8F%91%E5%8E%9F%E5%88%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travis CI Tutorial</title>
+      <link>https://tangzixiang.github.io/sharesites/travis-ci-tutorial/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/travis-ci-tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Become a git guru.</title>
+      <link>https://tangzixiang.github.io/sharesites/become-a-git-guru/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangzixiang.github.io/sharesites/become-a-git-guru/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>12-Factor</title>
@@ -54,51 +99,6 @@
       <pubDate>Mon, 17 Feb 2020 00:00:01 +0800</pubDate>
       
       <guid>https://tangzixiang.github.io/sharesites/yacc-%E4%B8%8E-lex-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>开发者手册：阮一峰的网络日志</title>
-      <link>https://tangzixiang.github.io/sharesites/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97/</link>
-      <pubDate>Mon, 17 Feb 2020 00:00:01 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>agentzh 的 Nginx 教程（版本 2019.07.31）</title>
-      <link>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</link>
-      <pubDate>Tue, 28 Jan 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/agentzh-%E7%9A%84-nginx-%E6%95%99%E7%A8%8B%E7%89%88%E6%9C%AC-2019.07.31/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MySQL教程：MySQL数据库学习宝典（从入门到精通） - C 语言中文网</title>
-      <link>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Sun, 19 Jan 2020 00:00:01 +0800</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/mysql%E6%95%99%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>学习 Web 开发 - MDN</title>
-      <link>https://tangzixiang.github.io/sharesites/%E5%AD%A6%E4%B9%A0-web-%E5%BC%80%E5%8F%91/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/%E5%AD%A6%E4%B9%A0-web-%E5%BC%80%E5%8F%91/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>為你自己學 Git</title>
-      <link>https://tangzixiang.github.io/sharesites/%E7%82%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%AD%B8-git/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://tangzixiang.github.io/sharesites/%E7%82%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%AD%B8-git/</guid>
       <description></description>
     </item>
     
