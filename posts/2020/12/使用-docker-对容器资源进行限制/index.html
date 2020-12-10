@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="使用 docker 对容器资源进行限制">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2020-12-07T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2020-12-07T00:00:00+08:00" />
+<meta itemprop="wordCount" content="0">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="使用 docker 对容器资源进行限制" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2020/12/%E4%BD%BF%E7%94%A8-docker-%E5%AF%B9%E5%AE%B9%E5%99%A8%E8%B5%84%E6%BA%90%E8%BF%9B%E8%A1%8C%E9%99%90%E5%88%B6/" />
+<meta property="article:published_time" content="2020-12-07T00:00:00+08:00" />
+<meta property="article:modified_time" content="2020-12-07T00:00:00+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 docker 对容器资源进行限制"/>
+<meta name="twitter:description" content=""/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>使用 docker 对容器资源进行限制</title>
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?1ba208d8ae909608e34daa6b208298df";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+	<style type="text/css">
+		.hdr-left iframe{
+			float: right;
+			margin-left: 1em;
+			margin-top: .03em;
+		}
+
+		#home-nav iframe{
+			display: block;
+		    text-align: center;
+		    margin-top: .5em;
+		    margin-left: auto;
+		    margin-right: auto;
+		}
+	</style>
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://tangzixiang.github.io/">tangzixiang&#39;s blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
+				<a href="https://tangzixiang.github.io/opensource/">开源</a>
+				<a href="https://tangzixiang.github.io/daily/">语录</a>
+				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
+				<a href="https://tangzixiang.github.io/course/">课程</a>
+		
+		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
+<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
+			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
+			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
+			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
+			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Dec 7, 2020</span></div>
+				<h1>使用 docker 对容器资源进行限制</h1>
+			</header>
+			<div class="content">
+				
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				
+				
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			
+			<a class="next-post" href="https://www.cnblogs.com/dragonsuc/p/5512797.html" target="_brank">
+			
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>linux top命令查看内存及多核CPU的使用讲述</span>
+			</a>
+			
+			<a class="prev-post" href="https://developer.aliyun.com/article/778828?spm=a2c6h.13262185.0.0.367212aeEO5mas" target="_brank">
+			
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>饿了么技术往事（下）</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://tangzixiang.github.io/">tangzixiang</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://tangzixiang.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

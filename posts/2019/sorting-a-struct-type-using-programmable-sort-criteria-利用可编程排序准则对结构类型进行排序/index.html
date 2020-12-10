@@ -12,14 +12,15 @@
 在 go 源码中看到一个设计模式
 代码位置： go/src/sort/example_keys_test.go
 // Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &#34;fmt&#34; &#34;sort&#34; ) // A couple of type definitions to make the units clear. type earthMass float64 type au float64 // A Planet defines the properties of a solar system object.">
-<meta itemprop="datePublished" content="2018-03-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-03-28T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2018-03-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-03-28T00:00:00+00:00" />
 <meta itemprop="wordCount" content="482">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] 利用可编程排序准则对结构类型进行排序" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] 利用可编程排序准则对结构类型进行排序" />
 <meta property="og:description" content="sorting a struct type using programmable sort criteria 利用可编程排序准则对结构类型进行排序
 在 go 源码中看到一个设计模式
 代码位置： go/src/sort/example_keys_test.go
@@ -124,8 +125,8 @@
 <p>在 go 源码中看到一个设计模式</p>
 <p>代码位置： <a href="https://github.com/golang/go/blob/master/src/sort/example_keys_test.go"><code>go/src/sort/example_keys_test.go</code></a></p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright 2013 The Go Authors. All rights reserved.
-</span><span class="c1"></span><span class="c1">// Use of this source code is governed by a BSD-style
-</span><span class="c1"></span><span class="c1">// license that can be found in the LICENSE file.
+</span><span class="c1">// Use of this source code is governed by a BSD-style
+</span><span class="c1">// license that can be found in the LICENSE file.
 </span><span class="c1"></span>
 <span class="kn">package</span> <span class="nx">sort_test</span>
 
@@ -149,7 +150,7 @@
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">By</span> <span class="kd">func</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span> <span class="o">*</span><span class="nx">Planet</span><span class="p">)</span> <span class="kt">bool</span>
 
 <span class="c1">// Sort is a method on the function type, By, that sorts the argument slice according to the function.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">by</span> <span class="nx">By</span><span class="p">)</span> <span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span> <span class="p">[</span><span class="p">]</span><span class="nx">Planet</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">by</span> <span class="nx">By</span><span class="p">)</span> <span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span> <span class="p">[]</span><span class="nx">Planet</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">ps</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">planetSorter</span><span class="p">{</span>
 		<span class="nx">planets</span><span class="p">:</span> <span class="nx">planets</span><span class="p">,</span>
 		<span class="nx">by</span><span class="p">:</span>      <span class="nx">by</span><span class="p">,</span> <span class="c1">// The Sort method&#39;s receiver is the function (closure) that defines the sort order.
@@ -159,34 +160,34 @@
 
 <span class="c1">// planetSorter joins a By function and a slice of Planets to be sorted.
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">planetSorter</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">planets</span> <span class="p">[</span><span class="p">]</span><span class="nx">Planet</span>
+	<span class="nx">planets</span> <span class="p">[]</span><span class="nx">Planet</span>
 	<span class="nx">by</span>      <span class="kd">func</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span> <span class="o">*</span><span class="nx">Planet</span><span class="p">)</span> <span class="kt">bool</span> <span class="c1">// Closure used in the Less method.
 </span><span class="c1"></span><span class="p">}</span>
 
 <span class="c1">// Len is part of sort.Interface.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">planetSorter</span><span class="p">)</span> <span class="nf">Len</span><span class="p">(</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">planetSorter</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// Swap is part of sort.Interface.
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">planetSorter</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1">// Less is part of sort.Interface. It is implemented by calling the &#34;by&#34; closure in the sorter.
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">planetSorter</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nf">by</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nf">by</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">s</span><span class="p">.</span><span class="nx">planets</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">planets</span> <span class="p">=</span> <span class="p">[</span><span class="p">]</span><span class="nx">Planet</span><span class="p">{</span>
-	<span class="p">{</span><span class="s">&#34;Mercury&#34;</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;Venus&#34;</span><span class="p">,</span> <span class="mf">0.815</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;Earth&#34;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;Mars&#34;</span><span class="p">,</span> <span class="mf">0.107</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">}</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">planets</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">Planet</span><span class="p">{</span>
+	<span class="p">{</span><span class="s">&#34;Mercury&#34;</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;Venus&#34;</span><span class="p">,</span> <span class="mf">0.815</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;Earth&#34;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;Mars&#34;</span><span class="p">,</span> <span class="mf">0.107</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">},</span>
 <span class="p">}</span>
 
 <span class="c1">// ExampleSortKeys demonstrates a technique for sorting a struct type using programmable sort criteria.
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example_sortKeys</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example_sortKeys</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// Closures that order the Planet structure.
 </span><span class="c1"></span>	<span class="nx">name</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span> <span class="o">*</span><span class="nx">Planet</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">name</span> <span class="p">&lt;</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">name</span>
@@ -202,16 +203,16 @@
 	<span class="p">}</span>
 
 	<span class="c1">// Sort the planets by the various criteria.
-</span><span class="c1"></span>	<span class="nf">By</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nf">By</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By name:&#34;</span><span class="p">,</span> <span class="nx">planets</span><span class="p">)</span>
 
-	<span class="nf">By</span><span class="p">(</span><span class="nx">mass</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
+	<span class="nf">By</span><span class="p">(</span><span class="nx">mass</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By mass:&#34;</span><span class="p">,</span> <span class="nx">planets</span><span class="p">)</span>
 
-	<span class="nf">By</span><span class="p">(</span><span class="nx">distance</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
+	<span class="nf">By</span><span class="p">(</span><span class="nx">distance</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By distance:&#34;</span><span class="p">,</span> <span class="nx">planets</span><span class="p">)</span>
 
-	<span class="nf">By</span><span class="p">(</span><span class="nx">decreasingDistance</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
+	<span class="nf">By</span><span class="p">(</span><span class="nx">decreasingDistance</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">planets</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By decreasing distance:&#34;</span><span class="p">,</span> <span class="nx">planets</span><span class="p">)</span>
 
 	<span class="c1">// Output: By name: [{Earth 1 1} {Mars 0.107 1.5} {Mercury 0.055 0.4} {Venus 0.815 0.7}]

@@ -16,14 +16,15 @@ var o = {p:1}; o.watch(&#34;p&#34;, function (id, oldValue, newValue) { console.
 这里需要注意的是回调函数必须返回一个值,返回的值会覆盖原有的值(若无返回值默认返回的是 undefined),可以返回新值
 使用watch 方法来监视对象的属性
 //声明一个类 Person = function (name, age) { this.watch(&#34;age&#34;,Person.prototype._isValidAssignment); this.">
-<meta itemprop="datePublished" content="2015-10-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-10-16T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2015-10-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-10-16T00:00:00+00:00" />
 <meta itemprop="wordCount" content="151">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 浅谈在 JS 中使用 Object 的 watch 方法监控对象属性" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[JS] 浅谈在 JS 中使用 Object 的 watch 方法监控对象属性" />
 <meta property="og:description" content="MDN 对其的解释为:
 概述: 监视一个对象的某个属性是否发生变化,在该属性变化时立即触发指定的回调函数. 语法: object.watch(prop, handler) 参数: prop 想要监视值是否发生变化的指定对象的某个属性的属性名称 handler 当指定的属性发生变化时执行的回调函数  在 DHTML.js内查看其声明如下:
 可以看到这两个方法是只针对 Gecko 内核的浏览器使用的(FF 是使用的 Gecko 内核). wacth 方法有两个参数,第一个参数是一个字符串,代表需要监视的属性名,第二个参数是个回调函数 unwatch 方法只有一个参数,代表需要取消监视的属性名.
@@ -149,12 +150,12 @@ var o = {p:1}; o.watch(&#34;p&#34;, function (id, oldValue, newValue) { console.
 wacth 方法有两个参数,第一个参数是一个字符串,代表需要监视的属性名,第二个参数是个回调函数
 unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 <p>使用举例:</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span><span class="mi">1</span><span class="p">};</span>
 
 <span class="nx">o</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;p&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;o.&#34;</span><span class="o">+</span><span class="nx">id</span> <span class="o">+</span><span class="s2">&#34; 由 &#34;</span><span class="o">+</span><span class="nx">oldValue</span> <span class="o">+</span><span class="s2">&#34; 变为 &#34;</span><span class="o">+</span><span class="nx">newValue</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;o.&#34;</span><span class="o">+</span><span class="nx">id</span> <span class="o">+</span><span class="s2">&#34; 由 &#34;</span><span class="o">+</span><span class="nx">oldValue</span> <span class="o">+</span><span class="s2">&#34; 变为 &#34;</span><span class="o">+</span><span class="nx">newValue</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">newValue</span><span class="p">;</span><span class="c1">//注意点
-</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="p">});</span>
 <span class="nx">o</span><span class="p">.</span><span class="nx">p</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nx">o</span><span class="p">.</span><span class="nx">p</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="k">delete</span> <span class="nx">o</span><span class="p">.</span><span class="nx">p</span><span class="p">;</span>
@@ -165,39 +166,39 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 <p>使用watch 方法来监视对象的属性</p>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//声明一个类
 </span><span class="c1"></span><span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&#34; , &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 <span class="c1">//定义语义上的私有方法
-</span><span class="c1"></span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="nx">oldVale</span><span class="p">,</span><span class="nx">newValue</span><span class="p">)</span><span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="s2">&#34;name&#34;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nx">newValue</span> <span class="o">||</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&#34;不合法的名字 &#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="nx">oldVale</span><span class="p">,</span><span class="nx">newValue</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="s2">&#34;name&#34;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nx">newValue</span> <span class="o">||</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)){</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&#34;不合法的名字 &#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="s2">&#34;age&#34;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">||</span> <span class="nx">newValue</span> <span class="o">&gt;</span><span class="mi">200</span><span class="p">)</span><span class="p">)</span><span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&#34;不合法的年龄 &#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="s2">&#34;age&#34;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="o">||</span> <span class="nx">newValue</span> <span class="o">&gt;</span><span class="mi">200</span><span class="p">)){</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&#34;不合法的年龄 &#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">newValue</span><span class="p">;</span><span class="c1">//重点,必须返回
 </span><span class="c1"></span><span class="p">}</span>
 
-<span class="nx">will</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&#34;will&#34;</span><span class="p">,</span><span class="mi">29</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">will</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">will</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&#34;will&#34;</span><span class="p">,</span><span class="mi">29</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">will</span><span class="p">);</span>
 
 <span class="k">try</span><span class="p">{</span>
     <span class="nx">will</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">try</span><span class="p">{</span>
     <span class="nx">will</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span>
-<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>输出结果如下:
 <img src="/assets/350254057-561d20512c0bc_articlex.png" alt="图片描述"></p>

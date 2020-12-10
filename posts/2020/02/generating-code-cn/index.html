@@ -15,16 +15,17 @@
 一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
 在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
 go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
-首先，安装 Go&#39;Yacc tool：
+首先，安装 Go&rsquo;Yacc tool：
 go get golang.">
-<meta itemprop="datePublished" content="2020-02-16T00:00:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-16T00:00:00&#43;08:00" />
+<meta itemprop="datePublished" content="2020-02-16T00:00:00+08:00" />
+<meta itemprop="dateModified" content="2020-02-16T00:00:00+08:00" />
 <meta itemprop="wordCount" content="409">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] 译文 Generating code - The Go Blog" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] 译文 Generating code - The Go Blog" />
 <meta property="og:description" content="原文地址 Rob Pike 22 December 2014
 通用计算有一个特性名为“图灵完整性”，他意味着计算机程序可以由其他计算机程序编写完成。这是一个很厉害想法，但却没有得到应得的欣赏，计算机程序可以由其他计算机程序编写这种事情经常在身边发生。这其实是编译器的重要组成部分，举个例子看下 go test 命令是如何工作的：它首先扫描需要被测试的 package，然后生成为该 package 定制的测试代码，并编译执行。现代计算机已经很快了，所以上面听起来复杂的步骤执行起来只需要不到一秒。
 计算机程序编写计算机程序其实是有很多案例的。 譬如：Yacc 它读取输入的语法描述，然后生成解析语法的程序。 protocol buffer 的编译器也是类似，它读取接口描述并生成相应的结构定义以及函数等相关代码。又或者很多配置工具是这样工作的：为本地内容检查 metadata 、 environment 及相关的脚手架。
@@ -32,7 +33,7 @@ go get golang.">
 一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
 在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
 go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
-首先，安装 Go&#39;Yacc tool：
+首先，安装 Go&rsquo;Yacc tool：
 go get golang." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tangzixiang.github.io/posts/2020/02/generating-code-cn/" />
@@ -50,7 +51,7 @@ go get golang." />
 一般我们会将 Yacc 集成到构建工具中，譬如 Make，这样我们便可以控制相关过程细节。如果想在 go tool 中使用 Yacc 是非常困难的，因为 go 的 go tool 相关工具只能从 go 源代码获取所需信息，并没有能够动态运行 Yacc 的相关机制功能。
 在最新的 release 版本 1.4 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 go generate，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 go build 的一部分，一般在 go build 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。
 go generate 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。
-首先，安装 Go&#39;Yacc tool：
+首先，安装 Go&rsquo;Yacc tool：
 go get golang."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -147,7 +148,7 @@ go get golang."/>
 <p>在最新的 <a href="https://blog.golang.org/go1.4"  target="_blank"  >release 版本 1.4</a> 
 中，这个问题得到解决，该版本新增了可以方便使用类似 Yacc 等相关工具的一个命令。这个命令便是 <code>go generate</code>，它的工作机制为：扫描包含通过注释指定的 generate 代码并执行。因为不包含相关依赖的分析过程，所以这个命令并不是 <code>go build</code> 的一部分，一般在 <code>go build</code> 执行前执行。这个功能是为 go 的开发者设计的，而不是一个客户端功能。</p>
 <p><code>go generate</code> 命令非常容易使用，做里举一个如何使用 Yacc 生成代码的例子热热身。</p>
-<p>首先，安装 Go'Yacc tool：</p>
+<p>首先，安装 Go&rsquo;Yacc tool：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">go get golang.org/x/tools/cmd/goyacc
 </code></pre></div><p>假设你有一个描述了新语言的语法文件叫做 <code>gopher.y</code>。一般情况下如果需要生成实现该语法的 go 代码，你需要执行该语句：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">goyacc -o gopher.go -p parser gopher.y
@@ -180,9 +181,9 @@ $ go <span class="nb">test</span>
     <span class="nx">Acetaminophen</span> <span class="p">=</span> <span class="nx">Paracetamol</span>
 <span class="p">)</span>
 </code></pre></div><p>一般为了方便调试，我们会为这些常量添加一些输出的签名。</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>
 </code></pre></div><p>譬如实现如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">Pill</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
     <span class="k">switch</span> <span class="nx">p</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">Placebo</span><span class="p">:</span>
         <span class="k">return</span> <span class="s">&#34;Placebo&#34;</span>
@@ -211,11 +212,11 @@ const <span class="nv">_Pill_name</span> <span class="o">=</span> <span class="s
 
 var <span class="nv">_Pill_index</span> <span class="o">=</span> <span class="o">[</span>...<span class="o">]</span>uint8<span class="o">{</span>0, 7, 14, 23, 34<span class="o">}</span>
 
-func <span class="o">(</span>i Pill<span class="o">)</span> String<span class="o">(</span><span class="o">)</span> string <span class="o">{</span>
-    <span class="k">if</span> i &lt; <span class="m">0</span> <span class="o">||</span> i+1 &gt;<span class="o">=</span> Pill<span class="o">(</span>len<span class="o">(</span>_Pill_index<span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+func <span class="o">(</span>i Pill<span class="o">)</span> String<span class="o">()</span> string <span class="o">{</span>
+    <span class="k">if</span> i &lt; <span class="m">0</span> <span class="o">||</span> i+1 &gt;<span class="o">=</span> Pill<span class="o">(</span>len<span class="o">(</span>_Pill_index<span class="o">))</span> <span class="o">{</span>
         <span class="k">return</span> fmt.Sprintf<span class="o">(</span><span class="s2">&#34;Pill(%d)&#34;</span>, i<span class="o">)</span>
     <span class="o">}</span>
-    <span class="k">return</span> _Pill_name<span class="o">[</span>_Pill_index<span class="o">[</span>i<span class="o">]</span>:_Pill_index<span class="o">[</span>i+1<span class="o">]</span><span class="o">]</span>
+    <span class="k">return</span> _Pill_name<span class="o">[</span>_Pill_index<span class="o">[</span>i<span class="o">]</span>:_Pill_index<span class="o">[</span>i+1<span class="o">]]</span>
 <span class="o">}</span>
 
 </code></pre></div><p>每当我们更新了 Pill 的定义或则常量的定义，我们只需要执行这个命令即可：</p>
@@ -226,17 +227,17 @@ func <span class="o">(</span>i Pill<span class="o">)</span> String<span class="o
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">const</span> <span class="nx">_Power_name</span> <span class="p">=</span> <span class="s">&#34;p0p1p2p3p4p5...&#34;</span>
 
 <span class="kd">var</span> <span class="nx">_Power_map</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="nx">Power</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="p">,</span>
-    <span class="mi">2</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="p">,</span>
-    <span class="mi">4</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="p">,</span>
-    <span class="mi">8</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="p">,</span>
-    <span class="mi">16</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="p">,</span>
-    <span class="mi">32</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span>
+    <span class="mi">4</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span>
+    <span class="mi">8</span><span class="p">:</span>    <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">],</span>
+    <span class="mi">16</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span>
+    <span class="mi">32</span><span class="p">:</span>   <span class="nx">_Power_name</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">],</span>
     <span class="o">...</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="p">(</span><span class="nx">i</span> <span class="nx">Power</span><span class="p">)</span> <span class="nf">String</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">_Power_map</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">;</span> <span class="nx">ok</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">i</span> <span class="nx">Power</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nx">str</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">_Power_map</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">str</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;Power(%d)&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>

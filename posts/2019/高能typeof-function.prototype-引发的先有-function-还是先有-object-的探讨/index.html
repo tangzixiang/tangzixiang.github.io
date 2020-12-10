@@ -10,14 +10,15 @@
 <meta itemprop="name" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨">
 <meta itemprop="description" content="来个摸底测试，说出以下每个表达式的结果
 function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&gt; function typeof o; //==&gt; object typeof F.prototype; //==&gt; object typeof o.">
-<meta itemprop="datePublished" content="2016-06-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-06-29T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2016-06-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-06-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="953">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[JS] 高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨" />
 <meta property="og:description" content="来个摸底测试，说出以下每个表达式的结果
 function F(){}; var o = {}; typeof F; typeof o; typeof F.prototype; typeof o.prototype; typeof new F; typeof (new F).prototype; typeof (new F).__proto__; typeof F.__proto__; typeof o.__proto__; typeof Object; typeof Function; typeof (new Function).prototype; typeof (new Function).__proto__; typeof (new Object).prototype; typeof (new Object).__proto__; typeof Object.prototype; typeof Object.__proto__; typeof Function.prototype; typeof Function.__proto__;  function F(){}; var o = {}; typeof F; //==&gt; function typeof o; //==&gt; object typeof F.prototype; //==&gt; object typeof o." />
 <meta property="og:type" content="article" />
@@ -310,7 +311,7 @@ out( Object instanceof Function)                               //true
 out( Function instanceof Function)                             //true
 </code></pre>
 <p>在学习 JS 的过程中我们已经知道所有的数据类型都是 <code>Function</code> 类型的实例，包括 <code>Object</code> 在内，但是我们都知道所有的对象都是 Object 的实例，这时便引出文章的题目</p>
-<h2 id="-function--object">到底是先有 Function 还是先有 Object？<a href="#-function--object" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="到底是先有-function-还是先有-object">到底是先有 Function 还是先有 Object？<a href="#到底是先有-function-还是先有-object" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <pre><code>out( Function.__proto__  === Function.prototype)               //true
 out( Object.__proto__  === Function.prototype)                 //true
 out( Object.getPrototypeOf(Function) === Function.prototype)   //true
@@ -324,7 +325,7 @@ out( Function instanceof Function)                             //true
 <pre><code>out( typeof Function.prototype);                // function
 out( Function.prototype instanceof Object)      //true
 </code></pre><p>这时候问题升华为</p>
-<h2 id="functionprototype--objectprototype-">Function.prototype 和 Object.prototype 的关系。<a href="#functionprototype--objectprototype-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="functionprototype-和-objectprototype-的关系">Function.prototype 和 Object.prototype 的关系。<a href="#functionprototype-和-objectprototype-的关系" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <pre><code>out( Function.prototype.__proto__ === Object.prototype)
 </code></pre>
 <p>这时候关系已经很明了了：</p>
@@ -361,7 +362,7 @@ out(Object.getPrototypeOf(Function.prototype) === Object.prototype)   //true
 <p>那么为什么使用 typeof 获取 Object.prototype 会返回 object 呢。</p>
 <p>我们知道浏览器底层对 JS 的实现的是基于 C/C++
 通过上图，我们可以猜测</p>
-<h2 id="js-">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）<a href="#js-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="浏览器在初始化js-环境时都发生了些什么存在争议不一定正确">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）<a href="#浏览器在初始化js-环境时都发生了些什么存在争议不一定正确" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>用 C/C++ 构造内部数据结构创建一个 OP 即(Object.prototype)以及初始化其内部属性但不包括行为。</li>
 <li>用 C/C++ 构造内部数据结构创建一个 FP 即(Function.prototype)以及初始化其内部属性但不包括行为。</li>
@@ -394,9 +395,9 @@ out(Object.getPrototypeOf(Function.prototype) === Object.prototype)   //true
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#-function--object">到底是先有 Function 还是先有 Object？</a></li>
-    <li><a href="#functionprototype--objectprototype-">Function.prototype 和 Object.prototype 的关系。</a></li>
-    <li><a href="#js-">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）</a></li>
+    <li><a href="#到底是先有-function-还是先有-object">到底是先有 Function 还是先有 Object？</a></li>
+    <li><a href="#functionprototype-和-objectprototype-的关系">Function.prototype 和 Object.prototype 的关系。</a></li>
+    <li><a href="#浏览器在初始化js-环境时都发生了些什么存在争议不一定正确">浏览器在初始化JS 环境时都发生了些什么（存在争议，不一定正确）</a></li>
   </ul>
 </nav>
 		</aside>

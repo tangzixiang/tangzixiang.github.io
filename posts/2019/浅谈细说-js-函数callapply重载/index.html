@@ -11,14 +11,15 @@
 <meta itemprop="description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
 函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
 speak(&#34;hello world for global !">
-<meta itemprop="datePublished" content="2015-10-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-10-12T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2015-10-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-10-12T00:00:00+00:00" />
 <meta itemprop="wordCount" content="339">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[JS] 浅谈细说 JS 函数(call,apply,重载)" />
 <meta property="og:description" content="摘要  什么是函数？ 函数的声明与调用 函数的重载 函数的独立性  什么是函数？ 引用 W3School 的原话:
 函数是一组可以随时随地运行的语句。 函数是 ECMAScript 的核心。 函数是由这样的方式进行声明的：关键字 function、函数名、一组参数，以及置于括号中的待执行代码。 函数的基本语法是这样的： function functionName(arg0, arg1, ... argN) { statements }  函数的声明与调用 //声明函数的4种方法  //方法一 直接声明 function speak(word){ console.log(word) } //方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数 var speak2 = function (word) { console.log(word); };//定义匿名函数需要注意最后需要加分号  //方法三 使用 Function对象 生成一个函数实例 var speak3 = new Function(&#34;word&#34;,&#34;console.log(word);&#34;); //方法四 使用 Function函数 返回函数实例 var speak4 = Function(&#34;word&#34;,&#34;console.log(word);&#34;); 调用函数基本方法
 speak(&#34;hello world for global !" />
@@ -117,14 +118,14 @@ speak(&#34;hello world for global !"/>
 				<h1>[JS] 浅谈细说 JS 函数(call,apply,重载)</h1>
 			</header>
 			<div class="content">
-				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+				<h2 id="摘要">摘要<a href="#摘要" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ul>
 <li>什么是函数？</li>
 <li>函数的声明与调用</li>
 <li>函数的重载</li>
 <li>函数的独立性</li>
 </ul>
-<h2 id="heading1"><strong>什么是函数？</strong><a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="什么是函数"><strong>什么是函数？</strong><a href="#什么是函数" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>引用 W3School 的原话:</p>
 <pre><code>函数是一组可以随时随地运行的语句。
 
@@ -137,50 +138,50 @@ function functionName(arg0, arg1, ... argN) {
   statements
 }
 </code></pre>
-<h2 id="heading2"><strong>函数的声明与调用</strong><a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="函数的声明与调用"><strong>函数的声明与调用</strong><a href="#函数的声明与调用" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//声明函数的4种方法
 </span><span class="c1"></span>
 <span class="c1">//方法一 直接声明
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">speak</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="p">{</span>
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">speak</span><span class="p">(</span><span class="nx">word</span><span class="p">){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">//方法二 指定一个匿名函数 将其赋给一个变量,后面可以直接通过该变量调用该函数
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak2</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span><span class="c1">//定义匿名函数需要注意最后需要加分号
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">word</span><span class="p">);</span>
+<span class="p">};</span><span class="c1">//定义匿名函数需要注意最后需要加分号
 </span><span class="c1"></span>
 <span class="c1">//方法三 使用 Function对象 生成一个函数实例 
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">);</span>
 
 <span class="c1">//方法四 使用 Function函数 返回函数实例
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak4</span> <span class="o">=</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">speak4</span> <span class="o">=</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;word&#34;</span><span class="p">,</span><span class="s2">&#34;console.log(word);&#34;</span><span class="p">);</span>
 </code></pre></div><p><strong>调用函数基本方法</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for global !&#34;</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for global !&#34;</span><span class="p">);</span>
 
-<span class="k">this</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for this !&#34;</span><span class="p">)</span><span class="p">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for this !&#34;</span><span class="p">);</span>
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for window !&#34;</span><span class="p">)</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&#34;hello world for window !&#34;</span><span class="p">);</span>
 
 </code></pre></div><p><strong>调用函数的高级方法</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="s2">&#34;hello world with call !&#34;</span><span class="p">)</span><span class="p">;</span><span class="c1">//null 代表是用全局对象 window 调用
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">speak</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="s2">&#34;hello world with call !&#34;</span><span class="p">);</span><span class="c1">//null 代表是用全局对象 window 调用
 </span><span class="c1"></span>
-<span class="nx">speak</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="p">[</span><span class="s2">&#34;hello world with apply !&#34;</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">speak</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,[</span><span class="s2">&#34;hello world with apply !&#34;</span><span class="p">]);</span>
 </code></pre></div><p>输出结果:
 <img src="/assets/3058469592-561bba707d079_articlex.png" alt="图片描述"></p>
-<h3 id="heading3">方法一:<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="方法一">方法一:<a href="#方法一" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>这里大家不言而喻,简单明了,直接就是声明了一个函数,需要指出的是,默认写的函数在不依附其他对象的情况下均为全局函数,即成为 window 对象的成员,可以直接使用 window(Window 对象的实例,Window 对象实现了核心 JavaScript 所定义的所有全局属性和方法)调用,或者通过 this 调用,在这里 JS 顶层代码中 this 指向的就是 window</p>
 <p>每当我们使用方法一声明了一个函数的时候,实际是生成了一个 Function 对象的实例.即每个函数其实质都是一个 Function 对象实例.</p>
 <p>注意:
 JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一块空间来存储创建该 Function 实例</p>
-<h3 id="heading4">方法二:<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="方法二">方法二:<a href="#方法二" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>首先 JS 解析器解析到一个函数的时候,在堆内存内划分出一块空间来存储创建该 Function 实例,接着在当前栈内存
 创建一个叫 speak2 的变量,这个变量有个值,这个值是一个地址,指向的是堆内存中的那个 Function 实例.实际上这就是大名鼎鼎的引用.</p>
-<h3 id="heading5">方法三:<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="方法三">方法三:<a href="#方法三" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>与方法一和方法二不同的是,前两个方法都是声明好让解析器去解析,让解析器生成 Function 实例(就是上面声明的函数,解析器调用 Function 构造器来生成实例,这些步骤是我们看不到的),方法三是我们手动调用 Function 构造器生成 Function 实例(步骤掌握在自己的手里)</p>
-<h3 id="heading6">方法四:<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="方法四">方法四:<a href="#方法四" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>与方法三不同的地方就是没有 new,在这里 new 与没 new 的区别就是当有 new 的时候 Function 函数充当一个构造器,new 后返回的就是实例化后得到的对象(此时Function 内部的 this指向的就是当前生成的对象),不使用 new 的话就是把 Function 函数看做一个普通函数直接调用,直接调用 Function 函数让其在内部(我们看不到)new 一个实例返回,本质是一样的.</p>
-<h3 id="call--apply-"><strong>call 方法与 apply 方法</strong><a href="#call--apply-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="call-方法与-apply-方法"><strong>call 方法与 apply 方法</strong><a href="#call-方法与-apply-方法" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>查看EcmaScript.js
 <img src="/assets/3719987583-561bc70feffbe_articlex.png" alt="图片描述"></p>
 <p>可以看到 call 方法与 apply 方法的区别:</p>
@@ -189,9 +190,9 @@ JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一�
 <li>call 方法的第二个参数是可变数组参数,即可以传入多个参数,非传入一个数组.传入的多个参数对应的是被调用方法的各参数.</li>
 <li>apply 方法的第二个参数是一个数组对象,即可以直接传入一个数组对象,数组对象的每项对应的是被调用的方法的各参数.</li>
 </ul>
-<h2 id="heading7"><strong>函数的重载</strong><a href="#heading7" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="函数的重载"><strong>函数的重载</strong><a href="#函数的重载" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>在 JS 中,并不像其他强类型语言一样可以声明重载函数,若在原先声明的函数后再声明一个不同参数数量的函数(JS是弱语言, 声明的函数不需要指明参数类型),解析器会用后面声明的函数覆盖前面声明的函数.那我们该如何实现呢.</p>
-<h3 id="arguments-"><strong>arguments 对象</strong><a href="#arguments-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="arguments-对象"><strong>arguments 对象</strong><a href="#arguments-对象" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>在每个函数都有一个arguments 属性,同样查看 EcmaScript.js
 <img src="/assets/1185226343-561bcb5feb50b_articlex.png" alt="图片描述"></p>
 <p>当生成一个函数实例后,解析器会赋给 arguments 属性一个 Arguments 对象实例,这个实例是什么,再看 EcmaScript.js
@@ -200,41 +201,41 @@ JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一�
 函数实例中的 arguments 对象(可以算是一个数组)的数组项内容便是我们在调用函数时进行传递的参数.只要我们有传参,这个属性就有数组项,否则数组长度为0,故我们可以通过 arguments.length 来查看其得到的形参的数量.</p>
 <p>有了上面的基础便可实现重载函数
 这里引用 W3School 的例子</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">doAdd</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">doAdd</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">doAdd</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>	    <span class="c1">//输出 &#34;15&#34;
-</span><span class="c1"></span><span class="nx">doAdd</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="p">;</span>	<span class="c1">//输出 &#34;60&#34;
-</span></code></pre></div><h2 id="heading8"><strong>函数的独立性</strong><a href="#heading8" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<span class="nx">doAdd</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>	    <span class="c1">//输出 &#34;15&#34;
+</span><span class="c1"></span><span class="nx">doAdd</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>	<span class="c1">//输出 &#34;60&#34;
+</span></code></pre></div><h2 id="函数的独立性"><strong>函数的独立性</strong><a href="#函数的独立性" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>我们都知道,每当我们声明了一个函数,其实际为一个 Function 实例,那它独立在哪呢,如何体现呢
 看一下代码:</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Dog</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Dog</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">Cat</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span><span class="p">{</span>
+<span class="kd">function</span> <span class="nx">Cat</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">){</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">showName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="s2">&#34;wangwang&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="s2">&#34;miaomiao&#34;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="s2">&#34;wangwang&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">(</span><span class="s2">&#34;miaomiao&#34;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 
-<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">cat</span><span class="p">.</span><span class="nx">showName</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">cat</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">();</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">showName</span><span class="p">();</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">showName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">cat</span><span class="p">);</span>
 </code></pre></div><p>输出结果为:
 <img src="/assets/664011739-561bd5cc72416_articlex.png" alt="图片描述"></p>
 <p>解释:</p>
@@ -262,23 +263,23 @@ JS 解析器每解析到一个函数的时候,都会在堆内存内划分出一�
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">摘要</a></li>
-    <li><a href="#heading1">什么是函数？</a></li>
-    <li><a href="#heading2">函数的声明与调用</a>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#什么是函数"><strong>什么是函数？</strong></a></li>
+    <li><a href="#函数的声明与调用"><strong>函数的声明与调用</strong></a>
       <ul>
-        <li><a href="#heading3">方法一:</a></li>
-        <li><a href="#heading4">方法二:</a></li>
-        <li><a href="#heading5">方法三:</a></li>
-        <li><a href="#heading6">方法四:</a></li>
-        <li><a href="#call--apply-">call 方法与 apply 方法</a></li>
+        <li><a href="#方法一">方法一:</a></li>
+        <li><a href="#方法二">方法二:</a></li>
+        <li><a href="#方法三">方法三:</a></li>
+        <li><a href="#方法四">方法四:</a></li>
+        <li><a href="#call-方法与-apply-方法"><strong>call 方法与 apply 方法</strong></a></li>
       </ul>
     </li>
-    <li><a href="#heading7">函数的重载</a>
+    <li><a href="#函数的重载"><strong>函数的重载</strong></a>
       <ul>
-        <li><a href="#arguments-">arguments 对象</a></li>
+        <li><a href="#arguments-对象"><strong>arguments 对象</strong></a></li>
       </ul>
     </li>
-    <li><a href="#heading8">函数的独立性</a></li>
+    <li><a href="#函数的独立性"><strong>函数的独立性</strong></a></li>
   </ul>
 </nav>
 		</aside>

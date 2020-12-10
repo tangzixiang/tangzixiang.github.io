@@ -11,14 +11,15 @@
 <meta itemprop="description" content="在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序
 代码位置： go/src/sort/example_multi_test.go
 // Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &#34;fmt&#34; &#34;sort&#34; ) // A Change is a record of source code changes, recording user, language, and delta size. type Change struct { user string language string lines int } type lessFunc func(p1, p2 *Change) bool // multiSorter implements the Sort interface, sorting the changes within.">
-<meta itemprop="datePublished" content="2018-05-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-05-01T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2018-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-05-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="707">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] 多条件排序设计" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] 多条件排序设计" />
 <meta property="og:description" content="在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序
 代码位置： go/src/sort/example_multi_test.go
 // Copyright 2013 The Go Authors. All rights reserved. // Use of this source code is governed by a BSD-style // license that can be found in the LICENSE file.  package sort_test import ( &#34;fmt&#34; &#34;sort&#34; ) // A Change is a record of source code changes, recording user, language, and delta size. type Change struct { user string language string lines int } type lessFunc func(p1, p2 *Change) bool // multiSorter implements the Sort interface, sorting the changes within." />
@@ -120,8 +121,8 @@
 				<p>在 go 源码中看到一个设计模式，如何设计对列表数据进行多条件排序</p>
 <p>代码位置： <a href="https://github.com/golang/go/blob/master/src/sort/example_multi_test.go"><code>go/src/sort/example_multi_test.go</code></a></p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Copyright 2013 The Go Authors. All rights reserved.
-</span><span class="c1"></span><span class="c1">// Use of this source code is governed by a BSD-style
-</span><span class="c1"></span><span class="c1">// license that can be found in the LICENSE file.
+</span><span class="c1">// Use of this source code is governed by a BSD-style
+</span><span class="c1">// license that can be found in the LICENSE file.
 </span><span class="c1"></span>
 <span class="kn">package</span> <span class="nx">sort_test</span>
 
@@ -141,18 +142,18 @@
 
 <span class="c1">// multiSorter implements the Sort interface, sorting the changes within.
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">multiSorter</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">changes</span> <span class="p">[</span><span class="p">]</span><span class="nx">Change</span>
-	<span class="nx">less</span>    <span class="p">[</span><span class="p">]</span><span class="nx">lessFunc</span>
+	<span class="nx">changes</span> <span class="p">[]</span><span class="nx">Change</span>
+	<span class="nx">less</span>    <span class="p">[]</span><span class="nx">lessFunc</span>
 <span class="p">}</span>
 
 <span class="c1">// Sort sorts the argument slice according to the less functions passed to OrderedBy.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span> <span class="p">[</span><span class="p">]</span><span class="nx">Change</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span> <span class="p">[]</span><span class="nx">Change</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span> <span class="p">=</span> <span class="nx">changes</span>
 	<span class="nx">sort</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// OrderedBy returns a Sorter that sorts using the less functions, in order.
-</span><span class="c1"></span><span class="c1">// Call its Sort method to sort the data.
+</span><span class="c1">// Call its Sort method to sort the data.
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">less</span> <span class="o">...</span><span class="nx">lessFunc</span><span class="p">)</span> <span class="o">*</span><span class="nx">multiSorter</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">multiSorter</span><span class="p">{</span>
 		<span class="nx">less</span><span class="p">:</span> <span class="nx">less</span><span class="p">,</span>
@@ -160,32 +161,32 @@
 <span class="p">}</span>
 
 <span class="c1">// Len is part of sort.Interface.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Len</span><span class="p">(</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// Swap is part of sort.Interface.
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">,</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="p">,</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1">// Less is part of sort.Interface. It is implemented by looping along the
-</span><span class="c1"></span><span class="c1">// less functions until it finds a comparison that discriminates between
-</span><span class="c1"></span><span class="c1">// the two items (one is less than the other). Note that it can call the
-</span><span class="c1"></span><span class="c1">// less functions twice per call. We could change the functions to return
-</span><span class="c1"></span><span class="c1">// -1, 0, 1 and reduce the number of calls for greater efficiency: an
-</span><span class="c1"></span><span class="c1">// exercise for the reader.
+</span><span class="c1">// less functions until it finds a comparison that discriminates between
+</span><span class="c1">// the two items (one is less than the other). Note that it can call the
+</span><span class="c1">// less functions twice per call. We could change the functions to return
+</span><span class="c1">// -1, 0, 1 and reduce the number of calls for greater efficiency: an
+</span><span class="c1">// exercise for the reader.
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ms</span> <span class="o">*</span><span class="nx">multiSorter</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="nx">p</span><span class="p">,</span> <span class="nx">q</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+	<span class="nx">p</span><span class="p">,</span> <span class="nx">q</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="o">&amp;</span><span class="nx">ms</span><span class="p">.</span><span class="nx">changes</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
 	<span class="c1">// Try all but the last comparison.
 </span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">k</span> <span class="kt">int</span>
 	<span class="k">for</span> <span class="nx">k</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">ms</span><span class="p">.</span><span class="nx">less</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span> <span class="p">{</span>
 		<span class="nx">less</span> <span class="o">:=</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">less</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span>
 		<span class="k">switch</span> <span class="p">{</span>
-		<span class="k">case</span> <span class="nf">less</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">)</span><span class="p">:</span>
+		<span class="k">case</span> <span class="nf">less</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">):</span>
 			<span class="c1">// p &lt; q, so we have a decision.
 </span><span class="c1"></span>			<span class="k">return</span> <span class="kc">true</span>
-		<span class="k">case</span> <span class="nf">less</span><span class="p">(</span><span class="nx">q</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span><span class="p">:</span>
+		<span class="k">case</span> <span class="nf">less</span><span class="p">(</span><span class="nx">q</span><span class="p">,</span> <span class="nx">p</span><span class="p">):</span>
 			<span class="c1">// p &gt; q, so we have a decision.
 </span><span class="c1"></span>			<span class="k">return</span> <span class="kc">false</span>
 		<span class="p">}</span>
@@ -193,25 +194,25 @@
 </span><span class="c1"></span>	<span class="p">}</span>
 	<span class="c1">// All comparisons to here said &#34;equal&#34;, so just return whatever
 </span><span class="c1"></span>	<span class="c1">// the final comparison reports.
-</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">less</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">less</span><span class="p">[</span><span class="nx">k</span><span class="p">](</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">changes</span> <span class="p">=</span> <span class="p">[</span><span class="p">]</span><span class="nx">Change</span><span class="p">{</span>
-	<span class="p">{</span><span class="s">&#34;gri&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;ken&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">150</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;glenda&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;rsc&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;r&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;ken&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;dmr&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;r&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">150</span><span class="p">}</span><span class="p">,</span>
-	<span class="p">{</span><span class="s">&#34;gri&#34;</span><span class="p">,</span> <span class="s">&#34;Smalltalk&#34;</span><span class="p">,</span> <span class="mi">80</span><span class="p">}</span><span class="p">,</span>
+<span class="kd">var</span> <span class="nx">changes</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">Change</span><span class="p">{</span>
+	<span class="p">{</span><span class="s">&#34;gri&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;ken&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">150</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;glenda&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;rsc&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;r&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;ken&#34;</span><span class="p">,</span> <span class="s">&#34;Go&#34;</span><span class="p">,</span> <span class="mi">200</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;dmr&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;r&#34;</span><span class="p">,</span> <span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="mi">150</span><span class="p">},</span>
+	<span class="p">{</span><span class="s">&#34;gri&#34;</span><span class="p">,</span> <span class="s">&#34;Smalltalk&#34;</span><span class="p">,</span> <span class="mi">80</span><span class="p">},</span>
 <span class="p">}</span>
 
 <span class="c1">// ExampleMultiKeys demonstrates a technique for sorting a struct type using different
-</span><span class="c1"></span><span class="c1">// sets of multiple fields in the comparison. We chain together &#34;Less&#34; functions, each of
-</span><span class="c1"></span><span class="c1">// which compares a single field.
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example_sortMultiKeys</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1">// sets of multiple fields in the comparison. We chain together &#34;Less&#34; functions, each of
+</span><span class="c1">// which compares a single field.
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example_sortMultiKeys</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// Closures that order the Change structure.
 </span><span class="c1"></span>	<span class="nx">user</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c1</span><span class="p">,</span> <span class="nx">c2</span> <span class="o">*</span><span class="nx">Change</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">user</span> <span class="p">&lt;</span> <span class="nx">c2</span><span class="p">.</span><span class="nx">user</span>
@@ -227,20 +228,20 @@
 </span><span class="c1"></span>	<span class="p">}</span>
 
 	<span class="c1">// Simple use: Sort by user.
-</span><span class="c1"></span>	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By user:&#34;</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
 
 	<span class="c1">// More examples.
-</span><span class="c1"></span>	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By user,&lt;lines:&#34;</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
 
-	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">decreasingLines</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
+	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">decreasingLines</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By user,&gt;lines:&#34;</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
 
-	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">language</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
+	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">language</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By language,&lt;lines:&#34;</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
 
-	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">language</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
+	<span class="nf">OrderedBy</span><span class="p">(</span><span class="nx">language</span><span class="p">,</span> <span class="nx">increasingLines</span><span class="p">,</span> <span class="nx">user</span><span class="p">).</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">changes</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;By language,&lt;lines,user:&#34;</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
 
 	<span class="c1">// Output:

@@ -10,14 +10,15 @@
 <meta itemprop="name" content="[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架">
 <meta itemprop="description" content="mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
  能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &#34;github.com/tangzixiang/mplus&#34; 快速开始 # assume the following codes in simple.">
-<meta itemprop="datePublished" content="2019-12-27T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-27T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-27T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2097">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] mplus 🚍 - 轻量级的非侵入式 http 请求处理辅助框架" />
 <meta property="og:description" content="mplus 是一个轻量级的非侵入式 http 请求处理辅助框架。具有以下特色：
  能够灵活的将大量 middleware 组合成一个 http-Handler 直接使用。 能够在规划路由的时候定义需要绑定请求数据的 model 及校验规则，而不是在每个 Handler 内处理绑定及校验逻辑。 能够为你的路由设置前置或后置处理器（类似 middleware）。 无需改变你的路由定义，完全兼容 http 规范。 在 Handler 内托管 http.ResponseWriter 及 http.Request ，后续代码通过简便的 API 完成请求的响应。 提供了 Query 对象，能够动态地链式完成 URI 及字段值的拼接，而非官方繁杂的处理流程。 通过注册 errCode ，自动完成对应的响应状态码及响应消息处理。 提供重复读取 request.Body 内容的 API。 灵活配合其他框架使用。  引入 mplus  use the below Go command to install mplus  $ go get -u github.com/tangzixiang/mplus Import it in your code:  import &#34;github.com/tangzixiang/mplus&#34; 快速开始 # assume the following codes in simple." />
 <meta property="og:type" content="article" />
@@ -129,7 +130,7 @@
 <li>提供重复读取 request.Body 内容的 API。</li>
 <li>灵活配合其他框架使用。</li>
 </ul>
-<h2 id="-mplus">引入 mplus<a href="#-mplus" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="引入-mplus">引入 mplus<a href="#引入-mplus" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>use the below Go command to install mplus</li>
 </ol>
@@ -138,7 +139,7 @@
 <li>Import it in your code:</li>
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">import</span> <span class="s">&#34;github.com/tangzixiang/mplus&#34;</span>
-</code></pre></div><h2 id="heading">快速开始<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+</code></pre></div><h2 id="快速开始">快速开始<a href="#快速开始" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># assume the following codes in simple.go file</span>
 $ cat simple.go
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -149,14 +150,14 @@ $ cat simple.go
 	<span class="s">&#34;github.com/tangzixiang/mplus&#34;</span>
 <span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">)</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// Handler
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Hello</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// take you w,r then give you a plus
-</span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;data&#34;</span><span class="p">:</span> <span class="s">&#34;hello world&#34;</span><span class="p">}</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;data&#34;</span><span class="p">:</span> <span class="s">&#34;hello world&#34;</span><span class="p">})</span>
 <span class="p">}</span>
 
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># run server</span>
@@ -165,8 +166,8 @@ $ go run simple.go
 $ curl localhost:8080
 
 <span class="o">{</span><span class="s2">&#34;data&#34;</span>:<span class="s2">&#34;hello world&#34;</span><span class="o">}</span>
-</code></pre></div><h2 id="heading1">功能<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<h3 id="heading2">使用自定义中间件<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h2 id="功能">功能<a href="#功能" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="使用自定义中间件">使用自定义中间件<a href="#使用自定义中间件" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>恰当的使用中间件，能够大大提升代码的可维护性，使用中间件能够实现 <a href="%5Bhttps://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%5D(https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1)"><code>AOP</code></a> 面向切面编程的思想，降低代码的耦合度。</p>
 <blockquote>
 <p><strong>面向切面的程序设计</strong>（Aspect-oriented programming，AOP，又译作<strong>面向方面的程序设计</strong>、<strong>剖面导向程序设计</strong>）是<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6">计算机科学</a>中的一种<a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B">程序设计思想</a>，旨在将<strong>横切关注点</strong>与业务主体进行进一步分离，以提高程序代码的模块化程度</p>
@@ -177,7 +178,7 @@ $ curl localhost:8080
 <li><strong>后置请求处理器</strong>：只在 Handler 后执行</li>
 <li><strong>middleware</strong> ：自定义与 Handler 之间的执行关系</li>
 </ul>
-<h4 id="heading3">设置前置请求处理器完成计数功能<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h4 id="设置前置请求处理器完成计数功能">设置前置请求处理器完成计数功能<a href="#设置前置请求处理器完成计数功能" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>使用前置请求处理器，能为你将 Handler 内的部分前置逻辑进行抽离，提供更好的可维护性。</p>
 <ul>
 <li><code>mplus.MRote().Before(...http.HandlerFunc)</code> 为当前请求添加前置请求处理</li>
@@ -185,8 +186,8 @@ $ curl localhost:8080
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">num</span> <span class="p">=</span> <span class="mi">0</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Before</span><span class="p">(</span><span class="nx">AddNum</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Num</span><span class="p">)</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Before</span><span class="p">(</span><span class="nx">AddNum</span><span class="p">).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Num</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// increase num per request
@@ -196,10 +197,10 @@ $ curl localhost:8080
 
 <span class="c1">// Handler
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Num</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;num&#34;</span><span class="p">:</span> <span class="nx">num</span><span class="p">}</span><span class="p">)</span>
+	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;num&#34;</span><span class="p">:</span> <span class="nx">num</span><span class="p">})</span>
 <span class="p">}</span>
 
-</code></pre></div><h4 id="heading4">同时使用前置及后置请求处理器控制访问量<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre></div><h4 id="同时使用前置及后置请求处理器控制访问量">同时使用前置及后置请求处理器控制访问量<a href="#同时使用前置及后置请求处理器控制访问量" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>同样的，你能为你的 Handler 中的部分逻辑添加至后置请求处理器，在后置处理器中，你能做一些不影响当前业务的附带行为。</p>
 <ul>
 <li><code>mplus.MRote().After(...http.HandlerFunc)</code> 为当前请求添加后置请求处理</li>
@@ -207,15 +208,15 @@ $ curl localhost:8080
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">lastVisitIndex</span> <span class="p">=</span> <span class="mi">0</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span>
-               <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Before</span><span class="p">(</span><span class="nx">MaxVisitTimesControl</span><span class="p">)</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">AddNum</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Num</span><span class="p">)</span><span class="p">)</span>
+               <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Before</span><span class="p">(</span><span class="nx">MaxVisitTimesControl</span><span class="p">).</span><span class="nf">After</span><span class="p">(</span><span class="nx">AddNum</span><span class="p">).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Num</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// MaxVisitTimesControl as a before handler control visit times
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">MaxVisitTimesControl</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">if</span> <span class="nx">lastVisitIndex</span> <span class="p">&gt;</span> <span class="mi">10</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">Forbidden</span><span class="p">(</span><span class="p">)</span> <span class="c1">// return status cod 403
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">Forbidden</span><span class="p">()</span> <span class="c1">// return status cod 403
 </span><span class="c1"></span>	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -226,22 +227,22 @@ $ curl localhost:8080
 
 <span class="c1">// Handler
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Num</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;num&#34;</span><span class="p">:</span> <span class="nx">lastVisitIndex</span><span class="p">}</span><span class="p">)</span>
+	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;num&#34;</span><span class="p">:</span> <span class="nx">lastVisitIndex</span><span class="p">})</span>
 <span class="p">}</span>
-</code></pre></div><h4 id="-middleware-">使用 middleware 中间件<a href="#-middleware-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre></div><h4 id="使用-middleware-中间件">使用 middleware 中间件<a href="#使用-middleware-中间件" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>当然，你也可以直接使用 middleware 灵活控制与 Handler 的关系</p>
 <ul>
 <li><code>mplus.MRote().Use(...MiddlewareHandlerFunc)</code> 为当前请求组合中间件</li>
 <li><code>mplus.MRote().UseHandlerMiddleware(...MiddlewareHandler)</code> 为当前请求组合中间件</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nx">SetRequestID</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">)</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Use</span><span class="p">(</span><span class="nx">SetRequestID</span><span class="p">).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// use middleware to set requestID per request
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">SetRequestID</span><span class="p">(</span><span class="nx">next</span> <span class="nx">http</span><span class="p">.</span><span class="nx">HandlerFunc</span><span class="p">)</span> <span class="nx">http</span><span class="p">.</span><span class="nx">HandlerFunc</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">w</span><span class="p">.</span><span class="nf">Header</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span> <span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="c1">// &#34;X-Request-Id&#34;
+		<span class="nx">w</span><span class="p">.</span><span class="nf">Header</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span> <span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">()).</span><span class="nf">String</span><span class="p">())</span><span class="c1">// &#34;X-Request-Id&#34;
 </span><span class="c1"></span>
 		<span class="c1">// call next ,may be is Handler or next middleware
 </span><span class="c1"></span>		<span class="nx">next</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
@@ -250,7 +251,7 @@ $ curl localhost:8080
 
 <span class="c1">// Handler
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Hello</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;data&#34;</span><span class="p">:</span> <span class="s">&#34;hello world&#34;</span><span class="p">}</span><span class="p">)</span>
+	<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSONOK</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;data&#34;</span><span class="p">:</span> <span class="s">&#34;hello world&#34;</span><span class="p">})</span>
 <span class="p">}</span>
 
 </code></pre></div><p><strong>mplus</strong> 同时支持在 middleware 中使用，除了能够帮你托管 <code>ResponseWriter</code> 和 <code>Request</code> 还支持托管 <code>http.Handler</code> 即上述 <code>SetRequestID</code> middleware 的 <code>next</code> 参数：</p>
@@ -260,12 +261,12 @@ $ curl localhost:8080
 	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
     
 		<span class="c1">// write &#34;X-Request-Id&#34; to resp’s head then call next by mplus which take next handler
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span> 
-			<span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="nx">r</span><span class="p">).</span><span class="nf">WriteRespHeader</span><span class="p">(</span> 
+			<span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">()).</span><span class="nf">String</span><span class="p">()).</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">).</span><span class="nf">ServeHTTP</span><span class="p">()</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>该版本的 <code>SetRequestID</code> 效果与上一个版本相同。</p>
-<h4 id="-httphandler-">中间件与 HTTP-Handler 之间的交互<a href="#-httphandler-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h4 id="中间件与-http-handler-之间的交互">中间件与 HTTP-Handler 之间的交互<a href="#中间件与-http-handler-之间的交互" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>在某些时候我们可能需要在中间件之间专递信息，或则需要将信息从中间件传递到实际的 Handler 中。<strong>mplus</strong> 提供了相应的 <code>Get/Set</code> 方法集用于处理缓存于当前上下文中的数据</p>
 <ul>
 <li><code>mplus.PP.Get(key string)</code> 从当前请求的上下文中获取指定数据</li>
@@ -274,25 +275,25 @@ $ curl localhost:8080
 <li><code>mplus.PP.SetR(key string, value interface{})</code> 将指定数据放入当前请求的上下文中，并返回当前数据</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;name&#34;</span><span class="s">`</span>
+	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Use</span><span class="p">(</span><span class="nx">SetRequestID</span><span class="p">,</span> <span class="nx">PreSearchUser</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">)</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Use</span><span class="p">(</span><span class="nx">SetRequestID</span><span class="p">,</span> <span class="nx">PreSearchUser</span><span class="p">).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Hello</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// use middleware to set requestID per request
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">SetRequestID</span><span class="p">(</span><span class="nx">next</span> <span class="nx">http</span><span class="p">.</span><span class="nx">HandlerFunc</span><span class="p">)</span> <span class="nx">http</span><span class="p">.</span><span class="nx">HandlerFunc</span> <span class="p">{</span>
 
 	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+		<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
 
 		<span class="c1">// add &#34;X-Request-Id&#34; to request&#39;s context and header at the same time
 </span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span>
-			<span class="nx">pp</span><span class="p">.</span><span class="nf">SetStringR</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span> <span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
+			<span class="nx">pp</span><span class="p">.</span><span class="nf">SetStringR</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">,</span> <span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewV4</span><span class="p">()).</span><span class="nf">String</span><span class="p">()))</span>
 
 		<span class="c1">// call next
-</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">()</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -303,13 +304,13 @@ $ curl localhost:8080
 
 	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 
-		<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+		<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span>
 
 		<span class="c1">// search user by id which get from url then add to request&#39;s context
-</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">KeyUser</span><span class="p">,</span> <span class="nf">SearchUserService</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">KeyUser</span><span class="p">,</span> <span class="nf">SearchUserService</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)))</span>
 
 		<span class="c1">// call next
-</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">(</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">pp</span><span class="p">.</span><span class="nf">ServeHTTP</span><span class="p">()</span>
     
 		<span class="c1">// Or complete all steps at once as follows
 </span><span class="c1"></span>		<span class="c1">// mplus.PlusPlus(w, r).Handler(next).
@@ -327,16 +328,16 @@ $ curl localhost:8080
 	<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
 
 	<span class="nx">requestID</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderRequestID</span><span class="p">)</span> <span class="c1">// get requestID from request&#39;s context
-</span><span class="c1"></span>	<span class="nx">userName</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">KeyUser</span><span class="p">)</span><span class="p">.</span><span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">)</span><span class="p">.</span><span class="nx">Name</span>   <span class="c1">// get user from request&#39;s context
+</span><span class="c1"></span>	<span class="nx">userName</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">KeyUser</span><span class="p">).(</span><span class="o">*</span><span class="nx">User</span><span class="p">).</span><span class="nx">Name</span>   <span class="c1">// get user from request&#39;s context
 </span><span class="c1"></span>
-	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;request_id&#34;</span><span class="p">:</span> <span class="nx">requestID</span><span class="p">,</span> <span class="s">&#34;message&#34;</span><span class="p">:</span> <span class="s">&#34;hello &#34;</span> <span class="o">+</span> <span class="nx">userName</span><span class="p">}</span><span class="p">)</span>
+	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;request_id&#34;</span><span class="p">:</span> <span class="nx">requestID</span><span class="p">,</span> <span class="s">&#34;message&#34;</span><span class="p">:</span> <span class="s">&#34;hello &#34;</span> <span class="o">+</span> <span class="nx">userName</span><span class="p">})</span>
 <span class="p">}</span>
 
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ curl http://localhost:8080?id<span class="o">=</span><span class="m">1</span>
 
 &lt; HTTP/1.1 <span class="m">200</span> OK
 <span class="o">{</span><span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;hello tom&#34;</span>,<span class="s2">&#34;request_id&#34;</span>:<span class="s2">&#34;9ccadf01-cfdf-4822-b528-3a1b6e79987a&#34;</span><span class="o">}</span>
-</code></pre></div><h4 id="-middleware-1">前置/后置请求处理器与 middleware 中间件之间的关系<a href="#-middleware-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre></div><h4 id="前置后置请求处理器与-middleware-中间件之间的关系">前置/后置请求处理器与 middleware 中间件之间的关系<a href="#前置后置请求处理器与-middleware-中间件之间的关系" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>每个 Handler 都可以与任意的 <code>Before</code> 、 <code>After</code> 及 <code>middleware</code> 进行搭配，他们之间的关系如下:</p>
 <ul>
 <li><code>Before</code> 及 <code>After</code> 与 Handler 进行组合, 执行顺序如下：</li>
@@ -350,7 +351,7 @@ $ curl localhost:8080
 <li><code>Before</code> 、 <code>After</code> 及 <code>middleware</code> 同时与 Handler 进行组合, 执行顺序如下：</li>
 </ul>
 <p><img src="https://github.com/tangzixiang/mplus/raw/master/assets/image-20191022150601974.png" alt=""></p>
-<h3 id="-model-">绑定 model 并校验请求数据有效性<a href="#-model-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="绑定-model-并校验请求数据有效性">绑定 model 并校验请求数据有效性<a href="#绑定-model-并校验请求数据有效性" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>在日常的 API 开发中，我们经常需要在 Handler 中将请求数据映射到指定对象上并进行数据校验，然后再传递到其他地方进行后续处理，用原始的方式你需要写大量的处理代码，mplus 可以大大降低你的代码量。</p>
 <p><strong>mplus</strong> 内置使用 <strong><a href="https://github.com/go-playground/validator">validator</a></strong> 作为 JSON 数据规则校验引擎</p>
 <ul>
@@ -358,13 +359,13 @@ $ curl localhost:8080
 <li><code>mplus.RegisterValidateErrorFunc(ValidateErrorType,func(http.ResponseWriter,*http.Request, error))</code> 注册一个数据校验异常处理 Hook</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;addr&#34; validate:&#34;min=10&#34;</span><span class="s">`</span> <span class="c1">// min len is 10
+	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`json:&#34;addr&#34; validate:&#34;min=10&#34;`</span> <span class="c1">// min len is 10
 </span><span class="c1"></span><span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// (*V)(nil) mean that is a nil point which hold type info
 </span><span class="c1"></span>	<span class="c1">// bind model just need type info
-</span><span class="c1"></span>	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">((</span><span class="o">*</span><span class="nx">V</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// Handler
@@ -372,7 +373,7 @@ $ curl localhost:8080
 	<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
 
 	<span class="c1">// pass to response data is V instance from request data
-</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">().(</span><span class="o">*</span><span class="nx">V</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># request success</span>
 $ curl --request POST <span class="se">\
@@ -389,15 +390,15 @@ $ curl --request POST <span class="se">\
 
 &lt; HTTP/1.1 <span class="m">400</span> Bad Request
 </code></pre></div><p>如果需要了解到校验过程中具体发生异常的内容，可以添加如下 Hook 定义响应输出的内容</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// register a hook to show err message when validate failed
 </span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">RegisterValidateErrorFunc</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">ErrBodyValidate</span><span class="p">,</span> 
                                   <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
                                     
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()},</span> <span class="mi">400</span><span class="p">)</span>
+	<span class="p">})</span>
 
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">((</span><span class="o">*</span><span class="nx">V</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ curl --request POST <span class="se">\
 </span><span class="se"></span>&gt;   --url http://localhost:8080/408 <span class="se">\
@@ -406,11 +407,11 @@ $ curl --request POST <span class="se">\
 
 &lt; HTTP/1.1 <span class="m">400</span> Bad Request
 <span class="o">{</span><span class="s2">&#34;err_message&#34;</span>:<span class="s2">&#34;Key: &#39;V.Addr&#39; Error:Field validation for &#39;Addr&#39; failed on the &#39;min&#39; tag&#34;</span><span class="o">}</span>
-</code></pre></div><h4 id="form-">form 数据的绑定<a href="#form-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre></div><h4 id="form-数据的绑定">form 数据的绑定<a href="#form-数据的绑定" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p><strong>mplus</strong> 同时内置 <strong><a href="github.com/go-playground/form">form</a></strong> 作为  <code>querystring</code> 及 <code>form</code> 格式数据的解析引擎，这样你便能通过 <code>Bind</code> 同时绑定请求体数据内容及URL 上的数据内容</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// tag “form”, can parse parameter from URL or form-data
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`</span><span class="s">form:&#34;addr&#34; validate:&#34;min=10&#34;</span><span class="s">`</span> <span class="c1">// min len is 10
+	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`form:&#34;addr&#34; validate:&#34;min=10&#34;`</span> <span class="c1">// min len is 10
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># addr on URL</span>
 $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南山区xxxx
@@ -429,7 +430,7 @@ $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南�
 <span class="o">{</span><span class="s2">&#34;addr&#34;</span>:<span class="s2">&#34;广东省深圳市南山区xxxx&#34;</span><span class="o">}</span>
 </code></pre></div><p>如果 <strong><a href="https://github.com/go-playground/validator">validator</a></strong> 及  <strong><a href="github.com/go-playground/form">form</a></strong>  不能满足你的校验规则，你还能为当前 model 自定义校验逻辑进行补充</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;addr&#34; validate:&#34;min=10&#34;</span><span class="s">`</span> <span class="c1">// min len is 10
+	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`json:&#34;addr&#34; validate:&#34;min=10&#34;`</span> <span class="c1">// min len is 10
 </span><span class="c1"></span><span class="p">}</span>
 
 <span class="c1">// implement mplus.RequestValidate
@@ -443,15 +444,15 @@ $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南�
 <span class="p">}</span>
 
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// register a hook to show err message when validate failed by model.Validate
 </span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">RegisterValidateErrorFunc</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">ErrRequestValidate</span><span class="p">,</span> 
                                   <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
                                     
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSON</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()},</span> <span class="mi">400</span><span class="p">)</span>
+	<span class="p">})</span>
 
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">((</span><span class="o">*</span><span class="nx">V</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// Handler
@@ -459,7 +460,7 @@ $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南�
 	<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
 
 	<span class="c1">// pass data to response
-</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">())</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ curl --request POST <span class="se">\
 </span><span class="se"></span>&gt;   --url http://localhost:8080/ <span class="se">\
@@ -468,44 +469,44 @@ $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南�
 
 &lt; HTTP/1.1 <span class="m">400</span> Bad Request
 <span class="o">{</span><span class="s2">&#34;err_message&#34;</span>:<span class="s2">&#34;addr must begin 广东&#34;</span><span class="o">}</span>
-</code></pre></div><h4 id="-model-1">延迟计算 model 类型<a href="#-model-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre></div><h4 id="延迟计算-model-类型">延迟计算 model 类型<a href="#延迟计算-model-类型" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 <p>如果你无法在声明路由的时候直接确定 Handler 绑定的 <code>model</code> 类型，传递一个用于延迟计算实际需要绑定的 <code>model</code> 类型的回调函数。</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// InsertUser use for insert a new one
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">InsertUser</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Account</span>  <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;account&#34;     form:&#34;account&#34;</span><span class="s">`</span>
-	<span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;name&#34;        form:&#34;name&#34;</span><span class="s">`</span>
-	<span class="nx">Password</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;password&#34;    form:&#34;password&#34;</span><span class="s">`</span>
+	<span class="nx">Account</span>  <span class="kt">string</span> <span class="s">`json:&#34;account&#34;     form:&#34;account&#34;`</span>
+	<span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`json:&#34;name&#34;        form:&#34;name&#34;`</span>
+	<span class="nx">Password</span> <span class="kt">string</span> <span class="s">`json:&#34;password&#34;    form:&#34;password&#34;`</span>
 <span class="p">}</span>
 
 <span class="c1">// UpdateUser use for update name
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">UpdateUser</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Account</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;account&#34;  form:&#34;account&#34;</span><span class="s">`</span>
-	<span class="nx">Name</span>    <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;name&#34;     form:&#34;name&#34;</span><span class="s">`</span>
+	<span class="nx">Account</span> <span class="kt">string</span> <span class="s">`json:&#34;account&#34;  form:&#34;account&#34;`</span>
+	<span class="nx">Name</span>    <span class="kt">string</span> <span class="s">`json:&#34;name&#34;     form:&#34;name&#34;`</span>
 <span class="p">}</span>
 
 <span class="c1">// SelectBindModel will calculate which type of model to bind when handler got a request
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">SelectBindModel</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{</span><span class="p">}</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">SelectBindModel</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
 
 	<span class="k">switch</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">GetHeader</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="s">&#34;X-Do-What&#34;</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">case</span> <span class="s">&#34;update&#34;</span><span class="p">:</span>
-		<span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="nx">UpdateUser</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">,</span> <span class="kc">nil</span>
+		<span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="nx">UpdateUser</span><span class="p">)(</span><span class="kc">nil</span><span class="p">),</span> <span class="kc">nil</span>
 	<span class="k">case</span> <span class="s">&#34;insert&#34;</span><span class="p">:</span>
-		<span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="nx">InsertUser</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">,</span> <span class="kc">nil</span>
+		<span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="nx">InsertUser</span><span class="p">)(</span><span class="kc">nil</span><span class="p">),</span> <span class="kc">nil</span>
 	<span class="p">}</span>
   
 	<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;bind type not found&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// register a hook to show err message when select model failed
 </span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">RegisterValidateErrorFunc</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">ErrModelSelect</span><span class="p">,</span> 
                                   <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">// {&#34;err_message&#34;:&#34;bind type not found&#34;} 400
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">()},</span> <span class="mi">400</span><span class="p">)</span>
+	<span class="p">})</span>
 
-	<span class="nx">handler</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nf">ValidateFunc</span><span class="p">(</span><span class="nx">SelectBindModel</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Whatever</span><span class="p">)</span>
+	<span class="nx">handler</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nf">ValidateFunc</span><span class="p">(</span><span class="nx">SelectBindModel</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Whatever</span><span class="p">)</span>
 	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span><span class="nx">handler</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -516,7 +517,7 @@ $ curl http://localhost:8080?addr<span class="o">=</span>广东省深圳市南�
 	<span class="c1">// got pp.VO() do anything
 </span><span class="c1"></span>  
 	<span class="c1">// pass data to response
-</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">pp</span><span class="p">.</span><span class="nf">JSONOK</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">())</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># request failed</span>
 $ curl http://localhost:8080
@@ -536,14 +537,14 @@ $ curl http://localhost:8080 <span class="se">\
 
 &lt; HTTP/1.1 <span class="m">200</span> OK
 <span class="o">{</span><span class="s2">&#34;account&#34;</span>:<span class="s2">&#34;xxx@xxx&#34;</span>,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;xxx&#34;</span><span class="o">}</span>
-</code></pre></div><h3 id="-query--uri">使用 Query 构造请求 URI<a href="#-query--uri" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="使用-query-构造请求-uri">使用 Query 构造请求 URI<a href="#使用-query-构造请求-uri" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>使用官方原始的 API 方式构造 URI 非常繁琐，举例如下：</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">urlValues</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">)</span>
 <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;tom&#34;</span><span class="p">)</span>
 <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">)</span>
-<span class="nx">path</span> <span class="o">:=</span> <span class="s">&#34;http://localhost?&#34;</span> <span class="o">+</span> <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="p">)</span>
+<span class="nx">path</span> <span class="o">:=</span> <span class="s">&#34;http://localhost?&#34;</span> <span class="o">+</span> <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
 </code></pre></div><p>mplus 能够让你的代码更优雅：</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">AddPairs</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;tom&#34;</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">)</span><span class="p">.</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost&#34;</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">().</span><span class="nf">AddPairs</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;tom&#34;</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">).</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost&#34;</span><span class="p">)</span>
 </code></pre></div><p>上面两种方式都是同样能够输出 <code>http://localhost?age=15&amp;name=tom</code> 。</p>
 <p><strong>mplus</strong> 还能做到更灵活，使用 <code>If</code> 及 <code>D</code> 命名结尾的相关函数能动态决定是否添加字段，与原始的官方 API 处理方式对比如下：</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="p">(</span>
@@ -561,88 +562,88 @@ $ curl http://localhost:8080 <span class="se">\
   <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;http://localhost/users/%v?&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;http://localhost/users/%v?&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">urlValues</span><span class="p">.</span><span class="nf">Encode</span><span class="p">())</span>
 
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">(</span><span class="p">)</span><span class="p">.</span>
-           <span class="nf">SetIf</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;tom&#34;</span><span class="p">)</span><span class="p">.</span>
-           <span class="nf">SetIf</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">]</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">)</span><span class="p">.</span>
-           <span class="nf">AppendToURIFormat</span><span class="p">(</span><span class="s">&#34;http://localhost/users/%v&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">().</span>
+           <span class="nf">SetIf</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">],</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;tom&#34;</span><span class="p">).</span>
+           <span class="nf">SetIf</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">],</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="s">&#34;15&#34;</span><span class="p">).</span>
+           <span class="nf">AppendToURIFormat</span><span class="p">(</span><span class="s">&#34;http://localhost/users/%v&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1">// OutPut:
-</span><span class="c1"></span><span class="c1">// http://localhost/users/1?age=15
-</span><span class="c1"></span><span class="c1">// http://localhost/users/1?age=15
+</span><span class="c1">// http://localhost/users/1?age=15
+</span><span class="c1">// http://localhost/users/1?age=15
 </span></code></pre></div><p>对于需要延迟计算的能力同样支持</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">values</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{</span><span class="p">}</span><span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">values</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span>
   <span class="s">&#34;name&#34;</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="c1">// will be continue
 </span><span class="c1"></span>  <span class="s">&#34;age&#34;</span><span class="p">:</span>  <span class="s">&#34;15&#34;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="nx">query</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">(</span><span class="p">)</span><span class="p">.</span>
-  <span class="nf">SetIfD</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span><span class="p">.</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="p">}</span><span class="p">)</span><span class="p">.</span> 
-  <span class="nf">SetIfD</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">]</span><span class="p">.</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="p">}</span><span class="p">)</span>
+<span class="nx">query</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">().</span>
+  <span class="nf">SetIfD</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">values</span><span class="p">[</span><span class="s">&#34;name&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">)</span> <span class="p">}).</span> 
+  <span class="nf">SetIfD</span><span class="p">(</span><span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">values</span><span class="p">[</span><span class="s">&#34;age&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">)</span> <span class="p">})</span>
 
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">query</span><span class="p">.</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost/users/1&#34;</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">query</span><span class="p">.</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost/users/1&#34;</span><span class="p">))</span>
 
 <span class="c1">// OutPut:
-</span><span class="c1"></span><span class="c1">// http://localhost/users/1?age=15
+</span><span class="c1">// http://localhost/users/1?age=15
 </span></code></pre></div><p>甚至你能将字段的计算统一做延迟处理并封装到独立的函数内传递到 Query：</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">query</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">SetPairsD</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="p">)</span> <span class="p">[</span><span class="p">]</span><span class="kt">string</span> <span class="p">{</span> <span class="c1">// lazy dynamic
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">query</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">NewQuery</span><span class="p">().</span><span class="nf">SetPairsD</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span> <span class="c1">// lazy dynamic
 </span><span class="c1"></span>  <span class="nx">values</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span>
     <span class="s">&#34;first&#34;</span><span class="p">:</span>  <span class="mi">1</span><span class="p">,</span>
     <span class="s">&#34;second&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s">&#34;third&#34;</span><span class="p">:</span>  <span class="mi">3</span><span class="p">,</span>
   <span class="p">}</span>
 
-  <span class="kd">var</span> <span class="nx">pairs</span> <span class="p">[</span><span class="p">]</span><span class="kt">string</span>
+  <span class="kd">var</span> <span class="nx">pairs</span> <span class="p">[]</span><span class="kt">string</span>
 
   <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">values</span> <span class="p">{</span>
-    <span class="nx">pairs</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">pairs</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprint</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="p">)</span>
+    <span class="nx">pairs</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">pairs</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprint</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="nx">pairs</span>
-<span class="p">}</span><span class="p">)</span>
+<span class="p">})</span>
 
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">query</span><span class="p">.</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost/users/1&#34;</span><span class="p">)</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span><span class="nx">query</span><span class="p">.</span><span class="nf">AppendToURI</span><span class="p">(</span><span class="s">&#34;http://localhost/users/1&#34;</span><span class="p">))</span>
 
 <span class="c1">// OutPut:
-</span><span class="c1"></span><span class="c1">// http://localhost/users/1?first=1&amp;second=2&amp;third=3
-</span></code></pre></div><h3 id="-api-">便捷的 API 响应<a href="#-api-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</span><span class="c1">// http://localhost/users/1?first=1&amp;second=2&amp;third=3
+</span></code></pre></div><h3 id="便捷的-api-响应">便捷的 API 响应<a href="#便捷的-api-响应" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>HTTP 响应状态码指示特定 <a href="https://developer.mozilla.org/zh-cn/HTTP">HTTP</a> 请求是否已成功完成。mplus 为常用的响应状态码提供了便捷的 API。</p>
 <ul>
-<li><code>200`:</code>mplus.PP.OK()`</li>
-<li><code>400`:</code>mplus.PP.BadRequest()`</li>
-<li><code>401`:</code>mplus.PP.Unauthorized()`</li>
-<li><code>403`:</code>mplus.PP.Forbidden()`</li>
-<li><code>404`:</code>mplus.PP.NotFound()`</li>
-<li><code>405`:</code>mplus.PP.NotAllowed()`</li>
-<li><code>408`:</code>mplus.PP.RequestTimeout()`</li>
-<li><code>409`:</code>mplus.PP.Conflict()`</li>
-<li><code>415`:</code>mplus.PP.UnsupportedMediaType()`</li>
-<li><code>500`:</code>mplus.PP.InternalServerError()`</li>
+<li><code>200</code>:<code>mplus.PP.OK()</code></li>
+<li><code>400</code>:<code>mplus.PP.BadRequest()</code></li>
+<li><code>401</code>:<code>mplus.PP.Unauthorized()</code></li>
+<li><code>403</code>:<code>mplus.PP.Forbidden()</code></li>
+<li><code>404</code>:<code>mplus.PP.NotFound()</code></li>
+<li><code>405</code>:<code>mplus.PP.NotAllowed()</code></li>
+<li><code>408</code>:<code>mplus.PP.RequestTimeout()</code></li>
+<li><code>409</code>:<code>mplus.PP.Conflict()</code></li>
+<li><code>415</code>:<code>mplus.PP.UnsupportedMediaType()</code></li>
+<li><code>500</code>:<code>mplus.PP.InternalServerError()</code></li>
 <li>more &hellip;</li>
 </ul>
 <p>示例如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">mux</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewServeMux</span><span class="p">(</span><span class="p">)</span>
-	<span class="nx">mr</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span> <span class="c1">// It&#39;s very easy to reuse
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">mux</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewServeMux</span><span class="p">()</span>
+	<span class="nx">mr</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">()</span> <span class="c1">// It&#39;s very easy to reuse
 </span><span class="c1"></span>	
 	<span class="c1">//  response&#39;s status code is 200
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/200&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">OK</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">OK</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="c1">//  response&#39;s status code is 400
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/400&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">BadRequest</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">BadRequest</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="c1">//  response&#39;s status code is 401
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/401&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">// WWW-Authenticate: Basic
 </span><span class="c1"></span>		<span class="c1">// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderWWWAuthenticate</span><span class="p">,</span> <span class="s">`</span><span class="s">Basic</span><span class="s">`</span><span class="p">)</span><span class="p">.</span><span class="nf">Unauthorized</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderWWWAuthenticate</span><span class="p">,</span> <span class="s">`Basic`</span><span class="p">).</span><span class="nf">Unauthorized</span><span class="p">()</span>
+	<span class="p">}))</span>
   
 	<span class="c1">//  response&#39;s status code is 403
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/403&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
@@ -654,35 +655,35 @@ $ curl http://localhost:8080 <span class="se">\
 </span><span class="c1"></span>		<span class="c1">// headers. It is like time.RFC1123 but hard-codes GMT as the time
 </span><span class="c1"></span>		<span class="c1">// zone. The time being formatted must be in UTC for Format to
 </span><span class="c1"></span>		<span class="c1">// generate the correct format.
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span>
-			<span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderDate</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)</span><span class="p">.</span><span class="nf">UTC</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">TimeFormat</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">Forbidden</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">WriteRespHeader</span><span class="p">(</span>
+			<span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderDate</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">).</span><span class="nf">UTC</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">TimeFormat</span><span class="p">)).</span><span class="nf">Forbidden</span><span class="p">()</span>
+	<span class="p">}))</span>
   
 	<span class="c1">//  response&#39;s status code is 404
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/404&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">NotFound</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">NotFound</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="c1">//  response&#39;s status code is 405
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/405&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">// Allow: GET, POST, HEAD
 </span><span class="c1"></span>		<span class="c1">// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderAllow</span><span class="p">,</span> <span class="s">&#34;GET,POST,HEAD&#34;</span><span class="p">)</span><span class="p">.</span><span class="nf">NotAllowed</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderAllow</span><span class="p">,</span> <span class="s">&#34;GET,POST,HEAD&#34;</span><span class="p">).</span><span class="nf">NotAllowed</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="c1">//  response&#39;s status code is 408
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/408&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">// Connection: close
 </span><span class="c1"></span>		<span class="c1">// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderConnection</span><span class="p">,</span> <span class="s">&#34;close&#34;</span><span class="p">)</span><span class="p">.</span><span class="nf">RequestTimeout</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">WriteRespHeader</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">HeaderConnection</span><span class="p">,</span> <span class="s">&#34;close&#34;</span><span class="p">).</span><span class="nf">RequestTimeout</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="c1">//  response&#39;s status code is 500
 </span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/500&#34;</span><span class="p">,</span> <span class="nx">mr</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">InternalServerError</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">InternalServerError</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 
 	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mux</span><span class="p">)</span>
@@ -691,21 +692,21 @@ $ curl http://localhost:8080 <span class="se">\
 <ul>
 <li><code>mplus.RegisterHttpStatusMethod</code> 更改指定 HTTP 状态码的响应处理</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">mux</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewServeMux</span><span class="p">(</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">mux</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewServeMux</span><span class="p">()</span>
 
 	<span class="c1">// register a StatusBadRequest hook to change default&#39;s behavior
 </span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">RegisterHttpStatusMethod</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span> 
                       <span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">m</span> <span class="nx">message</span><span class="p">.</span><span class="nx">Message</span><span class="p">,</span> <span class="nx">statusCode</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">// {&#34;err_message&#34;:&#34;Bad Request&#34;} 400 Bad Request
-</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">m</span><span class="p">.</span><span class="nf">En</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nf">Status</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span>
+</span><span class="c1"></span>		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;err_message&#34;</span><span class="p">:</span> <span class="nx">m</span><span class="p">.</span><span class="nf">En</span><span class="p">()},</span> <span class="nx">m</span><span class="p">.</span><span class="nf">Status</span><span class="p">())</span>
+	<span class="p">})</span>
 
 	<span class="c1">//  response&#39;s status code is 400
-</span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/400&#34;</span><span class="p">,</span>  <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span><span class="p">.</span><span class="nf">BadRequest</span><span class="p">(</span><span class="p">)</span>
-	<span class="p">}</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">mux</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="s">&#34;/400&#34;</span><span class="p">,</span>  <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">).</span><span class="nf">BadRequest</span><span class="p">()</span>
+	<span class="p">}))</span>
 
 	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mux</span><span class="p">)</span>
 <span class="p">}</span>
@@ -713,7 +714,7 @@ $ curl http://localhost:8080 <span class="se">\
 
 &lt; HTTP/1.1 <span class="m">400</span> Bad Request
 <span class="o">{</span><span class="s2">&#34;err_message&#34;</span>:<span class="s2">&#34;Bad Request&#34;</span><span class="o">}</span>
-</code></pre></div><h3 id="-errcode--api-">使用 errCode 规划 API 响应不同数据内容<a href="#-errcode--api-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="使用-errcode-规划-api-响应不同数据内容">使用 errCode 规划 API 响应不同数据内容<a href="#使用-errcode-规划-api-响应不同数据内容" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>在 API 开发过程中经常需要对不同的情况做不同的响应处理并返回对应的数据结果，第三方通过响应的数据结果内容判断 API 请求完成情况。</p>
 <p><strong>mplus</strong> 设计了一套通过 <code>errCode</code> 注册不同的响应结果处理逻辑，在 Handler 中只需要将预先定义好的 <code>errCode</code> 传递到 mplus，mplus 就能够对其执行预先注册的逻辑完成剩余的响应工作，而完成这个功能的媒介即 <code>Message</code>。</p>
 <ul>
@@ -728,37 +729,37 @@ $ curl http://localhost:8080 <span class="se">\
 </li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;addr&#34; validate:&#34;min=10&#34;</span><span class="s">`</span> <span class="c1">// min len is 10
+	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`json:&#34;addr&#34; validate:&#34;min=10&#34;`</span> <span class="c1">// min len is 10
 </span><span class="c1"></span><span class="p">}</span>
 
 <span class="c1">// errCode 400001
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">ErrCodeAddrNotExists</span> <span class="p">=</span> <span class="mi">400001</span>
 
 <span class="c1">// ErrCodeCallbackFun will be perform when ErrCodeAddrNotExists be use to PP.CallbackByCode
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">ErrCodeCallbackFun</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">m</span> <span class="nx">mplus</span><span class="p">.</span><span class="nx">Message</span><span class="p">,</span> <span class="nx">respData</span> <span class="kd">interface</span><span class="p">{</span><span class="p">}</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">ErrCodeCallbackFun</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span> <span class="nx">m</span> <span class="nx">mplus</span><span class="p">.</span><span class="nx">Message</span><span class="p">,</span> <span class="nx">respData</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
   
 	<span class="c1">// {&#34;code&#34;:400001,&#34;message&#34;:&#34;addr not exists&#34;}
-</span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;message&#34;</span><span class="p">:</span> <span class="nx">m</span><span class="p">.</span><span class="nf">En</span><span class="p">(</span><span class="p">)</span><span class="p">}</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nf">Status</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span><span class="s">&#34;message&#34;</span><span class="p">:</span> <span class="nx">m</span><span class="p">.</span><span class="nf">En</span><span class="p">()},</span> <span class="nx">m</span><span class="p">.</span><span class="nf">Status</span><span class="p">())</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">CheckAddr</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="kc">false</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
 	<span class="c1">// register a message for ErrCodeAddrNotExists
 </span><span class="c1"></span>	<span class="nx">mplus</span><span class="p">.</span><span class="nx">Messages</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span>
-		<span class="nx">mplus</span><span class="p">.</span><span class="nf">NewCallbackMessage</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span> <span class="nx">ErrCodeAddrNotExists</span><span class="p">,</span> <span class="s">&#34;addr not exists&#34;</span><span class="p">,</span> <span class="nx">ErrCodeCallbackFun</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">mplus</span><span class="p">.</span><span class="nf">NewCallbackMessage</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span> <span class="nx">ErrCodeAddrNotExists</span><span class="p">,</span> <span class="s">&#34;addr not exists&#34;</span><span class="p">,</span> <span class="nx">ErrCodeCallbackFun</span><span class="p">))</span>
 
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">((</span><span class="o">*</span><span class="nx">V</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="c1">// Handler
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">Address</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
 
-	<span class="k">if</span> <span class="p">!</span><span class="nf">CheckAddr</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">.</span><span class="nx">Addr</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">!</span><span class="nf">CheckAddr</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">().(</span><span class="o">*</span><span class="nx">V</span><span class="p">).</span><span class="nx">Addr</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="c1">//  pp search ErrCodeAddrNotExists message  pass to ErrCodeCallbackFun
 </span><span class="c1"></span>		<span class="c1">// second arg is respData pass to registered callback func on Messages -&gt; ErrCodeCallbackFun
@@ -775,7 +776,7 @@ $ curl http://localhost:8080 <span class="se">\
 
 &lt; HTTP/1.1 <span class="m">400</span> Bad Request
 <span class="o">{</span><span class="s2">&#34;code&#34;</span>:400001,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;addr not exists&#34;</span><span class="o">}</span>
-</code></pre></div><h3 id="-requestbody">重复读取 request.Body<a href="#-requestbody" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="重复读取-requestbody">重复读取 request.Body<a href="#重复读取-requestbody" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>由于<code>request.Body</code> 是一个 <code>io.ReadCloser</code> 实例，默认没有提供重复读取的能力。<strong>mplus</strong> 提供了API 在保留  <code>request.Body</code> 读取数据能力的同时获取数据内容。</p>
 <ul>
 <li><code>mplus.PP.ReqBody()</code> 保持 <code>request.Body</code> 可用并返回 <code>string</code> 格式的 body 内容</li>
@@ -784,37 +785,37 @@ $ curl http://localhost:8080 <span class="se">\
 <li><code>mplus.PP.ReqBodyToUnmarshaler(unmarshaler json.Unmarshaler) </code> 保持 <code>request.Body</code> 可用并将 body 内容序列化到   unmarshaler</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`</span><span class="s">json:&#34;addr&#34;</span><span class="s">`</span>
+	<span class="nx">Addr</span> <span class="kt">string</span> <span class="s">`json:&#34;addr&#34;`</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// (*V)(nil) mean that is a nil point which hold type info
 </span><span class="c1"></span>	<span class="c1">// Bind model just need type info
-</span><span class="c1"></span>	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nf">Bind</span><span class="p">(</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">)</span><span class="p">)</span>
+</span><span class="c1"></span>	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">MRote</span><span class="p">().</span><span class="nf">Bind</span><span class="p">((</span><span class="o">*</span><span class="nx">V</span><span class="p">)(</span><span class="kc">nil</span><span class="p">)).</span><span class="nf">HandlerFunc</span><span class="p">(</span><span class="nx">Address</span><span class="p">))</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">Address</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">pp</span> <span class="o">:=</span> <span class="nx">mplus</span><span class="p">.</span><span class="nf">PlusPlus</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
 
-	<span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="p">(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span>
+	<span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">VO</span><span class="p">().(</span><span class="o">*</span><span class="nx">V</span><span class="p">)</span>
 	<span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
-		<span class="nx">pp</span><span class="p">.</span><span class="nf">BadRequest</span><span class="p">(</span><span class="p">)</span> <span class="c1">// 400
+		<span class="nx">pp</span><span class="p">.</span><span class="nf">BadRequest</span><span class="p">()</span> <span class="c1">// 400
 </span><span class="c1"></span>		<span class="k">return</span>
 	<span class="p">}</span>
 
-	<span class="k">if</span> <span class="nb">string</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBodyPure</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="o">!=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBody</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">string</span><span class="p">(</span><span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBodyPure</span><span class="p">())</span> <span class="o">!=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBody</span><span class="p">()</span> <span class="p">{</span>
 
-		<span class="nx">pp</span><span class="p">.</span><span class="nf">InternalServerError</span><span class="p">(</span><span class="p">)</span> <span class="c1">// 500
+		<span class="nx">pp</span><span class="p">.</span><span class="nf">InternalServerError</span><span class="p">()</span> <span class="c1">// 500
 </span><span class="c1"></span>		<span class="k">return</span>
 	<span class="p">}</span>
 
-	<span class="k">if</span> <span class="nx">bodyMap</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBodyMap</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Addr</span> <span class="o">!=</span> <span class="nx">bodyMap</span><span class="p">[</span><span class="s">&#34;addr&#34;</span><span class="p">]</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">bodyMap</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.</span><span class="nf">ReqBodyMap</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">v</span><span class="p">.</span><span class="nx">Addr</span> <span class="o">!=</span> <span class="nx">bodyMap</span><span class="p">[</span><span class="s">&#34;addr&#34;</span><span class="p">]</span> <span class="p">{</span>
 
-		<span class="nx">pp</span><span class="p">.</span><span class="nf">InternalServerError</span><span class="p">(</span><span class="p">)</span> <span class="c1">// 500
+		<span class="nx">pp</span><span class="p">.</span><span class="nf">InternalServerError</span><span class="p">()</span> <span class="c1">// 500
 </span><span class="c1"></span>		<span class="k">return</span>
 	<span class="p">}</span>
 
-	<span class="nx">pp</span><span class="p">.</span><span class="nf">OK</span><span class="p">(</span><span class="p">)</span> <span class="c1">// 200
+	<span class="nx">pp</span><span class="p">.</span><span class="nf">OK</span><span class="p">()</span> <span class="c1">// 200
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ curl --request POST <span class="se">\
 </span><span class="se"></span>&gt; --url http://localhost:8080/ <span class="se">\
@@ -835,16 +836,16 @@ $ curl http://localhost:8080 <span class="se">\
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#-mplus">引入 mplus</a></li>
-    <li><a href="#heading">快速开始</a></li>
-    <li><a href="#heading1">功能</a>
+    <li><a href="#引入-mplus">引入 mplus</a></li>
+    <li><a href="#快速开始">快速开始</a></li>
+    <li><a href="#功能">功能</a>
       <ul>
-        <li><a href="#heading2">使用自定义中间件</a></li>
-        <li><a href="#-model-">绑定 model 并校验请求数据有效性</a></li>
-        <li><a href="#-query--uri">使用 Query 构造请求 URI</a></li>
-        <li><a href="#-api-">便捷的 API 响应</a></li>
-        <li><a href="#-errcode--api-">使用 errCode 规划 API 响应不同数据内容</a></li>
-        <li><a href="#-requestbody">重复读取 request.Body</a></li>
+        <li><a href="#使用自定义中间件">使用自定义中间件</a></li>
+        <li><a href="#绑定-model-并校验请求数据有效性">绑定 model 并校验请求数据有效性</a></li>
+        <li><a href="#使用-query-构造请求-uri">使用 Query 构造请求 URI</a></li>
+        <li><a href="#便捷的-api-响应">便捷的 API 响应</a></li>
+        <li><a href="#使用-errcode-规划-api-响应不同数据内容">使用 errCode 规划 API 响应不同数据内容</a></li>
+        <li><a href="#重复读取-requestbody">重复读取 request.Body</a></li>
       </ul>
     </li>
   </ul>

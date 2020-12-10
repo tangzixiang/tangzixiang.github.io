@@ -11,14 +11,15 @@
 <meta itemprop="description" content="摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &ldquo;==&rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
 基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
 聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk">
-<meta itemprop="datePublished" content="2018-03-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-03-25T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2018-03-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-03-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="159">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] &#34;==&#34; 与 reflect.DeepEqual" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] &#34;==&#34; 与 reflect.DeepEqual" />
 <meta property="og:description" content="摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &ldquo;==&rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
 基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
 聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk" />
@@ -117,7 +118,7 @@
 				<h1>[Go] &#34;==&#34; 与 reflect.DeepEqual</h1>
 			</header>
 			<div class="content">
-				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+				<h2 id="摘要">摘要<a href="#摘要" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>什么时候 <strong><code>==</code></strong> 不管用
 <ul>
@@ -137,9 +138,9 @@
 <li>注</li>
 <li>总结</li>
 </ol>
-<h2 id="--">什么时候 &ldquo;<strong>==</strong>&rdquo; 不管用<a href="#--" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="什么时候--不管用">什么时候 &ldquo;<strong>==</strong>&rdquo; 不管用<a href="#什么时候--不管用" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>要知道  <strong><code>==</code></strong> 什么时候不管用首先得知道其什么时候管用</p>
-<h3 id="heading1">基础类型之间进行比较<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="基础类型之间进行比较">基础类型之间进行比较<a href="#基础类型之间进行比较" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <ol>
 <li>若比较的类型一致且均为基础类型，此时直接比较值的内容。</li>
 <li>若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。</li>
@@ -157,14 +158,14 @@
 </li>
 </ol>
 <p>基础类型的比较比较简单就不上代码啦~</p>
-<h3 id="heading2">聚合类型之间进行比较<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
-<h3 id="heading3">数组<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="聚合类型之间进行比较">聚合类型之间进行比较<a href="#聚合类型之间进行比较" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="数组">数组<a href="#数组" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <ol>
 <li>若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。</li>
 <li>若其内部元素为数组时参考上一条比较。</li>
 <li>若其内部元素为结构体时，参考下一条结构体的比较</li>
 </ol>
-<h3 id="heading4">结构体<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="结构体">结构体<a href="#结构体" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <ol>
 <li>当结构体内部存在 <code>map </code> 类型/<code>slice</code> 类型/<code>channel</code> 类型/函数类型 字段时，则该结构体不可使用 <strong><code>==</code></strong> 进行直接比较，否则语法错误，编译失败。</li>
 <li>按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。</li>
@@ -174,9 +175,9 @@
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Mapper</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">Map</span> <span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">string</span>
 <span class="p">}</span>
-<span class="nx">m1</span><span class="p">,</span> <span class="nx">m2</span> <span class="o">:=</span> <span class="nx">Mapper</span><span class="p">{</span><span class="p">}</span><span class="p">,</span> <span class="nx">Mapper</span><span class="p">{</span><span class="p">}</span>
+<span class="nx">m1</span><span class="p">,</span> <span class="nx">m2</span> <span class="o">:=</span> <span class="nx">Mapper</span><span class="p">{},</span> <span class="nx">Mapper</span><span class="p">{}</span>
 <span class="c1">// 编译失败 
-</span><span class="c1"></span><span class="c1">// invalid operation: m1 == m2 (struct containing map[int]string cannot be compared)
+</span><span class="c1">// invalid operation: m1 == m2 (struct containing map[int]string cannot be compared)
 </span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">m1</span> <span class="o">==</span> <span class="nx">m2</span><span class="p">)</span>
 </code></pre></div><p>第二种情况:</p>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Point</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span> <span class="kt">int</span> <span class="p">}</span>
@@ -188,13 +189,13 @@
 </span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">X</span> <span class="o">==</span> <span class="nx">q</span><span class="p">.</span><span class="nx">X</span> <span class="o">&amp;&amp;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Y</span> <span class="o">==</span> <span class="nx">q</span><span class="p">.</span><span class="nx">Y</span><span class="p">)</span> <span class="c1">// false
 </span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span> <span class="o">==</span> <span class="nx">q</span><span class="p">)</span>                   <span class="c1">// false
 </span></code></pre></div><p>未完待续</p>
-<h2 id="heading5">注<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="注">注<a href="#注" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>基础类型分为: 数字类型、字符串类型、布尔类型。</li>
 <li>聚合类型分为: 数组类型、结构体类型。</li>
 <li>引用类型: 指针类型、slice类型、map类型、函数类型、channel类型</li>
 </ol>
-<h2 id="heading6">参考：<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="参考">参考：<a href="#参考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ul>
 <li><strong>[The Laws of Reflection]</strong>: <a href="https://blog.golang.org/laws-of-reflection">https://blog.golang.org/laws-of-reflection</a></li>
 <li><strong>[The Laws of Reflection]</strong> 翻译版: <strong>[Go 语言反射三定律]</strong> : <a href="https://segmentfault.com/a/1190000006190038">https://segmentfault.com/a/1190000006190038</a></li>
@@ -214,17 +215,17 @@
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">摘要</a></li>
-    <li><a href="#--">什么时候 == 不管用</a>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#什么时候--不管用">什么时候 &ldquo;<strong>==</strong>&rdquo; 不管用</a>
       <ul>
-        <li><a href="#heading1">基础类型之间进行比较</a></li>
-        <li><a href="#heading2">聚合类型之间进行比较</a></li>
-        <li><a href="#heading3">数组</a></li>
-        <li><a href="#heading4">结构体</a></li>
+        <li><a href="#基础类型之间进行比较">基础类型之间进行比较</a></li>
+        <li><a href="#聚合类型之间进行比较">聚合类型之间进行比较</a></li>
+        <li><a href="#数组">数组</a></li>
+        <li><a href="#结构体">结构体</a></li>
       </ul>
     </li>
-    <li><a href="#heading5">注</a></li>
-    <li><a href="#heading6">参考：</a></li>
+    <li><a href="#注">注</a></li>
+    <li><a href="#参考">参考：</a></li>
   </ul>
 </nav>
 		</aside>

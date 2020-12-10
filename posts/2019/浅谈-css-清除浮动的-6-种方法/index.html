@@ -11,14 +11,15 @@
 <meta itemprop="description" content="摘要  额外标签法 使用:after 伪元素 给父元素定高 利用overflow:hidden;属性 父元素浮动 父元素处于绝对定位  在开发网页的时候经常需要用到各种浮动，此时便需要及时的清除浮动，否则将会导致布局出现问题
 引出问题：
 &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;&lt;/title&gt; &lt;style&gt; .outer{ border: 1px solid black; width:300px; } .inner{ width: 50px; height: 50px; background-color: #ff4400; margin-right: 20px; float: left; } .footer{ background-color: #005FC3; width: 200px; height: 100px; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&quot;outer&quot;&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt; &lt;/body&gt; &lt;/html&gt; 可以看出本应包住3个 inner DIV的 outer DIV 却没有包住他们，此刻只剩一条由上下边框贴合组成的线，同时 footer DIV元素也跑到了三个浮动元素的底下">
-<meta itemprop="datePublished" content="2015-11-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-11-01T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2015-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-11-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="533">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[CSS] 浅谈 CSS 清除浮动的 6 种方法" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[CSS] 浅谈 CSS 清除浮动的 6 种方法" />
 <meta property="og:description" content="摘要  额外标签法 使用:after 伪元素 给父元素定高 利用overflow:hidden;属性 父元素浮动 父元素处于绝对定位  在开发网页的时候经常需要用到各种浮动，此时便需要及时的清除浮动，否则将会导致布局出现问题
 引出问题：
 &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;&lt;/title&gt; &lt;style&gt; .outer{ border: 1px solid black; width:300px; } .inner{ width: 50px; height: 50px; background-color: #ff4400; margin-right: 20px; float: left; } .footer{ background-color: #005FC3; width: 200px; height: 100px; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div class=&quot;outer&quot;&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;div class=&quot;inner&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt; &lt;/body&gt; &lt;/html&gt; 可以看出本应包住3个 inner DIV的 outer DIV 却没有包住他们，此刻只剩一条由上下边框贴合组成的线，同时 footer DIV元素也跑到了三个浮动元素的底下" />
@@ -117,7 +118,7 @@
 				<h1>[CSS] 浅谈 CSS 清除浮动的 6 种方法</h1>
 			</header>
 			<div class="content">
-				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+				<h2 id="摘要">摘要<a href="#摘要" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>额外标签法</li>
 <li>使用:after 伪元素</li>
@@ -164,7 +165,7 @@
 </code></pre><p><img src="/assets/2260342482-5635c8e886237_articlex.png" alt="图片描述"></p>
 <p>可以看出本应包住3个 inner DIV的 outer DIV 却没有包住他们，此刻只剩一条由上下边框贴合组成的线，同时 footer DIV元素也跑到了三个浮动元素的底下</p>
 <p>解决办法：</p>
-<h3 id="1-">1. 使用额外标签法<a href="#1-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="1-使用额外标签法">1. 使用额外标签法<a href="#1-使用额外标签法" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -204,7 +205,7 @@
 &lt;/html&gt;
 </code></pre><p><img src="/assets/77786389-5635c8f718208_articlex.png" alt="图片描述"></p>
 <p>这是早期普遍使用的方法，但是对于有代码洁癖的人来说，解决的不够完美</p>
-<h3 id="2--after-">2. 使用 :after 为元素<a href="#2--after-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="2-使用-after-为元素">2. 使用 :after 为元素<a href="#2-使用-after-为元素" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -256,7 +257,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p><img src="/assets/77786389-5635c8f718208_articlex.png" alt="图片描述"></p>
-<h3 id="3-">3. 给父元素定高<a href="#3-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="3-给父元素定高">3. 给父元素定高<a href="#3-给父元素定高" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -292,7 +293,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p><img src="/assets/77786389-5635c8f718208_articlex.png" alt="图片描述"></p>
-<h3 id="4--overflowhidden-">4. 利用 overflow:hidden 属性<a href="#4--overflowhidden-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="4-利用-overflowhidden-属性">4. 利用 overflow:hidden 属性<a href="#4-利用-overflowhidden-属性" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -329,7 +330,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p><img src="/assets/77786389-5635c8f718208_articlex.png" alt="图片描述"></p>
-<h3 id="5-">5. 父元素浮动<a href="#5-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="5-父元素浮动">5. 父元素浮动<a href="#5-父元素浮动" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>当父元素浮动的时候，无需为子元素的浮动清除浮动,布局时经常用到</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -413,7 +414,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><p><img src="/assets/77786389-5635c8f718208_articlex.png" alt="图片描述"></p>
-<h3 id="6-">6. 父元素处于绝对定位<a href="#6-" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="6-父元素处于绝对定位">6. 父元素处于绝对定位<a href="#6-父元素处于绝对定位" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -464,14 +465,14 @@
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">摘要</a>
+    <li><a href="#摘要">摘要</a>
       <ul>
-        <li><a href="#1-">1. 使用额外标签法</a></li>
-        <li><a href="#2--after-">2. 使用 :after 为元素</a></li>
-        <li><a href="#3-">3. 给父元素定高</a></li>
-        <li><a href="#4--overflowhidden-">4. 利用 overflow:hidden 属性</a></li>
-        <li><a href="#5-">5. 父元素浮动</a></li>
-        <li><a href="#6-">6. 父元素处于绝对定位</a></li>
+        <li><a href="#1-使用额外标签法">1. 使用额外标签法</a></li>
+        <li><a href="#2-使用-after-为元素">2. 使用 :after 为元素</a></li>
+        <li><a href="#3-给父元素定高">3. 给父元素定高</a></li>
+        <li><a href="#4-利用-overflowhidden-属性">4. 利用 overflow:hidden 属性</a></li>
+        <li><a href="#5-父元素浮动">5. 父元素浮动</a></li>
+        <li><a href="#6-父元素处于绝对定位">6. 父元素处于绝对定位</a></li>
       </ul>
     </li>
   </ul>

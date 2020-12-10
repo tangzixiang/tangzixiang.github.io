@@ -20,14 +20,15 @@ chrome 的手持设备模拟器相信大家再熟悉不过了，那么左上角�
 我们先看下 关于 viewport 的 相关声明语法
 &lt;meta name=&quot;viewport&quot; content=&quot;name=value,name=value&quot;&gt; 首先引用下 ppk 文章中的英文解释(网络上大部分的出处出自此)：
 Directives Every name/value pair is a directive. (The word is my own invention.">
-<meta itemprop="datePublished" content="2016-05-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-05-09T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2016-05-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-05-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="524">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="被小看的小巨人 - viewport" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="被小看的小巨人 - viewport" />
 <meta property="og:description" content="viewport浅入 相信所有的 web 开发者都见过亦或用过这个神奇的 meta 标签头，亦或在不明白或者半明半蒙的情况下就用上了。
 先来解个疑惑 ，上图
 chrome 的手持设备模拟器相信大家再熟悉不过了，那么左上角的320*480是神马 ？应该很多人已经在心里有了个答案。 在解开这个疑惑之前 需要引入一个概念：
@@ -144,7 +145,7 @@ Directives Every name/value pair is a directive. (The word is my own invention."
 				<h1>被小看的小巨人 - viewport</h1>
 			</header>
 			<div class="content">
-				<h2 id="viewport">viewport浅入<a href="#viewport" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+				<h2 id="viewport浅入">viewport浅入<a href="#viewport浅入" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>相信所有的 web 开发者都见过亦或用过这个神奇的 meta 标签头，亦或在不明白或者半明半蒙的情况下就用上了。</p>
 <p>先来解个疑惑 ，上图</p>
 <p><img src="/assets/2744837098-5726bf841269e_articlex.png" alt=""></p>
@@ -246,7 +247,7 @@ There are six of them in total:</p>
 </code></pre>
 <p>这样就会自动计算你的设备宽度了，此处应该有掌声~</p>
 <p>但是这个时候并未结束，是的 ，当你把你原先的 980 宽的页面重置成了 320 宽 那页面布局当然就发生变化了，惨的，无法入目，这时候就得考验大家的 css 功底了，如何避免不在此文章讨论范围内。</p>
-<h2 id="heading">扩展思考<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="扩展思考">扩展思考<a href="#扩展思考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>当我们在手持设备上放大缩小页面的时候，发生了什么？</li>
 <li>设备的宽度与分辨率的关系？为什么我们在做 iphone 图的时候 640 但到了页面只能为 320？</li>
@@ -308,8 +309,8 @@ screen.width
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#viewport">viewport浅入</a></li>
-    <li><a href="#heading">扩展思考</a></li>
+    <li><a href="#viewport浅入">viewport浅入</a></li>
+    <li><a href="#扩展思考">扩展思考</a></li>
   </ul>
 </nav>
 		</aside>

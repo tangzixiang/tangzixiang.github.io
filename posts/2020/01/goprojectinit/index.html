@@ -11,14 +11,15 @@
 <meta itemprop="description" content="go get github.com/tangzixiang/goprojectinit
 概述 goprojectinit 是一个可以快速初始化 go 项目环境的工具。
 使用帮助 $goprojectinit -h Usage: goprojectinit [OPTIONS] projectname... Application Options: -v, --version show this tool version -b, --verbose Show verbose debug information -c, --cover if the project path exists ,cover the directory and init the project -t, --tool tool mean this project is a tool project,so the main-file will be placed in project root directory -e, --empty empty mean this project is a empty project or lib project -l, --lib same as --empty -n, --usevendor usevendor mean this project init whit vendor,default use go-modules -k, --nokeep don&#39;t add .">
-<meta itemprop="datePublished" content="2020-01-07T10:27:55&#43;08:00" />
-<meta itemprop="dateModified" content="2020-01-07T10:27:55&#43;08:00" />
+<meta itemprop="datePublished" content="2020-01-07T10:27:55+08:00" />
+<meta itemprop="dateModified" content="2020-01-07T10:27:55+08:00" />
 <meta itemprop="wordCount" content="614">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] goprojectinit - 项目工程初始化工具" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="[Go] goprojectinit - 项目工程初始化工具" />
 <meta property="og:description" content="go get github.com/tangzixiang/goprojectinit
 概述 goprojectinit 是一个可以快速初始化 go 项目环境的工具。
 使用帮助 $goprojectinit -h Usage: goprojectinit [OPTIONS] projectname... Application Options: -v, --version show this tool version -b, --verbose Show verbose debug information -c, --cover if the project path exists ,cover the directory and init the project -t, --tool tool mean this project is a tool project,so the main-file will be placed in project root directory -e, --empty empty mean this project is a empty project or lib project -l, --lib same as --empty -n, --usevendor usevendor mean this project init whit vendor,default use go-modules -k, --nokeep don&#39;t add ." />
@@ -121,9 +122,9 @@
 
 <iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&repo=goprojectinit&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe></p>
 <p><code>go get github.com/tangzixiang/goprojectinit</code></p>
-<h2 id="heading">概述<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="概述">概述<a href="#概述" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p><strong>goprojectinit</strong> 是一个可以快速初始化 go 项目环境的工具。</p>
-<h2 id="heading1">使用帮助<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="使用帮助">使用帮助<a href="#使用帮助" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">$goprojectinit</span> -h
 Usage:
   goprojectinit <span class="o">[</span>OPTIONS<span class="o">]</span> projectname...
@@ -146,8 +147,8 @@ Help Options:
 
 Arguments:
   projectname:       init the project with this name, the first name will be named <span class="k">for</span> project,then all remaining names will be sub service name in cmd directory
-</code></pre></div><h2 id="heading2">使用说明<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<h3 id="heading3">快速创建项目<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h2 id="使用说明">使用说明<a href="#使用说明" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="快速创建项目">快速创建项目<a href="#快速创建项目" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>最简单的命令如下：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject
 
@@ -181,7 +182,7 @@ myproject/
 <span class="m">21</span> directories, <span class="m">3</span> files
 </code></pre></div><p>通过这么一个简单的命令，快速的初始化好一个 go 项目的目录环境，这里使用的是默认的目录配置。</p>
 <p>上面的例子中项目 <code>myproject</code> 的项目入口文件为 <code>myproject/cmd/myproject/myproject.go</code>。</p>
-<h3 id="heading4">工具型项目<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="工具型项目">工具型项目<a href="#工具型项目" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>若新建项目为工具型项目则指定 <code>-t</code> 或者 <code>--tool</code> 参数即可:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -t mytool
 $ tree mytool/
@@ -203,7 +204,7 @@ mytool/
 ├── scripts
 └── tes
 </code></pre></div><p>是否工具型项目的区别在于项目根目录是否存在 <code>main.go</code> 文件。</p>
-<h3 id="heading5">类库型项目<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="类库型项目">类库型项目<a href="#类库型项目" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>若新建项目为工具型项目则指定 <code>-l</code> 或者 <code>--lib</code> 参数即可:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -l mylib
 $ tree mylib/
@@ -219,7 +220,7 @@ mylib/
 
 <span class="m">6</span> directories, <span class="m">2</span> files
 </code></pre></div><p>类库型项目不会主动创建任何 go 文件。</p>
-<h3 id="heading6">多服务项目<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="多服务项目">多服务项目<a href="#多服务项目" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p><strong>goprojectinit</strong> 支持指定新建项目为多服务项目,只需提供多个 <code>projectname</code> 即可,首个 <code>projectname</code> 将作为项目名。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject subserver1 subserver2
 $ tree myproject/
@@ -254,7 +255,7 @@ myproject/
 └── website
 
 <span class="m">23</span> directories, <span class="m">5</span> files
-</code></pre></div><h3 id="heading7">自定义目录<a href="#heading7" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="自定义目录">自定义目录<a href="#自定义目录" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>若不想使用默认提供的几种目录初始化模板，<strong>goprojectinit</strong> 支持自定义需要初始化的目录，通过 <code>-d</code> 或则 <code>--dirs</code> 指定。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -d api,service,model myproject
 $ tree myproject/
@@ -302,7 +303,7 @@ myproject/
 
 <span class="m">22</span> directories, <span class="m">3</span> files
 </code></pre></div><p>注意与 <code>go-modules</code> 模式不同的是，使用 <code>vendor</code> 模式可能需要新建项目位于 <code>$GOPATH</code> 下</p>
-<h3 id="heading8">展示更多调试信息<a href="#heading8" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h3 id="展示更多调试信息">展示更多调试信息<a href="#展示更多调试信息" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>如果想要能够清楚的看到项目初始化过程的详细信息,只需要附带 <code>-b</code> 参数:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit myproject -b
 
@@ -310,20 +311,20 @@ myproject/
 <span class="o">[</span>goprojectinit<span class="o">]</span> make new directory ~/myproject success~
 //...忽略部分输出日志
 <span class="o">[</span>goprojectinit<span class="o">]</span> projoct myproject init success~
-</code></pre></div><h3 id="heading9">指定项目位置<a href="#heading9" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="指定项目位置">指定项目位置<a href="#指定项目位置" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>如果不想在当前目录下初始化项目只需要通过 <code>-p</code> 或者 <code>--targetpath</code> 指定目标地址即可:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tangzixiang$ sudo goprojectinit -p /var/www myproject
-</code></pre></div><h3 id="heading10">覆盖项目路径<a href="#heading10" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+</code></pre></div><h3 id="覆盖项目路径">覆盖项目路径<a href="#覆盖项目路径" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <p>若新建的项目路径下存在同名目录，默认不会进行覆盖，会维持目录原样并退出初始化过程，如果需要进行覆盖则可以通过 <code>-c</code> 或者 <code>--cover</code> 完成:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ goprojectinit -p /var/www -c myproject
 </code></pre></div><p>上面这个示例为，在 <code>/var/www</code> 目录下创建默认 <code>go</code> 项目 <code>myproject</code> 若已存在则删除并重新创建。</p>
-<h2 id="heading11">注意<a href="#heading11" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="注意">注意<a href="#注意" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ol>
 <li>当项目初始化过程中因为其他外界因素导致中途失败后，工具会自动清除创建到一半的项目。</li>
 <li>项目会默认带 <code>.goprohectinit</code> 目录用于存放初始化相关内容</li>
 <li>初始化默认使用的是 <code>go-modules</code> 模式，需要 go 版本的支持，go 在 <code>go1.11</code> 版本开始支持</li>
 </ol>
-<h2 id="heading12">参考<a href="#heading12" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="参考">参考<a href="#参考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ul>
 <li><a href="https://github.com/golang-standards/project-layout"  target="_blank"  >Standard Go Project Layout</a> 
 </li>
@@ -341,23 +342,23 @@ myproject/
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概述</a></li>
-    <li><a href="#heading1">使用帮助</a></li>
-    <li><a href="#heading2">使用说明</a>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#使用帮助">使用帮助</a></li>
+    <li><a href="#使用说明">使用说明</a>
       <ul>
-        <li><a href="#heading3">快速创建项目</a></li>
-        <li><a href="#heading4">工具型项目</a></li>
-        <li><a href="#heading5">类库型项目</a></li>
-        <li><a href="#heading6">多服务项目</a></li>
-        <li><a href="#heading7">自定义目录</a></li>
+        <li><a href="#快速创建项目">快速创建项目</a></li>
+        <li><a href="#工具型项目">工具型项目</a></li>
+        <li><a href="#类库型项目">类库型项目</a></li>
+        <li><a href="#多服务项目">多服务项目</a></li>
+        <li><a href="#自定义目录">自定义目录</a></li>
         <li><a href="#vendor">vendor</a></li>
-        <li><a href="#heading8">展示更多调试信息</a></li>
-        <li><a href="#heading9">指定项目位置</a></li>
-        <li><a href="#heading10">覆盖项目路径</a></li>
+        <li><a href="#展示更多调试信息">展示更多调试信息</a></li>
+        <li><a href="#指定项目位置">指定项目位置</a></li>
+        <li><a href="#覆盖项目路径">覆盖项目路径</a></li>
       </ul>
     </li>
-    <li><a href="#heading11">注意</a></li>
-    <li><a href="#heading12">参考</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 		</aside>

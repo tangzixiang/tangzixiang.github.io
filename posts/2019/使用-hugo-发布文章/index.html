@@ -16,14 +16,15 @@ github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看
 这里对上述的元数据做解释如下：
  title: 文章的标题 date: 文章的日期 draft: 文章是否草稿，草稿内容不会被发布 tags: 为当前文章打标签，不同文章可以使用相同的标签  文章内容需要写在元数据的后面：
 --- title: &#34;My First Post&#34; date: 2019-12-16T21:38:04&#43;08:00 draft: true tags: - untagged --- Quisque velit nisi, pretium ut lacinia in, elementum id enim.">
-<meta itemprop="datePublished" content="2019-12-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-15T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-15T00:00:00+00:00" />
 <meta itemprop="wordCount" content="336">
 <meta itemprop="image" content="https://picsum.photos/1024/768/?random">
 
 
 
-<meta itemprop="keywords" content="" /><meta property="og:title" content="使用 Hugo 发布文章" />
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="使用 Hugo 发布文章" />
 <meta property="og:description" content="摘要  添加一篇文章 本地开启草稿箱视图 解除文章草稿状态 发布草稿文章 设置文章过期时间/发布时间 发布保留过期文章及未发布文章  添加一篇文章 在上一篇文章 使用 Hugo 创建个人 Blog 中介绍了 Hugo 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用 registerforxxx.github.io 作为案例。
 添加文章前我们先启动 Hugo
 github.io $ hugo server 添加文章依旧是使用 new 子命令，这里我们在 posts 目录下创建一篇名为 my-first-post
@@ -132,7 +133,7 @@ github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看
 				<h1>使用 Hugo 发布文章</h1>
 			</header>
 			<div class="content">
-				<h2 id="heading">摘要<a href="#heading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+				<h2 id="摘要">摘要<a href="#摘要" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ul>
 <li>添加一篇文章</li>
 <li>本地开启草稿箱视图</li>
@@ -141,7 +142,7 @@ github.io $ hugo new posts/my-first-post.md 创建完成后打开文章可以看
 <li>设置文章过期时间/发布时间</li>
 <li>发布保留过期文章及未发布文章</li>
 </ul>
-<h2 id="heading1">添加一篇文章<a href="#heading1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="添加一篇文章">添加一篇文章<a href="#添加一篇文章" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>在上一篇文章 <a href="../%E4%BD%BF%E7%94%A8-hugo-%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA-blog/">使用 Hugo 创建个人 Blog</a> 中介绍了 <a href="https://gohugo.io/"><strong>Hugo</strong></a> 这个工具，以及如何使用它为自己创建一个好看的博客。这篇文章延续上一篇使用  <code>registerforxxx.github.io</code> 作为案例。</p>
 <p>添加文章前我们先启动 <strong>Hugo</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo server
@@ -187,19 +188,19 @@ lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci
 magna justo, lacinia eget consectetur sed, convallis at tellus. 
 </code></pre></div><p>完成文章的编写后我们回到浏览器，发现并没有看到新加的文章，即使刷新几百次也是一样的效果，这是因为文章仍处于草稿箱状态。如下图：</p>
 <p><img src="/assets/image-20191218190656155.png" alt="image-20191218190656155"></p>
-<h2 id="heading2">本地开启草稿箱视图<a href="#heading2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="本地开启草稿箱视图">本地开启草稿箱视图<a href="#本地开启草稿箱视图" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>记得我们上一篇文章的 <strong>Hugo 的特色</strong> 部分有提到 <strong>Hugo</strong> 具有默认热加载的功能，新添加的文章会自动在网页上实时渲染，但是！但是！但是！不包括草稿内容！</p>
 <p>通过 <code>hugo new</code> 命令创建的文章默认会被打上草稿状态的<code>tag</code> 即 <code>draft</code> 选项，<strong>Hugo</strong> 通过 <code>draft</code> 选项识别到这是一篇草稿内容，所以不会对其进行渲染。</p>
 <p>如果我们想在本地查看草稿内容，只需要在启动  <strong>Hugo</strong> 的时候带上参数 <code>-D</code>或则 <code>--buildDrafts</code> ：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo server -D
 </code></pre></div><p>回到浏览器：</p>
 <p><img src="/assets/image-20191216215029610.png" alt="image-20191216215029610"></p>
-<h2 id="heading3">解除文章草稿状态<a href="#heading3" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="解除文章草稿状态">解除文章草稿状态<a href="#解除文章草稿状态" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>在正式发布文章前我们需要解除当前文章的草稿状态，解除草稿状态只需要把文章开头的 <code>draft</code> 选项去除即可。</p>
-<h2 id="heading4">发布草稿文章<a href="#heading4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h2 id="发布草稿文章">发布草稿文章<a href="#发布草稿文章" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>如果需要将草稿内容进行发布，在执行 <code>hugo</code> 生成发布内容时附带 <code>-D</code> 或则 <code>--buildDrafts</code> 即可。</p>
 <pre><code>github.io $ hugo -D
-</code></pre><h2 id="heading5">设置文章过期时间/发布时间<a href="#heading5" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+</code></pre><h2 id="设置文章过期时间发布时间">设置文章过期时间/发布时间<a href="#设置文章过期时间发布时间" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p><strong>Hugo</strong> 通过以下两个元数据选项提供文章的过期时间及发布时间（已发布的可以通过 URL 间接访问😂）：</p>
 <ul>
 <li><strong>expiryDate</strong>：过期时间，已过期的内容不会渲染到网页中</li>
@@ -211,7 +212,7 @@ date: 2019-12-16T21:38:04+08:00
 expiryDate: 2019-12-18T21:00:20+08:00
 description: &#34;孔融何许人也&#34;
 ---
-</code></pre></div><h2 id="heading6">发布保留过期文章及未发布文章<a href="#heading6" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+</code></pre></div><h2 id="发布保留过期文章及未发布文章">发布保留过期文章及未发布文章<a href="#发布保留过期文章及未发布文章" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>直接执行 <code>hugo</code> 生成的发布内容不会携带已过期的文章或者未到发布时间的文章.</p>
 <p>需要发布时携带过期文章需要执行时附带参数 <code>-E</code> 或则 <code>--buildExpired</code>：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">github.io $ hugo -E
@@ -233,13 +234,13 @@ description: &#34;孔融何许人也&#34;
 			<div class="toc-title">Table of Contents</div>
 			<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">摘要</a></li>
-    <li><a href="#heading1">添加一篇文章</a></li>
-    <li><a href="#heading2">本地开启草稿箱视图</a></li>
-    <li><a href="#heading3">解除文章草稿状态</a></li>
-    <li><a href="#heading4">发布草稿文章</a></li>
-    <li><a href="#heading5">设置文章过期时间/发布时间</a></li>
-    <li><a href="#heading6">发布保留过期文章及未发布文章</a></li>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#添加一篇文章">添加一篇文章</a></li>
+    <li><a href="#本地开启草稿箱视图">本地开启草稿箱视图</a></li>
+    <li><a href="#解除文章草稿状态">解除文章草稿状态</a></li>
+    <li><a href="#发布草稿文章">发布草稿文章</a></li>
+    <li><a href="#设置文章过期时间发布时间">设置文章过期时间/发布时间</a></li>
+    <li><a href="#发布保留过期文章及未发布文章">发布保留过期文章及未发布文章</a></li>
   </ul>
 </nav>
 		</aside>
