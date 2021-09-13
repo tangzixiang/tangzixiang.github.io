@@ -12,26 +12,20 @@
 我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
 Object.isExtensible 方法 MDN：
 概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
-//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console.">
-<meta itemprop="datePublished" content="2016-06-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2016-06-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="714">
-<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content=" [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性" />
+//新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console."><meta itemprop="datePublished" content="2016-06-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-06-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="714"><meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+<meta itemprop="keywords" content="" /><meta property="og:title" content=" [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性" />
 <meta property="og:description" content="摘要  扩展特性  Object.isExtensible 方法 Object.preventExtensions 方法   密封特性  Object.isSealed 方法 Object.seal 方法   冻结特性  Object.isFrozen 方法 Object.freeze 方法  浅冻结 与 深冻结      扩展特性 如果一个对象可以添加新的属性，则这个对象是可扩展的。 让这个对象变的不可扩展，也就是不能再有新的属性
 我们都知道，我们可以通过属性描述符创建属性不可配置对象 如何让对象属性不可配置或枚举, 在这里我们可以创建不可扩展属性的对象
 Object.isExtensible 方法 MDN：
 概述 Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。 语法 Object.isExtensible(obj) 参数 obj 需要检测的对象  使用：
 //新对象默认是可扩展的无论何种方式创建的对象，这里使用的是字面量方式  var empty = {a:1}; console.log(Object.isExtensible(empty) === true);//true  //等价于 使用属性描述符 empty = Object.create({},{ &#34;a&#34;:{ value : 1, configurable : true,//可配置  enumerable : true,//可枚举  writable : true//可写  } }); console." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" />
-<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
-<meta property="article:published_time" content="2016-06-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2016-06-30T00:00:00+00:00" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E6%B5%85%E8%B0%88-js-%E5%AF%B9%E8%B1%A1%E4%B9%8B%E6%89%A9%E5%B1%95%E5%AF%86%E5%B0%81%E5%8F%8A%E5%86%BB%E7%BB%93%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" /><meta property="og:image" content="https://picsum.photos/1024/768/?random" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-06-30T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2016-06-30T00:00:00&#43;00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
 
@@ -50,7 +44,7 @@ Object.isExtensible 方法 MDN：
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title> [JS] 浅谈 JS 对象之扩展、密封及冻结三大特性</title>
-	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.835f01e49ba3fb1af85a367c1d24ded4e808c992894adc90feecaba6562f7cd9.css" integrity="sha256-g18B5Juj+xr4WjZ8HSTe1OgIyZKJStyQ/uyrplYvfNk=" crossorigin="anonymous">
 	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
 	<script>
 		var _hmt = _hmt || [];
@@ -92,16 +86,13 @@ Object.isExtensible 方法 MDN：
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
 				<a href="https://tangzixiang.github.io/opensource/">开源</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
-				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
-				<a href="https://tangzixiang.github.io/course/">课程</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
 
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
-<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -110,8 +101,6 @@ Object.isExtensible 方法 MDN：
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
 			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
-			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
-			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
 		</ul>
 	</div>
 
@@ -591,7 +580,7 @@ obj 被检测的对象
 
 
 
-	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	<script src="https://tangzixiang.github.io/js/bundle.min.8565ebca6e1a6124809273d266269e68f71ca44cae12b80d0b415922650f72f8.js" integrity="sha256-hWXrym4aYSSAknPSZiaeaPccpEyuErgNC0FZImUPcvg=" crossorigin="anonymous"></script>
 	
 
 </body>

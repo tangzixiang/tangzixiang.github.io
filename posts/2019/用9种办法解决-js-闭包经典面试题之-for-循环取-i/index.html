@@ -12,26 +12,20 @@
 闭包  正确的说,应该是指一个闭包域,每当声明了一个函数,它就产生了一个闭包域(可以解释为每个函数都有自己的函数栈),每个闭包域(Function 对象)都有一个 function scope(不是属性),function scope内默认有个名为 Global 的全局引用(有了这个引用,就可以直接调用 Global 的属性或方法) 凡是在闭包域内声明的变量或方法,外部无法直接访问 闭包域可以访问外部的变量或方法  (上图为 chrome 下 debug 环境)
  当在一个闭包域内包含另一个闭包域时(简单的说就是在一个函数内有另一个函数,当然这个内部函数的生命周期是依附于外部函数的), 此时,若子闭包域(内部的闭包域,内部函数)使用了父闭包域(外部闭包域,外部函数)的私有变量(在父闭包域中声明的变量,父闭包域的外部空间无法直接访问,但子闭包域可以访问),子闭包域即当前的子函数的 function scope 会产生一个 closure 对象属性,这个对象属性内包含的是子闭包域对父闭包域的所有引用(只要子闭包域(内部函数)还存活,其父闭包域(外部函数)就依旧存活),倘若在父闭包域存活期间对其私有变量内容进行修改,则对这些父闭包域的私有变量进行引用的子闭包域中 function scope 的 closure 对象属性的内容也会发生变化,因为这只是引用.
 举例:
-&lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;script type=&#34;text/javascript&#34; charset=&#34;utf-8&#34;&gt; //函数 a 有一个私有变量 p 和一个内部函数 innerA  function a() { //外部闭包域 ,一个名为 a 的 Function 对象  var p = 0; //私有变量 p  var innerA = function () { //内部闭包域 ,一个名为 innerA 的 Function 对象  console.">
-<meta itemprop="datePublished" content="2015-10-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2015-10-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="528">
-<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content="[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i" />
+&lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;script type=&#34;text/javascript&#34; charset=&#34;utf-8&#34;&gt; //函数 a 有一个私有变量 p 和一个内部函数 innerA  function a() { //外部闭包域 ,一个名为 a 的 Function 对象  var p = 0; //私有变量 p  var innerA = function () { //内部闭包域 ,一个名为 innerA 的 Function 对象  console."><meta itemprop="datePublished" content="2015-10-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-10-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="528"><meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i" />
 <meta property="og:description" content="文章历史久远，有时间再同步更新吧 ~~
 闭包  正确的说,应该是指一个闭包域,每当声明了一个函数,它就产生了一个闭包域(可以解释为每个函数都有自己的函数栈),每个闭包域(Function 对象)都有一个 function scope(不是属性),function scope内默认有个名为 Global 的全局引用(有了这个引用,就可以直接调用 Global 的属性或方法) 凡是在闭包域内声明的变量或方法,外部无法直接访问 闭包域可以访问外部的变量或方法  (上图为 chrome 下 debug 环境)
  当在一个闭包域内包含另一个闭包域时(简单的说就是在一个函数内有另一个函数,当然这个内部函数的生命周期是依附于外部函数的), 此时,若子闭包域(内部的闭包域,内部函数)使用了父闭包域(外部闭包域,外部函数)的私有变量(在父闭包域中声明的变量,父闭包域的外部空间无法直接访问,但子闭包域可以访问),子闭包域即当前的子函数的 function scope 会产生一个 closure 对象属性,这个对象属性内包含的是子闭包域对父闭包域的所有引用(只要子闭包域(内部函数)还存活,其父闭包域(外部函数)就依旧存活),倘若在父闭包域存活期间对其私有变量内容进行修改,则对这些父闭包域的私有变量进行引用的子闭包域中 function scope 的 closure 对象属性的内容也会发生变化,因为这只是引用.
 举例:
 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;script type=&#34;text/javascript&#34; charset=&#34;utf-8&#34;&gt; //函数 a 有一个私有变量 p 和一个内部函数 innerA  function a() { //外部闭包域 ,一个名为 a 的 Function 对象  var p = 0; //私有变量 p  var innerA = function () { //内部闭包域 ,一个名为 innerA 的 Function 对象  console." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/" />
-<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
-<meta property="article:published_time" content="2015-10-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-10-17T00:00:00+00:00" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/%E7%94%A89%E7%A7%8D%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3-js-%E9%97%AD%E5%8C%85%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8B-for-%E5%BE%AA%E7%8E%AF%E5%8F%96-i/" /><meta property="og:image" content="https://picsum.photos/1024/768/?random" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-10-17T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2015-10-17T00:00:00&#43;00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
 
@@ -50,7 +44,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title>[JS] 用9种办法解决 JS 闭包经典面试题之 for 循环取 i</title>
-	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.835f01e49ba3fb1af85a367c1d24ded4e808c992894adc90feecaba6562f7cd9.css" integrity="sha256-g18B5Juj+xr4WjZ8HSTe1OgIyZKJStyQ/uyrplYvfNk=" crossorigin="anonymous">
 	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
 	<script>
 		var _hmt = _hmt || [];
@@ -92,16 +86,13 @@
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
 				<a href="https://tangzixiang.github.io/opensource/">开源</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
-				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
-				<a href="https://tangzixiang.github.io/course/">课程</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
 
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
-<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -110,8 +101,6 @@
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
 			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
-			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
-			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
 		</ul>
 	</div>
 
@@ -380,7 +369,7 @@ firefox支持一下语法</p>
 
 
 
-	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	<script src="https://tangzixiang.github.io/js/bundle.min.8565ebca6e1a6124809273d266269e68f71ca44cae12b80d0b415922650f72f8.js" integrity="sha256-hWXrym4aYSSAknPSZiaeaPccpEyuErgNC0FZImUPcvg=" crossorigin="anonymous"></script>
 	
 
 </body>

@@ -6200,10 +6200,10 @@ Object.create() 方法创建一个拥有指定原型和若干个指定属性的�
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="mi">1</span><span class="p">};</span>
-    <span class="nx">o</span><span class="p">.</span><span class="nx">__defineGetter__</span><span class="p">(</span><span class="s2">&#34;giveMeA&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">o</span><span class="p">.</span><span class="mi">__</span><span class="nx">defineGetter__</span><span class="p">(</span><span class="s2">&#34;giveMeA&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
     <span class="p">});</span>
-    <span class="nx">o</span><span class="p">.</span><span class="nx">__defineSetter__</span><span class="p">(</span><span class="s2">&#34;setMeNew&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">o</span><span class="p">.</span><span class="mi">__</span><span class="nx">defineSetter__</span><span class="p">(</span><span class="s2">&#34;setMeNew&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">a</span>  <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
     <span class="p">})</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">giveMeA</span><span class="p">);</span>
@@ -6667,8 +6667,8 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 <p>使用watch 方法来监视对象的属性</p>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//声明一个类
 </span><span class="c1"></span><span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;age&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="mi">_</span><span class="nx">isValidAssignment</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="mi">_</span><span class="nx">isValidAssignment</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
 <span class="p">};</span>
@@ -6677,7 +6677,7 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&#34; , &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="c1">//定义语义上的私有方法
-</span><span class="c1"></span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_isValidAssignment</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="nx">oldVale</span><span class="p">,</span><span class="nx">newValue</span><span class="p">){</span>
+</span><span class="c1"></span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="mi">_</span><span class="nx">isValidAssignment</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="nx">oldVale</span><span class="p">,</span><span class="nx">newValue</span><span class="p">){</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">id</span> <span class="o">==</span> <span class="s2">&#34;name&#34;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nx">newValue</span> <span class="o">||</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)){</span>
         <span class="k">throw</span> <span class="k">new</span> <span class="nx">RangeError</span><span class="p">(</span><span class="s2">&#34;不合法的名字 &#34;</span><span class="o">+</span> <span class="k">this</span><span class="p">);</span>
     <span class="p">}</span>
@@ -6874,13 +6874,13 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
 <h3 id="构造器方式与原型方式的混合模式"><strong>构造器方式与原型方式的混合模式</strong></h3>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//每个对象有专属的属性不会与其他对象共享
 </span><span class="c1"></span><span class="kd">function</span> <span class="nx">Car4</span><span class="p">(</span><span class="nx">sColor</span><span class="p">,</span><span class="nx">iDoors</span><span class="p">){</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">_color</span> <span class="o">=</span> <span class="nx">sColor</span><span class="p">;</span><span class="c1">//私有属性变量名称头加下划线标识
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">_doors</span> <span class="o">=</span> <span class="nx">iDoors</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="mi">_</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">sColor</span><span class="p">;</span><span class="c1">//私有属性变量名称头加下划线标识
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="mi">_</span><span class="nx">doors</span> <span class="o">=</span> <span class="nx">iDoors</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">drivers</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&#34;Mike&#34;</span><span class="p">,</span><span class="s2">&#34;John&#34;</span><span class="p">);</span><span class="c1">//公有属性标识
 </span><span class="c1"></span><span class="p">}</span>
 <span class="c1">//所有对象共享一个方法版本，减少内存浪费
 </span><span class="c1"></span><span class="nx">Car4</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">showColor</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_color</span><span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="mi">_</span><span class="nx">color</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">car4_1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car4</span><span class="p">(</span><span class="s2">&#34;red&#34;</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
@@ -6899,11 +6899,11 @@ unwatch 方法只有一个参数,代表需要取消监视的属性名.</p>
     <span class="k">this</span><span class="p">.</span><span class="nx">drivers</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&#34;Mike&#34;</span><span class="p">,</span><span class="s2">&#34;John&#34;</span><span class="p">);</span>
 
     <span class="c1">//使用标志(_initialized)来判断是否已给原型赋予了任何方法,保证方法永远只被创建并赋值一次
-</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">Car5</span><span class="p">.</span><span class="nx">_initialized</span> <span class="o">==</span> <span class="s2">&#34;undefined&#34;</span><span class="p">){</span><span class="c1">//因为这里的标记是附加在类上,故如果后期直接对其进行修改,还是有可能出现再次创建的情况
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">Car5</span><span class="p">.</span><span class="mi">_</span><span class="nx">initialized</span> <span class="o">==</span> <span class="s2">&#34;undefined&#34;</span><span class="p">){</span><span class="c1">//因为这里的标记是附加在类上,故如果后期直接对其进行修改,还是有可能出现再次创建的情况
 </span><span class="c1"></span>        <span class="nx">Car5</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">showColor</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span><span class="c1">//为Car5添加一个存放在 prototype 域的方法
 </span><span class="c1"></span>            <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
         <span class="p">};</span>
-        <span class="nx">Car5</span><span class="p">.</span><span class="nx">_initialized</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><span class="c1">//设置一个静态属性
+        <span class="nx">Car5</span><span class="p">.</span><span class="mi">_</span><span class="nx">initialized</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span><span class="c1">//设置一个静态属性
 </span><span class="c1"></span>    <span class="p">}</span>
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">car5_1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car5</span><span class="p">(</span><span class="s2">&#34;red&#34;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">25</span><span class="p">);</span>

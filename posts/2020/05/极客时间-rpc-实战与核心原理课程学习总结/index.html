@@ -21,11 +21,7 @@
  RPC 常用于业务系统之间的数据交互，需要保证其可靠性，所以 RPC 默认一般采用 TCP 进行传输； 网络的传输数据是二进制，需要将调用方的请求数据在网络上进行传输，就需要将其转成可传输的二进制数据，且转换算法必须是可逆的，这个过程称为序列化； 服务提供方收到请求数据需要理解二进制内容就需要理解通信的协议格式。大多数的的协议会分成两部分分别是数据头和消息体。  数据头一般用于身份识别，包括协议识别、数据大小、请求类型、序列化类型信息等； 消息体主要是请求的业务参数信息和扩展属性等；   根据协议格式，服务提供方将收到的二进制数据识别出请求数据的过程成为反序列化； 最后服务提供方根据识别出来的请求数据找到对应的实现，完成方法的调用。再将执行结果原路返回给调用方；  RPC 在架构中的位置 RPC 是解决应用间通信的一种方式，无论是在一个大型的分布式系统还是中小型系统中，应用架构最终会从“单体” 演进成“微服务化”，整个应用系统会被拆分成不同的功能的应用，并将他们部署在不同的服务器中，而应用之间通过 RPC 进行通信，可以说 RPC 对应的是整个分布式应用系统，像“经络一样的存在”。">
 
 <meta itemprop="wordCount" content="60">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content="" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
 <meta property="og:description" content="极客时间 RPC 实战与核心原理课程学习总结 [TOC]
 断断续续总算完整的上完了一门极客时间的课程，防止上完就忘记还是得做个总结记录下
 开篇词 课程开篇词首先讲述了作者主攻分布式架构与设计，并做相关的经验之谈。
@@ -38,7 +34,9 @@
 一个完整的 RPC 通信流程涉及数据的网络传输、数据的序列化及反序列化、通讯协议：
  RPC 常用于业务系统之间的数据交互，需要保证其可靠性，所以 RPC 默认一般采用 TCP 进行传输； 网络的传输数据是二进制，需要将调用方的请求数据在网络上进行传输，就需要将其转成可传输的二进制数据，且转换算法必须是可逆的，这个过程称为序列化； 服务提供方收到请求数据需要理解二进制内容就需要理解通信的协议格式。大多数的的协议会分成两部分分别是数据头和消息体。  数据头一般用于身份识别，包括协议识别、数据大小、请求类型、序列化类型信息等； 消息体主要是请求的业务参数信息和扩展属性等；   根据协议格式，服务提供方将收到的二进制数据识别出请求数据的过程成为反序列化； 最后服务提供方根据识别出来的请求数据找到对应的实现，完成方法的调用。再将执行结果原路返回给调用方；  RPC 在架构中的位置 RPC 是解决应用间通信的一种方式，无论是在一个大型的分布式系统还是中小型系统中，应用架构最终会从“单体” 演进成“微服务化”，整个应用系统会被拆分成不同的功能的应用，并将他们部署在不同的服务器中，而应用之间通过 RPC 进行通信，可以说 RPC 对应的是整个分布式应用系统，像“经络一样的存在”。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tangzixiang.github.io/posts/2020/05/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-rpc-%E5%AE%9E%E6%88%98%E4%B8%8E%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2020/05/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-rpc-%E5%AE%9E%E6%88%98%E4%B8%8E%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" /><meta property="article:section" content="posts" />
+
+
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
@@ -62,7 +60,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title></title>
-	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.835f01e49ba3fb1af85a367c1d24ded4e808c992894adc90feecaba6562f7cd9.css" integrity="sha256-g18B5Juj+xr4WjZ8HSTe1OgIyZKJStyQ/uyrplYvfNk=" crossorigin="anonymous">
 	
 	<script>
 		var _hmt = _hmt || [];
@@ -104,16 +102,13 @@
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
 				<a href="https://tangzixiang.github.io/opensource/">开源</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
-				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
-				<a href="https://tangzixiang.github.io/course/">课程</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
 
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
-<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -122,8 +117,6 @@
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
 			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
-			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
-			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
 		</ul>
 	</div>
 
@@ -209,7 +202,7 @@
 
 
 
-	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	<script src="https://tangzixiang.github.io/js/bundle.min.8565ebca6e1a6124809273d266269e68f71ca44cae12b80d0b415922650f72f8.js" integrity="sha256-hWXrym4aYSSAknPSZiaeaPccpEyuErgNC0FZImUPcvg=" crossorigin="anonymous"></script>
 	
 
 </body>

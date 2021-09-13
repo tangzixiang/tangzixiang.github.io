@@ -8,22 +8,16 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="[Lua] Lua 模块与包">
-<meta itemprop="description" content="摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account.">
-<meta itemprop="datePublished" content="2018-06-24T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-06-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="485">
-<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content="[Lua] Lua 模块与包" />
+<meta itemprop="description" content="摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account."><meta itemprop="datePublished" content="2018-06-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-06-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="485"><meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[Lua] Lua 模块与包" />
 <meta property="og:description" content="摘要  模块的概念 如何实现一个模块 如何引用一个模块 模块加载路径 package.path 环境变量 LUA_PATH 的设置 跨目录下的模块引用 缓存机制 执行环境 参考  Lua 中模块的概念  模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。 Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。  如何实现一个模块 -- 初始化一个对象 local Account = {balance = 0} -- 对外开放 withdraw 函数 function Account.withDraw(v) Account.balance = Account.balance - v end -- 不对外开放  function getBalance() return Account.balance end return Account 新建 Account.lua 文件，如上示例实现了一个名为 Account 的模块，通过 return 关键字实现内容的导出,其中外部可访问的内容为 Account." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" />
-<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
-<meta property="article:published_time" content="2018-06-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-06-24T00:00:00+00:00" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/lua-%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%8C%85/" /><meta property="og:image" content="https://picsum.photos/1024/768/?random" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-24T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-06-24T00:00:00&#43;00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
 
@@ -38,7 +32,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title>[Lua] Lua 模块与包</title>
-	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.835f01e49ba3fb1af85a367c1d24ded4e808c992894adc90feecaba6562f7cd9.css" integrity="sha256-g18B5Juj+xr4WjZ8HSTe1OgIyZKJStyQ/uyrplYvfNk=" crossorigin="anonymous">
 	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
 	<script>
 		var _hmt = _hmt || [];
@@ -80,16 +74,13 @@
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
 				<a href="https://tangzixiang.github.io/opensource/">开源</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
-				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
-				<a href="https://tangzixiang.github.io/course/">课程</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
 
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
-<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -98,8 +89,6 @@
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
 			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
-			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
-			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
 		</ul>
 	</div>
 
@@ -377,7 +366,7 @@ Lua 5.3.4  Copyright <span class="o">(</span>C<span class="o">)</span> 1994-2017
 
 
 
-	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	<script src="https://tangzixiang.github.io/js/bundle.min.8565ebca6e1a6124809273d266269e68f71ca44cae12b80d0b415922650f72f8.js" integrity="sha256-hWXrym4aYSSAknPSZiaeaPccpEyuErgNC0FZImUPcvg=" crossorigin="anonymous"></script>
 	
 
 </body>

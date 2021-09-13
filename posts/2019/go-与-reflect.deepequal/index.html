@@ -10,24 +10,18 @@
 <meta itemprop="name" content="[Go] &#34;==&#34; 与 reflect.DeepEqual">
 <meta itemprop="description" content="摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &ldquo;==&rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
 基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
-聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk">
-<meta itemprop="datePublished" content="2018-03-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-03-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="159">
-<meta itemprop="image" content="https://picsum.photos/1024/768/?random">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta property="og:title" content="[Go] &#34;==&#34; 与 reflect.DeepEqual" />
+聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk"><meta itemprop="datePublished" content="2018-03-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="159"><meta itemprop="image" content="https://picsum.photos/1024/768/?random">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="[Go] &#34;==&#34; 与 reflect.DeepEqual" />
 <meta property="og:description" content="摘要  什么时候 == 不管用  基础类型之间进行比较 聚合类型之间进行比较   reflect.DeepEqual 介绍 reflect.DeepEqual 实践  针对基础类型的使用 针对聚合类型的使用 针对引用类型的使用 特殊情况   注 总结  什么时候 &ldquo;==&rdquo; 不管用 要知道 == 什么时候不管用首先得知道其什么时候管用
 基础类型之间进行比较  若比较的类型一致且均为基础类型，此时直接比较值的内容。 若比较的类型不一致且均为基础类型，将会出现语法错误，编译失败。 若比较的类型不一致，且存在一方为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的类型一致，比较实际值的内容。   若比较的类型一致且均为 inteface 类型包装基础类型  若 inteface 类型的实际类型与另一方的实际类型不一致，比较结束返回 false 若 inteface 类型的实际类型与另一方的实际类型一致，比较实际值的内容。    基础类型的比较比较简单就不上代码啦~
 聚合类型之间进行比较 数组  若其内部元素为基础类型时且长度，类型，值均一致时，比较成功返回 true，否则为 false。 若其内部元素为数组时参考上一条比较。 若其内部元素为结构体时，参考下一条结构体的比较  结构体  当结构体内部存在 map  类型/slice 类型/channel 类型/函数类型 字段时，则该结构体不可使用 == 进行直接比较，否则语法错误，编译失败。 按照顺序比较两者结构体变量的成员变量，若满足所有比较则两者比较成功返回 true，否则返回 false。  more code less talk" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/go-%E4%B8%8E-reflect.deepequal/" />
-<meta property="og:image" content="https://picsum.photos/1024/768/?random" />
-<meta property="article:published_time" content="2018-03-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-03-25T00:00:00+00:00" />
+<meta property="og:url" content="https://tangzixiang.github.io/posts/2019/go-%E4%B8%8E-reflect.deepequal/" /><meta property="og:image" content="https://picsum.photos/1024/768/?random" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-03-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-03-25T00:00:00&#43;00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://picsum.photos/1024/768/?random"/>
 
@@ -44,7 +38,7 @@
 	<link rel="shortcut icon" href="/favicon.ico">
 
 	<title>[Go] &#34;==&#34; 与 reflect.DeepEqual</title>
-	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://tangzixiang.github.io/css/style.min.835f01e49ba3fb1af85a367c1d24ded4e808c992894adc90feecaba6562f7cd9.css" integrity="sha256-g18B5Juj+xr4WjZ8HSTe1OgIyZKJStyQ/uyrplYvfNk=" crossorigin="anonymous">
 	<style>.bg-img {background-image: url('https://picsum.photos/1024/768/?random');}</style>
 	<script>
 		var _hmt = _hmt || [];
@@ -86,16 +80,13 @@
 				<a href="https://tangzixiang.github.io/posts/">所有文章</a>
 				<a href="https://tangzixiang.github.io/opensource/">开源</a>
 				<a href="https://tangzixiang.github.io/daily/">语录</a>
-				<a href="https://tangzixiang.github.io/sharesites/">站点</a>
-				<a href="https://tangzixiang.github.io/course/">课程</a>
 		
 		<iframe src="https://ghbtns.com/github-btn.html?user=tangzixiang&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
 
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
-				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://segmentfault.com/u/tomson" target="_blank" rel="noopener me" title="segmentfault" style="margin-left: .5em;">sf</a>
-<a href="https://www.zhihu.com/people/tomson-3/collections" target="_blank" rel="noopener me" title="知乎">知</a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+				<button id="img-btn" class="hdr-btn" title="Featured Image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://github.com/tangzixiang" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
 			</div>
 		</div>
 	</header>
@@ -104,8 +95,6 @@
 			<li><a href="https://tangzixiang.github.io/posts/">所有文章</a></li>
 			<li><a href="https://tangzixiang.github.io/opensource/">开源</a></li>
 			<li><a href="https://tangzixiang.github.io/daily/">语录</a></li>
-			<li><a href="https://tangzixiang.github.io/sharesites/">站点</a></li>
-			<li><a href="https://tangzixiang.github.io/course/">课程</a></li>
 		</ul>
 	</div>
 
@@ -254,7 +243,7 @@
 
 
 
-	<script src="https://tangzixiang.github.io/js/bundle.min.02650e0c77fc1bfcad495b29610bd935bfc2daa155fc2970de097faba7042224.js" integrity="sha256-AmUODHf8G/ytSVspYQvZNb/C2qFV/Clw3gl/q6cEIiQ=" crossorigin="anonymous"></script>
+	<script src="https://tangzixiang.github.io/js/bundle.min.8565ebca6e1a6124809273d266269e68f71ca44cae12b80d0b415922650f72f8.js" integrity="sha256-hWXrym4aYSSAknPSZiaeaPccpEyuErgNC0FZImUPcvg=" crossorigin="anonymous"></script>
 	
 
 </body>
